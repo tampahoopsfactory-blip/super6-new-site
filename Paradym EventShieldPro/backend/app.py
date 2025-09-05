@@ -14,6 +14,7 @@ import os
 # Import our custom APIs
 from device_api import device_api
 from biometric_api import biometric_api
+from sms_routes import sms_bp
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -28,6 +29,7 @@ CORS(app)
 # Register blueprints
 app.register_blueprint(device_api)
 app.register_blueprint(biometric_api)
+app.register_blueprint(sms_bp)
 
 # Mock data for existing EventShield functionality
 mock_events = [
