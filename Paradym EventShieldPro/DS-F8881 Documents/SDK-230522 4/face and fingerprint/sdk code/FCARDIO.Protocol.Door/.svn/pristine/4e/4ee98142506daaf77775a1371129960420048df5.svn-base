@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <Version>1.21.0</Version>
+    <RootNamespace>DoNetDrive.Protocol.Fingerprint</RootNamespace>
+    <AssemblyName>DoNetDrive.Protocol.Fingerprint</AssemblyName>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\..\Output\Release\</OutputPath>
+    <DocumentationFile>..\..\Output\Release\net5.0\DoNetDrive.Common.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\..\Output\Debug\</OutputPath>
+    <DocumentationFile>..\..\Output\Debug\net5.0\DoNetDrive.Common.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Properties\**" />
+    <EmbeddedResource Remove="Properties\**" />
+    <None Remove="Properties\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\DoNet版通讯动态库V2\DoNetDrive.Protocol.Util\DoNetDrive.Protocol.Util\DoNetDrive.Protocol.Util_Net5.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="DoNetDrive.Common">
+      <HintPath>..\..\Output\Release\net5.0\DoNetDrive.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="DoNetDrive.Core">
+      <HintPath>..\..\Output\Release\net5.0\DoNetDrive.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DoNetDrive.Protocol">
+      <HintPath>..\..\Output\Release\net5.0\DoNetDrive.Protocol.dll</HintPath>
+    </Reference>
+    <Reference Include="DoNetDrive.Protocol.Door">
+      <HintPath>..\..\Output\Release\net5.0\DoNetDrive.Protocol.Door.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetty.Buffers">
+      <HintPath>..\..\Output\Release\net5.0\DotNetty.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetty.Common">
+      <HintPath>..\..\Output\Release\net5.0\DotNetty.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetty.Transport">
+      <HintPath>..\..\Output\Release\net5.0\DotNetty.Transport.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+
+</Project>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.271
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FCARDIO.Protocol.Fingerprint", "FCARDIO.Protocol.Fingerprint\FCARDIO.Protocol.Fingerprint.csproj", "{4639E7F7-83AA-4511-8FA8-369A79226B72}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4639E7F7-83AA-4511-8FA8-369A79226B72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4639E7F7-83AA-4511-8FA8-369A79226B72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4639E7F7-83AA-4511-8FA8-369A79226B72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4639E7F7-83AA-4511-8FA8-369A79226B72}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1F8806D1-3529-46B3-B770-DEF73E8B4FFE}
+	EndGlobalSection
+EndGlobal

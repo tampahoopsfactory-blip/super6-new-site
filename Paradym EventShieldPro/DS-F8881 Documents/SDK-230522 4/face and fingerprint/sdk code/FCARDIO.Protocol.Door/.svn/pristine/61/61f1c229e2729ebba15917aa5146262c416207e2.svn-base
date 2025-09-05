@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<Version>2.07.0</Version>
+		<RootNamespace>DoNetDrive.Protocol.Door</RootNamespace>
+		<AssemblyName>DoNetDrive.Protocol.Door</AssemblyName>
+
+		<PackageId>DoNetDrive.Protocol.Door</PackageId>
+		<Authors>xiaolong</Authors>
+		<Company>FCARD</Company>
+		<Description>用于定义门禁控制器 FC89\FC89H\MC58 型号设备的命令</Description>
+		<PackageProjectUrl>https://gitee.com/GZFCARD/FCARDIO.Protocol.Door</PackageProjectUrl>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<OutputPath>..\Output\Release\</OutputPath>
+		<DocumentationFile>..\Output\Release\netstandard2.0\DoNetDrive.Protocol.Door.xml</DocumentationFile>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<OutputPath>..\Output\Debug\</OutputPath>
+		<DocumentationFile>..\Output\Debug\netstandard2.0\DoNetDrive.Protocol.Door.xml</DocumentationFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="Door8800\SystemParameter\21CardDeadlineTipDay\**" />
+		<Compile Remove="Properties\**" />
+		<EmbeddedResource Remove="Door8800\SystemParameter\21CardDeadlineTipDay\**" />
+		<EmbeddedResource Remove="Properties\**" />
+		<None Remove="Door8800\SystemParameter\21CardDeadlineTipDay\**" />
+		<None Remove="Properties\**" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+		<Compile Remove="Door8800\Card\TimeUtil.cs" />
+		<Compile Remove="Door8800\SystemParameter\07FunctionParameter\WriteKeyboard.cs" />
+		<Compile Remove="Door8800\SystemParameter\07FunctionParameter\WriteKeyboard_Parameter.cs" />
+		<Compile Remove="Door8800\SystemParameter\07FunctionParameter\WriteRecordMode.cs" />
+		<Compile Remove="Door8800\SystemParameter\07FunctionParameter\WriteRecordMode_Parameter.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="DoNetDrive.Common" Version="1.16.0" />
+		<PackageReference Include="DoNetDrive.Core" Version="2.9.0" />
+		<PackageReference Include="DoNetDrive.Protocol" Version="2.3.0" />
+		<PackageReference Include="DoNetDrive.Protocol.Util" Version="1.16.0" />
+		<PackageReference Include="DotNetty.Common" Version="0.7.0" />
+		<PackageReference Include="DotNetty.Buffers" Version="0.7.0" />
+		<PackageReference Include="DotNetty.Transport" Version="0.7.0" />
+	</ItemGroup>
+
+
+</Project>

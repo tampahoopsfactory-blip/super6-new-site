@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <Version>1.9.0</Version>
+    <RootNamespace>DoNetDrive.Protocol.Door</RootNamespace>
+    <AssemblyName>DoNetDrive.Protocol.Door</AssemblyName>
+    <AssemblyVersion>1.9.0.0</AssemblyVersion>
+    <FileVersion>1.9.0.0</FileVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\Output\Release\</OutputPath>
+    <DocumentationFile>..\Output\Release\net5.0\DoNetDrive.Common.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\Output\Debug\</OutputPath>
+    <DocumentationFile>..\Output\Debug\net5.0\DoNetDrive.Common.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Door8800\SystemParameter\21CardDeadlineTipDay\**" />
+    <Compile Remove="Properties\**" />
+    <EmbeddedResource Remove="Door8800\SystemParameter\21CardDeadlineTipDay\**" />
+    <EmbeddedResource Remove="Properties\**" />
+    <None Remove="Door8800\SystemParameter\21CardDeadlineTipDay\**" />
+    <None Remove="Properties\**" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Compile Remove="Door8800\Card\TimeUtil.cs" />
+    <Compile Remove="Door8800\SystemParameter\07FunctionParameter\WriteKeyboard.cs" />
+    <Compile Remove="Door8800\SystemParameter\07FunctionParameter\WriteKeyboard_Parameter.cs" />
+    <Compile Remove="Door8800\SystemParameter\07FunctionParameter\WriteRecordMode.cs" />
+    <Compile Remove="Door8800\SystemParameter\07FunctionParameter\WriteRecordMode_Parameter.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="DoNetDrive.Common">
+      <HintPath>..\Output\Release\net5.0\DoNetDrive.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="DoNetDrive.Core">
+      <HintPath>..\Output\Release\net5.0\DoNetDrive.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DoNetDrive.Protocol">
+      <HintPath>..\Output\Release\net5.0\DoNetDrive.Protocol.dll</HintPath>
+    </Reference>
+    <Reference Include="DoNetDrive.Protocol.Util">
+      <HintPath>..\Output\Release\net5.0\DoNetDrive.Protocol.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetty.Buffers">
+      <HintPath>..\Output\Release\net5.0\DotNetty.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetty.Common">
+      <HintPath>..\Output\Release\net5.0\DotNetty.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+
+</Project>

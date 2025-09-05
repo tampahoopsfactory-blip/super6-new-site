@@ -1,0 +1,58 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFrameworks>net5.0-windows</TargetFrameworks>
+    <UseWindowsForms>true</UseWindowsForms>
+    <StartupObject></StartupObject>
+    <AssemblyName>DoNetDrive.Protocol.Door.Test</AssemblyName>
+    <RootNamespace>DoNetDrive.Protocol.Door.Test</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Properties\**" />
+    <EmbeddedResource Remove="Properties\**" />
+    <None Remove="Properties\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.IO.Ports" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+
+    <Reference Include="DoNetDrive.Common">
+      <HintPath>..\Output\Release\net5.0\DoNetDrive.Common.dll</HintPath>
+    </Reference>
+
+    <Reference Include="DoNetDrive.Core">
+      <HintPath>..\Output\Release\net5.0\DoNetDrive.Core.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="DoNetDrive.Protocol">
+      <HintPath>..\Output\Release\net5.0\DoNetDrive.Protocol.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="DoNetDrive.Protocol.Door">
+      <HintPath>..\Output\Release\net5.0\DoNetDrive.Protocol.Door.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="DotNetty.Buffers">
+      <HintPath>..\Output\Release\net5.0\DotNetty.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetty.Common">
+      <HintPath>..\Output\Release\net5.0\DotNetty.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Language\China.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Language\English.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
+

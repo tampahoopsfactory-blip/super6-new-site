@@ -1,0 +1,236 @@
+version: '3.8'
+
+services:
+  # Azure SQL Database (Local Development)
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: eventshield-sqlserver
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=EventShieldPro2024!
+      - MSSQL_PID=Developer
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+      - ./database/init:/docker-entrypoint-initdb.d
+    networks:
+      - eventshield-network
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P EventShieldPro2024! -Q 'SELECT 1'"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # Redis for caching and background tasks
+  redis:
+    image: redis:7-alpine
+    container_name: eventshield-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - eventshield-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # Azure Storage Emulator (Azurite)
+  azurite:
+    image: mcr.microsoft.com/azure-storage/azurite:latest
+    container_name: eventshield-azurite
+    ports:
+      - "10000:10000"  # Blob service
+      - "10001:10001"  # Queue service
+      - "10002:10002"  # Table service
+    volumes:
+      - azurite_data:/data
+    networks:
+      - eventshield-network
+    command: "azurite --blobHost 0.0.0.0 --queueHost 0.0.0.0 --tableHost 0.0.0.0"
+
+  # Backend API Server
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    container_name: eventshield-backend
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=development
+      - FLASK_DEBUG=1
+      - DB_HOST=sqlserver
+      - DB_PORT=1433
+      - DB_NAME=eventshield_pro
+      - DB_USER=sa
+      - DB_PASSWORD=EventShieldPro2024!
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - AZURE_STORAGE_CONNECTION_STRING=DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://azurite:10000/devstoreaccount1;QueueEndpoint=http://azurite:10001/devstoreaccount1;TableEndpoint=http://azurite:10002/devstoreaccount1;
+    volumes:
+      - ./backend:/app
+      - ./backend/logs:/app/logs
+    depends_on:
+      sqlserver:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      azurite:
+        condition: service_started
+    networks:
+      - eventshield-network
+    restart: unless-stopped
+
+  # Frontend Web Application
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    container_name: eventshield-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://localhost:5000
+      - REACT_APP_ENVIRONMENT=development
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    networks:
+      - eventshield-network
+    restart: unless-stopped
+
+  # Mobile Development Server
+  mobile-dev:
+    build:
+      context: ./mobile
+      dockerfile: Dockerfile.dev
+    container_name: eventshield-mobile-dev
+    ports:
+      - "8081:8081"  # Metro bundler
+      - "19000:19000"  # Expo
+      - "19001:19001"  # Expo DevTools
+      - "19002:19002"  # Expo DevTools
+    environment:
+      - REACT_NATIVE_PACKAGER_HOSTNAME=localhost
+    volumes:
+      - ./mobile:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    networks:
+      - eventshield-network
+    restart: unless-stopped
+
+  # Terminal Application (Electron)
+  terminal:
+    build:
+      context: ./terminal
+      dockerfile: Dockerfile.dev
+    container_name: eventshield-terminal
+    environment:
+      - DISPLAY=${DISPLAY}
+      - ELECTRON_ENABLE_LOGGING=1
+    volumes:
+      - ./terminal:/app
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - /dev:/dev:rw  # For hardware access
+    depends_on:
+      - backend
+    networks:
+      - eventshield-network
+    restart: unless-stopped
+
+  # Hardware Simulator (for development)
+  hardware-simulator:
+    image: python:3.11-slim
+    container_name: eventshield-hardware-sim
+    ports:
+      - "8000:8000"  # Facial recognition simulator
+      - "8001:8001"  # Turnstile simulator
+    volumes:
+      - ./hardware/simulator:/app
+    working_dir: /app
+    command: >
+      sh -c "pip install flask requests &&
+             python facial_simulator.py &
+             python turnstile_simulator.py &
+             wait"
+    networks:
+      - eventshield-network
+    restart: unless-stopped
+
+  # Monitoring and Logging
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: eventshield-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./deployment/monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    networks:
+      - eventshield-network
+    restart: unless-stopped
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: eventshield-grafana
+    ports:
+      - "3001:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./deployment/monitoring/grafana:/etc/grafana/provisioning
+    networks:
+      - eventshield-network
+    restart: unless-stopped
+
+  # MailHog for email testing
+  mailhog:
+    image: mailhog/mailhog:latest
+    container_name: eventshield-mailhog
+    ports:
+      - "1025:1025"  # SMTP
+      - "8025:8025"  # Web UI
+    networks:
+      - eventshield-network
+    restart: unless-stopped
+
+  # Stripe CLI for webhook testing
+  stripe-cli:
+    image: stripe/stripe-cli:latest
+    container_name: eventshield-stripe-cli
+    command: "listen --forward-to backend:5000/webhooks/stripe"
+    environment:
+      - STRIPE_API_KEY=${STRIPE_SECRET_KEY}
+    depends_on:
+      - backend
+    networks:
+      - eventshield-network
+    restart: unless-stopped
+
+volumes:
+  sqlserver_data:
+    driver: local
+  redis_data:
+    driver: local
+  azurite_data:
+    driver: local
+  prometheus_data:
+    driver: local
+  grafana_data:
+    driver: local
+
+networks:
+  eventshield-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16

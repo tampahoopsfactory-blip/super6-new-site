@@ -1,0 +1,5 @@
+FrmMain = 130, 130, 1039, 778, , 26, 26, 935, 674, C
+ModAst2500 = 52, 52, 961, 700, 
+ModFPDataConv = 78, 78, 1059, 600, Z
+ModBase64 = 0, 0, 981, 522, 
+cStringBulider = 0, 0, 0, 0, C

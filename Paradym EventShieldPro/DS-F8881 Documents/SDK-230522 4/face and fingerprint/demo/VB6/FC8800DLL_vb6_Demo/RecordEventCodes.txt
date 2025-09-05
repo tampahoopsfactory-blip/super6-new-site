@@ -1,0 +1,501 @@
+000 -- Card
+001 -- Expired Card
+002 -- Access Denied
+003 -- Push Button
+004 -- PIN
+005 -- Soft-Pulse
+006 -- Fire Alarm
+007 -- Access Level Expired
+008 -- Invalid TZ
+009 -- Invalid Holiday
+010 -- Controller Initialized
+011 -- Anti-Detecting
+012 -- Invalid Door
+013 -- 
+014 -- Door Sensor Alarm
+015 -- 
+016 -- 
+017 -- 
+018 -- 
+019 -- 
+020 -- Card + PIN
+021 -- Card + PIN Manually
+022 -- Privilege Card
+023 -- Normal Open(Card)
+024 -- Multi-Cards
+025 -- Repeated Time Interval
+026 -- Guard Tour
+027 -- Invalid Push Button TZ
+028 -- Sensor Disable
+029 -- Sensor Enable
+030 -- Soft-Close
+031 -- Normal Open(Soft)
+032 -- Normal Open(Auto)
+033 -- Suspended Card
+034 -- Blacklist
+035 -- Power on
+036 -- Reset
+037 -- Temperature Alarm(>85)
+038 -- UPS
+039 -- Access Times Ending
+040 -- Anti-Passback
+041 -- PIN Error
+042 -- Card+PIN,PIN Error
+043 -- In Locking Status(Card)
+044 -- In Locking Status(PIN)
+045 -- In Locking Status(Button)
+046 -- Privilege Card Not Triggered
+047 -- Manual Alarm
+048 -- Illegal Verification Alarm
+049 -- Force Alarm
+050 -- Fire Alarm(Soft)
+051 -- Door Open Forcefully Quit
+052 -- Manual Alarm Quit
+053 -- Fire Alarm Quit
+054 -- Illegal Verification Alarm Quit
+055 -- Force Alarm Quit
+056 -- Door Open Forcefully Quit(Soft)
+057 -- Manual Alarm Quit (Soft)
+058 -- Fire Alarm Quit (Soft)
+059 -- Illegal Verification Alarm Quit (Soft)
+060 -- Force Alarm Quit (Soft)
+061 -- Temperature Sensor Defective
+062 -- Overly High Voltage(>14V)
+063 -- Overly Low Voltage(<09V)
+064 -- Reader Data 0/1 Reversed
+065 -- Reader Error
+066 -- Reversed/Unreadable Reader
+067 -- Normal Open(Exit)
+068 -- Normal Open(Button)
+069 -- Normal Close(Button)
+070 -- Door Arming
+071 -- Door Disarming
+072 -- Indoor MAX
+073 -- PIR Sensor Arming(Card)
+074 -- PIR Sensor Disarming(Card)
+075 -- PIR Sensor Arming(PIN)
+076 -- PIR Sensor Disarming(PIN)
+077 -- Smoking Sensor Alarm
+078 -- PIR Sensor Alarm
+079 -- Blacklist Alarm
+080 -- Overtime Alarm
+081 -- Smoking Sensor Alarm Quit
+082 -- PIR Sensor Alarm Quit
+083 -- Blacklist Alarm Quit
+084 -- Overtime Alarm Quit
+085 -- Smoking Sensor Alarm Quit (Soft)
+086 -- PIR Sensor Alarm Quit (Soft)
+087 -- Blacklist Alarm Quit (Soft)
+088 -- Overtime Alarm Quit (Soft)
+089 -- Voltage Normal
+090 -- Refused if Multi-Door Interlocked(Card/Card+PIN)
+091 -- Refused if Multi-Door Interlocked(PIN)
+092 -- Door Open Time Out
+093 -- Any Card
+094 -- Multi-Cards Waiting Next
+095 -- Multi-Cards Combination Error
+096 -- Standard Card Disabled TZ
+097 -- Standard PIN Disabled TZ
+098 -- Card Disabled TZ
+099 -- PIN Disabled TZ
+100 -- Card Readied,Lift Card Waiting
+101 -- Lift Card Readied,Card Waiting
+102 -- Lock(Soft)
+103 -- UnLock(Soft)
+104 -- Forcible Entry Alarm
+105 -- Forcible Alarm(key)
+106 -- Lock Tongue Alarm
+107 -- Forcible Entry Alarm Quit
+108 -- Forcible Alarm(key) Quit
+109 -- Lock Tongue Alarm Quit
+110 -- Controller Expired
+111 -- Inside Readied,Wating for Outside
+112 -- Outside Readied,Wating for Inside
+113 -- Lock(Soft)
+114 -- UnLock(Soft)
+115 -- Lock(TZ Auto)
+116 -- Unlock(TZ Auto)
+117 -- Lock(Alarm)
+118 -- Unlock(Alarm)
+119 -- Error When Disarmimg EM lock
+120 -- EM lock Alarm Quit
+121 -- 
+122 -- 
+123 -- 
+124 -- Delete All User
+125 -- 
+126 -- 
+127 -- 
+128 -- 
+129 -- 
+130 -- Delete All Record
+131 -- 
+132 -- 
+133 -- PIN Forbid If Privilege Card Not Read
+134 -- Push Button When Controller Expired
+135 -- Card When Controller Expired
+136 -- PIN When Controller Expired
+137 -- Expired Soon
+138 -- Illegal Card
+139 -- Overly Low Temperature(<-10)
+140 -- 
+141 -- 
+142 -- 
+143 -- 
+144 -- 
+145 -- Temperature Normal
+146 -- Region Anti-Passback Disconnect
+147 -- Region Interlock-Disconnect
+148 -- Interlock(Push Button)
+149 -- Interlock(Soft-Pulse)
+150 -- Region Anti-Passback
+151 -- Interlock
+152 -- DisConnect LAN
+153 -- Connect LAN
+154 -- Host Tamper Alarm
+155 -- Remove Host Tamper Alarm
+156 -- Card Readers Tamper Alarm
+157 -- Remove Card Readers Tamper Alarm
+158 -- PIN Invalid
+159 -- PIN Invalid Times
+160 -- QRCode Invalid
+161 -- Fingerprint
+162 -- Face
+163 -- 
+164 -- 
+165 -- 
+166 -- FP+Card
+167 -- Face+FP
+168 -- Face+Card
+169 -- Card+PIN
+170 -- Face+PIN
+171 -- FP+PIN
+172 -- UserID+FP
+173 -- FP+Card+PIN
+174 -- Face+Card+PIN
+175 -- Face+FP+PIN
+176 -- Face+FP+Card
+177 -- Prohibit FP
+178 -- WIFI Online
+179 -- WIFI Offline
+180 -- 
+181 -- Body Temperature Abnormal
+182 -- Door Unlocked
+183 -- Door Locked
+184 -- Password Locked
+185 -- Backup battery low
+186 -- Backup battery high
+187 -- Backup battery normal
+188 -- Bluetooth Oepn
+189 -- Forbid Face Verification
+190 -- Permission Not Activated
+191 -- Update Startup Picture
+192 -- Update Screensaver Picture
+193 -- Remote Restart
+194 -- Remote Recovery Record
+195 -- Visitor Password
+196 -- Dynamic QRCode
+197 -- Add User On Device
+198 -- Modify User On Device
+199 -- Delete User On Device
+200 -- Palm Vein
+201 -- Card + Palm + Face
+202 -- Palm + PIN
+203 -- Card + Palm
+204 -- Face + Palm
+205 -- Card + Palm + PIN
+206 -- Palm + Face + PIN
+207 -- FP + Palm + Face
+208 -- Roll Call Timeout
+209 -- Delete All User On Device
+210 -- Balckup To USB Flash
+211 -- Input Users By USB Flash
+212 -- Face Unregistered
+213 -- 
+214 -- 
+215 -- 
+216 -- 
+217 -- 
+218 -- 
+219 -- 
+220 -- 
+221 -- 
+222 -- 
+223 -- 
+224 -- 
+225 -- 
+226 -- 
+227 -- 
+228 -- 
+229 -- 
+230 -- 
+231 -- 
+232 -- 
+233 -- 
+234 -- 
+235 -- 
+236 -- 
+237 -- 
+238 -- 
+239 -- 
+240 -- 
+241 -- 
+242 -- 
+243 -- 
+244 -- 
+245 -- 
+246 -- RS485 Reader 01
+247 -- Face
+248 -- Fingerprint
+249 -- Card
+250 -- Admin Password
+251 -- Card
+252 -- Fingerprint
+253 -- 
+254 -- 
+255 -- 
+256 -- Offline
+257 -- Online
+258 -- 
+259 -- 
+260 -- 
+261 -- 
+262 -- 
+263 -- 
+264 -- 
+265 -- 
+266 -- 
+267 -- 
+268 -- 
+269 -- 
+270 -- 
+271 -- 
+272 -- 
+273 -- 
+274 -- 
+275 -- 
+276 -- 
+277 -- 
+278 -- 
+279 -- 
+280 -- 
+281 -- 
+282 -- 
+283 -- 
+284 -- 
+285 -- 
+286 -- 
+287 -- 
+288 -- 
+289 -- 
+290 -- 
+291 -- 
+292 -- 
+293 -- 
+294 -- 
+295 -- 
+296 -- 
+297 -- 
+298 -- 
+299 -- 
+300 -- 
+301 -- 
+302 -- 
+303 -- 
+304 -- 
+305 -- 
+306 -- 
+307 -- 
+308 -- 
+309 -- 
+310 -- 
+311 -- 
+312 -- 
+313 -- 
+314 -- 
+315 -- 
+316 -- 
+317 -- 
+318 -- 
+319 -- 
+320 -- 
+321 -- 
+322 -- 
+323 -- 
+324 -- 
+325 -- 
+326 -- 
+327 -- 
+328 -- 
+329 -- 
+330 -- 
+331 -- 
+332 -- 
+333 -- 
+334 -- 
+335 -- 
+336 -- 
+337 -- 
+338 -- 
+339 -- 
+340 -- 
+341 -- 
+342 -- 
+343 -- 
+344 -- 
+345 -- 
+346 -- 
+347 -- 
+348 -- 
+349 -- 
+350 -- 
+351 -- 
+352 -- 
+353 -- 
+354 -- 
+355 -- 
+356 -- 
+357 -- 
+358 -- 
+359 -- 
+360 -- 
+361 -- 
+362 -- 
+363 -- 
+364 -- 
+365 -- 
+366 -- 
+367 -- 
+368 -- 
+369 -- 
+370 -- 
+371 -- 
+372 -- 
+373 -- 
+374 -- 
+375 -- 
+376 -- 
+377 -- 
+378 -- 
+379 -- 
+380 -- 
+381 -- 
+382 -- 
+383 -- 
+384 -- 
+385 -- 
+386 -- 
+387 -- 
+388 -- 
+389 -- 
+390 -- 
+391 -- 
+392 -- 
+393 -- 
+394 -- 
+395 -- 
+396 -- 
+397 -- 
+398 -- 
+399 -- 
+400 -- 
+401 -- 
+402 -- 
+403 -- 
+404 -- 
+405 -- 
+406 -- 
+407 -- 
+408 -- 
+409 -- 
+410 -- 
+411 -- 
+412 -- 
+413 -- 
+414 -- 
+415 -- 
+416 -- 
+417 -- 
+418 -- 
+419 -- 
+420 -- 
+421 -- 
+422 -- 
+423 -- 
+424 -- 
+425 -- 
+426 -- 
+427 -- 
+428 -- 
+429 -- 
+430 -- 
+431 -- 
+432 -- 
+433 -- 
+434 -- 
+435 -- 
+436 -- 
+437 -- 
+438 -- 
+439 -- 
+440 -- 
+441 -- 
+442 -- 
+443 -- 
+444 -- 
+445 -- 
+446 -- 
+447 -- 
+448 -- 
+449 -- 
+450 -- 
+451 -- 
+452 -- 
+453 -- 
+454 -- 
+455 -- 
+456 -- 
+457 -- 
+458 -- 
+459 -- 
+460 -- 
+461 -- 
+462 -- 
+463 -- 
+464 -- 
+465 -- 
+466 -- 
+467 -- 
+468 -- 
+469 -- 
+470 -- 
+471 -- 
+472 -- 
+473 -- 
+474 -- 
+475 -- 
+476 -- 
+477 -- 
+478 -- 
+479 -- 
+480 -- 
+481 -- 
+482 -- 
+483 -- 
+484 -- 
+485 -- 
+486 -- 
+487 -- 
+488 -- 
+489 -- 
+490 -- 
+491 -- 
+492 -- 
+493 -- 
+494 -- 
+495 -- 
+496 -- 
+497 -- 
+498 -- 
+499 -- 
+500 -- 

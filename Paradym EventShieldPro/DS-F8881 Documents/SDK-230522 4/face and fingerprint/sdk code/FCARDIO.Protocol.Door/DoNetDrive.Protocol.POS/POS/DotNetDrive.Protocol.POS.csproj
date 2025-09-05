@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0F4EB837-9C7D-4365-8496-BEBECCC4B3D1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>DoNetDrive.Protocol.POS</RootNamespace>
+    <AssemblyName>DoNetDrive.Protocol.POS</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Output\Debug\Net45\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\Output\Debug\Net45\DoNetDrive.Protocol.POS.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Output\Release\Net45\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\Output\Release\Net45\DoNetDrive.Protocol.POS.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="DoNetDrive.Common">
+      <HintPath>..\..\Output\Release\net45\DoNetDrive.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="DoNetDrive.Core">
+      <HintPath>..\..\Output\Release\net45\DoNetDrive.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DoNetDrive.Protocol">
+      <HintPath>..\..\Output\Release\net45\DoNetDrive.Protocol.dll</HintPath>
+    </Reference>
+    <Reference Include="DoNetDrive.Protocol.Door">
+      <HintPath>..\..\Output\Release\net45\DoNetDrive.Protocol.Door.dll</HintPath>
+    </Reference>
+    <Reference Include="DoNetDrive.Protocol.Util">
+      <HintPath>..\..\Output\Release\net45\DoNetDrive.Protocol.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetty.Buffers">
+      <HintPath>..\..\Output\Release\net45\DotNetty.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetty.Common">
+      <HintPath>..\..\Output\Release\net45\DotNetty.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="02Time\ReadTime_Result.cs" />
+    <Compile Include="02Time\TimeErrorCorrection\ReadTimeError.cs" />
+    <Compile Include="02Time\TimeErrorCorrection\ReadTimeError_Result.cs" />
+    <Compile Include="02Time\TimeErrorCorrection\WriteTimeError.cs" />
+    <Compile Include="02Time\TimeErrorCorrection\WriteTimeError_Parameter.cs" />
+    <Compile Include="04TimeGroup\02ReadTimeGroup\ReadTimeGroup_Parameter.cs" />
+    <Compile Include="04TimeGroup\03AddTimeGroup\AddTimeGroup_Parameter.cs" />
+    <Compile Include="05Card\01ReadDataBase\ReadCardDataBase.cs" />
+    <Compile Include="05Card\01ReadDataBase\ReadCardDataBase_Result.cs" />
+    <Compile Include="05Card\02ClearDataBase\ClearCardDataBase.cs" />
+    <Compile Include="05Card\03ReadAll\ReadAllCard.cs" />
+    <Compile Include="05Card\03ReadAll\ReadAllCard_Result.cs" />
+    <Compile Include="05Card\04ReadCardDetail\ReadCardDetail.cs" />
+    <Compile Include="05Card\04ReadCardDetail\ReadCardDetail_Parameter.cs" />
+    <Compile Include="05Card\04ReadCardDetail\ReadCardDetail_Result.cs" />
+    <Compile Include="05Card\05AddCard\AddCard.cs" />
+    <Compile Include="05Card\05AddCard\WriteCard_Parameter.cs" />
+    <Compile Include="05Card\06DeleteCard\DeleteCard.cs" />
+    <Compile Include="07Subsidy\01ReadSubsidyDataBase\ReadSubsidyDataBase.cs" />
+    <Compile Include="07Subsidy\01ReadSubsidyDataBase\ReadSubsidyDataBase_Result.cs" />
+    <Compile Include="07Subsidy\02ClearSubsidy\ClearSubsidy.cs" />
+    <Compile Include="07Subsidy\03ReadAllSubsidy\ReadAllSubsidy.cs" />
+    <Compile Include="07Subsidy\03ReadAllSubsidy\ReadAllSubsidy_Result.cs" />
+    <Compile Include="07Subsidy\04ReadSubsidyDetail\ReadSubsidyDetail.cs" />
+    <Compile Include="07Subsidy\04ReadSubsidyDetail\ReadSubsidyDetail_Parameter.cs" />
+    <Compile Include="07Subsidy\04ReadSubsidyDetail\ReadSubsidyDetail_Result.cs" />
+    <Compile Include="07Subsidy\05AddSussidy\AddSussidy.cs" />
+    <Compile Include="07Subsidy\05AddSussidy\WriteSussidy_Parameter.cs" />
+    <Compile Include="08CardType\01DatabaseDetail\ReadDatabaseDetail.cs" />
+    <Compile Include="08CardType\01DatabaseDetail\ReadDatabaseDetail_Result.cs" />
+    <Compile Include="08CardType\02ClearDataBase\ClearDataBase.cs" />
+    <Compile Include="08CardType\03ReadDataBase\ReadDataBase.cs" />
+    <Compile Include="08CardType\03ReadDataBase\ReadDataBase_Result.cs" />
+    <Compile Include="08CardType\04ReadCardType\ReadMenuDetail.cs" />
+    <Compile Include="08CardType\04ReadCardType\ReadMenuDetail_Parameter.cs" />
+    <Compile Include="08CardType\04ReadCardType\ReadMenuDetail_Result.cs" />
+    <Compile Include="08CardType\05AddCardType\AddCardType.cs" />
+    <Compile Include="08CardType\05AddCardType\WriteCardTypeDetail_Parameter.cs" />
+    <Compile Include="08CardType\06DeleteCardTypeDetail\DeleteCardType.cs" />
+    <Compile Include="10Reservation\01DatabaseDetail\ReadDatabaseDetail.cs" />
+    <Compile Include="10Reservation\01DatabaseDetail\ReadDatabaseDetail_Result.cs" />
+    <Compile Include="10Reservation\02ClearDataBase\ClearDataBase.cs" />
+    <Compile Include="10Reservation\03ReadDataBase\ReadDataBase.cs" />
+    <Compile Include="10Reservation\03ReadDataBase\ReadDataBase_Result.cs" />
+    <Compile Include="10Reservation\04AddReservationDetail\AddReservationDetail.cs" />
+    <Compile Include="10Reservation\04AddReservationDetail\AddReservationDetail_Parameter.cs" />
+    <Compile Include="AbstractParameter.cs" />
+    <Compile Include="CommandEx.cs" />
+    <Compile Include="ConsumeParameter\01POSWorkMode\ReadPOSWorkMode.cs" />
+    <Compile Include="ConsumeParameter\01POSWorkMode\ReadPOSWorkMode_Result.cs" />
+    <Compile Include="ConsumeParameter\01POSWorkMode\WritePOSWorkMode.cs" />
+    <Compile Include="ConsumeParameter\01POSWorkMode\WritePOSWorkMode_Parameter.cs" />
+    <Compile Include="ConsumeParameter\02FixedFeeRule\ReadFixedFeeRule.cs" />
+    <Compile Include="ConsumeParameter\02FixedFeeRule\ReadFixedFeeRule_Result.cs" />
+    <Compile Include="ConsumeParameter\02FixedFeeRule\WriteFixedFeeRule.cs" />
+    <Compile Include="ConsumeParameter\02FixedFeeRule\WriteFixedFeeRule_Parameter.cs" />
+    <Compile Include="ConsumeParameter\03ConsumptionLimits\ReadConsumptionLimits.cs" />
+    <Compile Include="ConsumeParameter\03ConsumptionLimits\ReadConsumptionLimits_Result.cs" />
+    <Compile Include="ConsumeParameter\03ConsumptionLimits\WriteConsumptionLimits.cs" />
+    <Compile Include="ConsumeParameter\03ConsumptionLimits\WriteConsumptionLimits_Parameter.cs" />
+    <Compile Include="ConsumeParameter\04ConsumePassword\ReadConsumePassword.cs" />
+    <Compile Include="ConsumeParameter\04ConsumePassword\ReadConsumePassword_Result.cs" />
+    <Compile Include="ConsumeParameter\04ConsumePassword\WriteConsumePassword.cs" />
+    <Compile Include="ConsumeParameter\04ConsumePassword\WriteConsumePassword_Parameter.cs" />
+    <Compile Include="ConsumeParameter\05TemporaryChangeFixedFee\ReadTemporaryChangeFixedFee.cs" />
+    <Compile Include="ConsumeParameter\05TemporaryChangeFixedFee\ReadTemporaryChangeFixedFee_Result.cs" />
+    <Compile Include="ConsumeParameter\05TemporaryChangeFixedFee\WriteTemporaryChangeFixedFee.cs" />
+    <Compile Include="ConsumeParameter\05TemporaryChangeFixedFee\WriteTemporaryChangeFixedFee_Parameter.cs" />
+    <Compile Include="ConsumeParameter\06CancelConsume\ReadCancelConsume.cs" />
+    <Compile Include="ConsumeParameter\06CancelConsume\ReadCancelConsume_Result.cs" />
+    <Compile Include="ConsumeParameter\06CancelConsume\WriteCancelConsume.cs" />
+    <Compile Include="ConsumeParameter\06CancelConsume\WriteCancelConsume_Parameter.cs" />
+    <Compile Include="ConsumeParameter\07ICCardAccount\ReadICCardAccount.cs" />
+    <Compile Include="ConsumeParameter\07ICCardAccount\ReadICCardAccount_Result.cs" />
+    <Compile Include="ConsumeParameter\07ICCardAccount\WriteICCardAccount.cs" />
+    <Compile Include="ConsumeParameter\07ICCardAccount\WriteICCardAccount_Parameter.cs" />
+    <Compile Include="ConsumeParameter\08AdditionalCharges\ReadAdditionalCharges.cs" />
+    <Compile Include="ConsumeParameter\08AdditionalCharges\ReadAdditionalCharges_Result.cs" />
+    <Compile Include="ConsumeParameter\08AdditionalCharges\WriteAdditionalCharges.cs" />
+    <Compile Include="ConsumeParameter\08AdditionalCharges\WriteAdditionalCharges_Parameter.cs" />
+    <Compile Include="ConsumeParameter\09Discount\ReadDiscount.cs" />
+    <Compile Include="ConsumeParameter\09Discount\ReadDiscount_Result.cs" />
+    <Compile Include="ConsumeParameter\09Discount\WriteDiscount.cs" />
+    <Compile Include="ConsumeParameter\09Discount\WriteDiscount_Parameter.cs" />
+    <Compile Include="ConsumeParameter\10Integral\ReadIntegral.cs" />
+    <Compile Include="ConsumeParameter\10Integral\ReadIntegral_Result.cs" />
+    <Compile Include="ConsumeParameter\10Integral\WriteIntegral.cs" />
+    <Compile Include="ConsumeParameter\10Integral\WriteIntegral_Parameter.cs" />
+    <Compile Include="ConsumeParameter\11CountingCards\ReadCountingCards.cs" />
+    <Compile Include="ConsumeParameter\11CountingCards\ReadCountingCards_Result.cs" />
+    <Compile Include="ConsumeParameter\11CountingCards\WriteCountingCards.cs" />
+    <Compile Include="ConsumeParameter\11CountingCards\WriteCountingCards_Parameter.cs" />
+    <Compile Include="ConsumeParameter\12ReservationRule\ReadReservationRule.cs" />
+    <Compile Include="ConsumeParameter\12ReservationRule\ReadReservationRule_Result.cs" />
+    <Compile Include="ConsumeParameter\12ReservationRule\WriteReservationRule.cs" />
+    <Compile Include="ConsumeParameter\12ReservationRule\WriteReservationRule_Parameter.cs" />
+    <Compile Include="Data\CardDetail.cs" />
+    <Compile Include="Data\CardTypeDetail.cs" />
+    <Compile Include="Data\DayReservationRule.cs" />
+    <Compile Include="Data\FixedFeeRuleDetail.cs" />
+    <Compile Include="Data\MenuDetail.cs" />
+    <Compile Include="Data\ReservationDetail.cs" />
+    <Compile Include="Data\ReservationRuleDetail.cs" />
+    <Compile Include="Data\SubsidyDetail.cs" />
+    <Compile Include="06Menu\01ReadDataBase\ReadMenuDataBase.cs" />
+    <Compile Include="06Menu\01ReadDataBase\ReadMenuDataBase_Result.cs" />
+    <Compile Include="06Menu\02ClearDataBase\ClearMenuDataBase.cs" />
+    <Compile Include="06Menu\03ReadAllMenu\ReadAllMenu.cs" />
+    <Compile Include="06Menu\03ReadAllMenu\ReadAllMenu_Result.cs" />
+    <Compile Include="06Menu\04ReadMenuDetail\ReadMenuDetail.cs" />
+    <Compile Include="06Menu\04ReadMenuDetail\ReadMenuDetail_Parameter.cs" />
+    <Compile Include="06Menu\04ReadMenuDetail\ReadMenuDetail_Result.cs" />
+    <Compile Include="06Menu\05AddMenu\AddMenu.cs" />
+    <Compile Include="06Menu\05AddMenu\WriteMenu_Parameter.cs" />
+    <Compile Include="06Menu\06DeleteMenu\DeleteMenu.cs" />
+    <Compile Include="Data\TimeGroup.cs" />
+    <Compile Include="Data\TransactionDatabaseDetail.cs" />
+    <Compile Include="Data\Transaction\CardTransaction.cs" />
+    <Compile Include="Data\Transaction\SystemTransactionDetail.cs" />
+    <Compile Include="Data\Transaction\CardTransactionDetail.cs" />
+    <Compile Include="Data\Transaction\SystemTransaction.cs" />
+    <Compile Include="Data\Transaction\TransactionDetail.cs" />
+    <Compile Include="Data\WeekReservationRule.cs" />
+    <Compile Include="Protocol\DESCommand.cs" />
+    <Compile Include="Protocol\DESCommandPacket.cs" />
+    <Compile Include="Protocol\DESDriveCommandDetail.cs" />
+    <Compile Include="Protocol\DESPacket.cs" />
+    <Compile Include="Protocol\DESPacketDecompile.cs" />
+    <Compile Include="Protocol\DESPacketDecompileStep.cs" />
+    <Compile Include="Protocol\DESRequestHandle.cs" />
+    <Compile Include="Read_Command.cs" />
+    <Compile Include="Result_Base.cs" />
+    <Compile Include="SystemParameter\01SN\ReadSN.cs" />
+    <Compile Include="SystemParameter\01SN\SN_Parameter.cs" />
+    <Compile Include="SystemParameter\01SN\SN_Result.cs" />
+    <Compile Include="SystemParameter\01SN\WriteSN.cs" />
+    <Compile Include="SystemParameter\01SN\WriteSN_Broadcast.cs" />
+    <Compile Include="SystemParameter\02ConnectPassword\Password_Parameter.cs" />
+    <Compile Include="SystemParameter\02ConnectPassword\Password_Result.cs" />
+    <Compile Include="SystemParameter\02ConnectPassword\ReadConnectPassword.cs" />
+    <Compile Include="SystemParameter\02ConnectPassword\ResetConnectPassword.cs" />
+    <Compile Include="SystemParameter\02ConnectPassword\WriteConnectPassword.cs" />
+    <Compile Include="SystemParameter\03Deadline\ReadDeadline.cs" />
+    <Compile Include="SystemParameter\03Deadline\ReadDeadline_Result.cs" />
+    <Compile Include="SystemParameter\03Deadline\WriteDeadline.cs" />
+    <Compile Include="SystemParameter\03Deadline\WriteDeadline_Parameter.cs" />
+    <Compile Include="SystemParameter\04Version\ReadVersion.cs" />
+    <Compile Include="SystemParameter\04Version\ReadVersion_Result.cs" />
+    <Compile Include="SystemParameter\06TCPSetting\ReadTCPSetting.cs" />
+    <Compile Include="SystemParameter\06TCPSetting\ReadTCPSetting_Result.cs" />
+    <Compile Include="SystemParameter\06TCPSetting\TCPDetail.cs" />
+    <Compile Include="SystemParameter\06TCPSetting\WriteTCPSetting.cs" />
+    <Compile Include="SystemParameter\06TCPSetting\WriteTCPSetting_Parameter.cs" />
+    <Compile Include="04TimeGroup\03AddTimeGroup\AddTimeGroup.cs" />
+    <Compile Include="04TimeGroup\01ClearTimeGroup\ClearTimeGroup.cs" />
+    <Compile Include="04TimeGroup\02ReadTimeGroup\ReadTimeGroup.cs" />
+    <Compile Include="04TimeGroup\02ReadTimeGroup\ReadTimeGroup_Result.cs" />
+    <Compile Include="02Time\ReadTime.cs" />
+    <Compile Include="02Time\WriteTime.cs" />
+    <Compile Include="02Time\WriteCustomTime_Parameter.cs" />
+    <Compile Include="SystemParameter\13ReceiptPrint\PrintContent.cs" />
+    <Compile Include="SystemParameter\13ReceiptPrint\ReadPrintContent.cs" />
+    <Compile Include="SystemParameter\13ReceiptPrint\ReadReceiptPrint.cs" />
+    <Compile Include="SystemParameter\13ReceiptPrint\ReadReceiptPrint_Result.cs" />
+    <Compile Include="SystemParameter\13ReceiptPrint\WritePrintContent.cs" />
+    <Compile Include="SystemParameter\13ReceiptPrint\WriteReceiptPrint.cs" />
+    <Compile Include="SystemParameter\13ReceiptPrint\WriteReceiptPrint_Parameter.cs" />
+    <Compile Include="SystemParameter\14Voice\ReadVoiceStart.cs" />
+    <Compile Include="SystemParameter\14Voice\ReadVoiceStart_Result.cs" />
+    <Compile Include="SystemParameter\14Voice\WriteVoiceStart.cs" />
+    <Compile Include="SystemParameter\14Voice\WriteVoiceStart_Parameter.cs" />
+    <Compile Include="SystemParameter\15Relay\ReadRelay.cs" />
+    <Compile Include="SystemParameter\15Relay\ReadRelay_Result.cs" />
+    <Compile Include="SystemParameter\15Relay\WriteRelay.cs" />
+    <Compile Include="SystemParameter\15Relay\WriteRelay_Parameter.cs" />
+    <Compile Include="SystemParameter\18Initialize\Initialize_Parameter.cs" />
+    <Compile Include="SystemParameter\21Buzzer\ReadBuzzer.cs" />
+    <Compile Include="SystemParameter\21Buzzer\ReadBuzzer_Result.cs" />
+    <Compile Include="SystemParameter\21Buzzer\WriteBuzzer.cs" />
+    <Compile Include="SystemParameter\21Buzzer\WriteBuzzer_Parameter.cs" />
+    <Compile Include="SystemParameter\22WIFIAccount\ReadWIFIAccount.cs" />
+    <Compile Include="SystemParameter\22WIFIAccount\ReadWIFIAccount_Result.cs" />
+    <Compile Include="SystemParameter\22WIFIAccount\WriteWIFIAccount.cs" />
+    <Compile Include="SystemParameter\22WIFIAccount\WriteWIFIAccount_Parameter.cs" />
+    <Compile Include="SystemParameter\23ReaderIntervalTime\ReadReaderIntervalTime.cs" />
+    <Compile Include="SystemParameter\23ReaderIntervalTime\ReadReaderIntervalTime_Result.cs" />
+    <Compile Include="SystemParameter\23ReaderIntervalTime\WriteReaderIntervalTime.cs" />
+    <Compile Include="SystemParameter\23ReaderIntervalTime\WriteReaderIntervalTime_Parameter.cs" />
+    <Compile Include="SystemParameter\24ReaderByte\ReadReaderByte.cs" />
+    <Compile Include="SystemParameter\24ReaderByte\ReadReaderByte_Result.cs" />
+    <Compile Include="SystemParameter\24ReaderByte\WriteReaderByte.cs" />
+    <Compile Include="SystemParameter\24ReaderByte\WriteReaderByte_Parameter.cs" />
+    <Compile Include="SystemParameter\25ForbiddenMifareOne\ReadForbiddenMifareOne.cs" />
+    <Compile Include="SystemParameter\25ForbiddenMifareOne\ReadForbiddenMifareOne_Result.cs" />
+    <Compile Include="SystemParameter\25ForbiddenMifareOne\WriteForbiddenMifareOne.cs" />
+    <Compile Include="SystemParameter\25ForbiddenMifareOne\WriteForbiddenMifareOne_Parameter.cs" />
+    <Compile Include="SystemParameter\26OffLineSubsidyLimit\ReadOffLineSubsidyLimit.cs" />
+    <Compile Include="SystemParameter\26OffLineSubsidyLimit\ReadOffLineSubsidyLimit_Result.cs" />
+    <Compile Include="SystemParameter\26OffLineSubsidyLimit\WriteOffLineSubsidyLimit.cs" />
+    <Compile Include="SystemParameter\26OffLineSubsidyLimit\WriteOffLineSubsidyLimit_Parameter.cs" />
+    <Compile Include="SystemParameter\17SystemStatus\ReadSystemStatus.cs" />
+    <Compile Include="SystemParameter\17SystemStatus\ReadSystemStatus_Result.cs" />
+    <Compile Include="SystemParameter\18Initialize\Initialize.cs" />
+    <Compile Include="SystemParameter\20Cache\ReadCache.cs" />
+    <Compile Include="SystemParameter\20Cache\ReadCache_Result.cs" />
+    <Compile Include="SystemParameter\20Cache\WriteCache.cs" />
+    <Compile Include="SystemParameter\20Cache\WriteCache_Parameter.cs" />
+    <Compile Include="SystemParameter\09ScreenDisplay\06Led\ReadLed.cs" />
+    <Compile Include="SystemParameter\09ScreenDisplay\06Led\ReadLed_Result.cs" />
+    <Compile Include="SystemParameter\09ScreenDisplay\06Led\WriteLed.cs" />
+    <Compile Include="SystemParameter\09ScreenDisplay\06Led\WriteLed_Parameter.cs" />
+    <Compile Include="SystemParameter\09ScreenDisplay\05DisplayContent\ReadDisplayContent.cs" />
+    <Compile Include="SystemParameter\09ScreenDisplay\05DisplayContent\ReadDisplayContent_Result.cs" />
+    <Compile Include="SystemParameter\09ScreenDisplay\05DisplayContent\WriteDisplayContent.cs" />
+    <Compile Include="SystemParameter\09ScreenDisplay\05DisplayContent\WriteDisplayContent_Parameter.cs" />
+    <Compile Include="SystemParameter\09ScreenDisplay\04Logo\ReadLogo.cs" />
+    <Compile Include="SystemParameter\09ScreenDisplay\04Logo\ReadLogo_Result.cs" />
+    <Compile Include="SystemParameter\09ScreenDisplay\04Logo\WriteLogo.cs" />
+    <Compile Include="SystemParameter\09ScreenDisplay\04Logo\WriteLogo_Parameter.cs" />
+    <Compile Include="SystemParameter\09ScreenDisplay\03Message\ReadMessage.cs" />
+    <Compile Include="SystemParameter\09ScreenDisplay\03Message\ReadMessage_Result.cs" />
+    <Compile Include="SystemParameter\09ScreenDisplay\03Message\WriteMessage.cs" />
+    <Compile Include="SystemParameter\09ScreenDisplay\03Message\WriteMessage_Parameter.cs" />
+    <Compile Include="SystemParameter\09ScreenDisplay\02Title\ReadTitle.cs" />
+    <Compile Include="SystemParameter\09ScreenDisplay\02Title\ReadTitle_Result.cs" />
+    <Compile Include="SystemParameter\09ScreenDisplay\02Title\WriteTitle.cs" />
+    <Compile Include="SystemParameter\09ScreenDisplay\02Title\WriteTitle_Parameter.cs" />
+    <Compile Include="SystemParameter\09ScreenDisplay\01Name\ReadName.cs" />
+    <Compile Include="SystemParameter\09ScreenDisplay\01Name\ReadName_Result.cs" />
+    <Compile Include="SystemParameter\09ScreenDisplay\01Name\WriteName.cs" />
+    <Compile Include="SystemParameter\09ScreenDisplay\01Name\WriteName_Parameter.cs" />
+    <Compile Include="SystemParameter\12USBDisk\ReadUSBDisk.cs" />
+    <Compile Include="SystemParameter\12USBDisk\ReadUSBDisk_Result.cs" />
+    <Compile Include="SystemParameter\12USBDisk\WriteUSBDisk.cs" />
+    <Compile Include="SystemParameter\12USBDisk\WriteUSBDisk_Parameter.cs" />
+    <Compile Include="SystemParameter\10RecordStorageMode\ReadRecordStorageMode.cs" />
+    <Compile Include="SystemParameter\10RecordStorageMode\ReadRecordStorageMode_Result.cs" />
+    <Compile Include="SystemParameter\10RecordStorageMode\WriteRecordStorageMode.cs" />
+    <Compile Include="SystemParameter\10RecordStorageMode\WriteRecordStorageMode_Parameter.cs" />
+    <Compile Include="SystemParameter\14Voice\ReadVoice.cs" />
+    <Compile Include="SystemParameter\14Voice\ReadVoice_Result.cs" />
+    <Compile Include="SystemParameter\14Voice\WriteVoice.cs" />
+    <Compile Include="SystemParameter\14Voice\WriteVoice_Parameter.cs" />
+    <Compile Include="SystemParameter\16Watch\BeginWatch.cs" />
+    <Compile Include="SystemParameter\16Watch\CloseWatch.cs" />
+    <Compile Include="SystemParameter\11ConsumeLogStatisticsTime\ReadConsumeLogStatisticsTime.cs" />
+    <Compile Include="SystemParameter\11ConsumeLogStatisticsTime\ReadConsumeLogStatisticsTime_Result.cs" />
+    <Compile Include="SystemParameter\11ConsumeLogStatisticsTime\WriteConsumeLogStatisticsTime.cs" />
+    <Compile Include="SystemParameter\11ConsumeLogStatisticsTime\WriteConsumeLogStatisticsTime_Parameter.cs" />
+    <Compile Include="TemplateMethod\TemplateData_Base.cs" />
+    <Compile Include="TemplateMethod\TemplateParameter_Base.cs" />
+    <Compile Include="TemplateMethod\TemplateReadData_Base.cs" />
+    <Compile Include="TemplateMethod\TemplateResult_Base.cs" />
+    <Compile Include="TemplateMethod\TemplateWriteData_Base.cs" />
+    <Compile Include="Transaction\01TransactionDatabaseDetail\ReadTransactionDatabaseDetail.cs" />
+    <Compile Include="Transaction\01TransactionDatabaseDetail\ReadTransactionDatabaseDetail_Result.cs" />
+    <Compile Include="Transaction\03ClearTransactionDatabase\ClearTransactionDatabase_Base.cs" />
+    <Compile Include="Transaction\03ClearTransactionDatabase\ClearTransactionDatabase_Parameter.cs" />
+    <Compile Include="Transaction\03ClearTransactionDatabase\ClearTransactionDatabase.cs" />
+    <Compile Include="Transaction\03ClearTransactionDatabase\ClearTransactionDatabase_ResetIndex.cs" />
+    <Compile Include="Transaction\03ClearTransactionDatabase\ClearTransactionDatabase_StartIndex.cs" />
+    <Compile Include="Transaction\02TransactionDatabaseEmpty\TransactionDatabaseEmpty.cs" />
+    <Compile Include="Transaction\05ReadTransactionDatabaseByIndex\ReadTransactionDatabaseByIndex.cs" />
+    <Compile Include="Transaction\04WriteTransactionDatabaseIndex\WriteTransactionDatabaseIndex.cs" />
+    <Compile Include="Transaction\04WriteTransactionDatabaseIndex\WriteTransactionDatabaseIndex_Parameter.cs" />
+    <Compile Include="Transaction\04WriteTransactionDatabaseIndex\WriteTransactionDatabaseStartIndex.cs" />
+    <Compile Include="Transaction\04WriteTransactionDatabaseIndex\WriteTransactionDatabaseEndIndex.cs" />
+    <Compile Include="Transaction\05ReadTransactionDatabaseByIndex\ReadTransactionDatabaseByIndex_Parameter.cs" />
+    <Compile Include="Transaction\05ReadTransactionDatabaseByIndex\ReadTransactionDatabaseByIndex_Result.cs" />
+    <Compile Include="Transaction\06ReadTransactionDatabase\ReadTransactionDatabase.cs" />
+    <Compile Include="Transaction\06ReadTransactionDatabase\ReadTransactionDatabase_Base.cs" />
+    <Compile Include="Transaction\06ReadTransactionDatabase\ReadTransactionDatabase_Parameter.cs" />
+    <Compile Include="Transaction\06ReadTransactionDatabase\ReadTransactionDatabase_Result.cs" />
+    <Compile Include="Transaction\e_TransactionDatabaseType.cs" />
+    <Compile Include="Write_Command.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SystemParameter\ICCardParameter\" />
+    <Folder Include="SystemParameter\SystemMenuPassword\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

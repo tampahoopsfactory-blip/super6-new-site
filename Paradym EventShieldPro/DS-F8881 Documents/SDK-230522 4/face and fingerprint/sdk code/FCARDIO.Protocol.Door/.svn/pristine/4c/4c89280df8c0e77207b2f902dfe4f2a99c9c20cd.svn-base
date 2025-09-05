@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <appSettings>
+    <add key="SerialPort" value=""/>
+    <add key="Address" value=""/>
+    <add key="DefaultLanguage" value="China"/>
+    <add key="Languages" value="China,English"/>
+    <add key="Language_China" value="Language\China.xml"/>
+    <add key="Language_English" value="Language\English.xml"/>
+  </appSettings>
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <publisherPolicy apply="yes"/>
+      <probing privatePath="DLL"/>
+    </assemblyBinding>
+  </runtime>
+</configuration>

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>1.16.0</Version>
+    <RootNamespace>DoNetDrive.Protocol.POS</RootNamespace>
+    <AssemblyName>DoNetDrive.Protocol.POS</AssemblyName>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\..\Output\Release\</OutputPath>
+    <DocumentationFile>..\..\Output\Release\netstandard2.0\DoNetDrive.Common.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\..\Output\Debug\</OutputPath>
+    <DocumentationFile>..\..\Output\Debug\netstandard2.0\DoNetDrive.Common.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="File\**" />
+    <Compile Remove="Properties\**" />
+    <Compile Remove="Software\**" />
+    <EmbeddedResource Remove="File\**" />
+    <EmbeddedResource Remove="Properties\**" />
+    <EmbeddedResource Remove="Software\**" />
+    <None Remove="File\**" />
+    <None Remove="Properties\**" />
+    <None Remove="Software\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="DoNetDrive.Common">
+      <HintPath>..\..\Output\Release\netstandard2.0\DoNetDrive.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="DoNetDrive.Core">
+      <HintPath>..\..\Output\Release\netstandard2.0\DoNetDrive.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DoNetDrive.Protocol">
+      <HintPath>..\..\Output\Release\netstandard2.0\DoNetDrive.Protocol.dll</HintPath>
+    </Reference>
+    <Reference Include="DoNetDrive.Protocol.Door">
+      <HintPath>..\..\Output\Release\netstandard2.0\DoNetDrive.Protocol.Door.dll</HintPath>
+    </Reference>
+    <Reference Include="DoNetDrive.Protocol.Util">
+      <HintPath>..\..\Output\Release\netstandard2.0\DoNetDrive.Protocol.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetty.Buffers">
+      <HintPath>..\..\Output\Release\netstandard2.0\DotNetty.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetty.Common">
+      <HintPath>..\..\Output\Release\netstandard2.0\DotNetty.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+
+</Project>
+

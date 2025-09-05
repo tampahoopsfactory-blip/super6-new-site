@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>1.16.0</Version>
+    <RootNamespace>DoNetDrive.Protocol.Elevator</RootNamespace>
+    <AssemblyName>DoNetDrive.Protocol.Elevator</AssemblyName>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\Output\Release\</OutputPath>
+    <DocumentationFile>..\Output\Release\netstandard2.0\DoNetDrive.Common.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\Output\Debug\</OutputPath>
+    <DocumentationFile>..\Output\Debug\netstandard2.0\DoNetDrive.Common.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Door8864\Card\03CardDataBase\Base\**" />
+    <Compile Remove="Door8864\SystemParameter\07FunctionParameter\07OpenAlarmOption\**" />
+    <Compile Remove="Door8864\SystemParameter\07FunctionParameter\14TheftAlarmSetting\**" />
+    <Compile Remove="Door8864\SystemParameter\07FunctionParameter\16CardPeriodSpeak\**" />
+    <Compile Remove="Properties\**" />
+    <EmbeddedResource Remove="Door8864\Card\03CardDataBase\Base\**" />
+    <EmbeddedResource Remove="Door8864\SystemParameter\07FunctionParameter\07OpenAlarmOption\**" />
+    <EmbeddedResource Remove="Door8864\SystemParameter\07FunctionParameter\14TheftAlarmSetting\**" />
+    <EmbeddedResource Remove="Door8864\SystemParameter\07FunctionParameter\16CardPeriodSpeak\**" />
+    <EmbeddedResource Remove="Properties\**" />
+    <None Remove="Door8864\Card\03CardDataBase\Base\**" />
+    <None Remove="Door8864\SystemParameter\07FunctionParameter\07OpenAlarmOption\**" />
+    <None Remove="Door8864\SystemParameter\07FunctionParameter\14TheftAlarmSetting\**" />
+    <None Remove="Door8864\SystemParameter\07FunctionParameter\16CardPeriodSpeak\**" />
+    <None Remove="Properties\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Door8864\Card\03CardDataBase\ReadCardDataBase_Parameter.cs" />
+    <Compile Remove="Door8864\Card\06DeleteCard\DeleteCardBase.cs" />
+    <Compile Remove="Door8864\Card\WriteCardList\05CardListBySequence\WriteCardListBySequenceBase.cs" />
+    <Compile Remove="Door8864\Card\WriteCardList\07CardListBySort\WriteCardListBySortBase.cs" />
+    <Compile Remove="Door8864\Card\WriteCardList\WriteCardListBase.cs" />
+    <Compile Remove="Door8864\Card\WriteCardList\WriteCardList_Parameter_Base.cs" />
+    <Compile Remove="Door8864\Card\WriteCardList\WriteCardList_Result.cs" />
+    <Compile Remove="Door8864\Holiday\01ReadHolidayDetail\ReadHolidayDetail_Result.cs" />
+    <Compile Remove="Door8864\Holiday\03ReadAllHoliday\ReadAllHoliday_Result.cs" />
+    <Compile Remove="Door8864\Holiday\HolidayDBDetail.cs" />
+    <Compile Remove="Door8864\Holiday\HolidayDetail.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="DoNetDrive.Common">
+      <HintPath>..\Output\Release\netstandard2.0\DoNetDrive.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="DoNetDrive.Core">
+      <HintPath>..\Output\Release\netstandard2.0\DoNetDrive.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DoNetDrive.Protocol">
+      <HintPath>..\Output\Release\netstandard2.0\DoNetDrive.Protocol.dll</HintPath>
+    </Reference>
+    <Reference Include="DoNetDrive.Protocol.Door">
+      <HintPath>..\Output\Release\netstandard2.0\DoNetDrive.Protocol.Door.dll</HintPath>
+    </Reference>
+    <Reference Include="DoNetDrive.Protocol.Util">
+      <HintPath>..\Output\Release\netstandard2.0\DoNetDrive.Protocol.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetty.Buffers">
+      <HintPath>..\Output\Release\netstandard2.0\DotNetty.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetty.Common">
+      <HintPath>..\Output\Release\netstandard2.0\DotNetty.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+
+</Project>

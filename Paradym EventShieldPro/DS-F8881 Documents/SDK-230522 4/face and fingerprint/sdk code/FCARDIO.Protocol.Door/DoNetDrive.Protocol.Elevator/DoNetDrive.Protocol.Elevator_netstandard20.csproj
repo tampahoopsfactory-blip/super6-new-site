@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>1.17.0</Version>
+    <RootNamespace>DoNetDrive.Protocol.Elevator</RootNamespace>
+    <AssemblyName>DoNetDrive.Protocol.Elevator</AssemblyName>
+
+	  <PackageId>DoNetDrive.Protocol.Elevator</PackageId>
+	  <Authors>xiaolong</Authors>
+	  <Company>FCARD</Company>
+	  <Description>用于定义电梯控制板的设备命令</Description>
+	  <PackageProjectUrl>https://gitee.com/GZFCARD/FCARDIO.Protocol.Door</PackageProjectUrl>
+	  <SignAssembly>False</SignAssembly>
+	  <AssemblyOriginatorKeyFile>DoNetDrive.pfx</AssemblyOriginatorKeyFile>
+	  <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\Output\Release\</OutputPath>
+    <DocumentationFile>..\Output\Release\netstandard2.0\DoNetDrive.Common.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\Output\Debug\</OutputPath>
+    <DocumentationFile>..\Output\Debug\netstandard2.0\DoNetDrive.Common.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Door8864\Card\03CardDataBase\Base\**" />
+    <Compile Remove="Door8864\SystemParameter\07FunctionParameter\07OpenAlarmOption\**" />
+    <Compile Remove="Door8864\SystemParameter\07FunctionParameter\14TheftAlarmSetting\**" />
+    <Compile Remove="Door8864\SystemParameter\07FunctionParameter\16CardPeriodSpeak\**" />
+    <Compile Remove="Properties\**" />
+    <EmbeddedResource Remove="Door8864\Card\03CardDataBase\Base\**" />
+    <EmbeddedResource Remove="Door8864\SystemParameter\07FunctionParameter\07OpenAlarmOption\**" />
+    <EmbeddedResource Remove="Door8864\SystemParameter\07FunctionParameter\14TheftAlarmSetting\**" />
+    <EmbeddedResource Remove="Door8864\SystemParameter\07FunctionParameter\16CardPeriodSpeak\**" />
+    <EmbeddedResource Remove="Properties\**" />
+    <None Remove="Door8864\Card\03CardDataBase\Base\**" />
+    <None Remove="Door8864\SystemParameter\07FunctionParameter\07OpenAlarmOption\**" />
+    <None Remove="Door8864\SystemParameter\07FunctionParameter\14TheftAlarmSetting\**" />
+    <None Remove="Door8864\SystemParameter\07FunctionParameter\16CardPeriodSpeak\**" />
+    <None Remove="Properties\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Door8864\Card\03CardDataBase\ReadCardDataBase_Parameter.cs" />
+    <Compile Remove="Door8864\Card\06DeleteCard\DeleteCardBase.cs" />
+    <Compile Remove="Door8864\Card\WriteCardList\05CardListBySequence\WriteCardListBySequenceBase.cs" />
+    <Compile Remove="Door8864\Card\WriteCardList\07CardListBySort\WriteCardListBySortBase.cs" />
+    <Compile Remove="Door8864\Card\WriteCardList\WriteCardListBase.cs" />
+    <Compile Remove="Door8864\Card\WriteCardList\WriteCardList_Parameter_Base.cs" />
+    <Compile Remove="Door8864\Card\WriteCardList\WriteCardList_Result.cs" />
+    <Compile Remove="Door8864\Holiday\01ReadHolidayDetail\ReadHolidayDetail_Result.cs" />
+    <Compile Remove="Door8864\Holiday\03ReadAllHoliday\ReadAllHoliday_Result.cs" />
+    <Compile Remove="Door8864\Holiday\HolidayDBDetail.cs" />
+    <Compile Remove="Door8864\Holiday\HolidayDetail.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DoNetDrive.Core" Version="2.9.0" />
+    <PackageReference Include="DoNetDrive.Protocol.Door" Version="2.7.0" />
+  </ItemGroup>
+
+
+</Project>

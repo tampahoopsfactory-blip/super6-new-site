@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AD060935-1855-4AA3-BFFC-626C52D00402}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>FCARDIO.Protocol.Elevator.Test</RootNamespace>
+    <AssemblyName>FCARDIO.Protocol.Elevator.Test</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevComponents.DotNetBar.SuperGrid, Version=10.9.0.4, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\assembly\GAC_MSIL\DevComponents.DotNetBar.SuperGrid\10.9.0.4__c39c3242a43eee2b\DevComponents.DotNetBar.SuperGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="DevComponents.DotNetBar2, Version=10.9.0.4, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\assembly\GAC_MSIL\DevComponents.DotNetBar2\10.9.0.4__c39c3242a43eee2b\DevComponents.DotNetBar2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevComponents.Instrumentation, Version=10.9.0.4, Culture=neutral, PublicKeyToken=f90dc37c26666a67, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\assembly\GAC_MSIL\DevComponents.Instrumentation\10.9.0.4__bc4a9d761ea44ef0\DevComponents.Instrumentation.dll</HintPath>
+    </Reference>
+    <Reference Include="DoNetDrive.Common">
+      <HintPath>..\Output\Release\net5.0\DoNetDrive.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="DoNetDrive.Core">
+      <HintPath>..\Output\Release\net5.0\DoNetDrive.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DoNetDrive.Protocol">
+      <HintPath>..\Output\Release\net5.0\DoNetDrive.Protocol.dll</HintPath>
+    </Reference>
+    <Reference Include="DoNetDrive.Protocol.Fingerprint">
+      <HintPath>..\Output\Release\net5.0\DoNetDrive.Protocol.Fingerprint.dll</HintPath>
+    </Reference>
+    <Reference Include="DoNetDrive.Protocol.Util">
+      <HintPath>..\Output\Release\net5.0\DoNetDrive.Protocol.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetty.Buffers">
+      <HintPath>..\Output\Release\net5.0\DotNetty.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetty.Common">
+      <HintPath>..\Output\Release\net5.0\DotNetty.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCard.Designer.cs">
+      <DependentUpon>frmCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDoor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDoor.Designer.cs">
+      <DependentUpon>frmDoor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHoliday.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHoliday.Designer.cs">
+      <DependentUpon>frmHoliday.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInputBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInputBox.Designer.cs">
+      <DependentUpon>frmInputBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNodeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNodeForm.Designer.cs">
+      <DependentUpon>frmNodeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPassword.Designer.cs">
+      <DependentUpon>frmPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRecord.Designer.cs">
+      <DependentUpon>frmRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSystem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSystem.Designer.cs">
+      <DependentUpon>frmSystem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTime.Designer.cs">
+      <DependentUpon>frmTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTimeGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTimeGroup.Designer.cs">
+      <DependentUpon>frmTimeGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="INMain.cs" />
+    <Compile Include="Model\CardDetail_UI.cs" />
+    <Compile Include="Model\CommandResult.cs" />
+    <Compile Include="Model\HolidayDetailDto.cs" />
+    <Compile Include="Model\IOMessage.cs" />
+    <Compile Include="Model\DoorUI.cs" />
+    <Compile Include="Model\PasswordDto.cs" />
+    <Compile Include="Model\WeekTimeGroupDto.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmCard.resx">
+      <DependentUpon>frmCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDoor.resx">
+      <DependentUpon>frmDoor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHoliday.resx">
+      <DependentUpon>frmHoliday.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInputBox.resx">
+      <DependentUpon>frmInputBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNodeForm.resx">
+      <DependentUpon>frmNodeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPassword.resx">
+      <DependentUpon>frmPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRecord.resx">
+      <DependentUpon>frmRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSystem.resx">
+      <DependentUpon>frmSystem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTime.resx">
+      <DependentUpon>frmTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTimeGroup.resx">
+      <DependentUpon>frmTimeGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

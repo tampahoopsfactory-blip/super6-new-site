@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3502F7F1-0805-457D-B8D7-35C22D722550}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DoNetDrive.Protocol.USB.CardReader</RootNamespace>
+    <AssemblyName>DoNetDrive.Protocol.USB.CardReader</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Output\Debug\Net45\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\Output\Debug\Net45\DoNetDrive.Protocol.USB.CardReader.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Output\Release\Net45\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\Output\Release\Net45\DoNetDrive.Protocol.USB.CardReader.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DoNetDrive.Common">
+      <HintPath>..\..\Output\Release\net45\DoNetDrive.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="DoNetDrive.Core, Version=1.15.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Release\net45\DoNetDrive.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DoNetDrive.Protocol, Version=1.11.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Release\net45\DoNetDrive.Protocol.dll</HintPath>
+    </Reference>
+    <Reference Include="DoNetDrive.Protocol.Util, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Release\net45\DoNetDrive.Protocol.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetty.Buffers, Version=0.6.0.0, Culture=neutral, PublicKeyToken=bc13ca065fa06c29, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Release\net45\DotNetty.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetty.Common, Version=0.6.0.0, Culture=neutral, PublicKeyToken=bc13ca065fa06c29, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Release\net45\DotNetty.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AbstractParameter.cs" />
+    <Compile Include="CommandEx.cs" />
+    <Compile Include="ICCard\01SearchCard\SearchCard.cs" />
+    <Compile Include="ICCard\01SearchCard\SearchCard_Result.cs" />
+    <Compile Include="ICCard\02ReadSector\ReadAllSector.cs" />
+    <Compile Include="ICCard\02ReadSector\ReadAllSector_Result.cs" />
+    <Compile Include="ICCard\02ReadSector\ReadSector.cs" />
+    <Compile Include="ICCard\02ReadSector\ReadSector_Parameter.cs" />
+    <Compile Include="ICCard\02ReadSector\ReadSector_Result.cs" />
+    <Compile Include="ICCard\03WriteSector\WriteSector.cs" />
+    <Compile Include="ICCard\03WriteSector\WriteSector_Parameter.cs" />
+    <Compile Include="ICCard\03WriteSector\WriteSector_Result.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Read_Command.cs" />
+    <Compile Include="SystemParameter\03Version\ReadVersion.cs" />
+    <Compile Include="SystemParameter\03Version\ReadVersion_Result.cs" />
+    <Compile Include="SystemParameter\01SN\ReadSN.cs" />
+    <Compile Include="SystemParameter\01SN\SN_Parameter.cs" />
+    <Compile Include="SystemParameter\01SN\SN_Result.cs" />
+    <Compile Include="SystemParameter\01SN\WriteSN.cs" />
+    <Compile Include="SystemParameter\04CreateTime\ReadCreateTime.cs" />
+    <Compile Include="SystemParameter\04CreateTime\ReadCreateTime_Result.cs" />
+    <Compile Include="SystemParameter\04CreateTime\WriteCreateTime.cs" />
+    <Compile Include="SystemParameter\04CreateTime\WriteCreateTime_Parameter.cs" />
+    <Compile Include="SystemParameter\05ReadCardType\ReadReadCardType.cs" />
+    <Compile Include="SystemParameter\05ReadCardType\ReadReadCardType_Result.cs" />
+    <Compile Include="SystemParameter\05ReadCardType\WriteReadCardType.cs" />
+    <Compile Include="SystemParameter\05ReadCardType\WriteReadCardType_Parameter.cs" />
+    <Compile Include="SystemParameter\06OutputFormat\ReadOutputFormat.cs" />
+    <Compile Include="SystemParameter\06OutputFormat\ReadOutputFormat_Result.cs" />
+    <Compile Include="SystemParameter\06OutputFormat\WriteOutputFormat.cs" />
+    <Compile Include="SystemParameter\06OutputFormat\WriteOutputFormat_Parameter.cs" />
+    <Compile Include="SystemParameter\07ICCardControl\ReadICCardControl.cs" />
+    <Compile Include="SystemParameter\07ICCardControl\ReadICCardControl_Result.cs" />
+    <Compile Include="SystemParameter\07ICCardControl\WriteICCardControl.cs" />
+    <Compile Include="SystemParameter\07ICCardControl\WriteICCardControl_Parameter.cs" />
+    <Compile Include="SystemParameter\08ICCardCustomNum\ReadICCardCustomNum.cs" />
+    <Compile Include="SystemParameter\08ICCardCustomNum\ReadICCardCustomNum_Result.cs" />
+    <Compile Include="SystemParameter\08ICCardCustomNum\WriteICCardCustomNum.cs" />
+    <Compile Include="SystemParameter\08ICCardCustomNum\WriteICCardCustomNum_Parameter.cs" />
+    <Compile Include="SystemParameter\09TTLOutput\ReadTTLOutput.cs" />
+    <Compile Include="SystemParameter\09TTLOutput\ReadTTLOutput_Result.cs" />
+    <Compile Include="SystemParameter\09TTLOutput\WriteTTLOutput.cs" />
+    <Compile Include="SystemParameter\09TTLOutput\WriteTTLOutput_Parameter.cs" />
+    <Compile Include="SystemParameter\10Initialize\Initialize.cs" />
+    <Compile Include="SystemParameter\11Buzzer\WriteBuzzer.cs" />
+    <Compile Include="SystemParameter\11Buzzer\WriteBuzzer_Parameter.cs" />
+    <Compile Include="SystemParameter\12LED\WriteLED.cs" />
+    <Compile Include="SystemParameter\12LED\WriteLED_Parameter.cs" />
+    <Compile Include="SystemParameter\AgencyCode\ReadAgencyCode.cs" />
+    <Compile Include="SystemParameter\AgencyCode\ReadAgencyCode_Result.cs" />
+    <Compile Include="SystemParameter\AgencyCode\WriteAgencyCode.cs" />
+    <Compile Include="SystemParameter\AgencyCode\WriteAgencyCode_Parameter.cs" />
+    <Compile Include="Watch\WatchReadCardTransaction.cs" />
+    <Compile Include="Write_Command.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

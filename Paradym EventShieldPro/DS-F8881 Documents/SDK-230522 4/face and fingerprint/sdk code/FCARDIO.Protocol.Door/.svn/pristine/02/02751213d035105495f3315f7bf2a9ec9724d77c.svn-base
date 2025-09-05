@@ -1,0 +1,373 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4639E7F7-83AA-4511-8FA8-369A79226B72}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DoNetDrive.Protocol.Fingerprint</RootNamespace>
+    <AssemblyName>DoNetDrive.Protocol.Fingerprint</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Output\Debug\Net45\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\Output\Debug\Net45\DoNetDrive.Protocol.Fingerprint.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Output\Release\Net45\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <DocumentationFile>..\..\Output\Release\Net45\DoNetDrive.Protocol.Fingerprint.xml</DocumentationFile>
+    <LangVersion>default</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DoNetDrive.Protocol.Door, Version=1.10.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Release\net45\DoNetDrive.Protocol.Door.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetty.Buffers">
+      <HintPath>..\..\Output\Release\net45\DoNetty\DotNetty.Buffers.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DotNetty.Codecs">
+      <HintPath>..\..\Output\Release\net45\DoNetty\DotNetty.Codecs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DotNetty.Common">
+      <HintPath>..\..\Output\Release\net45\DoNetty\DotNetty.Common.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DotNetty.Transport">
+      <HintPath>..\..\Output\Release\net45\DoNetty\DotNetty.Transport.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdditionalData\01WriteFeatureCode\WriteFileByTCP.cs" />
+    <Compile Include="AdditionalData\01WriteFeatureCode\WriteFileByTCP_Parameter.cs" />
+    <Compile Include="AdditionalData\01WriteFeatureCode\WriteFileByTCP_Result.cs" />
+    <Compile Include="AdditionalData\01WriteFeatureCode\WriteFileSubCommand.cs" />
+    <Compile Include="AdditionalData\04PersonDetail\ReadPersonDetail.cs" />
+    <Compile Include="AdditionalData\04PersonDetail\ReadPersonDetail_Parameter.cs" />
+    <Compile Include="AdditionalData\04PersonDetail\ReadPersonDetail_Result.cs" />
+    <Compile Include="AdditionalData\05ReadFeatureCode\ReadFeatureCode.cs" />
+    <Compile Include="AdditionalData\05ReadFeatureCode\ReadFeatureCode_Parameter.cs" />
+    <Compile Include="AdditionalData\05ReadFeatureCode\ReadFeatureCode_Result.cs" />
+    <Compile Include="AdditionalData\06DeleteFeatureCode\DeleteFeatureCode.cs" />
+    <Compile Include="AdditionalData\06DeleteFeatureCode\DeleteFeatureCode_Parameter.cs" />
+    <Compile Include="AdditionalData\07ReadFile\ReadFile.cs" />
+    <Compile Include="AdditionalData\07ReadFile\ReadFileByTCP.cs" />
+    <Compile Include="AdditionalData\07ReadFile\ReadFileByTCP_Parameter.cs" />
+    <Compile Include="AdditionalData\07ReadFile\ReadFileByTCP_Result.cs" />
+    <Compile Include="AdditionalData\07ReadFile\ReadFileSubCommand.cs" />
+    <Compile Include="AdditionalData\07ReadFile\ReadFile_Parameter.cs" />
+    <Compile Include="AdditionalData\07ReadFile\ReadFile_Result.cs" />
+    <Compile Include="Alarm\01SendFireAlarm\WriteSendFireAlarm.cs" />
+    <Compile Include="Alarm\02BlacklistAlarm\ReadBlacklistAlarm.cs" />
+    <Compile Include="Alarm\02BlacklistAlarm\ReadBlacklistAlarm_Result.cs" />
+    <Compile Include="Alarm\02BlacklistAlarm\WriteBlacklistAlarm.cs" />
+    <Compile Include="Alarm\02BlacklistAlarm\WriteBlacklistAlarm_Parameter.cs" />
+    <Compile Include="Alarm\03AntiDisassemblyAlarm\ReadAntiDisassemblyAlarm.cs" />
+    <Compile Include="Alarm\03AntiDisassemblyAlarm\ReadAntiDisassemblyAlarm_Result.cs" />
+    <Compile Include="Alarm\03AntiDisassemblyAlarm\WriteAntiDisassemblyAlarm.cs" />
+    <Compile Include="Alarm\03AntiDisassemblyAlarm\WriteAntiDisassemblyAlarm_Parameter.cs" />
+    <Compile Include="Alarm\04IllegalVerificationAlarm\ReadIllegalVerificationAlarm.cs" />
+    <Compile Include="Alarm\04IllegalVerificationAlarm\ReadIllegalVerificationAlarm_Result.cs" />
+    <Compile Include="Alarm\04IllegalVerificationAlarm\WriteIllegalVerificationAlarm.cs" />
+    <Compile Include="Alarm\04IllegalVerificationAlarm\WriteIllegalVerificationAlarm_Parameter.cs" />
+    <Compile Include="Alarm\05AlarmPassword\ReadAlarmPassword.cs" />
+    <Compile Include="Alarm\05AlarmPassword\ReadAlarmPassword_Result.cs" />
+    <Compile Include="Alarm\05AlarmPassword\WriteAlarmPassword.cs" />
+    <Compile Include="Alarm\05AlarmPassword\WriteAlarmPassword_Parameter.cs" />
+    <Compile Include="Alarm\06OpenDoorTimeoutAlarm\ReadOpenDoorTimeoutAlarm.cs" />
+    <Compile Include="Alarm\06OpenDoorTimeoutAlarm\ReadOpenDoorTimeoutAlarm_Result.cs" />
+    <Compile Include="Alarm\06OpenDoorTimeoutAlarm\WriteOpenDoorTimeoutAlarm.cs" />
+    <Compile Include="Alarm\06OpenDoorTimeoutAlarm\WriteOpenDoorTimeoutAlarm_Parameter.cs" />
+    <Compile Include="Alarm\07GateMagneticAlarm\ReadGateMagneticAlarm.cs" />
+    <Compile Include="Alarm\07GateMagneticAlarm\ReadGateMagneticAlarm_Result.cs" />
+    <Compile Include="Alarm\07GateMagneticAlarm\WriteGateMagneticAlarm.cs" />
+    <Compile Include="Alarm\07GateMagneticAlarm\WriteGateMagneticAlarm_Parameter.cs" />
+    <Compile Include="Alarm\08LegalVerificationCloseAlarm\ReadLegalVerificationCloseAlarm.cs" />
+    <Compile Include="Alarm\08LegalVerificationCloseAlarm\ReadLegalVerificationCloseAlarm_Result.cs" />
+    <Compile Include="Alarm\08LegalVerificationCloseAlarm\WriteLegalVerificationCloseAlarm.cs" />
+    <Compile Include="Alarm\08LegalVerificationCloseAlarm\WriteLegalVerificationCloseAlarm_Parameter.cs" />
+    <Compile Include="Alarm\09CloseAlarm\CloseAlarm.cs" />
+    <Compile Include="Alarm\09CloseAlarm\CloseAlarm_Parameter.cs" />
+    <Compile Include="AutoTest\AutoTestCommand.cs" />
+    <Compile Include="AutoTest\AutoTestCommand_Parameter.cs" />
+    <Compile Include="AutoTest\AutoTestCommand_Result.cs" />
+    <Compile Include="CombinedCommand\BaseCombinedCommand.cs" />
+    <Compile Include="CombinedCommand\BaseSubCommand.cs" />
+    <Compile Include="Data\Person.cs" />
+    <Compile Include="Data\TransactionDatabaseDetail.cs" />
+    <Compile Include="Data\TransactionDetail.cs" />
+    <Compile Include="Data\Transaction\BodyTemperatureRecord.cs" />
+    <Compile Include="Data\Transaction\CardAndImageTransaction.cs" />
+    <Compile Include="Data\Transaction\CardTransaction.cs" />
+    <Compile Include="Data\Transaction\ConnectTestTransaction.cs" />
+    <Compile Include="Data\Transaction\DoorSensorTransaction.cs" />
+    <Compile Include="Data\Transaction\SystemTransaction.cs" />
+    <Compile Include="Door\01ReaderOption\ReaderOption_Parameter.cs" />
+    <Compile Include="Door\01ReaderOption\ReaderOption_Result.cs" />
+    <Compile Include="Door\01ReaderOption\ReadReaderOption.cs" />
+    <Compile Include="Door\01ReaderOption\WriteReaderOption.cs" />
+    <Compile Include="Door\02RelayOption\ReadRelayOption.cs" />
+    <Compile Include="Door\02RelayOption\RelayOption_Parameter.cs" />
+    <Compile Include="Door\02RelayOption\RelayOption_Result.cs" />
+    <Compile Include="Door\02RelayOption\WriteRelayOption.cs" />
+    <Compile Include="Door\03Remote\CloseDoor.cs" />
+    <Compile Include="Door\03Remote\HoldDoor.cs" />
+    <Compile Include="Door\03Remote\LockDoor.cs" />
+    <Compile Include="Door\03Remote\OpenDoor.cs" />
+    <Compile Include="Door\03Remote\OpenDoor_CheckNum.cs" />
+    <Compile Include="Door\03Remote\Remote_CheckNum_Parameter.cs" />
+    <Compile Include="Door\03Remote\UnlockDoor.cs" />
+    <Compile Include="Door\09DoorWorkSetting\DoorWorkSetting_Result.cs" />
+    <Compile Include="Door\09DoorWorkSetting\ReadDoorWorkSetting.cs" />
+    <Compile Include="Door\09DoorWorkSetting\WriteDoorWorkSetting.cs" />
+    <Compile Include="Door\09DoorWorkSetting\WriteDoorWorkSetting_Parameter.cs" />
+    <Compile Include="Door\11UnlockingTime\ReadUnlockingTime.cs" />
+    <Compile Include="Door\11UnlockingTime\ReadUnlockingTime_Result.cs" />
+    <Compile Include="Door\11UnlockingTime\WriteUnlockingTime.cs" />
+    <Compile Include="Door\11UnlockingTime\WriteUnlockingTime_Parameter.cs" />
+    <Compile Include="Door\12ExemptionVerificationOpen\ReadExemptionVerificationOpen.cs" />
+    <Compile Include="Door\12ExemptionVerificationOpen\ReadExemptionVerificationOpen_Result.cs" />
+    <Compile Include="Door\12ExemptionVerificationOpen\WriteExemptionVerificationOpen.cs" />
+    <Compile Include="Door\12ExemptionVerificationOpen\WriteExemptionVerificationOpen_Parameter.cs" />
+    <Compile Include="Door\13VoiceBroadcastSetting\ReadVoiceBroadcastSetting.cs" />
+    <Compile Include="Door\13VoiceBroadcastSetting\VoiceBroadcastSetting_Result.cs" />
+    <Compile Include="Door\13VoiceBroadcastSetting\WriteVoiceBroadcastSetting.cs" />
+    <Compile Include="Door\13VoiceBroadcastSetting\WriteVoiceBroadcastSetting_Parameter.cs" />
+    <Compile Include="Door\14ReaderIntervalTime\ReadReaderIntervalTime.cs" />
+    <Compile Include="Door\14ReaderIntervalTime\ReadReaderIntervalTime_Result.cs" />
+    <Compile Include="Door\14ReaderIntervalTime\WriteReaderIntervalTime.cs" />
+    <Compile Include="Door\14ReaderIntervalTime\WriteReaderIntervalTime_Parameter.cs" />
+    <Compile Include="Door\15ExpirationPrompt\ReadExpirationPrompt.cs" />
+    <Compile Include="Door\15ExpirationPrompt\ReadExpirationPrompt_Result.cs" />
+    <Compile Include="Door\15ExpirationPrompt\WriteExpirationPrompt.cs" />
+    <Compile Include="Door\15ExpirationPrompt\WriteExpirationPrompt_Parameter.cs" />
+    <Compile Include="AdditionalData\01WriteFeatureCode\WriteFeatureCode.cs" />
+    <Compile Include="AdditionalData\01WriteFeatureCode\WriteFeatureCode_Parameter.cs" />
+    <Compile Include="AdditionalData\01WriteFeatureCode\WriteFeatureCode_Result.cs" />
+    <Compile Include="CombinedCommand\ICombinedCommand.cs" />
+    <Compile Include="CombinedCommand\ISubCommand.cs" />
+    <Compile Include="Door\16DoorOpenCheckMode\ReadDoorOpenCheckMode.cs" />
+    <Compile Include="Door\16DoorOpenCheckMode\ReadDoorOpenCheckMode_Result.cs" />
+    <Compile Include="Door\16DoorOpenCheckMode\WriteDoorOpenCheckMode.cs" />
+    <Compile Include="Door\16DoorOpenCheckMode\WriteDoorOpenCheckMode_Parameter.cs" />
+    <Compile Include="Holiday\01ReadHolidayDetail\ReadHolidayDetail.cs" />
+    <Compile Include="Holiday\01ReadHolidayDetail\ReadHolidayDetail_Result.cs" />
+    <Compile Include="Holiday\02ClearHoliday\ClearHoliday.cs" />
+    <Compile Include="Holiday\03ReadAllHoliday\ReadAllHoliday.cs" />
+    <Compile Include="Holiday\03ReadAllHoliday\ReadAllHoliday_Result.cs" />
+    <Compile Include="Holiday\04AddHoliday\AddHoliday.cs" />
+    <Compile Include="Holiday\04AddHoliday\AddHoliday_Parameter.cs" />
+    <Compile Include="Holiday\05DeleteHoliday\DeleteHoliday.cs" />
+    <Compile Include="Holiday\05DeleteHoliday\DeleteHoliday_Parameter.cs" />
+    <Compile Include="Person\02ClearPersonDataBase\ClearPersonDataBase.cs" />
+    <Compile Include="Person\01PersonDatabaseDetail\ReadPersonDatabaseDetail.cs" />
+    <Compile Include="Person\01PersonDatabaseDetail\ReadPersonDatabaseDetail_Result.cs" />
+    <Compile Include="Person\03PersonDataBase\ReadPersonDataBase.cs" />
+    <Compile Include="Person\03PersonDataBase\ReadPersonDataBase_Result.cs" />
+    <Compile Include="Person\05AddPerson\AddPeosonAndImage.cs" />
+    <Compile Include="Person\05AddPerson\AddPerson.cs" />
+    <Compile Include="Person\04PersonDetail\ReadPersonDetail.cs" />
+    <Compile Include="Person\04PersonDetail\ReadPersonDetail_Parameter.cs" />
+    <Compile Include="Person\04PersonDetail\ReadPersonDetail_Result.cs" />
+    <Compile Include="Person\05AddPerson\AddPersonAndImage_Parameter.cs" />
+    <Compile Include="Person\05AddPerson\AddPerson_Parameter.cs" />
+    <Compile Include="Person\05AddPerson\AddPeosonAndImage_Result.cs" />
+    <Compile Include="Person\07Register\RegisterIdentificationData.cs" />
+    <Compile Include="Person\07Register\RegisterIdentificationData_Parameter.cs" />
+    <Compile Include="Person\07Register\RegisterIdentificationData_Result.cs" />
+    <Compile Include="Person\IdentificationData.cs" />
+    <Compile Include="Person\WritePerson_ParameterBase.cs" />
+    <Compile Include="Person\WritePerson_Result.cs" />
+    <Compile Include="Person\06DeletePerson\DeletePerson.cs" />
+    <Compile Include="Person\06DeletePerson\DeletePerson_Parameter.cs" />
+    <Compile Include="Person\WritePersonBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Software\UpdateSoftware.cs" />
+    <Compile Include="Software\UpdateSoftware_FP.cs" />
+    <Compile Include="Software\UpdateSoftware_Parameter.cs" />
+    <Compile Include="Software\UpdateSoftware_Result.cs" />
+    <Compile Include="SystemParameter\05Version\ReadVersion.cs" />
+    <Compile Include="SystemParameter\05Version\ReadVersion_Result.cs" />
+    <Compile Include="SystemParameter\06SystemRunStatus\ReadSystemRunStatus.cs" />
+    <Compile Include="SystemParameter\06SystemRunStatus\ReadSystemRunStatus_Result.cs" />
+    <Compile Include="SystemParameter\07RecordMode\ReadRecordMode.cs" />
+    <Compile Include="SystemParameter\07RecordMode\ReadRecordMode_Result.cs" />
+    <Compile Include="SystemParameter\07RecordMode\WriteRecordMode.cs" />
+    <Compile Include="SystemParameter\07RecordMode\WriteRecordMode_Parameter.cs" />
+    <Compile Include="SystemParameter\08Watch\BeginWatch.cs" />
+    <Compile Include="SystemParameter\08Watch\BeginWatch_Broadcast.cs" />
+    <Compile Include="SystemParameter\08Watch\CloseWatch.cs" />
+    <Compile Include="SystemParameter\08Watch\CloseWatch_Broadcast.cs" />
+    <Compile Include="SystemParameter\08Watch\ReadWatchState.cs" />
+    <Compile Include="SystemParameter\09SystemStatus\ReadSystemStatus.cs" />
+    <Compile Include="SystemParameter\09SystemStatus\ReadSystemStatus_Result.cs" />
+    <Compile Include="SystemParameter\14DataEncryptionSwitch\ReadDataEncryptionSwitch.cs" />
+    <Compile Include="SystemParameter\14DataEncryptionSwitch\ReadDataEncryptionSwitch_Result.cs" />
+    <Compile Include="SystemParameter\14DataEncryptionSwitch\WriteDataEncryptionSwitch.cs" />
+    <Compile Include="SystemParameter\14DataEncryptionSwitch\WriteDataEncryptionSwitch_Parameter.cs" />
+    <Compile Include="SystemParameter\15LocalIdentity\ReadLocalIdentity.cs" />
+    <Compile Include="SystemParameter\15LocalIdentity\ReadLocalIdentity_Result.cs" />
+    <Compile Include="SystemParameter\15LocalIdentity\WriteLocalIdentity.cs" />
+    <Compile Include="SystemParameter\15LocalIdentity\WriteLocalIdentity_Parameter.cs" />
+    <Compile Include="SystemParameter\16WiegandOutput\ReadWiegandOutput.cs" />
+    <Compile Include="SystemParameter\16WiegandOutput\ReadWiegandOutput_Result.cs" />
+    <Compile Include="SystemParameter\16WiegandOutput\WriteWiegandOutput.cs" />
+    <Compile Include="SystemParameter\16WiegandOutput\WriteWiegandOutput_Parameter.cs" />
+    <Compile Include="SystemParameter\17ComparisonThreshold\ReadComparisonThreshold.cs" />
+    <Compile Include="SystemParameter\17ComparisonThreshold\ReadComparisonThreshold_Result.cs" />
+    <Compile Include="SystemParameter\17ComparisonThreshold\WriteComparisonThreshold.cs" />
+    <Compile Include="SystemParameter\17ComparisonThreshold\WriteComparisonThreshold_Parameter.cs" />
+    <Compile Include="SystemParameter\18ScreenDisplayContent\ReadScreenDisplayContent.cs" />
+    <Compile Include="SystemParameter\18ScreenDisplayContent\ReadScreenDisplayContent_Result.cs" />
+    <Compile Include="SystemParameter\18ScreenDisplayContent\WriteScreenDisplayContent.cs" />
+    <Compile Include="SystemParameter\18ScreenDisplayContent\WriteScreenDisplayContent_Parameter.cs" />
+    <Compile Include="SystemParameter\19ManageMenuPassword\ReadManageMenuPassword.cs" />
+    <Compile Include="SystemParameter\19ManageMenuPassword\ReadManageMenuPassword_Result.cs" />
+    <Compile Include="SystemParameter\19ManageMenuPassword\WriteManageMenuPassword.cs" />
+    <Compile Include="SystemParameter\19ManageMenuPassword\WriteManageMenuPassword_Parameter.cs" />
+    <Compile Include="SystemParameter\20OEM\OEMDetail.cs" />
+    <Compile Include="SystemParameter\20OEM\OEM_Parameter.cs" />
+    <Compile Include="SystemParameter\20OEM\OEM_Result.cs" />
+    <Compile Include="SystemParameter\20OEM\ReadOEM.cs" />
+    <Compile Include="SystemParameter\20OEM\WriteOEM.cs" />
+    <Compile Include="SystemParameter\23FaceBioassay\ReadFaceBioassay.cs" />
+    <Compile Include="SystemParameter\23FaceBioassay\ReadFaceBioassay_Result.cs" />
+    <Compile Include="SystemParameter\23FaceBioassay\WriteFaceBioassay.cs" />
+    <Compile Include="SystemParameter\23FaceBioassay\WriteFaceBioassay_Parameter.cs" />
+    <Compile Include="SystemParameter\24FaceIdentifyRange\ReadFaceIdentifyRange_Result.cs" />
+    <Compile Include="SystemParameter\24FaceIdentifyRange\ReadFaceIdentifyRange.cs" />
+    <Compile Include="SystemParameter\24FaceIdentifyRange\WriteFaceIdentifyRange.cs" />
+    <Compile Include="SystemParameter\24FaceIdentifyRange\WriteFaceIdentifyRange_Parameter.cs" />
+    <Compile Include="SystemParameter\26DriveLanguage\ReadDriveLanguage.cs" />
+    <Compile Include="SystemParameter\26DriveLanguage\ReadDriveLanguage_Result.cs" />
+    <Compile Include="SystemParameter\26DriveLanguage\WriteDriveLanguage.cs" />
+    <Compile Include="SystemParameter\26DriveLanguage\WriteDriveLanguage_Parameter.cs" />
+    <Compile Include="SystemParameter\27DriveVolume\ReadDriveVolume.cs" />
+    <Compile Include="SystemParameter\27DriveVolume\ReadDriveVolume_Result.cs" />
+    <Compile Include="SystemParameter\27DriveVolume\WriteDriveVolume.cs" />
+    <Compile Include="SystemParameter\27DriveVolume\WriteDriveVolume_Parameter.cs" />
+    <Compile Include="SystemParameter\28FaceLEDMode\ReadFaceLEDMode.cs" />
+    <Compile Include="SystemParameter\28FaceLEDMode\ReadFaceLEDMode_Result.cs" />
+    <Compile Include="SystemParameter\28FaceLEDMode\WriteFaceLEDMode.cs" />
+    <Compile Include="SystemParameter\28FaceLEDMode\WriteFaceLEDMode_Parameter.cs" />
+    <Compile Include="SystemParameter\29FaceMouthmufflePar\ReadFaceMouthmufflePar.cs" />
+    <Compile Include="SystemParameter\29FaceMouthmufflePar\ReadFaceMouthmufflePar_Result.cs" />
+    <Compile Include="SystemParameter\29FaceMouthmufflePar\WriteFaceMouthmufflePar.cs" />
+    <Compile Include="SystemParameter\29FaceMouthmufflePar\WriteFaceMouthmufflePar_Parameter.cs" />
+    <Compile Include="SystemParameter\30FaceBodyTemperaturePar\ReadFaceBodyTemperaturePar.cs" />
+    <Compile Include="SystemParameter\30FaceBodyTemperaturePar\ReadFaceBodyTemperaturePar_Result.cs" />
+    <Compile Include="SystemParameter\30FaceBodyTemperaturePar\WriteFaceBodyTemperaturePar.cs" />
+    <Compile Include="SystemParameter\30FaceBodyTemperaturePar\WriteFaceBodyTemperaturePar_Parameter.cs" />
+    <Compile Include="SystemParameter\34FaceBodyTemperatureAlarmPar\ReadFaceBodyTemperatureAlarmPar.cs" />
+    <Compile Include="SystemParameter\34FaceBodyTemperatureAlarmPar\ReadFaceBodyTemperatureAlarmPar_Result.cs" />
+    <Compile Include="SystemParameter\34FaceBodyTemperatureAlarmPar\WriteFaceBodyTemperatureAlarmPar.cs" />
+    <Compile Include="SystemParameter\34FaceBodyTemperatureAlarmPar\WriteFaceBodyTemperatureAlarmPar_Parameter.cs" />
+    <Compile Include="SystemParameter\35FaceBodyTemperatureShowPar\ReadFaceBodyTemperatureShowPar.cs" />
+    <Compile Include="SystemParameter\35FaceBodyTemperatureShowPar\ReadFaceBodyTemperatureShowPar_Result.cs" />
+    <Compile Include="SystemParameter\35FaceBodyTemperatureShowPar\WriteFaceBodyTemperatureShowPar.cs" />
+    <Compile Include="SystemParameter\35FaceBodyTemperatureShowPar\WriteFaceBodyTemperatureShowPar_Parameter.cs" />
+    <Compile Include="SystemParameter\36ShortMessage\ReadShortMessage.cs" />
+    <Compile Include="SystemParameter\36ShortMessage\ReadShortMessage_Result.cs" />
+    <Compile Include="SystemParameter\36ShortMessage\WriteShortMessage_Parameter.cs" />
+    <Compile Include="SystemParameter\36ShortMessage\WriteShortMessage.cs" />
+    <Compile Include="SystemParameter\37NetworkSetting\01ServerDetail\ReadNetworkServerDetail.cs" />
+    <Compile Include="SystemParameter\37NetworkSetting\01ServerDetail\ReadNetworkServerDetail_Result.cs" />
+    <Compile Include="SystemParameter\37NetworkSetting\01ServerDetail\WriteNetworkServerDetail.cs" />
+    <Compile Include="SystemParameter\37NetworkSetting\01ServerDetail\WriteNetworkServerDetail_Parameter.cs" />
+    <Compile Include="SystemParameter\37NetworkSetting\02ClientWorkMode\ReadClientWorkMode.cs" />
+    <Compile Include="SystemParameter\37NetworkSetting\02ClientWorkMode\ReadClientWorkMode_Result.cs" />
+    <Compile Include="SystemParameter\37NetworkSetting\02ClientWorkMode\WriteClientWorkMode.cs" />
+    <Compile Include="SystemParameter\37NetworkSetting\02ClientWorkMode\WriteClientWorkMode_Parameter.cs" />
+    <Compile Include="SystemParameter\37NetworkSetting\03RequireSendKeepalivePacket\RequireSendKeepalivePacket.cs" />
+    <Compile Include="SystemParameter\37NetworkSetting\03RequireSendKeepalivePacket\RequireSendKeepalivePacket_Result.cs" />
+    <Compile Include="SystemParameter\37NetworkSetting\04ReadClientStatus\ReadClientStatus.cs" />
+    <Compile Include="SystemParameter\37NetworkSetting\04ReadClientStatus\ReadClientStatus_Result.cs" />
+    <Compile Include="SystemParameter\37NetworkSetting\05RequireConnectServer\RequireConnectServer.cs" />
+    <Compile Include="SystemParameter\37NetworkSetting\05RequireConnectServer\RequireConnectServer_Result.cs" />
+    <Compile Include="SystemParameter\37NetworkSetting\06PUSH_AUTO\Read_PUSH_AUTO_Service.cs" />
+    <Compile Include="SystemParameter\37NetworkSetting\06PUSH_AUTO\Read_PUSH_AUTO_Service_Result.cs" />
+    <Compile Include="SystemParameter\37NetworkSetting\06PUSH_AUTO\Reset_PUSH_AUTO_Service.cs" />
+    <Compile Include="SystemParameter\37NetworkSetting\06PUSH_AUTO\Reset_PUSH_AUTO_Service_Parameter.cs" />
+    <Compile Include="SystemParameter\37NetworkSetting\06PUSH_AUTO\Transaction_PUSH_Detail.cs" />
+    <Compile Include="SystemParameter\37NetworkSetting\06PUSH_AUTO\Write_PUSH_AUTO_Service.cs" />
+    <Compile Include="SystemParameter\37NetworkSetting\06PUSH_AUTO\Write_PUSH_AUTO_Service_Parameter.cs" />
+    <Compile Include="SystemParameter\38RequireRestart\RequireRestart.cs" />
+    <Compile Include="SystemParameter\40AuthenticationMode\ReadAuthenticationMode.cs" />
+    <Compile Include="SystemParameter\40AuthenticationMode\WriteAuthenticationMode_Parameter.cs" />
+    <Compile Include="SystemParameter\40AuthenticationMode\ReadAuthenticationMode_Result.cs" />
+    <Compile Include="SystemParameter\40AuthenticationMode\WriteAuthenticationMode.cs" />
+    <Compile Include="SystemParameter\41SaveRecordImage\ReadSaveRecordImage.cs" />
+    <Compile Include="SystemParameter\41SaveRecordImage\ReadSaveRecordImage_Result.cs" />
+    <Compile Include="SystemParameter\41SaveRecordImage\WriteSaveRecordImage.cs" />
+    <Compile Include="SystemParameter\41SaveRecordImage\WriteSaveRecordImage_Parameter.cs" />
+    <Compile Include="SystemParameter\42RecordQRcode\ReadRecordQRCode.cs" />
+    <Compile Include="SystemParameter\42RecordQRcode\ReadRecordQRCode_Result.cs" />
+    <Compile Include="SystemParameter\42RecordQRcode\WriteRecordQRCode.cs" />
+    <Compile Include="SystemParameter\42RecordQRcode\WriteRecordQRCode_Parameter.cs" />
+    <Compile Include="SystemParameter\43LightPattern\ReadLightPattern.cs" />
+    <Compile Include="SystemParameter\43LightPattern\ReadLightPattern_Result.cs" />
+    <Compile Include="SystemParameter\43LightPattern\WriteLightPattern.cs" />
+    <Compile Include="SystemParameter\43LightPattern\WriteLightPattern_Parameter.cs" />
+    <Compile Include="SystemParameter\A0ConnectTestTransaction\SendConnectTestResponse.cs" />
+    <Compile Include="Transaction\01TransactionDatabaseDetail\ReadTransactionDatabaseDetail.cs" />
+    <Compile Include="Transaction\01TransactionDatabaseDetail\ReadTransactionDatabaseDetail_Result.cs" />
+    <Compile Include="Transaction\02ClearTransactionDatabase\ClearTransactionDatabase.cs" />
+    <Compile Include="Transaction\02ClearTransactionDatabase\ClearTransactionDatabase_Parameter.cs" />
+    <Compile Include="Transaction\02ClearTransactionDatabase\TransactionDatabaseEmpty.cs" />
+    <Compile Include="Transaction\06ReadTransactionDatabase\BaseReadTransactionDatabaseSubCommand.cs" />
+    <Compile Include="Transaction\06ReadTransactionDatabase\ReadTransactionAndImageDatabase.cs" />
+    <Compile Include="Transaction\06ReadTransactionDatabase\ReadTransactionAndImageDatabase_Parameter.cs" />
+    <Compile Include="Transaction\06ReadTransactionDatabase\ReadTransactionAndImageDatabase_Result.cs" />
+    <Compile Include="Transaction\06ReadTransactionDatabase\ReadTransactionDatabase.cs" />
+    <Compile Include="Transaction\06ReadTransactionDatabase\ReadTransactionDatabaseSubCommand.cs" />
+    <Compile Include="Transaction\06ReadTransactionDatabase\ReadTransactionDatabase_Parameter.cs" />
+    <Compile Include="Transaction\03TransactionDatabaseReadIndex\WriteTransactionDatabaseReadIndex.cs" />
+    <Compile Include="Transaction\03TransactionDatabaseReadIndex\WriteTransactionDatabaseReadIndex_Parameter.cs" />
+    <Compile Include="Transaction\04WriteTransactionDatabaseWriteIndex\WriteTransactionDatabaseWriteIndex.cs" />
+    <Compile Include="Transaction\04WriteTransactionDatabaseWriteIndex\WriteTransactionDatabaseWriteIndex_Parameter.cs" />
+    <Compile Include="Transaction\e_TransactionDatabaseType.cs" />
+    <Compile Include="Transaction\05ReadTransactionDatabaseByIndex\ReadTransactionDatabaseByIndex.cs" />
+    <Compile Include="Transaction\05ReadTransactionDatabaseByIndex\ReadTransactionDatabaseByIndex_Parameter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\DoNet版通讯动态库V2\DoNetDrive.Common\DoNetDrive.Common\DoNetDrive.Common_Net45.csproj">
+      <Project>{61ea1859-ee39-4e26-a919-f3d8193b9934}</Project>
+      <Name>DoNetDrive.Common_Net45</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DoNet版通讯动态库V2\DoNetDrive.Protocol.Util\DoNetDrive.Protocol.Util\DoNetDrive.Protocol.Util_Net45.csproj">
+      <Project>{774faec9-9b9f-4ad5-a3f7-c5bdd86963d3}</Project>
+      <Name>DoNetDrive.Protocol.Util_Net45</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DoNet版通讯动态库V2\FCARDIO.Core\FCARDIO.Core\DoNetDrive.Core_Net45.vbproj">
+      <Project>{a149c4d3-2209-408f-a0de-d9eb8e0fa492}</Project>
+      <Name>DoNetDrive.Core_Net45</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DoNet版通讯动态库V2\FCARDIO.Protocol\FCARDIO.Protocol\DoNetDrive.Protocol_Net45.vbproj">
+      <Project>{4c9b06e5-da6b-49af-8e4d-a0d75046c044}</Project>
+      <Name>DoNetDrive.Protocol_Net45</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

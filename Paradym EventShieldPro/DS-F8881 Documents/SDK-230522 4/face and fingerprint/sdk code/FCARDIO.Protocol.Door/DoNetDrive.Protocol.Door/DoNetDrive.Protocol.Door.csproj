@@ -1,0 +1,466 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{14F89726-B7E7-4222-BFCF-C63148B5B34D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DoNetDrive.Protocol.Door</RootNamespace>
+    <AssemblyName>DoNetDrive.Protocol.Door</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Output\Debug\Net45\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\Output\Debug\Net45\DoNetDrive.Protocol.Door.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Output\Release\Net45\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\Output\Release\Net45\DoNetDrive.Protocol.Door.xml</DocumentationFile>
+    <RegisterForComInterop>false</RegisterForComInterop>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DotNetty.Buffers">
+      <HintPath>..\Output\Release\net45\DoNetty\DotNetty.Buffers.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DotNetty.Common">
+      <HintPath>..\Output\Release\net45\DoNetty\DotNetty.Common.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Door8800\AbstractParameter.cs" />
+    <Compile Include="Door8800\Card\01CardDatabaseDetail\ReadCardDatabaseDetail.cs" />
+    <Compile Include="Door8800\Card\01CardDatabaseDetail\ReadCardDatabaseDetail_Result.cs" />
+    <Compile Include="Door8800\Card\03CardDataBase\ReadCardDataBase_Parameter.cs" />
+    <Compile Include="Door8800\Card\03CardDataBase\Base\ReadCardDataBase_Base_Result.cs" />
+    <Compile Include="Door8800\Card\03CardDataBase\ReadCardDataBase.cs" />
+    <Compile Include="Door8800\Card\03CardDataBase\Base\ReadCardDataBase_Base.cs" />
+    <Compile Include="Door8800\Card\03CardDataBase\ReadCardDataBase_Result.cs" />
+    <Compile Include="Door8800\Card\02ClearCardDataBase\ClearCardDataBase.cs" />
+    <Compile Include="Door8800\Card\02ClearCardDataBase\ClearCardDataBase_Parameter.cs" />
+    <Compile Include="Door8800\Card\04CardDetail\ReadCardDetail.cs" />
+    <Compile Include="Door8800\Card\04CardDetail\ReadCardDetail_Parameter.cs" />
+    <Compile Include="Door8800\Card\04CardDetail\ReadCardDetail_Result.cs" />
+    <Compile Include="Door8800\Card\06DeleteCard\DeleteCardBase.cs" />
+    <Compile Include="Door8800\Card\WriteCardList\05CardListBySequence\WriteCardListBySequence.cs" />
+    <Compile Include="Door8800\Card\WriteCardList\05CardListBySequence\WriteCardListBySequenceBase.cs" />
+    <Compile Include="Door8800\Card\WriteCardList\05CardListBySequence\WriteCardListBySequence_Parameter.cs" />
+    <Compile Include="Door8800\Card\06DeleteCard\DeleteCard.cs" />
+    <Compile Include="Door8800\Card\06DeleteCard\DeleteCard_Parameter.cs" />
+    <Compile Include="Door8800\Card\WriteCardList\07CardListBySort\WriteCardListBySort.cs" />
+    <Compile Include="Door8800\Card\WriteCardList\07CardListBySort\WriteCardListBySortBase.cs" />
+    <Compile Include="Door8800\Card\WriteCardList\07CardListBySort\WriteCardListBySort_Parameter.cs" />
+    <Compile Include="Door8800\Card\WriteCardList\WriteCardListBase.cs" />
+    <Compile Include="Door8800\Card\WriteCardList\WriteCardList_Parameter_Base.cs" />
+    <Compile Include="Door8800\Card\WriteCardList\WriteCardList_Result.cs" />
+    <Compile Include="Door8800\Data\CardDetailBase.cs" />
+    <Compile Include="Door8800\Data\TimeGroup\ReaderWork\DayTimeGroup_ReaderWork.cs" />
+    <Compile Include="Door8800\Data\TimeGroup\ReaderWork\TimeSegment_ReaderWork.cs" />
+    <Compile Include="Door8800\Data\TimeGroup\ReaderWork\WeekTimeGroup_ReaderWork.cs" />
+    <Compile Include="Door8800\Data\TransactionDatabaseDetail.cs" />
+    <Compile Include="Door8800\Data\TransactionDetail.cs" />
+    <Compile Include="Door8800\Data\Transaction\AbstractDoorTransaction.cs" />
+    <Compile Include="Door8800\Data\Transaction\AlarmTransaction.cs" />
+    <Compile Include="Door8800\Data\Transaction\ButtonTransaction.cs" />
+    <Compile Include="Door8800\Data\Transaction\CardTransaction.cs" />
+    <Compile Include="Door8800\Data\Transaction\ConnectMessageTransaction.cs" />
+    <Compile Include="Door8800\Data\Transaction\DoorSensorTransaction.cs" />
+    <Compile Include="Door8800\Data\Transaction\KeepaliveTransaction.cs" />
+    <Compile Include="Door8800\Data\Transaction\SoftwareTransaction.cs" />
+    <Compile Include="Door8800\Data\Transaction\SystemTransaction.cs" />
+    <Compile Include="Door8800\Door\04ReaderWorkSetting\ReadReaderWorkSetting_Base.cs" />
+    <Compile Include="Door8800\Door\25MultiCard\MultiCard_Result.cs" />
+    <Compile Include="Door8800\Door\25MultiCard\ReadMultiCard.cs" />
+    <Compile Include="Door8800\Door\25MultiCard\ReadMultiCard_Parameter.cs" />
+    <Compile Include="Door8800\Door\25MultiCard\WriteMultiCard.cs" />
+    <Compile Include="Door8800\Door\25MultiCard\WriteMultiCard_Parameter.cs" />
+    <Compile Include="Door8800\Door\28AreaAntiPassback\ReadAreaAntiPassback.cs" />
+    <Compile Include="Door8800\Door\28AreaAntiPassback\WriteAreaAntiPassback.cs" />
+    <Compile Include="Door8800\Door\28AreaAntiPassback\WriteAreaAntiPassback_Parameter.cs" />
+    <Compile Include="Door8800\Door\28AreaAntiPassback\AreaAntiPassback_Result.cs" />
+    <Compile Include="Door8800\Door\DoorDetail.cs" />
+    <Compile Include="Door8800\Door\21VoiceBroadcastSetting\ReadVoiceBroadcastSetting.cs" />
+    <Compile Include="Door8800\Door\21VoiceBroadcastSetting\VoiceBroadcastSetting_Result.cs" />
+    <Compile Include="Door8800\Door\21VoiceBroadcastSetting\WriteVoiceBroadcastSetting.cs" />
+    <Compile Include="Door8800\Door\21VoiceBroadcastSetting\WriteVoiceBroadcastSetting_Parameter.cs" />
+    <Compile Include="Door8800\Door\22InOutSideReadOpenSetting\InOutSideReadOpenSetting_Parameter.cs" />
+    <Compile Include="Door8800\Door\22InOutSideReadOpenSetting\InOutSideReadOpenSetting_Result.cs" />
+    <Compile Include="Door8800\Door\22InOutSideReadOpenSetting\ReadInOutSideReadOpenSetting.cs" />
+    <Compile Include="Door8800\Door\22InOutSideReadOpenSetting\WriteInOutSideReadOpenSetting.cs" />
+    <Compile Include="Door8800\Door\23ManageKeyboardSetting\ReadManageKeyboardSetting.cs" />
+    <Compile Include="Door8800\Door\23ManageKeyboardSetting\WriteManageKeyboardSetting.cs" />
+    <Compile Include="Door8800\Door\23ManageKeyboardSetting\WriteManageKeyboardSetting_Parameter.cs" />
+    <Compile Include="Door8800\Door\29InterLockSetting\InterLockSetting_Result.cs" />
+    <Compile Include="Door8800\Door\29InterLockSetting\ReadInterLockSetting.cs" />
+    <Compile Include="Door8800\Door\29InterLockSetting\WriteInterLockSetting.cs" />
+    <Compile Include="Door8800\Door\29InterLockSetting\WriteInterLockSetting_Parameter.cs" />
+    <Compile Include="Door8800\Door\30ReaderAlarm\ReaderAlarm_Result.cs" />
+    <Compile Include="Door8800\Door\30ReaderAlarm\ReadReaderAlarm.cs" />
+    <Compile Include="Door8800\Door\30ReaderAlarm\WriteReaderAlarm.cs" />
+    <Compile Include="Door8800\Door\30ReaderAlarm\WriteReaderAlarm_Parameter.cs" />
+    <Compile Include="Door8800\Door8800CommandEx.cs" />
+    <Compile Include="Door8800\Door8800Command_Read_DoorParameter.cs" />
+    <Compile Include="Door8800\Door8800Command_ReadParameter.cs" />
+    <Compile Include="Door8800\Door8800Command_WriteParameter.cs" />
+    <Compile Include="Door8800\Holiday\02ClearHoliday\ClearHoliday.cs" />
+    <Compile Include="Door8800\Holiday\04AddHoliday\AddHoliday.cs" />
+    <Compile Include="Door8800\Holiday\04AddHoliday\AddHoliday_Parameter.cs" />
+    <Compile Include="Door8800\Holiday\05DeleteHoliday\DeleteHoliday_Parameter.cs" />
+    <Compile Include="Door8800\Holiday\05DeleteHoliday\DeleteHoliday.cs" />
+    <Compile Include="Door8800\Holiday\HolidayDetail.cs" />
+    <Compile Include="Door8800\Holiday\03ReadAllHoliday\ReadAllHoliday.cs" />
+    <Compile Include="Door8800\Holiday\HolidayDBDetail.cs" />
+    <Compile Include="Door8800\Holiday\03ReadAllHoliday\ReadAllHoliday_Result.cs" />
+    <Compile Include="Door8800\Holiday\01ReadHolidayDetail\ReadHolidayDetail.cs" />
+    <Compile Include="Door8800\Holiday\01ReadHolidayDetail\ReadHolidayDetail_Result.cs" />
+    <Compile Include="Door8800\Password\01ReadPasswordDetail\ReadPasswordDetail.cs" />
+    <Compile Include="Door8800\Password\01ReadPasswordDetail\ReadPasswordDetail_Result.cs" />
+    <Compile Include="Door8800\Password\02ClearPassword\ClearPassword.cs" />
+    <Compile Include="Door8800\Password\03ReadAllPassword\Base\ReadAllPassword_Base.cs" />
+    <Compile Include="Door8800\Password\03ReadAllPassword\ReadAllPassword.cs" />
+    <Compile Include="Door8800\Password\03ReadAllPassword\ReadAllPassword_Result.cs" />
+    <Compile Include="Door8800\Password\03ReadAllPassword\Base\ReadAllPassword_Result_Base.cs" />
+    <Compile Include="Door8800\Password\04AddPassword\AddPassword.cs" />
+    <Compile Include="Door8800\TemplateMethod\TemplateReadData_Base.cs" />
+    <Compile Include="Door8800\TemplateMethod\TemplateResult_Base.cs" />
+    <Compile Include="Door8800\TemplateMethod\TemplateParameter_Base.cs" />
+    <Compile Include="Door8800\TemplateMethod\TemplateData_Base.cs" />
+    <Compile Include="Door8800\Password\WritePasswordBase.cs" />
+    <Compile Include="Door8800\Password\Password_Parameter.cs" />
+    <Compile Include="Door8800\Password\05DeletePassword\DeletePassword.cs" />
+    <Compile Include="Door8800\Password\PasswordDetail.cs" />
+    <Compile Include="Door8800\Password\Password_Parameter_Base.cs" />
+    <Compile Include="Door8800\SystemParameter\14SearchControltor\SearchControltor_Result.cs" />
+    <Compile Include="Door8800\SystemParameter\15CacheContent\CacheContent_Parameter.cs" />
+    <Compile Include="Door8800\SystemParameter\15CacheContent\CacheContent_Result.cs" />
+    <Compile Include="Door8800\SystemParameter\15CacheContent\ReadCacheContent.cs" />
+    <Compile Include="Door8800\SystemParameter\15CacheContent\WriteCacheContent.cs" />
+    <Compile Include="Door8800\SystemParameter\21TCPClient\ReadTCPClientList.cs" />
+    <Compile Include="Door8800\SystemParameter\21TCPClient\StopAllTCPClientConnection.cs" />
+    <Compile Include="Door8800\SystemParameter\21TCPClient\StopTCPClientConnection.cs" />
+    <Compile Include="Door8800\SystemParameter\21TCPClient\TCPClientDetail.cs" />
+    <Compile Include="Door8800\SystemParameter\21TCPClient\TCPClient_Parameter.cs" />
+    <Compile Include="Door8800\SystemParameter\21TCPClient\TCPClient_Result.cs" />
+    <Compile Include="Door8800\SystemParameter\23ControlPanelTamperAlarm\ReadControlPanelTamperAlarm.cs" />
+    <Compile Include="Door8800\SystemParameter\23ControlPanelTamperAlarm\ReadControlPanelTamperAlarm_Result.cs" />
+    <Compile Include="Door8800\SystemParameter\23ControlPanelTamperAlarm\WriteControlPanelTamperAlarm.cs" />
+    <Compile Include="Door8800\SystemParameter\23ControlPanelTamperAlarm\WriteControlPanelTamperAlarm_Parameter.cs" />
+    <Compile Include="Door8800\SystemParameter\24HTTPPageLandingSwitch\ReadHTTPPageLandingSwitch.cs" />
+    <Compile Include="Door8800\SystemParameter\24HTTPPageLandingSwitch\ReadHTTPPageLandingSwitch_Result.cs" />
+    <Compile Include="Door8800\SystemParameter\24HTTPPageLandingSwitch\WriteHTTPPageLandingSwitch.cs" />
+    <Compile Include="Door8800\SystemParameter\24HTTPPageLandingSwitch\WriteHTTPPageLandingSwitch_Parameter.cs" />
+    <Compile Include="Door8800\SystemParameter\25LawfulCardReleaseAlarmSwitch\ReadLawfulCardReleaseAlarmSwitch.cs" />
+    <Compile Include="Door8800\SystemParameter\25LawfulCardReleaseAlarmSwitch\ReadLawfulCardReleaseAlarmSwitch_Result.cs" />
+    <Compile Include="Door8800\SystemParameter\25LawfulCardReleaseAlarmSwitch\WriteLawfulCardReleaseAlarmSwitch.cs" />
+    <Compile Include="Door8800\SystemParameter\25LawfulCardReleaseAlarmSwitch\WriteLawfulCardReleaseAlarmSwitch_Parameter.cs" />
+    <Compile Include="Door8800\TemplateMethod\TemplateWriteData_Base.cs" />
+    <Compile Include="Door8800\TimeGroup\01ClearTimeGroup\ClearTimeGroup.cs" />
+    <Compile Include="Door8800\TimeGroup\02ReadTimeGroup\ReadTimeGroup.cs" />
+    <Compile Include="Door8800\TimeGroup\02ReadTimeGroup\ReadTimeGroup_Result.cs" />
+    <Compile Include="Door8800\TimeGroup\03AddTimeGroup\AddTimeGroup.cs" />
+    <Compile Include="Door8800\TimeGroup\03AddTimeGroup\AddTimeGroup_Parameter.cs" />
+    <Compile Include="Door8800\Time\TimeErrorCorrection\ReadTimeError.cs" />
+    <Compile Include="Door8800\Time\TimeErrorCorrection\ReadTimeError_Result.cs" />
+    <Compile Include="Door8800\Time\TimeErrorCorrection\WriteTimeError.cs" />
+    <Compile Include="Door8800\Time\TimeErrorCorrection\WriteTimeError_Parameter.cs" />
+    <Compile Include="Door8800\Time\WriteCustomTime.cs" />
+    <Compile Include="Door8800\Time\WriteCustomTime_Parameter.cs" />
+    <Compile Include="Door8800\Transaction\01TransactionDatabaseDetail\ReadTransactionDatabaseDetail.cs" />
+    <Compile Include="Door8800\Transaction\01TransactionDatabaseDetail\ReadTransactionDatabaseDetail_Result.cs" />
+    <Compile Include="Door8800\Transaction\02ClearTransactionDatabase\ClearTransactionDatabase.cs" />
+    <Compile Include="Door8800\Transaction\02ClearTransactionDatabase\ClearTransactionDatabase_Parameter.cs" />
+    <Compile Include="Door8800\Transaction\02ClearTransactionDatabase\TransactionDatabaseEmpty.cs" />
+    <Compile Include="Door8800\Transaction\03ReadTransactionDatabaseByIndex\ReadTransactionDatabaseByIndex.cs" />
+    <Compile Include="Door8800\Transaction\03ReadTransactionDatabaseByIndex\ReadTransactionDatabaseByIndex_Base.cs" />
+    <Compile Include="Door8800\Transaction\03ReadTransactionDatabaseByIndex\ReadTransactionDatabaseByIndex_Parameter.cs" />
+    <Compile Include="Door8800\Transaction\03ReadTransactionDatabaseByIndex\ReadTransactionDatabaseByIndex_Result.cs" />
+    <Compile Include="Door8800\Transaction\04ReadTransactionDatabase\ReadTransactionDatabase.cs" />
+    <Compile Include="Door8800\Transaction\04ReadTransactionDatabase\ReadTransactionDatabase_Base.cs" />
+    <Compile Include="Door8800\Transaction\04ReadTransactionDatabase\ReadTransactionDatabase_Parameter.cs" />
+    <Compile Include="Door8800\Transaction\04ReadTransactionDatabase\ReadTransactionDatabase_Result.cs" />
+    <Compile Include="Door8800\Transaction\05TransactionDatabaseReadIndex\WriteTransactionDatabaseReadIndex.cs" />
+    <Compile Include="Door8800\Transaction\05TransactionDatabaseReadIndex\WriteTransactionDatabaseReadIndex_Parameter.cs" />
+    <Compile Include="Door8800\Transaction\06WriteTransactionDatabaseWriteIndex\WriteTransactionDatabaseWriteIndex.cs" />
+    <Compile Include="Door8800\Transaction\06WriteTransactionDatabaseWriteIndex\WriteTransactionDatabaseWriteIndex_Parameter.cs" />
+    <Compile Include="Door8800\Transaction\e_TransactionDatabaseType.cs" />
+    <Compile Include="Door8800\Data\CardDetail.cs" />
+    <Compile Include="Door8800\Data\E_WeekDay.cs" />
+    <Compile Include="Door8800\Data\TimeGroup\DayTimeGroup.cs" />
+    <Compile Include="Door8800\Data\TimeGroup\TimeSegment.cs" />
+    <Compile Include="Door8800\Data\TimeGroup\WeekTimeGroup.cs" />
+    <Compile Include="Door8800\Door\01ReaderOption\ReaderOption_Result.cs" />
+    <Compile Include="Door8800\Door\01ReaderOption\ReadReaderOption.cs" />
+    <Compile Include="Door8800\Door\01ReaderOption\WriteReaderOption.cs" />
+    <Compile Include="Door8800\Door\01ReaderOption\ReaderOption_Parameter.cs" />
+    <Compile Include="Door8800\Door\02RelayOption\ReadRelayOption.cs" />
+    <Compile Include="Door8800\Door\02RelayOption\RelayOption_Parameter.cs" />
+    <Compile Include="Door8800\Door\02RelayOption\RelayOption_Result.cs" />
+    <Compile Include="Door8800\Door\02RelayOption\WriteRelayOption.cs" />
+    <Compile Include="Door8800\Door\04ReaderWorkSetting\WriteReaderWorkSetting_Parameter.cs" />
+    <Compile Include="Door8800\Door\04ReaderWorkSetting\ReaderWorkSetting_Result.cs" />
+    <Compile Include="Door8800\Door\04ReaderWorkSetting\ReadReaderWorkSetting.cs" />
+    <Compile Include="Door8800\Door\04ReaderWorkSetting\WriteReaderWorkSetting.cs" />
+    <Compile Include="Door8800\Door\05DoorWorkSetting\DoorWorkSetting_Result.cs" />
+    <Compile Include="Door8800\Door\05DoorWorkSetting\ReadDoorWorkSetting.cs" />
+    <Compile Include="Door8800\Door\05DoorWorkSetting\WriteDoorWorkSetting_Parameter.cs" />
+    <Compile Include="Door8800\Door\05DoorWorkSetting\WriteDoorWorkSetting.cs" />
+    <Compile Include="Door8800\Door\03Remote\CloseDoor.cs" />
+    <Compile Include="Door8800\Door\03Remote\HoldDoor.cs" />
+    <Compile Include="Door8800\Door\03Remote\LockDoor.cs" />
+    <Compile Include="Door8800\Door\03Remote\OpenDoor.cs" />
+    <Compile Include="Door8800\Door\03Remote\OpenDoor_CheckNum.cs" />
+    <Compile Include="Door8800\Door\03Remote\Remote_CheckNum_Parameter.cs" />
+    <Compile Include="Door8800\Door\03Remote\Remote_Parameter.cs" />
+    <Compile Include="Door8800\Door\03Remote\Remote_Result.cs" />
+    <Compile Include="Door8800\Door\03Remote\UnlockDoor.cs" />
+    <Compile Include="Door8800\Door\06AutoLockedSetting\AutoLockedSetting_Parameter.cs" />
+    <Compile Include="Door8800\Door\06AutoLockedSetting\AutoLockedSetting_Result.cs" />
+    <Compile Include="Door8800\Door\06AutoLockedSetting\ReadAutoLockedSetting.cs" />
+    <Compile Include="Door8800\Door\06AutoLockedSetting\WriteAutoLockedSetting.cs" />
+    <Compile Include="Door8800\Door\07RelayReleaseTime\ReadRelayReleaseTime.cs" />
+    <Compile Include="Door8800\Door\07RelayReleaseTime\RelayReleaseTime_Result.cs" />
+    <Compile Include="Door8800\Door\07RelayReleaseTime\WriteRelayReleaseTime.cs" />
+    <Compile Include="Door8800\Door\07RelayReleaseTime\WriteRelayReleaseTime_Parameter.cs" />
+    <Compile Include="Door8800\Door\08ReaderInterval\ReaderInterval_Result.cs" />
+    <Compile Include="Door8800\Door\08ReaderInterval\ReadReaderInterval.cs" />
+    <Compile Include="Door8800\Door\08ReaderInterval\WriteReaderInterval.cs" />
+    <Compile Include="Door8800\Door\08ReaderInterval\WriteReaderInterval_Parameter.cs" />
+    <Compile Include="Door8800\Door\09InvalidCardAlarmOption\InvalidCardAlarmOption_Result.cs" />
+    <Compile Include="Door8800\Door\09InvalidCardAlarmOption\ReadInvalidCardAlarmOption.cs" />
+    <Compile Include="Door8800\Door\09InvalidCardAlarmOption\WriteInvalidCardAlarmOption.cs" />
+    <Compile Include="Door8800\Door\09InvalidCardAlarmOption\WriteInvalidCardAlarmOption_Parameter.cs" />
+    <Compile Include="Door8800\Door\10AlarmPassword\AlarmPassword_Result.cs" />
+    <Compile Include="Door8800\Door\10AlarmPassword\ReadAlarmPassword.cs" />
+    <Compile Include="Door8800\Door\10AlarmPassword\WriteAlarmPassword.cs" />
+    <Compile Include="Door8800\Door\10AlarmPassword\WriteAlarmPassword_parameter.cs" />
+    <Compile Include="Door8800\Door\11AntiPassback\AntiPassback_Result.cs" />
+    <Compile Include="Door8800\Door\11AntiPassback\ReadAntiPassback.cs" />
+    <Compile Include="Door8800\Door\11AntiPassback\WriteAntiPassback.cs" />
+    <Compile Include="Door8800\Door\11AntiPassback\WriteAntiPassback_Parameter.cs" />
+    <Compile Include="Door8800\Door\12OvertimeAlarmSetting\OvertimeAlarmSetting_Result.cs" />
+    <Compile Include="Door8800\Door\12OvertimeAlarmSetting\ReadOvertimeAlarmSetting.cs" />
+    <Compile Include="Door8800\Door\12OvertimeAlarmSetting\WriteOvertimeAlarmSetting.cs" />
+    <Compile Include="Door8800\Door\12OvertimeAlarmSetting\WriteOvertimeAlarmSetting_Parameter.cs" />
+    <Compile Include="Door8800\Door\13PushButtonSetting\PushButtonSetting_Result.cs" />
+    <Compile Include="Door8800\Door\13PushButtonSetting\ReadPushButtonSetting.cs" />
+    <Compile Include="Door8800\Door\13PushButtonSetting\WritePushButtonSetting.cs" />
+    <Compile Include="Door8800\Door\13PushButtonSetting\WritePushButtonSetting_Parameter.cs" />
+    <Compile Include="Door8800\Door\14SensorAlarmSetting\ReadSensorAlarmSetting.cs" />
+    <Compile Include="Door8800\Door\14SensorAlarmSetting\SensorAlarmSetting_Result.cs" />
+    <Compile Include="Door8800\Door\14SensorAlarmSetting\WriteSensorAlarmSetting.cs" />
+    <Compile Include="Door8800\Door\14SensorAlarmSetting\WriteSensorAlarmSetting_Parameter.cs" />
+    <Compile Include="Door8800\Door\15AnyCardSetting\AnyCardSetting_Result.cs" />
+    <Compile Include="Door8800\Door\15AnyCardSetting\ReadAnyCardSetting.cs" />
+    <Compile Include="Door8800\Door\15AnyCardSetting\WriteAnyCardSetting.cs" />
+    <Compile Include="Door8800\Door\15AnyCardSetting\WriteAnyCardSetting_Parameter.cs" />
+    <Compile Include="Door8800\Door\DoorPort_Parameter.cs" />
+    <Compile Include="Door8800\SystemParameter\01SN\SN_Result.cs" />
+    <Compile Include="Door8800\SystemParameter\02ConnectPassword\ReadConnectPassword.cs" />
+    <Compile Include="Door8800\SystemParameter\02ConnectPassword\Password_Result.cs" />
+    <Compile Include="Door8800\SystemParameter\02ConnectPassword\ResetConnectPassword.cs" />
+    <Compile Include="Door8800\SystemParameter\02ConnectPassword\WriteConnectPassword.cs" />
+    <Compile Include="Door8800\SystemParameter\01SN\WriteSN.cs" />
+    <Compile Include="Door8800\SystemParameter\01SN\WriteSN_Broadcast.cs" />
+    <Compile Include="Door8800\SystemParameter\01SN\SN_Parameter.cs" />
+    <Compile Include="Door8800\SystemParameter\02ConnectPassword\Password_Parameter.cs" />
+    <Compile Include="Door8800\SystemParameter\03TCPSetting\ReadTCPSetting.cs" />
+    <Compile Include="Door8800\SystemParameter\03TCPSetting\ReadTCPSetting_Result.cs" />
+    <Compile Include="Door8800\SystemParameter\03TCPSetting\TCPDetail.cs" />
+    <Compile Include="Door8800\SystemParameter\03TCPSetting\WriteTCPSetting.cs" />
+    <Compile Include="Door8800\SystemParameter\03TCPSetting\WriteTCPSetting_Parameter.cs" />
+    <Compile Include="Door8800\SystemParameter\04Deadline\ReadDeadline.cs" />
+    <Compile Include="Door8800\SystemParameter\04Deadline\ReadDeadline_Result.cs" />
+    <Compile Include="Door8800\SystemParameter\04Deadline\WriteDeadline.cs" />
+    <Compile Include="Door8800\SystemParameter\04Deadline\WriteDeadline_Parameter.cs" />
+    <Compile Include="Door8800\SystemParameter\05Version\ReadVersion.cs" />
+    <Compile Include="Door8800\SystemParameter\05Version\ReadVersion_Result.cs" />
+    <Compile Include="Door8800\SystemParameter\06SystemStatus\ReadSystemStatus.cs" />
+    <Compile Include="Door8800\SystemParameter\06SystemStatus\ReadSystemStatus_Result.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\BroadcastDetail.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\09Broadcast\ReadBroadcast.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\09Broadcast\ReadBroadcast_Result.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\09Broadcast\WriteBroadcast.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\09Broadcast\WriteBroadcast_Parameter.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\11Buzzer\ReadBuzzer.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\11Buzzer\ReadBuzzer_Result.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\11Buzzer\WriteBuzzer.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\11Buzzer\WriteBuzzer_Parameter.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\16CardPeriodSpeak\ReadCardPeriodSpeak.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\16CardPeriodSpeak\ReadCardPeriodSpeak_Result.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\16CardPeriodSpeak\WriteCardPeriodSpeak.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\16CardPeriodSpeak\WriteCardPeriodSpeak_Parameter.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\15CheckInOut\ReadCheckInOut.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\15CheckInOut\ReadCheckInOut_Result.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\15CheckInOut\WriteCheckInOut.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\15CheckInOut\WriteCheckInOut_Parameter.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\13EnterDoorLimit\ReadEnterDoorLimit.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\13EnterDoorLimit\ReadEnterDoorLimit_Result.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\13EnterDoorLimit\WriteEnterDoorLimit.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\13EnterDoorLimit\WriteEnterDoorLimit_Parameter.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\06FireAlarmOption\ReadFireAlarmOption.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\06FireAlarmOption\ReadFireAlarmOption_Result.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\06FireAlarmOption\WriteFireAlarmOption.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\06FireAlarmOption\WriteFireAlarmOption_Parameter.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\03Keyboard\ReadKeyboard.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\03Keyboard\ReadKeyboard_Result.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\03Keyboard\WriteKeyboard.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\03Keyboard\WriteKeyboard_Parameter.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\05LockInteraction\ReadLockInteraction.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\05LockInteraction\ReadLockInteraction_Result.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\05LockInteraction\WriteLockInteraction.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\05LockInteraction\WriteLockInteraction_Parameter.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\07OpenAlarmOption\ReadOpenAlarmOption.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\07OpenAlarmOption\ReadOpenAlarmOption_Result.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\07OpenAlarmOption\WriteOpenAlarmOption.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\07OpenAlarmOption\WriteOpenAlarmOption_Parameter.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\ReadAllSystemSetting.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\ReadAllSystemSetting_Result.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\ReadCardSpeak.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\17ReadCardSpeak\ReadReadCardSpeak.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\17ReadCardSpeak\ReadReadCardSpeak_Result.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\17ReadCardSpeak\WriteReadCardSpeak.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\17ReadCardSpeak\WriteReadCardSpeak_Parameter.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\10ReaderCheckMode\ReadReaderCheckMode.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\10ReaderCheckMode\ReadReaderCheckMode_Result.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\10ReaderCheckMode\WriteReaderCheckMode.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\10ReaderCheckMode\WriteReaderCheckMode_Parameter.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\08ReaderIntervalTime\ReadReaderIntervalTime.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\08ReaderIntervalTime\ReadReaderIntervalTime_Result.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\08ReaderIntervalTime\WriteReaderIntervalTime.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\08ReaderIntervalTime\WriteReaderIntervalTime_Parameter.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\02RecordMode\ReadRecordMode.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\02RecordMode\ReadRecordMode_Result.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\02RecordMode\WriteRecordMode.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\02RecordMode\WriteRecordMode_Parameter.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\12SmogAlarmOption\ReadSmogAlarmOption.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\12SmogAlarmOption\ReadSmogAlarmOption_Result.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\12SmogAlarmOption\WriteSmogAlarmOption.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\12SmogAlarmOption\WriteSmogAlarmOption_Parameter.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\TheftAlarmSetting.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\14TheftAlarmSetting\ReadTheftAlarmSetting.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\14TheftAlarmSetting\ReadTheftAlarmSetting_Result.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\14TheftAlarmSetting\WriteTheftAlarmSetting.cs" />
+    <Compile Include="Door8800\SystemParameter\07FunctionParameter\14TheftAlarmSetting\WriteTheftAlarmSetting_Parameter.cs" />
+    <Compile Include="Door8800\SystemParameter\08Watch\BeginWatch.cs" />
+    <Compile Include="Door8800\SystemParameter\08Watch\BeginWatch_Broadcast.cs" />
+    <Compile Include="Door8800\SystemParameter\08Watch\CloseWatch.cs" />
+    <Compile Include="Door8800\SystemParameter\08Watch\CloseWatch_Broadcast.cs" />
+    <Compile Include="Door8800\SystemParameter\08Watch\ReadWatchState.cs" />
+    <Compile Include="Door8800\SystemParameter\09FireAlarm\CloseFireAlarm.cs" />
+    <Compile Include="Door8800\SystemParameter\09FireAlarm\ReadFireAlarmState.cs" />
+    <Compile Include="Door8800\SystemParameter\09FireAlarm\SendFireAlarm.cs" />
+    <Compile Include="Door8800\SystemParameter\10SmogAlarm\CloseSmogAlarm.cs" />
+    <Compile Include="Door8800\SystemParameter\10SmogAlarm\ReadSmogAlarmState.cs" />
+    <Compile Include="Door8800\SystemParameter\10SmogAlarm\SendSmogAlarm.cs" />
+    <Compile Include="Door8800\SystemParameter\11Alarm\CloseAlarm.cs" />
+    <Compile Include="Door8800\SystemParameter\11Alarm\CloseAlarm_Parameter.cs" />
+    <Compile Include="Door8800\SystemParameter\12WorkStatus\ReadTheftAlarmState.cs" />
+    <Compile Include="Door8800\SystemParameter\12WorkStatus\ReadTheftAlarmState_Result.cs" />
+    <Compile Include="Door8800\SystemParameter\12WorkStatus\ReadWorkStatus.cs" />
+    <Compile Include="Door8800\SystemParameter\12WorkStatus\ReadWorkStatus_Result.cs" />
+    <Compile Include="Door8800\SystemParameter\13Controller\FormatController.cs" />
+    <Compile Include="Door8800\SystemParameter\14SearchControltor\SearchControltor.cs" />
+    <Compile Include="Door8800\SystemParameter\14SearchControltor\SearchControltor_Parameter.cs" />
+    <Compile Include="Door8800\SystemParameter\14SearchControltor\WriteControltorNetCode.cs" />
+    <Compile Include="Door8800\SystemParameter\16KeepAliveInterval\ReadKeepAliveInterval.cs" />
+    <Compile Include="Door8800\SystemParameter\16KeepAliveInterval\ReadKeepAliveInterval_Result.cs" />
+    <Compile Include="Door8800\SystemParameter\16KeepAliveInterval\WriteKeepAliveInterval.cs" />
+    <Compile Include="Door8800\SystemParameter\16KeepAliveInterval\WriteKeepAliveInterval_Parameter.cs" />
+    <Compile Include="Door8800\SystemParameter\17TheftFortify\SetTheftDisarming.cs" />
+    <Compile Include="Door8800\SystemParameter\17TheftFortify\SetTheftFortify.cs" />
+    <Compile Include="Door8800\SystemParameter\18BalcklistAlarmOption\ReadBalcklistAlarmOption.cs" />
+    <Compile Include="Door8800\SystemParameter\18BalcklistAlarmOption\ReadBalcklistAlarmOption_Result.cs" />
+    <Compile Include="Door8800\SystemParameter\18BalcklistAlarmOption\WriteBalcklistAlarmOption.cs" />
+    <Compile Include="Door8800\SystemParameter\18BalcklistAlarmOption\WriteBalcklistAlarmOption_Parameter.cs" />
+    <Compile Include="Door8800\SystemParameter\19ExploreLockMode\ReadExploreLockMode.cs" />
+    <Compile Include="Door8800\SystemParameter\19ExploreLockMode\ReadExploreLockMode_Result.cs" />
+    <Compile Include="Door8800\SystemParameter\19ExploreLockMode\WriteExploreLockMode.cs" />
+    <Compile Include="Door8800\SystemParameter\19ExploreLockMode\WriteExploreLockMode_Parameter.cs" />
+    <Compile Include="Door8800\SystemParameter\20Check485Line\ReadCheck485Line.cs" />
+    <Compile Include="Door8800\SystemParameter\20Check485Line\ReadCheck485Line_Result.cs" />
+    <Compile Include="Door8800\SystemParameter\20Check485Line\WriteCheck485Line.cs" />
+    <Compile Include="Door8800\SystemParameter\20Check485Line\WriteCheck485Line_Parameter.cs" />
+    <Compile Include="Door8800\SystemParameter\22CardDeadlineTipDay\ReadCardDeadlineTipDay.cs" />
+    <Compile Include="Door8800\SystemParameter\22CardDeadlineTipDay\ReadCardDeadlineTipDay_Result.cs" />
+    <Compile Include="Door8800\SystemParameter\22CardDeadlineTipDay\WriteCardDeadlineTipDay.cs" />
+    <Compile Include="Door8800\SystemParameter\22CardDeadlineTipDay\WriteCardDeadlineTipDay_Parameter.cs" />
+    <Compile Include="Door8800\Time\ReadTime.cs" />
+    <Compile Include="Door8800\Time\ReadTime_Result.cs" />
+    <Compile Include="Door8800\Time\WriteTime.cs" />
+    <Compile Include="Door8800\Time\WriteTimeBroadcast.cs" />
+    <Compile Include="Door8800\SystemParameter\DoorLimit.cs" />
+    <Compile Include="Door8800\SystemParameter\DoorPortDetail.cs" />
+    <Compile Include="Door8800\Utility\StringUtility.cs" />
+    <Compile Include="Door89H\Card\03CardDataBase\ReadCardDataBase.cs" />
+    <Compile Include="Door89H\Card\03CardDataBase\ReadCardDataBase_Result.cs" />
+    <Compile Include="Door89H\Card\04CardDetail\ReadCardDetail.cs" />
+    <Compile Include="Door89H\Card\04CardDetail\ReadCardDetail_Parameter.cs" />
+    <Compile Include="Door89H\Card\04CardDetail\ReadCardDetail_Result.cs" />
+    <Compile Include="Door89H\Card\05CardListBySequence\WriteCardListBySequence.cs" />
+    <Compile Include="Door89H\Card\05CardListBySequence\WriteCardListBySequence_Parameter.cs" />
+    <Compile Include="Door89H\Card\06DeleteCard\DeleteCard.cs" />
+    <Compile Include="Door89H\Card\06DeleteCard\DeleteCard_Parameter.cs" />
+    <Compile Include="Door89H\Card\07CardListBySort\WriteCardListBySort.cs" />
+    <Compile Include="Door89H\Card\07CardListBySort\WriteCardListBySort_Parameter.cs" />
+    <Compile Include="Door89H\Data\CardDetail.cs" />
+    <Compile Include="Door89H\Data\Transaction\CardTransaction.cs" />
+    <Compile Include="Door89H\Door\01ReaderOption\ReaderOption_Parameter.cs" />
+    <Compile Include="Door89H\Door\25MultiCard\ReadMultiCard.cs" />
+    <Compile Include="Door89H\Door\25MultiCard\WriteMultiCard.cs" />
+    <Compile Include="Door89H\Door\25MultiCard\WriteMultiCard_Parameter.cs" />
+    <Compile Include="Door89H\Door\31ReadCardAndTakePictures\ReadCardAndTakePictures_Result.cs" />
+    <Compile Include="Door89H\Door\31ReadCardAndTakePictures\ReadReadCardAndTakePictures.cs" />
+    <Compile Include="Door89H\Door\31ReadCardAndTakePictures\WriteReadCardAndTakePictures.cs" />
+    <Compile Include="Door89H\Door\31ReadCardAndTakePictures\WriteReadCardAndTakePictures_Parameter.cs" />
+    <Compile Include="Door89H\Door\09InvalidCardAlarmOption\ReadInvalidCardAlarmOption.cs" />
+    <Compile Include="Door89H\Door\09InvalidCardAlarmOption\WriteInvalidCardAlarmOption.cs" />
+    <Compile Include="Door89H\Password\03ReadAllPassword\ReadAllPassword.cs" />
+    <Compile Include="Door89H\Password\03ReadAllPassword\ReadAllPassword_Result.cs" />
+    <Compile Include="Door89H\Password\04AddPassword\AddPassword.cs" />
+    <Compile Include="Door89H\Password\05DeletePassword\DeletePassword.cs" />
+    <Compile Include="Door89H\Password\04AddPassword\AddPassword_Parameter.cs" />
+    <Compile Include="Door89H\Password\PasswordDetail.cs" />
+    <Compile Include="Door89H\Password\05DeletePassword\DeletePassword_Parameter.cs" />
+    <Compile Include="Door89H\Transaction\ReadTransactionDatabaseByIndex\ReadTransactionDatabaseByIndex.cs" />
+    <Compile Include="Door89H\Transaction\ReadTransactionDatabase\ReadTransactionDatabase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Door8800\SystemParameter\01SN\ReadSN.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DoNet版通讯动态库V2\DoNetDrive.Common\DoNetDrive.Common\DoNetDrive.Common_Net45.csproj">
+      <Project>{61ea1859-ee39-4e26-a919-f3d8193b9934}</Project>
+      <Name>DoNetDrive.Common_Net45</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DoNet版通讯动态库V2\DoNetDrive.Protocol.Util\DoNetDrive.Protocol.Util\DoNetDrive.Protocol.Util_Net45.csproj">
+      <Project>{774faec9-9b9f-4ad5-a3f7-c5bdd86963d3}</Project>
+      <Name>DoNetDrive.Protocol.Util_Net45</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DoNet版通讯动态库V2\FCARDIO.Core\FCARDIO.Core\DoNetDrive.Core_Net45.vbproj">
+      <Project>{a149c4d3-2209-408f-a0de-d9eb8e0fa492}</Project>
+      <Name>DoNetDrive.Core_Net45</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DoNet版通讯动态库V2\FCARDIO.Protocol\FCARDIO.Protocol\DoNetDrive.Protocol_Net45.vbproj">
+      <Project>{4c9b06e5-da6b-49af-8e4d-a0d75046c044}</Project>
+      <Name>DoNetDrive.Protocol_Net45</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

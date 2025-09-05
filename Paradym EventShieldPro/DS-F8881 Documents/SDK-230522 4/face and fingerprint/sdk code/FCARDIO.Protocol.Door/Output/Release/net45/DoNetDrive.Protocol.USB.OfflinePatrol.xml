@@ -1,0 +1,2821 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DoNetDrive.Protocol.USB.OfflinePatrol</name>
+    </assembly>
+    <members>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.AbstractParameter">
+            <summary>
+            所有参数的基类，规定了一个基本数据检查流程
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.AbstractParameter.checkedParameter">
+            <summary>
+            检查参数的统一接口
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.AbstractParameter.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.CommandEx.#ctor(DoNetDrive.Core.Command.INCommandDetail,DoNetDrive.Core.Command.INCommandParameter)">
+            <summary>
+            初始化命令
+            </summary>
+            <param name="cd">包含命令所需的远程主机详情 （IP、端口、SN、密码、重发次数等）</param>
+            <param name="par">包含命令所需要的其他参数</param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.CommandEx.CheckResponse(DoNetDrive.Protocol.USBDrive.USBDrivePacket,System.Byte,System.Byte)">
+            <summary>
+            检查指令返回值
+            </summary>
+            <param name="oPck"></param>
+            <param name="CmdType">命令类型</param>
+            <param name="CmdIndex">命令索引</param>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.CommandEx.CommandReSend">
+            <summary>
+            命令重发时，对命令中一些缓冲做清空或参数重置<br/>
+            此命令一般情况下不需要实现！
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.CommandEx.Release1">
+            <summary>
+            释放命令占用的内存<br/>
+            此命令一般情况下不需要实现！
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.CommandEx.GetCmdBuf">
+            <summary>
+            获取当前命令所使用的缓冲区
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.CommandEx.RewritePacket(System.Byte,System.Int32)">
+            <summary>
+            重置命令内容
+            </summary>
+            <param name="ci">命令索引</param>
+            <param name="cp">命令参数</param>
+            <param name="dl">数据长度</param>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.Data.PatrolEmpl">
+            <summary>
+            巡更人员信息
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Data.PatrolEmpl.PCode">
+            <summary>
+            工号
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Data.PatrolEmpl.CardData">
+            <summary>
+            卡号
+            1 - 16777215
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Data.PatrolEmpl.Name">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Data.PatrolEmpl.SetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            将字节缓冲解码为类结构
+            </summary>
+            <param name="buf"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Data.PatrolEmpl.GetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            写入添加的巡更人员 到字节缓冲
+            </summary>
+            <param name="buf"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.Data.Transaction.TransactionDatabaseDetail">
+            <summary>
+            记录数据库的详情
+            读卡记录, 系统记录
+            </summary>
+        </member>
+        <member name="P:DoNetDrive.Protocol.USB.OfflinePatrol.Data.Transaction.TransactionDatabaseDetail.ListTransaction">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Data.Transaction.TransactionDatabaseDetail.CardTransactionDetail">
+            <summary>
+            读卡相关记录
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Data.Transaction.TransactionDatabaseDetail.SystemTransactionDetail">
+            <summary>
+            系统相关记录
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Data.Transaction.TransactionDatabaseDetail.#ctor">
+            <summary>
+            初始化参数
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Data.Transaction.TransactionDatabaseDetail.SetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            进行解码
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Data.Transaction.TransactionDatabaseDetail.GetBytes">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.Data.Transaction.CardTransaction">
+            <summary>
+            读卡记录
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Data.Transaction.CardTransaction.PCode">
+            <summary>
+            工号
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Data.Transaction.CardTransaction.CardData">
+            <summary>
+            卡号
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Data.Transaction.CardTransaction.State">
+            <summary>
+            状态
+            0  普通卡
+            1  巡更人员卡
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Data.Transaction.CardTransaction.GetDataLen">
+            <summary>
+            获取读卡记录格式长度
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Data.Transaction.CardTransaction.SetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            从buf中读取记录数据
+            </summary>
+            <param name="dtBuf"></param>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.Data.Transaction.CardTransactionDetail">
+            <summary>
+            事件日志详情，包含数据库容量，记录索引，已读取索引，循环标志4个部分
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Data.Transaction.CardTransactionDetail.GetDataLen">
+            <summary>
+            获取长度
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Data.Transaction.CardTransactionDetail.SetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            从字节缓冲区中生成一个对象
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.Data.Transaction.SystemTransaction">
+            <summary>
+            系统记录
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Data.Transaction.SystemTransaction.GetDataLen">
+            <summary>
+            获取读卡记录格式长度
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Data.Transaction.SystemTransaction.SetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            从buf中读取记录数据
+            </summary>
+            <param name="dtBuf"></param>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.Data.Transaction.SystemTransactionDetail">
+            <summary>
+            事件日志详情，包含数据库容量，记录索引，已读取索引，循环标志4个部分
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Data.Transaction.SystemTransactionDetail.GetDataLen">
+            <summary>
+            获取长度
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Data.Transaction.SystemTransactionDetail.SetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            从字节缓冲区中生成一个对象
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.Data.Transaction.TransactionDetailBase">
+            <summary>
+            记录指针信息 基类
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Data.Transaction.TransactionDetailBase.DataBaseMaxSize">
+            <summary>
+            数据库容量
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Data.Transaction.TransactionDetailBase.WriteIndex">
+            <summary>
+            写索引号(记录尾号)
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Data.Transaction.TransactionDetailBase.ReadIndex">
+            <summary>
+            读索引号(上传断点)
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Data.Transaction.TransactionDetailBase.IsCircle">
+            <summary>
+            循环标记
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Data.Transaction.TransactionDetailBase.readable">
+            <summary>
+            可用的新记录数
+            </summary>
+            <returns>新记录数</returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Data.Transaction.TransactionDetailBase.NewSzie">
+            <summary>
+            可用的新记录数
+            </summary>
+            <returns>新记录数</returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Data.Transaction.TransactionDetailBase.SetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            从字节缓冲区中生成一个对象
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Data.Transaction.TransactionDetailBase.GetBytes">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.LCDFlash.LCDFlash">
+            <summary>
+            LCD屏幕刷屏
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.LCDFlash.LCDFlash.#ctor(DoNetDrive.Core.Command.INCommandDetail,DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.LCDFlash.LCDFlash_Parameter)">
+            <summary>
+            初始化命令
+            </summary>
+            <param name="cd"></param>
+            <param name="par"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.LCDFlash.LCDFlash.CreatePacket0">
+            <summary>
+            将命令打包成一个Packet，准备发送
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.LCDFlash.LCDFlash.CheckCommandParameter(DoNetDrive.Core.Command.INCommandParameter)">
+            <summary>
+            检查参数
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.LCDFlash.LCDFlash_Parameter">
+            <summary>
+            LCD屏幕刷屏 参数
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.LCDFlash.LCDFlash_Parameter.Code">
+            <summary>
+            是否开启
+            128 - 开启 ， 8 - 关闭
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.LCDFlash.LCDFlash_Parameter.#ctor(System.Int32)">
+            <summary>
+            初始化参数
+            </summary>
+            <param name="code">是否开启 128 - 开启 ， 8 - 关闭</param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.LCDFlash.LCDFlash_Parameter.checkedParameter">
+            <summary>
+            检查参数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.LCDFlash.LCDFlash_Parameter.GetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            将结构编码为字节缓冲
+            </summary>
+            <param name="databuf"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.LCDFlash.LCDFlash_Parameter.GetDataLen">
+            <summary>
+            获取长度
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.LCDFlash.LCDFlash_Parameter.SetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            将字节缓冲解码为类结构
+            </summary>
+            <param name="databuf"></param>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.TriggerBuzzer.TriggerBuzzer">
+            <summary>
+            触发蜂鸣器
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.TriggerBuzzer.TriggerBuzzer.#ctor(DoNetDrive.Core.Command.INCommandDetail)">
+            <summary>
+            初始化命令
+            </summary>
+            <param name="cd"></param>
+            <param name="par"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.TriggerBuzzer.TriggerBuzzer.CheckCommandParameter(DoNetDrive.Core.Command.INCommandParameter)">
+            <summary>
+            检查参数
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.TriggerBuzzer.TriggerBuzzer.CreatePacket0">
+            <summary>
+            将命令打包成一个Packet，准备发送
+            </summary>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.TriggerDoubleLamp.TriggerDoubleLamp">
+            <summary>
+            触发双色指示灯
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.TriggerDoubleLamp.TriggerDoubleLamp.#ctor(DoNetDrive.Core.Command.INCommandDetail,DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.TriggerDoubleLamp.TriggerDoubleLamp_Parameter)">
+            <summary>
+            初始化命令
+            </summary>
+            <param name="cd"></param>
+            <param name="par"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.TriggerDoubleLamp.TriggerDoubleLamp.CreatePacket0">
+            <summary>
+            将命令打包成一个Packet，准备发送
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.TriggerDoubleLamp.TriggerDoubleLamp.CheckCommandParameter(DoNetDrive.Core.Command.INCommandParameter)">
+            <summary>
+            检查参数
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.TriggerDoubleLamp.TriggerDoubleLamp_Parameter">
+            <summary>
+            触发双色指示灯 参数
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.TriggerDoubleLamp.TriggerDoubleLamp_Parameter.Code">
+            <summary>
+            是否开启
+            128 - 绿灯亮 ，8 - 红灯亮 ， 0 - 关闭
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.TriggerDoubleLamp.TriggerDoubleLamp_Parameter.#ctor(System.Int32)">
+            <summary>
+            初始化参数
+            </summary>
+            <param name="code">是否开启 128 - 绿灯亮 ，8 - 红灯亮 ， 0 - 关闭</param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.TriggerDoubleLamp.TriggerDoubleLamp_Parameter.checkedParameter">
+            <summary>
+            检查参数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.TriggerDoubleLamp.TriggerDoubleLamp_Parameter.GetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            将结构编码为字节缓冲
+            </summary>
+            <param name="databuf"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.TriggerDoubleLamp.TriggerDoubleLamp_Parameter.GetDataLen">
+            <summary>
+            获取长度
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.TriggerDoubleLamp.TriggerDoubleLamp_Parameter.SetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            将字节缓冲解码为类结构
+            </summary>
+            <param name="databuf"></param>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.TriggerLED.TriggerLED">
+            <summary>
+            触发LED手电筒
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.TriggerLED.TriggerLED.#ctor(DoNetDrive.Core.Command.INCommandDetail,DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.TriggerLED.TriggerLED_Parameter)">
+            <summary>
+            初始化命令
+            </summary>
+            <param name="cd"></param>
+            <param name="par"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.TriggerLED.TriggerLED.CreatePacket0">
+            <summary>
+            将命令打包成一个Packet，准备发送
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.TriggerLED.TriggerLED.CheckCommandParameter(DoNetDrive.Core.Command.INCommandParameter)">
+            <summary>
+            检查参数
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.TriggerLED.TriggerLED_Parameter">
+            <summary>
+            触发LED手电筒 参数
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.TriggerLED.TriggerLED_Parameter.Code">
+            <summary>
+            是否开启
+            128 - 开启 ， 8 - 关闭
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.TriggerLED.TriggerLED_Parameter.#ctor(System.Byte)">
+            <summary>
+            初始化参数
+            </summary>
+            <param name="code">是否开启 128 - 开启 ， 8 - 关闭</param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.TriggerLED.TriggerLED_Parameter.checkedParameter">
+            <summary>
+            检查参数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.TriggerLED.TriggerLED_Parameter.GetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            将结构编码为字节缓冲
+            </summary>
+            <param name="databuf"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.TriggerLED.TriggerLED_Parameter.GetDataLen">
+            <summary>
+            获取长度
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.TriggerLED.TriggerLED_Parameter.SetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            将字节缓冲解码为类结构
+            </summary>
+            <param name="databuf"></param>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.TriggerVibrate.TriggerVibrate">
+            <summary>
+            触发震动原件
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.TriggerVibrate.TriggerVibrate.#ctor(DoNetDrive.Core.Command.INCommandDetail,DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.TriggerVibrate.TriggerVibrate_Parameter)">
+            <summary>
+            初始化命令
+            </summary>
+            <param name="cd"></param>
+            <param name="par"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.TriggerVibrate.TriggerVibrate.CreatePacket0">
+            <summary>
+            将命令打包成一个Packet，准备发送
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.TriggerVibrate.TriggerVibrate.CheckCommandParameter(DoNetDrive.Core.Command.INCommandParameter)">
+            <summary>
+            检查参数
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.TriggerVibrate.TriggerVibrate_Parameter">
+            <summary>
+            触发震动原件 参数
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.TriggerVibrate.TriggerVibrate_Parameter.Time">
+            <summary>
+            震动时间
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.TriggerVibrate.TriggerVibrate_Parameter.#ctor(System.UInt16)">
+            <summary>
+            初始化参数
+            </summary>
+            <param name="time">震动时间</param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.TriggerVibrate.TriggerVibrate_Parameter.checkedParameter">
+            <summary>
+            检查参数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.TriggerVibrate.TriggerVibrate_Parameter.GetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            将结构编码为字节缓冲
+            </summary>
+            <param name="databuf"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.TriggerVibrate.TriggerVibrate_Parameter.GetDataLen">
+            <summary>
+            获取长度
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.OperatedDevice.TriggerVibrate.TriggerVibrate_Parameter.SetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            将字节缓冲解码为类结构
+            </summary>
+            <param name="databuf"></param>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.PatrolEmplDatabaseDetail.PatrolEmplDatabaseDetail_Result">
+            <summary>
+            读取巡更人员信息 返回结果
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.PatrolEmplDatabaseDetail.PatrolEmplDatabaseDetail_Result.DataBaseSize">
+            <summary>
+            数据区容量上限
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.PatrolEmplDatabaseDetail.PatrolEmplDatabaseDetail_Result.PatrolEmplSize">
+            <summary>
+            数据区已使用数量
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.PatrolEmplDatabaseDetail.PatrolEmplDatabaseDetail_Result.SetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            将字节缓冲解码为类结构
+            </summary>
+            <param name="buf"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.PatrolEmplDatabaseDetail.PatrolEmplDatabaseDetail_Result.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.PatrolEmplDatabaseDetail.ReadPatrolEmplDatabaseDetail">
+            <summary>
+            读取巡更人员信息
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.PatrolEmplDatabaseDetail.ReadPatrolEmplDatabaseDetail.#ctor(DoNetDrive.Core.Command.INCommandDetail)">
+            <summary>
+            初始化命令
+            </summary>
+            <param name="cd"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.PatrolEmplDatabaseDetail.ReadPatrolEmplDatabaseDetail.CreatePacket0">
+            <summary>
+            将命令打包成一个Packet，准备发送
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.PatrolEmplDatabaseDetail.ReadPatrolEmplDatabaseDetail.CommandNext1(DoNetDrive.Protocol.USBDrive.USBDrivePacket)">
+            <summary>
+            命令返回值的判断
+            </summary>
+            <param name="oPck">包含返回指令的Packet</param>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.ClearPatrolEmplDataBase.ClearPatrolEmplDataBase">
+            <summary>
+            删除所有巡更人员
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.ClearPatrolEmplDataBase.ClearPatrolEmplDataBase.#ctor(DoNetDrive.Core.Command.INCommandDetail)">
+            <summary>
+             初始化命令
+            </summary>
+            <param name="cd"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.ClearPatrolEmplDataBase.ClearPatrolEmplDataBase.CreatePacket0">
+            <summary>
+            将命令打包成一个Packet，准备发送
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.ClearPatrolEmplDataBase.ClearPatrolEmplDataBase.CommandNext1(DoNetDrive.Protocol.USBDrive.USBDrivePacket)">
+            <summary>
+            命令返回值的判断
+            </summary>
+            <param name="oPck">包含返回指令的Packet</param>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.PatrolEmplDatabase.ReadPatrolEmplDatabase">
+            <summary>
+            读取所有巡更人员
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.PatrolEmplDatabase.ReadPatrolEmplDatabase.#ctor(DoNetDrive.Core.Command.INCommandDetail)">
+            <summary>
+            初始化命令
+            </summary>
+            <param name="cd"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.PatrolEmplDatabase.ReadPatrolEmplDatabase.CreatePacket0">
+            <summary>
+            将命令打包成一个Packet，准备发送
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.PatrolEmplDatabase.ReadPatrolEmplDatabase.CommandNext1(DoNetDrive.Protocol.USBDrive.USBDrivePacket)">
+            <summary>
+            命令返回值的判断
+            </summary>
+            <param name="oPck"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.PatrolEmplDatabase.ReadPatrolEmplDatabase.Analysis(System.UInt16)">
+            <summary>
+            分析缓冲中的数据包
+            </summary>
+            <param name="iSize">总数</param>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.PatrolEmplDatabase.ReadPatrolEmplDatabase_Result">
+            <summary>
+            读取所有巡更人员 返回结果
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.PatrolEmplDatabase.ReadPatrolEmplDatabase_Result.Quantity">
+            <summary>
+            总传输数量
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.PatrolEmplDatabase.ReadPatrolEmplDatabase_Result.PatrolEmplList">
+            <summary>
+            读取到的卡片列表
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.PatrolEmplDatabase.ReadPatrolEmplDatabase_Result.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.PatrolEmplDetail.ReadPatrolEmplDetail">
+            <summary>
+            读取单个巡更人员资料
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.PatrolEmplDetail.ReadPatrolEmplDetail.#ctor(DoNetDrive.Core.Command.INCommandDetail,DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.PatrolEmplDetail.ReadPatrolEmplDetail_Parameter)">
+            <summary>
+            初始化命令
+            </summary>
+            <param name="cd"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.PatrolEmplDetail.ReadPatrolEmplDetail.CreatePacket0">
+            <summary>
+            将命令打包成一个Packet，准备发送
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.PatrolEmplDetail.ReadPatrolEmplDetail.CommandNext1(DoNetDrive.Protocol.USBDrive.USBDrivePacket)">
+            <summary>
+            命令返回值的判断
+            </summary>
+            <param name="oPck">包含返回指令的Packet</param>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.PatrolEmplDetail.ReadPatrolEmplDetail_Parameter">
+            <summary>
+            读取单个巡更人员资料 参数
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.PatrolEmplDetail.ReadPatrolEmplDetail_Parameter.Mode">
+            <summary>
+            查询方式：1字节；01--表示按照工号来查询；02--表示按照卡号来查询
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.PatrolEmplDetail.ReadPatrolEmplDetail_Parameter.Param">
+            <summary>
+            查询参数
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.PatrolEmplDetail.ReadPatrolEmplDetail_Parameter.#ctor">
+            <summary>
+            提供给继承类
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.PatrolEmplDetail.ReadPatrolEmplDetail_Parameter.#ctor(System.Byte,System.Int32)">
+            <summary>
+            初始化参数
+            </summary>
+            <param name="mode"></param>
+            <param name="param"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.PatrolEmplDetail.ReadPatrolEmplDetail_Parameter.checkedParameter">
+            <summary>
+            检查参数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.PatrolEmplDetail.ReadPatrolEmplDetail_Parameter.GetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            将结构编码为字节缓冲
+            </summary>
+            <param name="databuf"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.PatrolEmplDetail.ReadPatrolEmplDetail_Parameter.GetDataLen">
+            <summary>
+            获取长度
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.PatrolEmplDetail.ReadPatrolEmplDetail_Parameter.SetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            将字节缓冲解码为类结构
+            </summary>
+            <param name="databuf"></param>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.PatrolEmplDetail.ReadPatrolEmplDetail_Result">
+            <summary>
+            读取单个巡更人员资料 返回结果
+            </summary>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.WritePatrolEmpl.WritePatrolEmpl_Result">
+            <summary>
+            添加巡更人员失败结果
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.WritePatrolEmpl.WritePatrolEmpl_Result.PCodeList">
+            <summary>
+            读取到的工号列表
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.WritePatrolEmpl.WritePatrolEmpl_Result.#ctor(System.Collections.Generic.List{System.UInt16})">
+            <summary>
+            创建结构
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.WritePatrolEmpl.WritePatrolEmpl_Result.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.WritePatrolEmpl.WritePatrolEmpl">
+            <summary>
+            添加巡更人员
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.WritePatrolEmpl.WritePatrolEmpl.MaxBufSize">
+            <summary>
+            默认的缓冲区大小
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.WritePatrolEmpl.WritePatrolEmpl.mBatchCount">
+            <summary>
+            每次上传数量
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.WritePatrolEmpl.WritePatrolEmpl.mPar">
+            <summary>
+            添加巡更人员参数
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.WritePatrolEmpl.WritePatrolEmpl.mBufs">
+            <summary>
+            保存写入失败的数据缓冲区
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.WritePatrolEmpl.WritePatrolEmpl.mIndex">
+            <summary>
+            已上传数量
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.WritePatrolEmpl.WritePatrolEmpl.#ctor(DoNetDrive.Core.Command.INCommandDetail,DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.WritePatrolEmpl.WritePatrolEmpl_Parameter)">
+            <summary>
+            初始化命令
+            </summary>
+            <param name="cd"></param>
+            <param name="par"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.WritePatrolEmpl.WritePatrolEmpl.CreatePacket0">
+            <summary>
+            将命令打包成一个Packet，准备发送
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.WritePatrolEmpl.WritePatrolEmpl.CheckCommandParameter(DoNetDrive.Core.Command.INCommandParameter)">
+            <summary>
+            检查参数
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.WritePatrolEmpl.WritePatrolEmpl.WritePatrolEmplToBuf(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            写入 添加巡更人员 字节缓冲
+            </summary>
+            <param name="databuf"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.WritePatrolEmpl.WritePatrolEmpl.CommandNext1(DoNetDrive.Protocol.USBDrive.USBDrivePacket)">
+            <summary>
+            处理返回值
+            </summary>
+            <param name="oPck"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.WritePatrolEmpl.WritePatrolEmpl.IsWriteOver">
+            <summary>
+            检查是否已写完
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.WritePatrolEmpl.WritePatrolEmpl.CommandNext0(DoNetDrive.Protocol.USBDrive.USBDrivePacket)">
+            <summary>
+            重写父类对处理返回值的定义
+            </summary>
+            <param name="oPck"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.WritePatrolEmpl.WritePatrolEmpl.Create_Result">
+            <summary>
+            创建命令成功返回值
+            </summary>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.WritePatrolEmpl.WritePatrolEmpl_Parameter">
+            <summary>
+            添加巡更人员
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.WritePatrolEmpl.WritePatrolEmpl_Parameter.MaxBufSize">
+            <summary>
+            默认的缓冲区大小
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.WritePatrolEmpl.WritePatrolEmpl_Parameter.PatrolEmplList">
+            <summary>
+            被删除巡更人员列表
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.WritePatrolEmpl.WritePatrolEmpl_Parameter.#ctor(System.Collections.Generic.List{DoNetDrive.Protocol.USB.OfflinePatrol.Data.PatrolEmpl})">
+            <summary>
+            初始化参数
+            </summary>
+            <param name="list"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.WritePatrolEmpl.WritePatrolEmpl_Parameter.checkedParameter">
+            <summary>
+            检查参数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.WritePatrolEmpl.WritePatrolEmpl_Parameter.SetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            没有实现
+            </summary>
+            <param name="databuf"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.WritePatrolEmpl.WritePatrolEmpl_Parameter.GetDataLen">
+            <summary>
+            没有实现
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.WritePatrolEmpl.WritePatrolEmpl_Parameter.GetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            没有实现
+            </summary>
+            <param name="databuf"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.DeletePatrolEmpl.DeletePatrolEmpl">
+            <summary>
+            删除巡更人员
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.DeletePatrolEmpl.DeletePatrolEmpl.MaxBufSize">
+            <summary>
+            默认的缓冲区大小
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.DeletePatrolEmpl.DeletePatrolEmpl.mBatchCount">
+            <summary>
+            每次上传数量
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.DeletePatrolEmpl.DeletePatrolEmpl.mPar">
+            <summary>
+            删除巡更人员参数
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.DeletePatrolEmpl.DeletePatrolEmpl.mIndex">
+            <summary>
+            已上传数量
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.DeletePatrolEmpl.DeletePatrolEmpl.#ctor(DoNetDrive.Core.Command.INCommandDetail,DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.DeletePatrolEmpl.DeletePatrolEmpl_Parameter)">
+            <summary>
+            初始化命令
+            </summary>
+            <param name="cd"></param>
+            <param name="par"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.DeletePatrolEmpl.DeletePatrolEmpl.CreatePacket0">
+            <summary>
+            将命令打包成一个Packet，准备发送
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.DeletePatrolEmpl.DeletePatrolEmpl.CheckCommandParameter(DoNetDrive.Core.Command.INCommandParameter)">
+            <summary>
+            检查参数
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.DeletePatrolEmpl.DeletePatrolEmpl.WritePatrolEmplToBuf(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            写入 删除巡更人员 字节缓冲
+            </summary>
+            <param name="databuf"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.DeletePatrolEmpl.DeletePatrolEmpl.CommandNext1(DoNetDrive.Protocol.USBDrive.USBDrivePacket)">
+            <summary>
+            处理返回值
+            </summary>
+            <param name="oPck"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.DeletePatrolEmpl.DeletePatrolEmpl.IsWriteOver">
+            <summary>
+            检查是否已写完
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.DeletePatrolEmpl.DeletePatrolEmpl.CommandNext0(DoNetDrive.Protocol.USBDrive.USBDrivePacket)">
+            <summary>
+            重写父类对处理返回值的定义
+            </summary>
+            <param name="oPck"></param>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.DeletePatrolEmpl.DeletePatrolEmpl_Parameter">
+            <summary>
+            删除巡更人员 参数
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.DeletePatrolEmpl.DeletePatrolEmpl_Parameter.MaxBufSize">
+            <summary>
+            默认的缓冲区大小
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.DeletePatrolEmpl.DeletePatrolEmpl_Parameter.PCodeList">
+            <summary>
+            被删除巡更人员列表
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.DeletePatrolEmpl.DeletePatrolEmpl_Parameter.#ctor(System.Collections.Generic.List{System.UInt16})">
+            <summary>
+            初始化参数
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.DeletePatrolEmpl.DeletePatrolEmpl_Parameter.checkedParameter">
+            <summary>
+            检查参数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.DeletePatrolEmpl.DeletePatrolEmpl_Parameter.GetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            将结构编码为字节缓冲
+            </summary>
+            <param name="databuf"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.DeletePatrolEmpl.DeletePatrolEmpl_Parameter.GetDataLen">
+            <summary>
+            获取长度
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.PatrolEmpl.DeletePatrolEmpl.DeletePatrolEmpl_Parameter.SetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            
+            </summary>
+            <param name="databuf"></param>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.Read_Command">
+            <summary>
+            针对命令中的写参数命令进行抽象封装
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Read_Command.#ctor(DoNetDrive.Core.Command.INCommandDetail,DoNetDrive.Core.Command.INCommandParameter)">
+            <summary>
+            初始化命令
+            </summary>
+            <param name="cd">包含命令所需的远程主机详情 （IP、端口、SN、密码、重发次数等）</param>
+            <param name="par">包含命令所需要的其他参数</param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Read_Command.CheckCommandParameter(DoNetDrive.Core.Command.INCommandParameter)">
+            <summary>
+            检查参数
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.SN.ReadSN">
+            <summary>
+            获取控制器SN
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.SN.ReadSN.#ctor(DoNetDrive.Core.Command.INCommandDetail)">
+            <summary>
+            获取控制器SN 初始化命令
+            </summary>
+            <param name="cd"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.SN.ReadSN.CreatePacket0">
+            <summary>
+            将命令打包成一个Packet，准备发送
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.SN.ReadSN.CommandNext1(DoNetDrive.Protocol.USBDrive.USBDrivePacket)">
+            <summary>
+            命令返回值的判断
+            </summary>
+            <param name="oPck">包含返回指令的Packet</param>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.SN.SN_Parameter">
+            <summary>
+            写入巡更棒SN_参数
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.SN.SN_Parameter.SN">
+            <summary>
+            机器号
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.SN.SN_Parameter.#ctor(System.Int32)">
+            <summary>
+            初始化参数
+            </summary>
+            <param name="sn"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.SN.SN_Parameter.checkedParameter">
+            <summary>
+            检查参数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.SN.SN_Parameter.GetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            将结构编码为字节缓冲
+            </summary>
+            <param name="databuf"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.SN.SN_Parameter.GetDataLen">
+            <summary>
+            获取长度
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.SN.SN_Parameter.SetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            将字节缓冲解码为类结构
+            </summary>
+            <param name="databuf"></param>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.SN.SN_Result">
+            <summary>
+            获取控制器SN_结果
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.SN.SN_Result.#ctor">
+            <summary>
+            初始化参数
+            </summary>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.SN.WriteSN">
+            <summary>
+            写入机器号
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.SN.WriteSN.#ctor(DoNetDrive.Core.Command.INCommandDetail,DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.SN.SN_Parameter)">
+            <summary>
+            初始化命令
+            </summary>
+            <param name="cd"></param>
+            <param name="par"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.SN.WriteSN.CreatePacket0">
+            <summary>
+            将命令打包成一个Packet，准备发送
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.SN.WriteSN.CheckCommandParameter(DoNetDrive.Core.Command.INCommandParameter)">
+            <summary>
+            检查参数
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.ExpireTime.ExpireTime_Parameter">
+            <summary>
+            设备有效期参数
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.ExpireTime.ExpireTime_Parameter.Time">
+            <summary>
+            设备有效期
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.ExpireTime.ExpireTime_Parameter.#ctor">
+            <summary>
+            提供给继承类
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.ExpireTime.ExpireTime_Parameter.#ctor(System.DateTime)">
+            <summary>
+            初始化参数
+            </summary>
+            <param name="time">设备有效期</param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.ExpireTime.ExpireTime_Parameter.checkedParameter">
+            <summary>
+            检查参数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.ExpireTime.ExpireTime_Parameter.GetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            将结构编码为字节缓冲
+            </summary>
+            <param name="databuf"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.ExpireTime.ExpireTime_Parameter.GetDataLen">
+            <summary>
+            获取长度
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.ExpireTime.ExpireTime_Parameter.SetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            将字节缓冲解码为类结构
+            </summary>
+            <param name="databuf"></param>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.ExpireTime.ExpireTime_Result">
+            <summary>
+            读取设备有效期 返回结果
+            </summary>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.ExpireTime.ReadExpireTime">
+            <summary>
+            读取设备有效期
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.ExpireTime.ReadExpireTime.#ctor(DoNetDrive.Core.Command.INCommandDetail)">
+            <summary>
+            获取控制器SN 初始化命令
+            </summary>
+            <param name="cd"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.ExpireTime.ReadExpireTime.CreatePacket0">
+            <summary>
+            将命令打包成一个Packet，准备发送
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.ExpireTime.ReadExpireTime.CommandNext1(DoNetDrive.Protocol.USBDrive.USBDrivePacket)">
+            <summary>
+            命令返回值的判断
+            </summary>
+            <param name="oPck">包含返回指令的Packet</param>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.ExpireTime.WriteExpireTime">
+            <summary>
+            写入设备有效期
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.ExpireTime.WriteExpireTime.#ctor(DoNetDrive.Core.Command.INCommandDetail,DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.ExpireTime.ExpireTime_Parameter)">
+            <summary>
+            初始化命令
+            </summary>
+            <param name="cd"></param>
+            <param name="par"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.ExpireTime.WriteExpireTime.CreatePacket0">
+            <summary>
+            将命令打包成一个Packet，准备发送
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.ExpireTime.WriteExpireTime.CheckCommandParameter(DoNetDrive.Core.Command.INCommandParameter)">
+            <summary>
+            检查参数
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.Version.ReadVersion">
+            <summary>
+            获取设备版本号
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.Version.ReadVersion.#ctor(DoNetDrive.Core.Command.INCommandDetail)">
+            <summary>
+            初始化命令
+            </summary>
+            <param name="cd"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.Version.ReadVersion.CommandNext1(DoNetDrive.Protocol.USBDrive.USBDrivePacket)">
+            <summary>
+            命令返回值的判断
+            </summary>
+            <param name="oPck">包含返回指令的Packet</param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.Version.ReadVersion.CreatePacket0">
+            <summary>
+            将命令打包成一个Packet，准备发送
+            </summary>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.Version.ReadVersion_Result">
+            <summary>
+            获取设备运行信息 返回结果
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.Version.ReadVersion_Result.Version">
+            <summary>
+            版本号
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.Version.ReadVersion_Result.CorrectionNumber">
+            <summary>
+            修正号
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.Version.ReadVersion_Result.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.Version.ReadVersion_Result.SetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            将字节缓冲解码为类结构
+            </summary>
+            <param name="databuf"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.Version.ReadVersion_Result.GetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            将结构编码为字节缓冲
+            </summary>
+            <param name="databuf"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.SystemStatus.ReadSystemStatus">
+            <summary>
+            获取设备运行信息
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.SystemStatus.ReadSystemStatus.#ctor(DoNetDrive.Core.Command.INCommandDetail)">
+            <summary>
+            初始化命令
+            </summary>
+            <param name="cd"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.SystemStatus.ReadSystemStatus.CommandNext1(DoNetDrive.Protocol.USBDrive.USBDrivePacket)">
+            <summary>
+            命令返回值的判断
+            </summary>
+            <param name="oPck">包含返回指令的Packet</param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.SystemStatus.ReadSystemStatus.CreatePacket0">
+            <summary>
+            将命令打包成一个Packet，准备发送
+            </summary>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.SystemStatus.ReadSystemStatus_Result">
+            <summary>
+            获取设备运行信息 返回结果
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.SystemStatus.ReadSystemStatus_Result.Time">
+            <summary>
+            出厂年月日
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.SystemStatus.ReadSystemStatus_Result.FormatCount">
+            <summary>
+            格式化次数
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.SystemStatus.ReadSystemStatus_Result.StartCount">
+            <summary>
+            开机次数
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.SystemStatus.ReadSystemStatus_Result.Voltage">
+            <summary>
+            电压
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.SystemStatus.ReadSystemStatus_Result.Electricity">
+            <summary>
+            电量
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.SystemStatus.ReadSystemStatus_Result.PatrolEmpl">
+            <summary>
+            当前已选巡更人员
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.SystemStatus.ReadSystemStatus_Result.PatrolEmplCount">
+            <summary>
+            巡更员数量
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.SystemStatus.ReadSystemStatus_Result.CardRecordCount">
+            <summary>
+            读卡记录新记录数量
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.SystemStatus.ReadSystemStatus_Result.SystemRecordCount">
+            <summary>
+            系统记录新记录数量
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.SystemStatus.ReadSystemStatus_Result.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.SystemStatus.ReadSystemStatus_Result.SetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            将字节缓冲解码为类结构
+            </summary>
+            <param name="databuf"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.SystemStatus.ReadSystemStatus_Result.GetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            将结构编码为字节缓冲
+            </summary>
+            <param name="databuf"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.RecordStorageMode.ReadRecordStorageMode">
+            <summary>
+            记录存储方式
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.RecordStorageMode.ReadRecordStorageMode.#ctor(DoNetDrive.Core.Command.INCommandDetail)">
+            <summary>
+            读取记录存储方式 初始化命令
+            </summary>
+            <param name="cd"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.RecordStorageMode.ReadRecordStorageMode.CommandNext1(DoNetDrive.Protocol.USBDrive.USBDrivePacket)">
+            <summary>
+            命令返回值的判断
+            </summary>
+            <param name="oPck">包含返回指令的Packet</param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.RecordStorageMode.ReadRecordStorageMode.CreatePacket0">
+            <summary>
+            将命令打包成一个Packet，准备发送
+            </summary>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.RecordStorageMode.ReadRecordStorageMode_Result">
+            <summary>
+            读取记录存储方式 返回结果
+            </summary>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.RecordStorageMode.WriteRecordStorageMode">
+            <summary>
+            写入记录存储方式
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.RecordStorageMode.WriteRecordStorageMode.#ctor(DoNetDrive.Core.Command.INCommandDetail,DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.RecordStorageMode.WriteRecordStorageMode_Parameter)">
+            <summary>
+            初始化命令
+            </summary>
+            <param name="cd"></param>
+            <param name="par"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.RecordStorageMode.WriteRecordStorageMode.CreatePacket0">
+            <summary>
+            将命令打包成一个Packet，准备发送
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.RecordStorageMode.WriteRecordStorageMode.CheckCommandParameter(DoNetDrive.Core.Command.INCommandParameter)">
+            <summary>
+            检查参数
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.RecordStorageMode.WriteRecordStorageMode_Parameter">
+            <summary>
+            写入记录存储方式 参数
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.RecordStorageMode.WriteRecordStorageMode_Parameter.Mode">
+            <summary>
+            记录存储方式
+            0表示记录满循环，1表示记录满不循环
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.RecordStorageMode.WriteRecordStorageMode_Parameter.#ctor">
+            <summary>
+            提供给继承类
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.RecordStorageMode.WriteRecordStorageMode_Parameter.#ctor(System.Int32)">
+            <summary>
+            初始化参数
+            </summary>
+            <param name="mode">记录存储方式 0表示记录满循环，1表示记录满不循环</param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.RecordStorageMode.WriteRecordStorageMode_Parameter.checkedParameter">
+            <summary>
+            检查参数 0或1
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.RecordStorageMode.WriteRecordStorageMode_Parameter.GetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            将结构编码为字节缓冲
+            </summary>
+            <param name="databuf"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.RecordStorageMode.WriteRecordStorageMode_Parameter.GetDataLen">
+            <summary>
+            获取长度
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.RecordStorageMode.WriteRecordStorageMode_Parameter.SetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            将字节缓冲解码为类结构
+            </summary>
+            <param name="databuf"></param>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.CreateTime.ReadCreateTime">
+            <summary>
+            读取生产日期
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.CreateTime.ReadCreateTime.#ctor(DoNetDrive.Core.Command.INCommandDetail)">
+            <summary>
+            获取控制器SN 初始化命令
+            </summary>
+            <param name="cd"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.CreateTime.ReadCreateTime.CommandNext1(DoNetDrive.Protocol.USBDrive.USBDrivePacket)">
+            <summary>
+            命令返回值的判断
+            </summary>
+            <param name="oPck">包含返回指令的Packet</param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.CreateTime.ReadCreateTime.CreatePacket0">
+            <summary>
+            将命令打包成一个Packet，准备发送
+            </summary>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.CreateTime.ReadCreateTime_Result">
+            <summary>
+            读取生成日期 返回结果
+            </summary>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.CreateTime.WriteCreateTime">
+            <summary>
+            设置 生产日期
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.CreateTime.WriteCreateTime.#ctor(DoNetDrive.Core.Command.INCommandDetail,DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.CreateTime.WriteCreateTime_Parameter)">
+            <summary>
+            初始化命令
+            </summary>
+            <param name="cd"></param>
+            <param name="par"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.CreateTime.WriteCreateTime.CreatePacket0">
+            <summary>
+            将命令打包成一个Packet，准备发送
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.CreateTime.WriteCreateTime.CheckCommandParameter(DoNetDrive.Core.Command.INCommandParameter)">
+            <summary>
+            检查参数
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.CreateTime.WriteCreateTime_Parameter">
+            <summary>
+            设置生产日期
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.CreateTime.WriteCreateTime_Parameter.Time">
+            <summary>
+            生产日期
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.CreateTime.WriteCreateTime_Parameter.#ctor">
+            <summary>
+            提供给继承类
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.CreateTime.WriteCreateTime_Parameter.#ctor(System.DateTime)">
+            <summary>
+            初始化参数
+            </summary>
+            <param name="time">生产日期</param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.CreateTime.WriteCreateTime_Parameter.checkedParameter">
+            <summary>
+            检查参数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.CreateTime.WriteCreateTime_Parameter.GetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            将结构编码为字节缓冲
+            </summary>
+            <param name="databuf"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.CreateTime.WriteCreateTime_Parameter.GetDataLen">
+            <summary>
+            获取长度
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.CreateTime.WriteCreateTime_Parameter.SetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            将字节缓冲解码为类结构
+            </summary>
+            <param name="databuf"></param>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.StartupHoldTime.ReadStartupHoldTime">
+            <summary>
+            读取 开机保持时间
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.StartupHoldTime.ReadStartupHoldTime.#ctor(DoNetDrive.Core.Command.INCommandDetail)">
+            <summary>
+            读取记录存储方式 初始化命令
+            </summary>
+            <param name="cd"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.StartupHoldTime.ReadStartupHoldTime.CommandNext1(DoNetDrive.Protocol.USBDrive.USBDrivePacket)">
+            <summary>
+            命令返回值的判断
+            </summary>
+            <param name="oPck">包含返回指令的Packet</param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.StartupHoldTime.ReadStartupHoldTime.CreatePacket0">
+            <summary>
+            将命令打包成一个Packet，准备发送
+            </summary>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.StartupHoldTime.ReadStartupHoldTime_Result">
+            <summary>
+            读取 开机保持时间 返回结果
+            </summary>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.StartupHoldTime.WriteStartupHoldTime">
+            <summary>
+            设置 开机保持时间
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.StartupHoldTime.WriteStartupHoldTime.#ctor(DoNetDrive.Core.Command.INCommandDetail,DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.StartupHoldTime.WriteStartupHoldTime_Parameter)">
+            <summary>
+            初始化命令
+            </summary>
+            <param name="cd"></param>
+            <param name="par"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.StartupHoldTime.WriteStartupHoldTime.CreatePacket0">
+            <summary>
+            将命令打包成一个Packet，准备发送
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.StartupHoldTime.WriteStartupHoldTime.CheckCommandParameter(DoNetDrive.Core.Command.INCommandParameter)">
+            <summary>
+            检查参数
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.StartupHoldTime.WriteStartupHoldTime_Parameter">
+            <summary>
+            设置开机保持时间 参数
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.StartupHoldTime.WriteStartupHoldTime_Parameter.Time">
+            <summary>
+            时间 最小为5秒，最大为60秒
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.StartupHoldTime.WriteStartupHoldTime_Parameter.checkedParameter">
+            <summary>
+            检查参数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.StartupHoldTime.WriteStartupHoldTime_Parameter.GetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            将结构编码为字节缓冲
+            </summary>
+            <param name="databuf"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.StartupHoldTime.WriteStartupHoldTime_Parameter.GetDataLen">
+            <summary>
+            获取长度
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.StartupHoldTime.WriteStartupHoldTime_Parameter.SetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            将字节缓冲解码为类结构
+            </summary>
+            <param name="databuf"></param>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.LEDOpenHoldTime.ReadLEDOpenHoldTime">
+            <summary>
+            读取 LED开灯保持时间
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.LEDOpenHoldTime.ReadLEDOpenHoldTime.#ctor(DoNetDrive.Core.Command.INCommandDetail)">
+            <summary>
+            读取记录存储方式 初始化命令
+            </summary>
+            <param name="cd"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.LEDOpenHoldTime.ReadLEDOpenHoldTime.CommandNext1(DoNetDrive.Protocol.USBDrive.USBDrivePacket)">
+            <summary>
+            命令返回值的判断
+            </summary>
+            <param name="oPck">包含返回指令的Packet</param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.LEDOpenHoldTime.ReadLEDOpenHoldTime.CreatePacket0">
+            <summary>
+            将命令打包成一个Packet，准备发送
+            </summary>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.LEDOpenHoldTime.ReadLEDOpenHoldTime_Result">
+            <summary>
+            读取 开机保持时间 返回结果
+            </summary>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.LEDOpenHoldTime.WriteLEDOpenHoldTime">
+            <summary>
+            设置 LED开灯保持时间
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.LEDOpenHoldTime.WriteLEDOpenHoldTime.#ctor(DoNetDrive.Core.Command.INCommandDetail,DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.LEDOpenHoldTime.WriteLEDOpenHoldTime_Parameter)">
+            <summary>
+            初始化命令
+            </summary>
+            <param name="cd"></param>
+            <param name="par"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.LEDOpenHoldTime.WriteLEDOpenHoldTime.CreatePacket0">
+            <summary>
+            将命令打包成一个Packet，准备发送
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.LEDOpenHoldTime.WriteLEDOpenHoldTime.CheckCommandParameter(DoNetDrive.Core.Command.INCommandParameter)">
+            <summary>
+            检查参数
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.LEDOpenHoldTime.WriteLEDOpenHoldTime_Parameter">
+            <summary>
+            设置开机保持时间 参数
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.LEDOpenHoldTime.WriteLEDOpenHoldTime_Parameter.Time">
+            <summary>
+            时间 时间最小为1秒，最大为255秒
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.LEDOpenHoldTime.WriteLEDOpenHoldTime_Parameter.checkedParameter">
+            <summary>
+            检查参数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.LEDOpenHoldTime.WriteLEDOpenHoldTime_Parameter.GetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            将结构编码为字节缓冲
+            </summary>
+            <param name="databuf"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.LEDOpenHoldTime.WriteLEDOpenHoldTime_Parameter.GetDataLen">
+            <summary>
+            获取长度
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.LEDOpenHoldTime.WriteLEDOpenHoldTime_Parameter.SetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            将字节缓冲解码为类结构
+            </summary>
+            <param name="databuf"></param>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.Initialize.Initialize">
+            <summary>
+            初始化设备
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.Initialize.Initialize.#ctor(DoNetDrive.Core.Command.INCommandDetail)">
+            <summary>
+            初始化命令
+            </summary>
+            <param name="cd"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.Initialize.Initialize.CheckCommandParameter(DoNetDrive.Core.Command.INCommandParameter)">
+            <summary>
+            检查参数
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.Initialize.Initialize.CreatePacket0">
+            <summary>
+            将命令打包成一个Packet，准备发送
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.ReadFlag.CloseReadFlag.#ctor(DoNetDrive.Core.Command.INCommandDetail)">
+            <summary>
+            初始化命令
+            </summary>
+            <param name="cd"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.ReadFlag.CloseReadFlag.CheckCommandParameter(DoNetDrive.Core.Command.INCommandParameter)">
+            <summary>
+            检查参数
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.ReadFlag.CloseReadFlag.CreatePacket0">
+            <summary>
+            将命令打包成一个Packet，准备发送
+            </summary>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.ReadFlag.OpenReadFlag">
+            <summary>
+            发卡标记打开
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.ReadFlag.OpenReadFlag.#ctor(DoNetDrive.Core.Command.INCommandDetail)">
+            <summary>
+            初始化命令
+            </summary>
+            <param name="cd"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.ReadFlag.OpenReadFlag.CheckCommandParameter(DoNetDrive.Core.Command.INCommandParameter)">
+            <summary>
+            检查参数
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.ReadFlag.OpenReadFlag.CreatePacket0">
+            <summary>
+            将命令打包成一个Packet，准备发送
+            </summary>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.ReadFlag.OpenReadFlag_Result">
+            <summary>
+            读卡返回参数
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.ReadFlag.OpenReadFlag_Result.SetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            将字节缓冲解码为类结构
+            </summary>
+            <param name="databuf"></param>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.ReadFlag.WatchReadCardTransaction">
+            <summary>
+            读卡消息
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:DoNetDrive.Protocol.USB.OfflinePatrol.SystemParameter.ReadFlag.WatchReadCardTransaction.#ctor" -->
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.Time.ReadTime">
+            <summary>
+            从设备中读取控制器时间
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Time.ReadTime.#ctor(DoNetDrive.Core.Command.INCommandDetail)">
+            <summary>
+            获取设备运行信息 初始化命令
+            </summary>
+            <param name="cd">包含命令所需的远程主机详情 （IP、端口、SN、密码、重发次数等）</param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Time.ReadTime.CreatePacket0">
+            <summary>
+            将命令打包成一个Packet，准备发送
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Time.ReadTime.CommandNext1(DoNetDrive.Protocol.USBDrive.USBDrivePacket)">
+            <summary>
+            命令返回值的判断
+            </summary>
+            <param name="oPck">包含返回指令的Packet</param>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.Time.ReadTime_Result">
+            <summary>
+            从设备中读取控制器时间_结果
+            </summary>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.Time.WriteCustomTime">
+            <summary>
+            将自定义时间写入到设备中
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Time.WriteCustomTime.#ctor(DoNetDrive.Core.Command.INCommandDetail,DoNetDrive.Protocol.USB.OfflinePatrol.Time.WriteCustomTime_Parameter)">
+            <summary>
+            将电脑的最新时间写入到控制器中
+            </summary>
+            <param name="cd">包含命令所需的远程主机详情 （IP、端口、SN、密码、重发次数等）</param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Time.WriteCustomTime.CheckCommandParameter(DoNetDrive.Core.Command.INCommandParameter)">
+            <summary>
+            检查命令参数
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Time.WriteCustomTime.CreatePacket0">
+            <summary>
+            将命令打包成一个Packet，准备发送
+            </summary>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.Time.WriteCustomTime_Parameter">
+            <summary>
+            设置设备的日期时间
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Time.WriteCustomTime_Parameter.ControllerDate">
+            <summary>
+            控制器的日期时间
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Time.WriteCustomTime_Parameter.#ctor">
+            <summary>
+            提供给 ReadTime_Result 使用
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Time.WriteCustomTime_Parameter.#ctor(System.DateTime)">
+            <summary>
+            控制器的日期时间参数初始化实例
+            </summary>
+            <param name="_ControllerDate">控制器的日期时间参数</param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Time.WriteCustomTime_Parameter.checkedParameter">
+            <summary>
+            检查参数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Time.WriteCustomTime_Parameter.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Time.WriteCustomTime_Parameter.GetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            对控制器的日期时间参数进行编码
+            </summary>
+            <param name="databuf"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Time.WriteCustomTime_Parameter.GetDataLen">
+            <summary>
+            获取数据长度
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Time.WriteCustomTime_Parameter.SetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            对控制器的日期时间参数进行解码
+            </summary>
+            <param name="databuf"></param>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.Time.WriteTime">
+            <summary>
+            将电脑的最新时间写入到设备中
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Time.WriteTime.#ctor(DoNetDrive.Core.Command.INCommandDetail)">
+            <summary>
+            将电脑的最新时间写入到控制器中
+            </summary>
+            <param name="cd">包含命令所需的远程主机详情 （IP、端口、SN、密码、重发次数等）</param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Time.WriteTime.CheckCommandParameter(DoNetDrive.Core.Command.INCommandParameter)">
+            <summary>
+            检查命令参数
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Time.WriteTime.CreatePacket0">
+            <summary>
+            将命令打包成一个Packet，准备发送
+            </summary>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.TransactionDatabaseDetail.ReadTransactionDatabaseDetail">
+            <summary>
+            读取控制器中的卡片数据库信息
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.TransactionDatabaseDetail.ReadTransactionDatabaseDetail.#ctor(DoNetDrive.Core.Command.INCommandDetail)">
+            <summary>
+            初始化参数
+            </summary>
+            <param name="detail"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.TransactionDatabaseDetail.ReadTransactionDatabaseDetail.CreatePacket0">
+            <summary>
+            创建一个通讯指令
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.TransactionDatabaseDetail.ReadTransactionDatabaseDetail.CommandNext1(DoNetDrive.Protocol.USBDrive.USBDrivePacket)">
+            <summary>
+            处理返回值
+            </summary>
+            <param name="oPck"></param>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.TransactionDatabaseDetail.ReadTransactionDatabaseDetail_Result">
+            <summary>
+            读取控制器中的卡片数据库信息
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.TransactionDatabaseDetail.ReadTransactionDatabaseDetail_Result.DatabaseDetail">
+            <summary>
+            记录数据库的详情
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.TransactionDatabaseDetail.ReadTransactionDatabaseDetail_Result.#ctor">
+            <summary>
+            初始化参数
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.TransactionDatabaseDetail.ReadTransactionDatabaseDetail_Result.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.TransactionDatabaseDetail.ReadTransactionDatabaseDetail_Result.SetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            进行解码
+            </summary>
+            <param name="buf"></param>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ClearTransactionDatabase.ClearTransactionDatabase">
+            <summary>
+            清空指定类型的记录数据库
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ClearTransactionDatabase.ClearTransactionDatabase.#ctor(DoNetDrive.Core.Command.INCommandDetail,DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ClearTransactionDatabase.ClearTransactionDatabase_Parameter)">
+            <summary>
+            初始化命令结构
+            </summary>
+            <param name="cd"></param>
+            <param name="parameter"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ClearTransactionDatabase.ClearTransactionDatabase.CheckCommandParameter(DoNetDrive.Core.Command.INCommandParameter)">
+            <summary>
+            检查参数
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ClearTransactionDatabase.ClearTransactionDatabase.CreatePacket0">
+            <summary>
+            创建一个通讯指令
+            </summary>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ClearTransactionDatabase.ClearTransactionDatabase_Parameter">
+            <summary>
+            清空指定类型的记录数据库
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ClearTransactionDatabase.ClearTransactionDatabase_Parameter.DatabaseType">
+            <summary>
+            记录数据库类型
+            1  读卡记录 
+            2  系统记录  
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ClearTransactionDatabase.ClearTransactionDatabase_Parameter.#ctor(DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.e_TransactionDatabaseType)">
+            <summary>
+            清空指定类型的记录数据库
+            </summary>
+            <param name="type">取值范围 1-6</param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ClearTransactionDatabase.ClearTransactionDatabase_Parameter.checkedParameter">
+            <summary>
+            检查参数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ClearTransactionDatabase.ClearTransactionDatabase_Parameter.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ClearTransactionDatabase.ClearTransactionDatabase_Parameter.GetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            将结构编码为字节缓冲
+            </summary>
+            <param name="databuf"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ClearTransactionDatabase.ClearTransactionDatabase_Parameter.GetDataLen">
+            <summary>
+            指定此类结构编码为字节缓冲后的长度
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ClearTransactionDatabase.ClearTransactionDatabase_Parameter.SetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            将字节缓冲解码为类结构
+            </summary>
+            <param name="databuf"></param>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ClearTransactionDatabase.TransactionDatabaseEmpty">
+            <summary>
+            清空所有类型的记录数据库
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ClearTransactionDatabase.TransactionDatabaseEmpty.#ctor(DoNetDrive.Core.Command.INCommandDetail)">
+            <summary>
+            初始化命令结构
+            </summary>
+            <param name="cd"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ClearTransactionDatabase.TransactionDatabaseEmpty.CheckCommandParameter(DoNetDrive.Core.Command.INCommandParameter)">
+            <summary>
+            检查 参数
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ClearTransactionDatabase.TransactionDatabaseEmpty.CreatePacket0">
+            <summary>
+            创建一个通讯指令
+            </summary>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.WriteTransactionDatabaseReadIndex.WriteTransactionDatabaseReadIndex">
+            <summary>
+            更新记录指针
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.WriteTransactionDatabaseReadIndex.WriteTransactionDatabaseReadIndex.#ctor(DoNetDrive.Core.Command.INCommandDetail,DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.WriteTransactionDatabaseReadIndex.WriteTransactionDatabaseReadIndex_Parameter)">
+            <summary>
+            初始化命令结构
+            </summary>
+            <param name="cd"></param>
+            <param name="parameter"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.WriteTransactionDatabaseReadIndex.WriteTransactionDatabaseReadIndex.CheckCommandParameter(DoNetDrive.Core.Command.INCommandParameter)">
+            <summary>
+            检查参数
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.WriteTransactionDatabaseReadIndex.WriteTransactionDatabaseReadIndex.CreatePacket0">
+            <summary>
+            创建一个通讯指令
+            </summary>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.WriteTransactionDatabaseReadIndex.WriteTransactionDatabaseReadIndex_Parameter">
+            <summary>
+            更新记录指针
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.WriteTransactionDatabaseReadIndex.WriteTransactionDatabaseReadIndex_Parameter.DatabaseType">
+            <summary>
+             记录数据库类型
+             1  读卡记录
+             2  系统记录
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.WriteTransactionDatabaseReadIndex.WriteTransactionDatabaseReadIndex_Parameter.ReadIndex">
+            <summary>
+            数据库中的读索引号
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.WriteTransactionDatabaseReadIndex.WriteTransactionDatabaseReadIndex_Parameter.IsCircle">
+            <summary>
+            循环标记
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.WriteTransactionDatabaseReadIndex.WriteTransactionDatabaseReadIndex_Parameter.#ctor(DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.e_TransactionDatabaseType,System.Int32,System.Boolean)">
+            <summary>
+            创建结构
+            </summary>
+            <param name="_DatabaseType">记录数据库类型</param>
+            <param name="_ReadIndex">数据库中的读索引号</param>
+            <param name="_IsCircle">循环标记</param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.WriteTransactionDatabaseReadIndex.WriteTransactionDatabaseReadIndex_Parameter.checkedParameter">
+            <summary>
+            检查参数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.WriteTransactionDatabaseReadIndex.WriteTransactionDatabaseReadIndex_Parameter.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.WriteTransactionDatabaseReadIndex.WriteTransactionDatabaseReadIndex_Parameter.GetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            将结构编码为字节缓冲
+            </summary>
+            <param name="databuf"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.WriteTransactionDatabaseReadIndex.WriteTransactionDatabaseReadIndex_Parameter.GetDataLen">
+            <summary>
+            指定此类结构编码为字节缓冲后的长度
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.WriteTransactionDatabaseReadIndex.WriteTransactionDatabaseReadIndex_Parameter.SetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            将字节缓冲解码为类结构
+            </summary>
+            <param name="databuf"></param>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.WriteTransactionDatabaseWriteIndex.WriteTransactionDatabaseWriteIndex">
+            <summary>
+            修改指定记录数据库的写索引
+            记录尾地址
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.WriteTransactionDatabaseWriteIndex.WriteTransactionDatabaseWriteIndex.#ctor(DoNetDrive.Core.Command.INCommandDetail,DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.WriteTransactionDatabaseWriteIndex.WriteTransactionDatabaseWriteIndex_Parameter)">
+            <summary>
+            初始化命令结构
+            </summary>
+            <param name="cd"></param>
+            <param name="parameter"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.WriteTransactionDatabaseWriteIndex.WriteTransactionDatabaseWriteIndex.CheckCommandParameter(DoNetDrive.Core.Command.INCommandParameter)">
+            <summary>
+            检查参数
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.WriteTransactionDatabaseWriteIndex.WriteTransactionDatabaseWriteIndex.CreatePacket0">
+            <summary>
+            创建一个通讯指令
+            </summary>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.WriteTransactionDatabaseWriteIndex.WriteTransactionDatabaseWriteIndex_Parameter">
+            <summary>
+            修改指定记录数据库的写索引
+            记录尾地址
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.WriteTransactionDatabaseWriteIndex.WriteTransactionDatabaseWriteIndex_Parameter.TransactionType">
+            <summary>
+             记录数据库类型
+             1  读卡记录
+             2  系统记录
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.WriteTransactionDatabaseWriteIndex.WriteTransactionDatabaseWriteIndex_Parameter.WriteIndex">
+            <summary>
+            数据库中的写索引号
+            记录尾地址
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.WriteTransactionDatabaseWriteIndex.WriteTransactionDatabaseWriteIndex_Parameter.#ctor(DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.e_TransactionDatabaseType,System.Int32)">
+            <summary>
+            创建结构
+            </summary>
+            <param name="_DatabaseType">记录数据库类型</param>
+            <param name="_WriteIndex">记录尾地址</param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.WriteTransactionDatabaseWriteIndex.WriteTransactionDatabaseWriteIndex_Parameter.checkedParameter">
+            <summary>
+            检查参数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.WriteTransactionDatabaseWriteIndex.WriteTransactionDatabaseWriteIndex_Parameter.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.WriteTransactionDatabaseWriteIndex.WriteTransactionDatabaseWriteIndex_Parameter.GetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            将结构编码为字节缓冲
+            </summary>
+            <param name="databuf"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.WriteTransactionDatabaseWriteIndex.WriteTransactionDatabaseWriteIndex_Parameter.GetDataLen">
+            <summary>
+            指定此类结构编码为字节缓冲后的长度
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.WriteTransactionDatabaseWriteIndex.WriteTransactionDatabaseWriteIndex_Parameter.SetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            将字节缓冲解码为类结构
+            </summary>
+            <param name="databuf"></param>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.e_TransactionDatabaseType">
+            <summary>
+            记录数据库类型
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.e_TransactionDatabaseType.OnCardTransaction">
+            <summary>
+            读卡相关记录
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.e_TransactionDatabaseType.OnSystemTransaction">
+            <summary>
+            系统相关记录
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabaseByIndex.ReadTransactionDatabaseByIndex" -->
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabaseByIndex.ReadTransactionDatabaseByIndex.mBufs">
+            <summary>
+            ByteBuffer 队列
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabaseByIndex.ReadTransactionDatabaseByIndex.mTransactionType">
+            <summary>
+            事务类型
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabaseByIndex.ReadTransactionDatabaseByIndex.#ctor(DoNetDrive.Core.Command.INCommandDetail,DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabaseByIndex.ReadTransactionDatabaseByIndex_Parameter)">
+            <summary>
+            初始化命令结构
+            </summary>
+            <param name="cd"></param>
+            <param name="parameter"></param>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabaseByIndex.ReadTransactionDatabaseByIndex.NewTransactionTable">
+            <summary>
+            新记录实体创建工厂
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabaseByIndex.ReadTransactionDatabaseByIndex.#cctor">
+            <summary>
+            初始化实体创建工厂
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabaseByIndex.ReadTransactionDatabaseByIndex.CheckCommandParameter(DoNetDrive.Core.Command.INCommandParameter)">
+            <summary>
+            检查参数
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabaseByIndex.ReadTransactionDatabaseByIndex.CreatePacket0">
+            <summary>
+            创建一个指令
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabaseByIndex.ReadTransactionDatabaseByIndex.GetCmdData">
+            <summary>
+            获取参数结构的字节编码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabaseByIndex.ReadTransactionDatabaseByIndex.CommandNext1(DoNetDrive.Protocol.USBDrive.USBDrivePacket)">
+            <summary>
+            处理返回值
+            </summary>
+            <param name="oPck"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabaseByIndex.ReadTransactionDatabaseByIndex.ClearBuf">
+            <summary>
+            清空缓冲区
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabaseByIndex.ReadTransactionDatabaseByIndex.CommandReSend">
+            <summary>
+            命令重发时需要的函数
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabaseByIndex.ReadTransactionDatabaseByIndex.Release1">
+            <summary>
+            命令释放时需要的函数
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabaseByIndex.ReadTransactionDatabaseByIndex.Analysis">
+            <summary>
+            分析缓冲中的数据包
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabaseByIndex.ReadTransactionDatabaseByIndex.GetNewTransaction">
+            <summary>
+            获取一个事务实体
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabaseByIndex.ReadTransactionDatabaseByIndex_Parameter">
+            <summary>
+            读取控制器中的卡片数据库信息返回值
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabaseByIndex.ReadTransactionDatabaseByIndex_Parameter.TransactionType">
+            <summary>
+             记录数据库类型
+             1 读卡记录
+             2 系统记录
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabaseByIndex.ReadTransactionDatabaseByIndex_Parameter.ReadIndex">
+            <summary>
+            读索引号
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabaseByIndex.ReadTransactionDatabaseByIndex_Parameter.Quantity">
+            <summary>
+            读取数量
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabaseByIndex.ReadTransactionDatabaseByIndex_Parameter.#ctor(System.Int32,System.Int32,System.Int32)">
+             <summary>
+            创建结构
+             </summary>
+             <param name="_DatabaseType">记录数据库类型 取值1-6</param>
+             <param name="_ReadIndex">读索引号</param>
+             <param name="_Quantity">读取数量</param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabaseByIndex.ReadTransactionDatabaseByIndex_Parameter.checkedParameter">
+            <summary>
+            检查参数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabaseByIndex.ReadTransactionDatabaseByIndex_Parameter.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabaseByIndex.ReadTransactionDatabaseByIndex_Parameter.GetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            将结构编码为字节缓冲
+            </summary>
+            <param name="databuf"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabaseByIndex.ReadTransactionDatabaseByIndex_Parameter.GetDataLen">
+            <summary>
+            指定此类结构编码为字节缓冲后的长度
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabaseByIndex.ReadTransactionDatabaseByIndex_Parameter.SetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            将字节缓冲解码为类结构
+            </summary>
+            <param name="databuf"></param>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabaseByIndex.ReadTransactionDatabaseByIndex_Result">
+            <summary>
+            读取控制器中的卡片数据库信息返回值
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabaseByIndex.ReadTransactionDatabaseByIndex_Result.TransactionType">
+            <summary>
+             记录数据库类型
+             1 读卡记录
+             2 系统记录
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabaseByIndex.ReadTransactionDatabaseByIndex_Result.ReadIndex">
+            <summary>
+            读索引号
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabaseByIndex.ReadTransactionDatabaseByIndex_Result.Quantity">
+            <summary>
+            读取数量
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabaseByIndex.ReadTransactionDatabaseByIndex_Result.TransactionList">
+            <summary>
+            记录列表
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabaseByIndex.ReadTransactionDatabaseByIndex_Result.#ctor">
+            <summary>
+            初始化参数
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabaseByIndex.ReadTransactionDatabaseByIndex_Result.#ctor(DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.e_TransactionDatabaseType,System.Int32,System.Int32,System.Collections.Generic.List{DoNetDrive.Protocol.Transaction.AbstractTransaction})">
+             <summary>
+            创建结构
+             </summary>
+             <param name="_DatabaseType">记录数据库类型 取值1-6</param>
+             <param name="_ReadIndex">读索引号</param>
+             <param name="_Quantity">读取数量</param>
+             <param name="_TransactionList">记录列表</param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabaseByIndex.ReadTransactionDatabaseByIndex_Result.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadDataBaseDetailCallBack">
+            <summary>
+            读取记录数据库空间信息的返回值
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadDataBaseDetailCallBack.CommandCallBack(DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Base,DoNetDrive.Protocol.USBDrive.USBDrivePacket)">
+            <summary>
+            处理返回值
+            </summary>
+            <param name="ReadTransactionDatabaseCommand"></param>
+            <param name="bPck"></param>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabaseByIndexCallBack">
+            <summary>
+            读记录数据库的返回值
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabaseByIndexCallBack.CommandCallBack(DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Base,DoNetDrive.Protocol.USBDrive.USBDrivePacket)">
+            <summary>
+            处理返回值
+            </summary>
+            <param name="bPck"></param>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.IReadTransactionDatabase_CallBack">
+            <summary>
+            读取新记录 每一个步骤的抽象状态 
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.IReadTransactionDatabase_CallBack.CommandCallBack(DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Base,DoNetDrive.Protocol.USBDrive.USBDrivePacket)">
+            <summary>
+            处理返回值
+            </summary>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReReadDatabaseCallBack">
+            <summary>
+            重复读取遗漏的记录的返回值
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReReadDatabaseCallBack.CommandCallBack(DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Base,DoNetDrive.Protocol.USBDrive.USBDrivePacket)">
+            <summary>
+            处理返回值
+            </summary>
+            <param name="command"></param>
+            <param name="bPck"></param>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase">
+            <summary>
+             读取新记录
+             读指定类型的记录数据库最新记录，并读取指定数量。
+             成功返回结果参考 link ReadTransactionDatabase_Result 
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase.NewTransactionTable">
+            <summary>
+            新记录实体创建工厂
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase.#ctor(DoNetDrive.Core.Command.INCommandDetail,DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Parameter)">
+            <summary>
+            初始化命令结构
+            </summary>
+            <param name="cd"></param>
+            <param name="parameter"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase.#cctor">
+            <summary>
+            初始化实体创建工厂
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase.GetNewTransaction">
+            <summary>
+            获取一个事务实体
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Base">
+            <summary>
+             读取新记录
+             读指定类型的记录数据库最新记录，并读取指定数量。
+             成功返回结果参考 link ReadTransactionDatabase_Result 
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Base.mParameter">
+            <summary>
+            查询参数
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Base.readDataBaseDetailCallBack">
+            <summary>
+            每个步骤的处理返回值
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Base.mTransactionSerialNumberList">
+            <summary>
+            记录序号是否已读取的集合，
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Base.mStep">
+            <summary>
+            指示当前命令进行的步骤
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Base.mBufs">
+            <summary>
+            读取到的记录数据缓冲
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Base.mReadQuantity">
+            <summary>
+            本次读取的数量
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Base.mReadable">
+            <summary>
+            可读取的新记录数量
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Base.mReadTotal">
+            <summary>
+            读取计数
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Base.transactionDetail">
+            <summary>
+            选择的记录模块
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Base.mTransactionType">
+            <summary>
+            事务类型
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Base.#ctor(DoNetDrive.Core.Command.INCommandDetail,DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Parameter)">
+            <summary>
+            初始化命令结构
+            </summary>
+            <param name="cd"></param>
+            <param name="parameter"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Base.CheckCommandParameter(DoNetDrive.Core.Command.INCommandParameter)">
+            <summary>
+            检查参数
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Base.CreatePacket0">
+            <summary>
+            创建一个指令
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Base.CommandNext0(DoNetDrive.Protocol.USBDrive.USBDrivePacket)">
+            <summary>
+            
+            处理接收返回值，避免父类直接完成命令，重写逻辑
+            </summary>
+            <param name="oPck"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Base.CommandNext1(DoNetDrive.Protocol.USBDrive.USBDrivePacket)">
+            <summary>
+            处理返回值
+            </summary>
+            <param name="oPck"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Base.ReadDataBaseDetailCallBack(DoNetDrive.Protocol.USBDrive.USBDrivePacket)">
+            <summary>
+            读取记录数据库空间信息的返回值 mStep=1
+            </summary>
+            <param name="oPck"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Base.ReadTransactionNext">
+            <summary>
+            读取下一包记录
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Base.ReadTransactionDatabaseByIndexCallBack(DoNetDrive.Protocol.USBDrive.USBDrivePacket)">
+            <summary>
+            读记录数据库的返回值 mStep=2
+            读取下一包记录
+            </summary>
+            <param name="oPck"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Base.SaveTransactionToBuf(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            将返回的事务暂时保存在缓冲中
+            </summary>
+            <param name="bTransactionBuf"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Base.ReadIndexComplete">
+            <summary>
+            检查修改记录读索引号的返回值  mStep=2
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Base.Analysis">
+            <summary>
+            分析缓冲中的数据包
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Base.ReReadDatabaseCallBack(DoNetDrive.Protocol.USBDrive.USBDrivePacket)">
+            <summary>
+            重复读取遗漏的记录 mStep=3
+            </summary>
+            <param name="oPck"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Base.CheckResultList">
+            <summary>
+            检查是否有遗漏
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Base.WriteTransactionReadIndex">
+            <summary>
+            记录读取完毕，需要更新读索引（更新记录尾号）
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Base.Release1">
+            <summary>
+            命令释放时需要的函数
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Base.AddDictSerialNumberRange(System.Int32,System.Int32)">
+            <summary>
+            提交序号到未读集合
+            </summary>
+            <param name="startIndex"></param>
+            <param name="len"></param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Base.GetNewTransaction">
+            <summary>
+            获取一个事务实体
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Parameter">
+            <summary>
+            读取新记录
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Parameter.DatabaseType">
+            <summary>
+             记录数据库类型
+             1 读卡记录
+             2 出门开关记录
+             3 门磁记录
+             4 软件操作记录
+             5 报警记录
+             6 系统记录
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Parameter.Quantity">
+            <summary>
+            读取数量 0-160000,0表示都取所有新记录
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Parameter.PacketSize">
+            <summary>
+             每次读取数量 1-5
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Parameter.#ctor(DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.e_TransactionDatabaseType,System.Int32)">
+            <summary>
+            初始化参数
+            </summary>
+            <param name="type">取值范围 1-6</param>
+            <param name="_Quantity">读取数量</param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Parameter.checkedParameter">
+            <summary>
+            检查参数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Parameter.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Parameter.GetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            将结构编码为字节缓冲
+            </summary>
+            <param name="databuf"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Parameter.GetDataLen">
+            <summary>
+            指定此类结构编码为字节缓冲后的长度
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Parameter.SetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            将字节缓冲解码为类结构
+            </summary>
+            <param name="databuf"></param>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Result">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Result.DatabaseType">
+            <summary>
+            记录数据库类型
+            读卡记录
+            系统记录
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Result.Quantity">
+            <summary>
+            读取数量
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Result.readable">
+            <summary>
+            剩余新记录数量
+            </summary>
+        </member>
+        <member name="F:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Result.TransactionList">
+            <summary>
+            记录列表
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Result.#ctor">
+            <summary>
+            初始化参数
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Result.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Transaction.ReadTransactionDatabase.ReadTransactionDatabase_Result.SetBytes(DotNetty.Buffers.IByteBuffer)">
+            <summary>
+            
+            </summary>
+            <param name="buf"></param>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.USBCommandObserverHandler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.USBCommandObserverHandler.CheckPacketIsTransaction(DoNetDrive.Protocol.USBDrive.USBDrivePacket)">
+            <summary>
+            
+            </summary>
+            <param name="Pck"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DoNetDrive.Protocol.USB.OfflinePatrol.Write_Command">
+            <summary>
+            针对命令中的写参数命令进行抽象封装
+            </summary>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Write_Command.#ctor(DoNetDrive.Core.Command.INCommandDetail,DoNetDrive.Core.Command.INCommandParameter)">
+            <summary>
+            初始化命令
+            </summary>
+            <param name="cd">包含命令所需的远程主机详情 （IP、端口、SN、密码、重发次数等）</param>
+            <param name="par">包含命令所需要的其他参数</param>
+        </member>
+        <member name="M:DoNetDrive.Protocol.USB.OfflinePatrol.Write_Command.CommandNext1(DoNetDrive.Protocol.USBDrive.USBDrivePacket)">
+            <summary>
+            命令返回值的判断<br/>
+            【应答：OK】 => 父类已处理
+            </summary>
+            <param name="oPck">包含返回指令的Packet</param>
+        </member>
+    </members>
+</doc>

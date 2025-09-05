@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{69B0709D-F370-41D8-BE55-C115FEF3730E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DoNetDrive.Protocol.USB.OfflinePatrol</RootNamespace>
+    <AssemblyName>DoNetDrive.Protocol.USB.OfflinePatrol</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Output\Debug\Net45\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\Output\Debug\Net45\DoNetDrive.Protocol.USB.OfflinePatrol.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Output\Release\Net45\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\Output\Release\Net45\DoNetDrive.Protocol.USB.OfflinePatrol.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DoNetDrive.Common, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Release\net45\DoNetDrive.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="DoNetDrive.Core, Version=1.16.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Release\net45\DoNetDrive.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DoNetDrive.Protocol, Version=1.12.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Release\net45\DoNetDrive.Protocol.dll</HintPath>
+    </Reference>
+    <Reference Include="DoNetDrive.Protocol.Util, Version=1.16.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Release\net45\DoNetDrive.Protocol.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetty.Buffers, Version=0.6.1.0, Culture=neutral, PublicKeyToken=bc13ca065fa06c29, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Release\net45\DotNetty.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetty.Common, Version=0.6.1.0, Culture=neutral, PublicKeyToken=bc13ca065fa06c29, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Release\net45\DotNetty.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AbstractParameter.cs" />
+    <Compile Include="CommandEx.cs" />
+    <Compile Include="Data\PatrolEmpl.cs" />
+    <Compile Include="Data\TransactionDatabaseDetail.cs" />
+    <Compile Include="Data\Transaction\CardTransaction.cs" />
+    <Compile Include="Data\Transaction\CardTransactionDetail.cs" />
+    <Compile Include="Data\Transaction\SystemTransaction.cs" />
+    <Compile Include="Data\Transaction\SystemTransactionDetail.cs" />
+    <Compile Include="Data\Transaction\TransactionDetailBase.cs" />
+    <Compile Include="OperatedDevice\LCDFlash\LCDFlash.cs" />
+    <Compile Include="OperatedDevice\LCDFlash\LCDFlash_Parameter.cs" />
+    <Compile Include="OperatedDevice\TriggerBuzzer\TriggerBuzzer.cs" />
+    <Compile Include="OperatedDevice\TriggerDoubleLamp\TriggerDoubleLamp.cs" />
+    <Compile Include="OperatedDevice\TriggerDoubleLamp\TriggerDoubleLamp_Parameter.cs" />
+    <Compile Include="OperatedDevice\TriggerLED\TriggerLED.cs" />
+    <Compile Include="OperatedDevice\TriggerLED\TriggerLED_Parameter.cs" />
+    <Compile Include="OperatedDevice\TriggerVibrate\TriggerVibrate.cs" />
+    <Compile Include="OperatedDevice\TriggerVibrate\TriggerVibrate_Parameter.cs" />
+    <Compile Include="PatrolEmpl\01PatrolEmplDatabaseDetail\PatrolEmplDatabaseDetail_Result.cs" />
+    <Compile Include="PatrolEmpl\01PatrolEmplDatabaseDetail\ReadPatrolEmplDatabaseDetail.cs" />
+    <Compile Include="PatrolEmpl\02ClearPatrolEmplDataBase\ClearPatrolEmplDataBase.cs" />
+    <Compile Include="PatrolEmpl\03PatrolEmplDatabase\ReadPatrolEmplDatabase.cs" />
+    <Compile Include="PatrolEmpl\03PatrolEmplDatabase\ReadPatrolEmplDatabase_Result.cs" />
+    <Compile Include="PatrolEmpl\04PatrolEmplDetail\ReadPatrolEmplDetail.cs" />
+    <Compile Include="PatrolEmpl\04PatrolEmplDetail\ReadPatrolEmplDetail_Parameter.cs" />
+    <Compile Include="PatrolEmpl\04PatrolEmplDetail\ReadPatrolEmplDetail_Result.cs" />
+    <Compile Include="PatrolEmpl\05WritePatrolEmpl\WritePatrolEmpl_Result.cs" />
+    <Compile Include="PatrolEmpl\06DeletePatrolEmpl\DeletePatrolEmpl.cs" />
+    <Compile Include="PatrolEmpl\06DeletePatrolEmpl\DeletePatrolEmpl_Parameter.cs" />
+    <Compile Include="PatrolEmpl\05WritePatrolEmpl\WritePatrolEmpl.cs" />
+    <Compile Include="PatrolEmpl\05WritePatrolEmpl\WritePatrolEmpl_Parameter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Read_Command.cs" />
+    <Compile Include="SystemParameter\01SN\ReadSN.cs" />
+    <Compile Include="SystemParameter\01SN\SN_Parameter.cs" />
+    <Compile Include="SystemParameter\01SN\SN_Result.cs" />
+    <Compile Include="SystemParameter\01SN\WriteSN.cs" />
+    <Compile Include="SystemParameter\03ExpireTime\ExpireTime_Parameter.cs" />
+    <Compile Include="SystemParameter\03ExpireTime\ExpireTime_Result.cs" />
+    <Compile Include="SystemParameter\03ExpireTime\ReadExpireTime.cs" />
+    <Compile Include="SystemParameter\03ExpireTime\WriteExpireTime.cs" />
+    <Compile Include="SystemParameter\05Version\ReadVersion.cs" />
+    <Compile Include="SystemParameter\05Version\ReadVersion_Result.cs" />
+    <Compile Include="SystemParameter\06SystemStatus\ReadSystemStatus.cs" />
+    <Compile Include="SystemParameter\06SystemStatus\ReadSystemStatus_Result.cs" />
+    <Compile Include="SystemParameter\07RecordStorageMode\ReadRecordStorageMode.cs" />
+    <Compile Include="SystemParameter\07RecordStorageMode\ReadRecordStorageMode_Result.cs" />
+    <Compile Include="SystemParameter\07RecordStorageMode\WriteRecordStorageMode.cs" />
+    <Compile Include="SystemParameter\07RecordStorageMode\WriteRecordStorageMode_Parameter.cs" />
+    <Compile Include="SystemParameter\09CreateTime\ReadCreateTime.cs" />
+    <Compile Include="SystemParameter\09CreateTime\ReadCreateTime_Result.cs" />
+    <Compile Include="SystemParameter\09CreateTime\WriteCreateTime.cs" />
+    <Compile Include="SystemParameter\09CreateTime\WriteCreateTime_Parameter.cs" />
+    <Compile Include="SystemParameter\10StartupHoldTime\ReadStartupHoldTime.cs" />
+    <Compile Include="SystemParameter\10StartupHoldTime\ReadStartupHoldTime_Result.cs" />
+    <Compile Include="SystemParameter\10StartupHoldTime\WriteStartupHoldTime.cs" />
+    <Compile Include="SystemParameter\10StartupHoldTime\WriteStartupHoldTime_Parameter.cs" />
+    <Compile Include="SystemParameter\11LEDOpenHoldTime\ReadLEDOpenHoldTime.cs" />
+    <Compile Include="SystemParameter\11LEDOpenHoldTime\ReadLEDOpenHoldTime_Result.cs" />
+    <Compile Include="SystemParameter\11LEDOpenHoldTime\WriteLEDOpenHoldTime.cs" />
+    <Compile Include="SystemParameter\11LEDOpenHoldTime\WriteLEDOpenHoldTime_Parameter.cs" />
+    <Compile Include="SystemParameter\12Initialize\Initialize.cs" />
+    <Compile Include="SystemParameter\ReadFlag\CloseReadFlag.cs" />
+    <Compile Include="SystemParameter\ReadFlag\OpenReadFlag.cs" />
+    <Compile Include="SystemParameter\ReadFlag\OpenReadFlag_Result.cs" />
+    <Compile Include="SystemParameter\ReadFlag\WatchReadCardTransaction.cs" />
+    <Compile Include="Time\ReadTime.cs" />
+    <Compile Include="Time\ReadTime_Result.cs" />
+    <Compile Include="Time\WriteCustomTime.cs" />
+    <Compile Include="Time\WriteCustomTime_Parameter.cs" />
+    <Compile Include="Time\WriteTime.cs" />
+    <Compile Include="Transaction\01TransactionDatabaseDetail\ReadTransactionDatabaseDetail.cs" />
+    <Compile Include="Transaction\01TransactionDatabaseDetail\ReadTransactionDatabaseDetail_Result.cs" />
+    <Compile Include="Transaction\02ClearTransactionDatabase\ClearTransactionDatabase.cs" />
+    <Compile Include="Transaction\02ClearTransactionDatabase\ClearTransactionDatabase_Parameter.cs" />
+    <Compile Include="Transaction\02ClearTransactionDatabase\TransactionDatabaseEmpty.cs" />
+    <Compile Include="Transaction\04WriteTransactionDatabaseReadIndex\WriteTransactionDatabaseReadIndex.cs" />
+    <Compile Include="Transaction\04WriteTransactionDatabaseReadIndex\WriteTransactionDatabaseReadIndex_Parameter.cs" />
+    <Compile Include="Transaction\05WriteTransactionDatabaseWriteIndex\WriteTransactionDatabaseWriteIndex.cs" />
+    <Compile Include="Transaction\05WriteTransactionDatabaseWriteIndex\WriteTransactionDatabaseWriteIndex_Parameter.cs" />
+    <Compile Include="Transaction\e_TransactionDatabaseType.cs" />
+    <Compile Include="Transaction\03ReadTransactionDatabaseByIndex\ReadTransactionDatabaseByIndex.cs" />
+    <Compile Include="Transaction\03ReadTransactionDatabaseByIndex\ReadTransactionDatabaseByIndex_Parameter.cs" />
+    <Compile Include="Transaction\03ReadTransactionDatabaseByIndex\ReadTransactionDatabaseByIndex_Result.cs" />
+    <Compile Include="Transaction\06ReadTransactionDatabase\CommandCallBack\ReadDataBaseDetailCallBack.cs" />
+    <Compile Include="Transaction\06ReadTransactionDatabase\CommandCallBack\ReadTransactionDatabaseByIndexCallBack.cs" />
+    <Compile Include="Transaction\06ReadTransactionDatabase\CommandCallBack\ReadTransactionDatabase_CallBack.cs" />
+    <Compile Include="Transaction\06ReadTransactionDatabase\CommandCallBack\ReReadDatabaseCallBack.cs" />
+    <Compile Include="Transaction\06ReadTransactionDatabase\ReadTransactionDatabase.cs" />
+    <Compile Include="Transaction\06ReadTransactionDatabase\ReadTransactionDatabase_Base.cs" />
+    <Compile Include="Transaction\06ReadTransactionDatabase\ReadTransactionDatabase_Parameter.cs" />
+    <Compile Include="Transaction\06ReadTransactionDatabase\ReadTransactionDatabase_Result.cs" />
+    <Compile Include="USBCommandObserverHandler.cs" />
+    <Compile Include="Write_Command.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

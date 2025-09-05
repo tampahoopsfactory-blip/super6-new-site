@@ -1,0 +1,71 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataMonitoring", "DataMonitoring\DataMonitoring.csproj", "{11F65A74-ADBF-4AC5-8838-40D64BF566FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoNetDrive.Protocol.Fingerprint", "..\..\..\..\..\..\..\..\..\..\WorkProject\FCARDIO.Protocol.Door\DoNetDrive.Protocol.Fingerprint\Fingerprint\DoNetDrive.Protocol.Fingerprint.csproj", "{4639E7F7-83AA-4511-8FA8-369A79226B72}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "DoNetDrive.Core_Net45", "..\..\..\..\..\..\..\..\..\..\WorkProject\DoNetDrive.Core\FCARDIO.Core\FCARDIO.Core\DoNetDrive.Core_Net45.vbproj", "{A149C4D3-2209-408F-A0DE-D9EB8E0FA492}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "DoNetDrive.Protocol_Net45", "..\..\..\..\..\..\..\..\..\..\WorkProject\DoNetDrive.Core\FCARDIO.Protocol\FCARDIO.Protocol\DoNetDrive.Protocol_Net45.vbproj", "{4C9B06E5-DA6B-49AF-8E4D-A0D75046C044}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoNetDrive.Protocol.Door", "..\..\..\..\..\..\..\..\..\..\WorkProject\FCARDIO.Protocol.Door\DoNetDrive.Protocol.Door\DoNetDrive.Protocol.Door.csproj", "{14F89726-B7E7-4222-BFCF-C63148B5B34D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{11F65A74-ADBF-4AC5-8838-40D64BF566FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11F65A74-ADBF-4AC5-8838-40D64BF566FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11F65A74-ADBF-4AC5-8838-40D64BF566FB}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{11F65A74-ADBF-4AC5-8838-40D64BF566FB}.Debug|x64.Build.0 = Debug|Any CPU
+		{11F65A74-ADBF-4AC5-8838-40D64BF566FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11F65A74-ADBF-4AC5-8838-40D64BF566FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11F65A74-ADBF-4AC5-8838-40D64BF566FB}.Release|x64.ActiveCfg = Release|Any CPU
+		{11F65A74-ADBF-4AC5-8838-40D64BF566FB}.Release|x64.Build.0 = Release|Any CPU
+		{4639E7F7-83AA-4511-8FA8-369A79226B72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4639E7F7-83AA-4511-8FA8-369A79226B72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4639E7F7-83AA-4511-8FA8-369A79226B72}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4639E7F7-83AA-4511-8FA8-369A79226B72}.Debug|x64.Build.0 = Debug|Any CPU
+		{4639E7F7-83AA-4511-8FA8-369A79226B72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4639E7F7-83AA-4511-8FA8-369A79226B72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4639E7F7-83AA-4511-8FA8-369A79226B72}.Release|x64.ActiveCfg = Release|Any CPU
+		{4639E7F7-83AA-4511-8FA8-369A79226B72}.Release|x64.Build.0 = Release|Any CPU
+		{A149C4D3-2209-408F-A0DE-D9EB8E0FA492}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A149C4D3-2209-408F-A0DE-D9EB8E0FA492}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A149C4D3-2209-408F-A0DE-D9EB8E0FA492}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A149C4D3-2209-408F-A0DE-D9EB8E0FA492}.Debug|x64.Build.0 = Debug|Any CPU
+		{A149C4D3-2209-408F-A0DE-D9EB8E0FA492}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A149C4D3-2209-408F-A0DE-D9EB8E0FA492}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A149C4D3-2209-408F-A0DE-D9EB8E0FA492}.Release|x64.ActiveCfg = Release|Any CPU
+		{A149C4D3-2209-408F-A0DE-D9EB8E0FA492}.Release|x64.Build.0 = Release|Any CPU
+		{4C9B06E5-DA6B-49AF-8E4D-A0D75046C044}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C9B06E5-DA6B-49AF-8E4D-A0D75046C044}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C9B06E5-DA6B-49AF-8E4D-A0D75046C044}.Debug|x64.ActiveCfg = Debug|x64
+		{4C9B06E5-DA6B-49AF-8E4D-A0D75046C044}.Debug|x64.Build.0 = Debug|x64
+		{4C9B06E5-DA6B-49AF-8E4D-A0D75046C044}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C9B06E5-DA6B-49AF-8E4D-A0D75046C044}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C9B06E5-DA6B-49AF-8E4D-A0D75046C044}.Release|x64.ActiveCfg = Release|x64
+		{4C9B06E5-DA6B-49AF-8E4D-A0D75046C044}.Release|x64.Build.0 = Release|x64
+		{14F89726-B7E7-4222-BFCF-C63148B5B34D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14F89726-B7E7-4222-BFCF-C63148B5B34D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14F89726-B7E7-4222-BFCF-C63148B5B34D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{14F89726-B7E7-4222-BFCF-C63148B5B34D}.Debug|x64.Build.0 = Debug|Any CPU
+		{14F89726-B7E7-4222-BFCF-C63148B5B34D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14F89726-B7E7-4222-BFCF-C63148B5B34D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14F89726-B7E7-4222-BFCF-C63148B5B34D}.Release|x64.ActiveCfg = Release|Any CPU
+		{14F89726-B7E7-4222-BFCF-C63148B5B34D}.Release|x64.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {237E3DE2-6D49-49CB-A409-78251AF1827C}
+	EndGlobalSection
+EndGlobal

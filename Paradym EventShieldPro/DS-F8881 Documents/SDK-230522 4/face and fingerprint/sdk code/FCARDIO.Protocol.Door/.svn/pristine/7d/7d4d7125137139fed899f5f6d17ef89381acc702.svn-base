@@ -1,0 +1,136 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoNetDrive.Protocol.Door_netstandard20", "DoNetDrive.Protocol.Door\DoNetDrive.Protocol.Door_netstandard20.csproj", "{14F89726-B7E7-4222-BFCF-C63148B5B34D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoNetDrive.Protocol.USB.CardReader_netstandard20", "DoNetDrive.Protocol.USB\CardReader\DoNetDrive.Protocol.USB.CardReader_netstandard20.csproj", "{3502F7F1-0805-457D-B8D7-35C22D722550}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoNetDrive.Protocol.USB.OfflinePatrol_netstandard20", "DoNetDrive.Protocol.USB\OfflinePatrol\DoNetDrive.Protocol.USB.OfflinePatrol_netstandard20.csproj", "{69B0709D-F370-41D8-BE55-C115FEF3730E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoNetDrive.Protocol.Fingerprint_netstandard20", "DoNetDrive.Protocol.Fingerprint\Fingerprint\DoNetDrive.Protocol.Fingerprint_netstandard20.csproj", "{4639E7F7-83AA-4511-8FA8-369A79226B72}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoNetDrive.Protocol.Elevator_netstandard20", "DoNetDrive.Protocol.Elevator\DoNetDrive.Protocol.Elevator_netstandard20.csproj", "{2938B81E-04FF-4E10-97AE-3A10D5E72797}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetDrive.Protocol.POS_netstandard20", "DoNetDrive.Protocol.POS\POS\DotNetDrive.Protocol.POS_netstandard20.csproj", "{1FA888DA-82E7-4B94-BFA4-EFDE7A8F00CE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "控制板", "控制板", "{26808A97-73AA-42AB-91F3-9B251C144667}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "USB发卡器", "USB发卡器", "{7924553C-B3A7-491C-AD0F-53C4D1A2DEA4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "人脸机指纹机", "人脸机指纹机", "{42ED4DEA-B75F-4621-B8DC-1296D0E354A0}"
+	ProjectSection(SolutionItems) = preProject
+		DoNetDrive.Protocol.Fingerprint\README.md = DoNetDrive.Protocol.Fingerprint\README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "消费机", "消费机", "{C84B0DCC-9E18-4081-AA50-89974692B09C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "USB巡更棒", "USB巡更棒", "{72EA2D02-593C-4D27-BD0D-B11D7F1E1B3F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "电梯板", "电梯板", "{C8F9B65B-A12A-44C7-B002-1512AA4B9322}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoNetDrive.Protocol.Fingerprint.Elevator", "DoNetDrive.Protocol.Fingerprint.Elevator\DoNetDrive.Protocol.Fingerprint.Elevator.csproj", "{0C2EBD82-A6CC-4D63-AEC5-1DB771BAE2B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoNetDrive.Protocol.Door.Test", "DoNetDrive.Protocol.Door.Test\DoNetDrive.Protocol.Door.Test.csproj", "{633A64B2-9235-4E8D-AC83-FEA4B0BB7A1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoNetDrive.Protocol.Fingerprint.Test", "DoNetDrive.Protocol.Fingerprint.Test\DoNetDrive.Protocol.Fingerprint.Test.csproj", "{57AF3F61-0A46-4BEB-A474-D21A0A07F4D1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "基础库", "基础库", "{11C36120-D1F8-4AEB-A571-FB5EC400EE36}"
+EndProject
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "DoNetDrive.Core_netstandard20", "..\DoNetDrive.Core\FCARDIO.Core\FCARDIO.Core\DoNetDrive.Core_netstandard20.vbproj", "{4A2C9E9F-A48B-4FC2-9774-DFEBA63FD4EF}"
+EndProject
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "DoNetDrive.Protocol_NetStandard20", "..\DoNetDrive.Core\FCARDIO.Protocol\FCARDIO.Protocol\DoNetDrive.Protocol_NetStandard20.vbproj", "{22F3E8C3-A608-470F-8404-D94426842A4F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoNetDrive.Common_NetStandard20", "..\DoNetDrive.Core\DoNetDrive.Common\DoNetDrive.Common\DoNetDrive.Common_NetStandard20.csproj", "{55E2EC5F-2485-46F0-8CCD-3AB049F54669}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoNetDrive.Protocol.Util_NetStandard20", "..\DoNetDrive.Core\DoNetDrive.Protocol.Util\DoNetDrive.Protocol.Util\DoNetDrive.Protocol.Util_NetStandard20.csproj", "{631FE725-203B-4A0A-A0F9-3C78E616E312}"
+EndProject
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "DoNetDrive.Connector.SerialPort", "..\DoNetDrive.Core\DoNetDrive.Connector.COM\DoNetDrive.Connector.SerialPort.vbproj", "{153421D8-346C-4EA3-B50F-7C8882CEF907}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{14F89726-B7E7-4222-BFCF-C63148B5B34D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14F89726-B7E7-4222-BFCF-C63148B5B34D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14F89726-B7E7-4222-BFCF-C63148B5B34D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14F89726-B7E7-4222-BFCF-C63148B5B34D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3502F7F1-0805-457D-B8D7-35C22D722550}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3502F7F1-0805-457D-B8D7-35C22D722550}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3502F7F1-0805-457D-B8D7-35C22D722550}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3502F7F1-0805-457D-B8D7-35C22D722550}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69B0709D-F370-41D8-BE55-C115FEF3730E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69B0709D-F370-41D8-BE55-C115FEF3730E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69B0709D-F370-41D8-BE55-C115FEF3730E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69B0709D-F370-41D8-BE55-C115FEF3730E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4639E7F7-83AA-4511-8FA8-369A79226B72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4639E7F7-83AA-4511-8FA8-369A79226B72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4639E7F7-83AA-4511-8FA8-369A79226B72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4639E7F7-83AA-4511-8FA8-369A79226B72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2938B81E-04FF-4E10-97AE-3A10D5E72797}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2938B81E-04FF-4E10-97AE-3A10D5E72797}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2938B81E-04FF-4E10-97AE-3A10D5E72797}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2938B81E-04FF-4E10-97AE-3A10D5E72797}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FA888DA-82E7-4B94-BFA4-EFDE7A8F00CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FA888DA-82E7-4B94-BFA4-EFDE7A8F00CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FA888DA-82E7-4B94-BFA4-EFDE7A8F00CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FA888DA-82E7-4B94-BFA4-EFDE7A8F00CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C2EBD82-A6CC-4D63-AEC5-1DB771BAE2B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C2EBD82-A6CC-4D63-AEC5-1DB771BAE2B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C2EBD82-A6CC-4D63-AEC5-1DB771BAE2B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C2EBD82-A6CC-4D63-AEC5-1DB771BAE2B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{633A64B2-9235-4E8D-AC83-FEA4B0BB7A1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{633A64B2-9235-4E8D-AC83-FEA4B0BB7A1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{633A64B2-9235-4E8D-AC83-FEA4B0BB7A1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{633A64B2-9235-4E8D-AC83-FEA4B0BB7A1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57AF3F61-0A46-4BEB-A474-D21A0A07F4D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57AF3F61-0A46-4BEB-A474-D21A0A07F4D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57AF3F61-0A46-4BEB-A474-D21A0A07F4D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57AF3F61-0A46-4BEB-A474-D21A0A07F4D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A2C9E9F-A48B-4FC2-9774-DFEBA63FD4EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A2C9E9F-A48B-4FC2-9774-DFEBA63FD4EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A2C9E9F-A48B-4FC2-9774-DFEBA63FD4EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A2C9E9F-A48B-4FC2-9774-DFEBA63FD4EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22F3E8C3-A608-470F-8404-D94426842A4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22F3E8C3-A608-470F-8404-D94426842A4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22F3E8C3-A608-470F-8404-D94426842A4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22F3E8C3-A608-470F-8404-D94426842A4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55E2EC5F-2485-46F0-8CCD-3AB049F54669}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55E2EC5F-2485-46F0-8CCD-3AB049F54669}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55E2EC5F-2485-46F0-8CCD-3AB049F54669}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55E2EC5F-2485-46F0-8CCD-3AB049F54669}.Release|Any CPU.Build.0 = Release|Any CPU
+		{631FE725-203B-4A0A-A0F9-3C78E616E312}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{631FE725-203B-4A0A-A0F9-3C78E616E312}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{631FE725-203B-4A0A-A0F9-3C78E616E312}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{631FE725-203B-4A0A-A0F9-3C78E616E312}.Release|Any CPU.Build.0 = Release|Any CPU
+		{153421D8-346C-4EA3-B50F-7C8882CEF907}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{153421D8-346C-4EA3-B50F-7C8882CEF907}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{153421D8-346C-4EA3-B50F-7C8882CEF907}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{153421D8-346C-4EA3-B50F-7C8882CEF907}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{14F89726-B7E7-4222-BFCF-C63148B5B34D} = {26808A97-73AA-42AB-91F3-9B251C144667}
+		{3502F7F1-0805-457D-B8D7-35C22D722550} = {7924553C-B3A7-491C-AD0F-53C4D1A2DEA4}
+		{69B0709D-F370-41D8-BE55-C115FEF3730E} = {72EA2D02-593C-4D27-BD0D-B11D7F1E1B3F}
+		{4639E7F7-83AA-4511-8FA8-369A79226B72} = {42ED4DEA-B75F-4621-B8DC-1296D0E354A0}
+		{2938B81E-04FF-4E10-97AE-3A10D5E72797} = {C8F9B65B-A12A-44C7-B002-1512AA4B9322}
+		{1FA888DA-82E7-4B94-BFA4-EFDE7A8F00CE} = {C84B0DCC-9E18-4081-AA50-89974692B09C}
+		{0C2EBD82-A6CC-4D63-AEC5-1DB771BAE2B9} = {42ED4DEA-B75F-4621-B8DC-1296D0E354A0}
+		{633A64B2-9235-4E8D-AC83-FEA4B0BB7A1A} = {26808A97-73AA-42AB-91F3-9B251C144667}
+		{57AF3F61-0A46-4BEB-A474-D21A0A07F4D1} = {42ED4DEA-B75F-4621-B8DC-1296D0E354A0}
+		{4A2C9E9F-A48B-4FC2-9774-DFEBA63FD4EF} = {11C36120-D1F8-4AEB-A571-FB5EC400EE36}
+		{22F3E8C3-A608-470F-8404-D94426842A4F} = {11C36120-D1F8-4AEB-A571-FB5EC400EE36}
+		{55E2EC5F-2485-46F0-8CCD-3AB049F54669} = {11C36120-D1F8-4AEB-A571-FB5EC400EE36}
+		{631FE725-203B-4A0A-A0F9-3C78E616E312} = {11C36120-D1F8-4AEB-A571-FB5EC400EE36}
+		{153421D8-346C-4EA3-B50F-7C8882CEF907} = {11C36120-D1F8-4AEB-A571-FB5EC400EE36}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2597CD71-1BA9-47D1-B932-EF7A60A242EF}
+	EndGlobalSection
+EndGlobal

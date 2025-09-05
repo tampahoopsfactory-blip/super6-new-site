@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{69F63CB9-86B0-4180-BD04-D9E1CC02F49B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>DotNetDrive.Protocol.POS.Test</RootNamespace>
+    <AssemblyName>DotNetDrive.Protocol.POS.Test</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DoNetDrive.Core, Version=1.11.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\DoNetDrive.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DoNetDrive.Protocol, Version=1.10.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\DoNetDrive.Protocol.dll</HintPath>
+    </Reference>
+    <Reference Include="DoNetTool.Common">
+      <HintPath>..\DLL\DoNetTool.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetty.Buffers">
+      <HintPath>..\..\一卡通云平台客户端辅助工具\代码\WebClientToolByWinForm\bin\x86\Debug\DLL\DotNetty.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetty.Codecs">
+      <HintPath>..\..\一卡通云平台客户端辅助工具\代码\WebClientToolByWinForm\bin\x86\Debug\DLL\DotNetty.Codecs.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetty.Common">
+      <HintPath>..\..\一卡通云平台客户端辅助工具\代码\WebClientToolByWinForm\bin\x86\Debug\DLL\DotNetty.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FrmCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCard.Designer.cs">
+      <DependentUpon>FrmCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCardType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCardType.Designer.cs">
+      <DependentUpon>FrmCardType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConsumeParameter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsumeParameter.Designer.cs">
+      <DependentUpon>frmConsumeParameter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMenu.Designer.cs">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNodeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNodeForm.Designer.cs">
+      <DependentUpon>frmNodeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRecord.Designer.cs">
+      <DependentUpon>FrmRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReservation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReservation.Designer.cs">
+      <DependentUpon>FrmReservation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSubsidy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSubsidy.Designer.cs">
+      <DependentUpon>FrmSubsidy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSystem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSystem.Designer.cs">
+      <DependentUpon>frmSystem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTime.designer.cs">
+      <DependentUpon>frmTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTimeGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTimeGroup.designer.cs">
+      <DependentUpon>frmTimeGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="INMain.cs" />
+    <Compile Include="Model\CommandResult.cs" />
+    <Compile Include="Model\DeviceInfo.cs" />
+    <Compile Include="Model\FixedFeeRuleDto.cs" />
+    <Compile Include="Model\IOMessage.cs" />
+    <Compile Include="Model\PrintContentDto.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmCard.resx">
+      <DependentUpon>FrmCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCardType.resx">
+      <DependentUpon>FrmCardType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConsumeParameter.resx">
+      <DependentUpon>frmConsumeParameter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMenu.resx">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRecord.resx">
+      <DependentUpon>FrmRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReservation.resx">
+      <DependentUpon>FrmReservation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSubsidy.resx">
+      <DependentUpon>FrmSubsidy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSystem.resx">
+      <DependentUpon>frmSystem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTime.resx">
+      <DependentUpon>frmTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTimeGroup.resx">
+      <DependentUpon>frmTimeGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DoNetDrive.Protocol.Door\DoNetDrive.Protocol.Door.csproj">
+      <Project>{14f89726-b7e7-4222-bfcf-c63148b5b34d}</Project>
+      <Name>DoNetDrive.Protocol.Door</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DoNetDrive.Protocol.POS\POS\DotNetDrive.Protocol.POS.csproj">
+      <Project>{0f4eb837-9c7d-4365-8496-bebeccc4b3d1}</Project>
+      <Name>DotNetDrive.Protocol.POS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

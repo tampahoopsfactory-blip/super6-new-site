@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<Version>2.04.0</Version>
+		<RootNamespace>DoNetDrive.Protocol.Fingerprint</RootNamespace>
+		<AssemblyName>DoNetDrive.Protocol.Fingerprint</AssemblyName>
+
+
+		<PackageId>DoNetDrive.Protocol.Fingerprint</PackageId>
+		<Authors>xiaolong</Authors>
+		<Company>FCARD</Company>
+		<Description>用于定义指纹机、人脸机 FCA103、FC8300及相关产品族的设备命令</Description>
+		<PackageProjectUrl>https://gitee.com/GZFCARD/FCARDIO.Protocol.Door</PackageProjectUrl>
+		<SignAssembly>false</SignAssembly>
+		<AssemblyOriginatorKeyFile>DoNetDrive.pfx</AssemblyOriginatorKeyFile>
+		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<OutputPath>..\..\Output\Release\</OutputPath>
+		<DocumentationFile>..\..\Output\Release\netstandard2.0\DoNetDrive.Protocol.Fingerprint.xml</DocumentationFile>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<OutputPath>..\..\Output\Debug\</OutputPath>
+		<DocumentationFile>..\..\Output\Debug\netstandard2.0\DoNetDrive.Protocol.Fingerprint.xml</DocumentationFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="Properties\**" />
+		<EmbeddedResource Remove="Properties\**" />
+		<None Remove="Properties\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="DoNetDrive.Protocol.Door" Version="2.5.0" />
+
+
+		<PackageReference Include="DoNetDrive.Common" Version="1.16.0" />
+		<PackageReference Include="DoNetDrive.Core" Version="2.5.0" />
+		<PackageReference Include="DoNetDrive.Protocol" Version="2.2.0" />
+		<PackageReference Include="DoNetDrive.Protocol.Util" Version="1.16.0" />
+		<PackageReference Include="DotNetty.Common" Version="0.7.0" />
+		<PackageReference Include="DotNetty.Buffers" Version="0.7.0" />
+		<PackageReference Include="DotNetty.Transport" Version="0.7.0" />
+	</ItemGroup>
+
+</Project>

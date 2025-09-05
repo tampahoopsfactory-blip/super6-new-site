@@ -1,0 +1,19 @@
+﻿################################################################################
+# 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
+################################################################################
+
+/.vs
+/DoNetDrive.Protocol.Door/obj
+/DoNetDrive.Protocol.Door.Test/obj
+/DoNetDrive.Protocol.Elevator/obj
+/DoNetDrive.Protocol.Fingerprint/Fingerprint/obj
+/DoNetDrive.Protocol.Fingerprint.Elevator/obj
+/DoNetDrive.Protocol.Fingerprint.Test/bin
+/DoNetDrive.Protocol.Fingerprint.Test/obj
+/DoNetDrive.Protocol.POS/POS/obj
+/DoNetDrive.Protocol.USB/CardReader/obj
+/DoNetDrive.Protocol.USB/OfflinePatrol/obj
+/Output/Debug
+/packages
+/DoNetDrive.Protocol.USB.Test/OfflinePatrol/obj
+/DoNetDrive.Protocol.Door.Test/bin/Release
