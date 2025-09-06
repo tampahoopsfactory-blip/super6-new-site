@@ -16,6 +16,7 @@ from device_api import device_api
 from biometric_api import biometric_api
 from sms_routes import sms_bp
 from google_voice_routes import google_voice_bp
+from email_sms_routes import email_sms_bp
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -32,6 +33,7 @@ app.register_blueprint(device_api)
 app.register_blueprint(biometric_api)
 app.register_blueprint(sms_bp)
 app.register_blueprint(google_voice_bp)
+app.register_blueprint(email_sms_bp)
 
 # Mock data for existing EventShield functionality
 mock_events = [
