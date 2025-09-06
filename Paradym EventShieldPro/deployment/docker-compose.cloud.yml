@@ -1,0 +1,262 @@
+# EventShield Pro - Cloud Deployment (Multi-Tenant SaaS)
+# Docker Compose configuration for cloud-based deployment
+
+version: '3.8'
+
+services:
+  # Main EventShield Pro Application
+  eventshield-app:
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile
+    container_name: eventshield-app
+    restart: unless-stopped
+    environment:
+      - DEPLOYMENT_MODE=cloud
+      - MULTI_TENANT=true
+      - ENVIRONMENT=production
+      - DATABASE_URL=postgresql://eventshield:${POSTGRES_PASSWORD}@postgres:5432/eventshield_cloud
+      - REDIS_URL=redis://redis:6379/0
+      - SECRET_KEY=${SECRET_KEY}
+      - ENCRYPTION_KEY=${ENCRYPTION_KEY}
+      - LICENSE_SERVER_URL=${LICENSE_SERVER_URL}
+      - UPDATE_SERVER_URL=${UPDATE_SERVER_URL}
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_USERNAME=${SMTP_USERNAME}
+      - SMTP_PASSWORD=${SMTP_PASSWORD}
+      - LOG_LEVEL=INFO
+      - ENABLE_METRICS=true
+      - METRICS_PORT=9090
+    ports:
+      - "80:5000"
+      - "9090:9090"  # Metrics port
+    volumes:
+      - app_data:/app/data
+      - app_logs:/app/logs
+      - app_assets:/app/assets
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - eventshield-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: eventshield-postgres
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DB=eventshield_cloud
+      - POSTGRES_USER=eventshield
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_INITDB_ARGS=--encoding=UTF-8 --lc-collate=C --lc-ctype=C
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/schema/multi_tenant_schema.sql:/docker-entrypoint-initdb.d/01-schema.sql
+      - ./database/init/02-seed_data.sql:/docker-entrypoint-initdb.d/02-seed_data.sql
+    ports:
+      - "5432:5432"
+    networks:
+      - eventshield-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U eventshield -d eventshield_cloud"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    container_name: eventshield-redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD}
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6379:6379"
+    networks:
+      - eventshield-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+  # Nginx Reverse Proxy
+  nginx:
+    image: nginx:alpine
+    container_name: eventshield-nginx
+    restart: unless-stopped
+    ports:
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/ssl:/etc/nginx/ssl
+      - app_assets:/var/www/assets
+    depends_on:
+      - eventshield-app
+    networks:
+      - eventshield-network
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Prometheus Monitoring
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: eventshield-prometheus
+    restart: unless-stopped
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=200h'
+      - '--web.enable-lifecycle'
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    ports:
+      - "9091:9090"
+    networks:
+      - eventshield-network
+
+  # Grafana Dashboard
+  grafana:
+    image: grafana/grafana:latest
+    container_name: eventshield-grafana
+    restart: unless-stopped
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD}
+      - GF_USERS_ALLOW_SIGN_UP=false
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./monitoring/grafana/dashboards:/etc/grafana/provisioning/dashboards
+      - ./monitoring/grafana/datasources:/etc/grafana/provisioning/datasources
+    ports:
+      - "3001:3000"
+    networks:
+      - eventshield-network
+    depends_on:
+      - prometheus
+
+  # Elasticsearch for Logging
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.8.0
+    container_name: eventshield-elasticsearch
+    restart: unless-stopped
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+    ports:
+      - "9200:9200"
+    networks:
+      - eventshield-network
+
+  # Kibana for Log Analysis
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.8.0
+    container_name: eventshield-kibana
+    restart: unless-stopped
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    ports:
+      - "5601:5601"
+    networks:
+      - eventshield-network
+    depends_on:
+      - elasticsearch
+
+  # Logstash for Log Processing
+  logstash:
+    image: docker.elastic.co/logstash/logstash:8.8.0
+    container_name: eventshield-logstash
+    restart: unless-stopped
+    volumes:
+      - ./monitoring/logstash/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+    ports:
+      - "5044:5044"
+    networks:
+      - eventshield-network
+    depends_on:
+      - elasticsearch
+
+  # Backup Service
+  backup:
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile.backup
+    container_name: eventshield-backup
+    restart: unless-stopped
+    environment:
+      - POSTGRES_HOST=postgres
+      - POSTGRES_DB=eventshield_cloud
+      - POSTGRES_USER=eventshield
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - BACKUP_SCHEDULE=0 2 * * *  # Daily at 2 AM
+      - BACKUP_RETENTION_DAYS=30
+      - S3_BUCKET=${BACKUP_S3_BUCKET}
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+    volumes:
+      - backup_data:/backups
+    depends_on:
+      - postgres
+    networks:
+      - eventshield-network
+
+  # Update Service
+  update-service:
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile.update
+    container_name: eventshield-update
+    restart: unless-stopped
+    environment:
+      - UPDATE_SERVER_URL=${UPDATE_SERVER_URL}
+      - UPDATE_CHECK_INTERVAL=86400  # 24 hours
+      - AUTO_UPDATE=false
+      - BACKUP_BEFORE_UPDATE=true
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - app_data:/app/data
+    networks:
+      - eventshield-network
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+  app_data:
+    driver: local
+  app_logs:
+    driver: local
+  app_assets:
+    driver: local
+  prometheus_data:
+    driver: local
+  grafana_data:
+    driver: local
+  elasticsearch_data:
+    driver: local
+  backup_data:
+    driver: local
+
+networks:
+  eventshield-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16

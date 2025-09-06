@@ -1,0 +1,203 @@
+# EventShield Pro - Standalone Deployment (Single Tenant)
+# Docker Compose configuration for standalone/on-premise deployment
+
+version: '3.8'
+
+services:
+  # Main EventShield Pro Application
+  eventshield-app:
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile
+    container_name: eventshield-app
+    restart: unless-stopped
+    environment:
+      - DEPLOYMENT_MODE=standalone
+      - MULTI_TENANT=false
+      - ENVIRONMENT=production
+      - DATABASE_URL=sqlite:///app/data/eventshield.db
+      - REDIS_URL=redis://redis:6379/0
+      - SECRET_KEY=${SECRET_KEY}
+      - ENCRYPTION_KEY=${ENCRYPTION_KEY}
+      - DEFAULT_TENANT_ID=${DEFAULT_TENANT_ID}
+      - LICENSE_OFFLINE=true
+      - AUTO_UPDATE=false
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_USERNAME=${SMTP_USERNAME}
+      - SMTP_PASSWORD=${SMTP_PASSWORD}
+      - LOG_LEVEL=INFO
+      - ENABLE_METRICS=true
+      - METRICS_PORT=9090
+    ports:
+      - "5000:5000"
+      - "9090:9090"  # Metrics port
+    volumes:
+      - app_data:/app/data
+      - app_logs:/app/logs
+      - app_assets:/app/assets
+      - /dev:/dev  # For device access
+    depends_on:
+      - redis
+    networks:
+      - eventshield-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    privileged: true  # Required for device access
+
+  # Redis Cache (Lightweight)
+  redis:
+    image: redis:7-alpine
+    container_name: eventshield-redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6379:6379"
+    networks:
+      - eventshield-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+  # Nginx Reverse Proxy (Optional)
+  nginx:
+    image: nginx:alpine
+    container_name: eventshield-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx-standalone.conf:/etc/nginx/nginx.conf
+      - ./nginx/ssl:/etc/nginx/ssl
+      - app_assets:/var/www/assets
+    depends_on:
+      - eventshield-app
+    networks:
+      - eventshield-network
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Local Database (SQLite - No external database required)
+  # The application will create and manage its own SQLite database
+
+  # Backup Service (Local)
+  backup:
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile.backup
+    container_name: eventshield-backup
+    restart: unless-stopped
+    environment:
+      - BACKUP_SCHEDULE=0 2 * * *  # Daily at 2 AM
+      - BACKUP_RETENTION_DAYS=30
+      - BACKUP_LOCATION=/backups
+    volumes:
+      - app_data:/app/data
+      - backup_data:/backups
+    networks:
+      - eventshield-network
+
+  # Update Service (Local)
+  update-service:
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile.update
+    container_name: eventshield-update
+    restart: unless-stopped
+    environment:
+      - UPDATE_CHECK_INTERVAL=86400  # 24 hours
+      - AUTO_UPDATE=false
+      - BACKUP_BEFORE_UPDATE=true
+      - UPDATE_SOURCE=local
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - app_data:/app/data
+      - update_data:/updates
+    networks:
+      - eventshield-network
+
+  # Device Manager Service
+  device-manager:
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile.device-manager
+    container_name: eventshield-device-manager
+    restart: unless-stopped
+    environment:
+      - DEVICE_NETWORK=local
+      - DEVICE_DISCOVERY_INTERVAL=60
+      - MAX_DEVICES=50
+    volumes:
+      - /dev:/dev
+      - app_data:/app/data
+    network_mode: host  # Required for device discovery
+    depends_on:
+      - eventshield-app
+    privileged: true
+
+  # Monitoring Service (Lightweight)
+  monitoring:
+    image: prom/prometheus:latest
+    container_name: eventshield-monitoring
+    restart: unless-stopped
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=72h'  # 3 days retention
+      - '--web.enable-lifecycle'
+    volumes:
+      - ./monitoring/prometheus-standalone.yml:/etc/prometheus/prometheus.yml
+      - monitoring_data:/prometheus
+    ports:
+      - "9091:9090"
+    networks:
+      - eventshield-network
+
+  # Log Aggregator (Lightweight)
+  log-aggregator:
+    image: fluent/fluent-bit:latest
+    container_name: eventshield-log-aggregator
+    restart: unless-stopped
+    volumes:
+      - ./monitoring/fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf
+      - app_logs:/var/log/eventshield
+    ports:
+      - "24224:24224"
+    networks:
+      - eventshield-network
+
+volumes:
+  app_data:
+    driver: local
+  app_logs:
+    driver: local
+  app_assets:
+    driver: local
+  redis_data:
+    driver: local
+  backup_data:
+    driver: local
+  update_data:
+    driver: local
+  monitoring_data:
+    driver: local
+
+networks:
+  eventshield-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.21.0.0/16
