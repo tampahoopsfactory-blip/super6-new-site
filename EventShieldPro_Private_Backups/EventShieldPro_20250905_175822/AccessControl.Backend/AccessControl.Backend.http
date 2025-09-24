@@ -1,0 +1,6 @@
+@AccessControl.Backend_HostAddress = http://localhost:0
+
+GET {{AccessControl.Backend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
