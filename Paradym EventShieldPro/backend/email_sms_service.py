@@ -21,42 +21,99 @@ class EmailSMSService:
     def __init__(self):
         self.smtp_server = os.getenv('SMTP_SERVER', 'smtp.gmail.com')
         self.smtp_port = int(os.getenv('SMTP_PORT', '587'))
-        self.email = os.getenv('SENDER_EMAIL', '')
-        self.password = os.getenv('SENDER_PASSWORD', '')
+        # Support multiple environment variable names for flexibility
+        self.email = os.getenv('SENDER_EMAIL') or os.getenv('SMTP_EMAIL') or os.getenv('EMAIL_ADDRESS') or ''
+        self.password = os.getenv('SENDER_PASSWORD') or os.getenv('SMTP_PASSWORD') or os.getenv('EMAIL_PASSWORD') or ''
         self.enabled = bool(self.email and self.password)
         
-        # Carrier email-to-SMS mappings
+        if not self.enabled:
+            logger.warning("Email-to-SMS service not configured. Please set SENDER_EMAIL and SENDER_PASSWORD environment variables.")
+        
+        # Carrier email-to-SMS mappings (SMS only, text-only)
         self.carrier_emails = {
             'verizon': '@vtext.com',
+            'verizon sms': '@vtext.com',
             'att': '@txt.att.net',
+            'at&t': '@txt.att.net',
             'tmobile': '@tmomail.net',
+            't-mobile': '@tmomail.net',
             'sprint': '@messaging.sprintpcs.com',
             'uscellular': '@email.uscc.net',
+            'us cellular': '@email.uscc.net',
             'boost': '@smsmyboostmobile.com',
+            'boost mobile': '@smsmyboostmobile.com',
             'cricket': '@sms.cricketwireless.net',
             'metropcs': '@mymetropcs.com',
+            'metro pcs': '@mymetropcs.com',
             'virgin': '@vmobl.com',
+            'virgin mobile': '@vmobl.com',
             'straighttalk': '@vtext.com',
+            'straight talk': '@vtext.com',
             'tracfone': '@mmst5.tracfone.com',
             'republic': '@text.republicwireless.com',
             'googlefi': '@msg.fi.google.com',
+            'google fi': '@msg.fi.google.com',
             'mint': '@mailmymobile.net',
+            'mint mobile': '@mailmymobile.net',
             'visible': '@vtext.com',
             'xfinity': '@vtext.com',
+            'xfinity mobile': '@vtext.com',
             'spectrum': '@vtext.com',
+            'spectrum mobile': '@vtext.com',
             'altice': '@vtext.com',
             'redpocket': '@vtext.com',
+            'red pocket': '@vtext.com',
             'h2o': '@txt.att.net',
+            'h2o wireless': '@txt.att.net',
             'ultra': '@tmomail.net',
+            'ultra mobile': '@tmomail.net',
             'lycamobile': '@lycamobile.us',
+            'lyca mobile': '@lycamobile.us',
             'simple': '@smtext.com',
+            'simple mobile': '@smtext.com',
             'net10': '@mmst5.tracfone.com',
             'total': '@vtext.com',
+            'total wireless': '@vtext.com',
             'pageplus': '@vtext.com',
+            'page plus': '@vtext.com',
             'selectel': '@vtext.com',
             'tello': '@tmomail.net',
             'twigby': '@vtext.com',
-            'unreal': '@vtext.com'
+            'unreal': '@vtext.com',
+            'unreal mobile': '@vtext.com'
+        }
+        
+        # Carrier email-to-MMS mappings (for images/attachments)
+        self.carrier_mms_emails = {
+            'verizon': '@vzwpix.com',
+            'verizon mms': '@vzwpix.com',
+            'att': '@mms.att.net',
+            'at&t': '@mms.att.net',
+            'tmobile': '@tmomail.net',
+            't-mobile': '@tmomail.net',
+            'sprint': '@pm.sprint.com',
+            'uscellular': '@mms.uscc.net',
+            'us cellular': '@mms.uscc.net',
+            'boost': '@myboostmobile.com',
+            'boost mobile': '@myboostmobile.com',
+            'cricket': '@mms.cricketwireless.net',
+            'metropcs': '@mymetropcs.com',
+            'metro pcs': '@mymetropcs.com',
+            'virgin': '@vmpix.com',
+            'virgin mobile': '@vmpix.com',
+            'straighttalk': '@vzwpix.com',
+            'straight talk': '@vzwpix.com',
+            'tracfone': '@mmst5.tracfone.com',
+            'republic': '@text.republicwireless.com',
+            'googlefi': '@msg.fi.google.com',
+            'google fi': '@msg.fi.google.com',
+            'mint': '@mailmymobile.net',
+            'mint mobile': '@mailmymobile.net',
+            'visible': '@vzwpix.com',
+            'xfinity': '@vzwpix.com',
+            'xfinity mobile': '@vzwpix.com',
+            'spectrum': '@vzwpix.com',
+            'spectrum mobile': '@vzwpix.com'
         }
     
     def send_sms_alert(self, 
@@ -85,14 +142,32 @@ class EmailSMSService:
             }
         
         try:
-            # Format phone number
+            # Format phone number - remove all non-digit characters
             clean_phone = ''.join(filter(str.isdigit, phone_number))
-            if len(clean_phone) == 10:
-                clean_phone = '1' + clean_phone  # Add country code for US
             
-            # Get carrier email
-            carrier_email = self.carrier_emails.get(carrier.lower(), '@vtext.com')
+            # Remove leading 1 or +1 if present, we just want the 10-digit number
+            if len(clean_phone) == 11 and clean_phone.startswith('1'):
+                clean_phone = clean_phone[1:]
+            
+            # Validate 10-digit phone number
+            if len(clean_phone) != 10:
+                return {
+                    'success': False,
+                    'error': f'Invalid phone number: {phone_number}. Must be 10 digits (e.g., 8132702754)'
+                }
+            
+            # Determine if MMS should be used based on carrier name
+            use_mms = 'mms' in carrier.lower()
+            
+            # Get carrier email gateway
+            if use_mms:
+                carrier_email = self.carrier_mms_emails.get(carrier.lower(), self.carrier_mms_emails.get(carrier.lower().replace(' mms', ''), '@vzwpix.com'))
+            else:
+                carrier_email = self.carrier_emails.get(carrier.lower(), '@vtext.com')
+            
             sms_email = f"{clean_phone}{carrier_email}"
+            
+            logger.info(f"Sending {'MMS' if use_mms else 'SMS'} to {sms_email} (Phone: {phone_number}, Carrier: {carrier})")
             
             # Format the message with EventShield Pro branding
             formatted_message = self._format_message(message, priority, alert_type)
@@ -169,17 +244,49 @@ class EmailSMSService:
             # Add body
             msg.attach(MIMEText(message, 'plain'))
             
-            # Send email
-            server = smtplib.SMTP(self.smtp_server, self.smtp_port)
-            server.starttls()
-            server.login(self.email, self.password)
-            text = msg.as_string()
-            server.sendmail(self.email, sms_email, text)
-            server.quit()
-            
-            return {'success': True}
+            # Try STARTTLS (port 587) first, then fall back to SSL (port 465)
+            server = None
+            try:
+                # Try TLS on port 587
+                logger.info(f"Attempting to send email to {sms_email} via {self.smtp_server}:{self.smtp_port}")
+                server = smtplib.SMTP(self.smtp_server, self.smtp_port)
+                server.set_debuglevel(1)  # Enable debug output
+                server.ehlo()
+                if server.has_extn('STARTTLS'):
+                    server.starttls()
+                    server.ehlo()
+                server.login(self.email, self.password)
+                text = msg.as_string()
+                server.sendmail(self.email, sms_email, text)
+                server.quit()
+                logger.info(f"Successfully sent email to {sms_email}")
+                return {'success': True}
+                
+            except Exception as tls_error:
+                logger.warning(f"TLS connection failed: {str(tls_error)}")
+                if server:
+                    try:
+                        server.quit()
+                    except:
+                        pass
+                
+                # Try SSL on port 465 as fallback
+                try:
+                    logger.info("Trying SSL connection on port 465...")
+                    server = smtplib.SMTP_SSL(self.smtp_server, 465)
+                    server.set_debuglevel(1)
+                    server.login(self.email, self.password)
+                    text = msg.as_string()
+                    server.sendmail(self.email, sms_email, text)
+                    server.quit()
+                    logger.info(f"Successfully sent email to {sms_email} via SSL")
+                    return {'success': True}
+                except Exception as ssl_error:
+                    logger.error(f"SSL connection also failed: {str(ssl_error)}")
+                    raise ssl_error
             
         except Exception as e:
+            logger.error(f"Email send failed to {sms_email}: {str(e)}", exc_info=True)
             return {
                 'success': False,
                 'error': f'Email send failed: {str(e)}'

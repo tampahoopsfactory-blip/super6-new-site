@@ -264,3 +264,77 @@ def get_sms_status():
             'success': False,
             'error': str(e)
         }), 500
+
+@email_sms_bp.route('/send-email', methods=['POST'])
+def send_email_alert():
+    """Send regular email alert (not SMS)"""
+    try:
+        data = request.get_json()
+        
+        required_fields = ['email', 'subject', 'message']
+        for field in required_fields:
+            if field not in data:
+                return jsonify({
+                    'success': False,
+                    'error': f'Missing required field: {field}'
+                }), 400
+        
+        # Import email sending functionality
+        import smtplib
+        from email.mime.text import MIMEText
+        from email.mime.multipart import MIMEMultipart
+        
+        # Create message
+        msg = MIMEMultipart('alternative')
+        msg['From'] = sms_service.email
+        msg['To'] = data['email']
+        msg['Subject'] = data['subject']
+        
+        # Add HTML and plain text versions
+        html_message = data.get('html_message', data['message'])
+        text_part = MIMEText(data['message'], 'plain')
+        html_part = MIMEText(html_message, 'html')
+        
+        msg.attach(text_part)
+        msg.attach(html_part)
+        
+        # Send email
+        try:
+            server = smtplib.SMTP(sms_service.smtp_server, sms_service.smtp_port)
+            server.set_debuglevel(1)
+            server.ehlo()
+            if server.has_extn('STARTTLS'):
+                server.starttls()
+                server.ehlo()
+            server.login(sms_service.email, sms_service.password)
+            server.sendmail(sms_service.email, data['email'], msg.as_string())
+            server.quit()
+            
+            return jsonify({
+                'success': True,
+                'message': 'Email sent successfully'
+            })
+        except Exception as smtp_error:
+            logger.error(f"SMTP error: {str(smtp_error)}")
+            # Try SSL fallback
+            try:
+                server = smtplib.SMTP_SSL(sms_service.smtp_server, 465)
+                server.set_debuglevel(1)
+                server.login(sms_service.email, sms_service.password)
+                server.sendmail(sms_service.email, data['email'], msg.as_string())
+                server.quit()
+                
+                return jsonify({
+                    'success': True,
+                    'message': 'Email sent successfully via SSL'
+                })
+            except Exception as ssl_error:
+                logger.error(f"SSL error: {str(ssl_error)}")
+                raise ssl_error
+                
+    except Exception as e:
+        logger.error(f"Error sending email alert: {str(e)}")
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        }), 500

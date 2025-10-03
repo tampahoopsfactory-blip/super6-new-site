@@ -1,0 +1,120 @@
+================================================================================
+EVENTSHIELD PRO - NOTIFICATION QUICK START
+================================================================================
+
+🚨 PROBLEM: Notifications not working? No SMS or emails being sent?
+
+✅ SOLUTION: Configure email credentials in 3 steps:
+
+--------------------------------------------------------------------------------
+STEP 1: Get Gmail App Password (2 minutes)
+--------------------------------------------------------------------------------
+1. Go to: https://myaccount.google.com/apppasswords
+2. Generate password for "Mail"
+3. Copy the 16-character password (example: abcdefghijklmnop)
+
+--------------------------------------------------------------------------------
+STEP 2: Configure EventShield Pro (1 minute)
+--------------------------------------------------------------------------------
+Run this command:
+
+    cd "/workspace/Paradym EventShieldPro"
+    ./setup_notifications.sh
+
+OR manually:
+
+    cp .env.example .env
+    nano .env
+
+Add your credentials:
+    SENDER_EMAIL=your-email@gmail.com
+    SENDER_PASSWORD=your-app-password
+
+--------------------------------------------------------------------------------
+STEP 3: Test It (2 minutes)
+--------------------------------------------------------------------------------
+Run test:
+
+    cd backend
+    python3 test_sms_config.py
+
+Then restart backend:
+
+    python3 app.py
+
+Test from UI:
+    → System Administration → SMS Config → "TEST CARRIER SMS"
+
+================================================================================
+COMMON CARRIERS
+================================================================================
+Verizon:    verizon, verizon sms, verizon mms
+AT&T:       att, at&t, att mms
+T-Mobile:   tmobile, t-mobile, tmobile mms
+Sprint:     sprint, sprint mms
+Google Fi:  googlefi, google fi
+Mint:       mint, mint mobile
+Visible:    visible
+Xfinity:    xfinity, xfinity mobile
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+"Authentication failed"
+→ Use Gmail App Password, not regular password!
+
+"SMTP connection failed"  
+→ Check firewall, try port 465
+
+SMS not received
+→ Wait 2-5 min, verify 10-digit phone (e.g., 8132702754)
+
+"Service not configured"
+→ Create .env file, add credentials, restart backend
+
+================================================================================
+PHONE NUMBER FORMAT
+================================================================================
+✓ CORRECT:   8132702754
+✗ WRONG:     (813) 270-2754
+✗ WRONG:     813-270-2754
+✗ WRONG:     +1-813-270-2754
+
+Use 10 digits only, no formatting!
+
+================================================================================
+MORE HELP
+================================================================================
+Detailed guide:  NOTIFICATION_SETUP_GUIDE.md
+Fix summary:     NOTIFICATION_FIX_SUMMARY.md
+Config template: .env.example
+
+Test script:     backend/test_sms_config.py
+Setup wizard:    ./setup_notifications.sh
+
+================================================================================
+API ENDPOINTS
+================================================================================
+Test SMS:     POST /api/email-sms/test
+Send SMS:     POST /api/email-sms/send
+Send Email:   POST /api/email-sms/send-email
+Status:       GET  /api/email-sms/status
+
+Example:
+    curl -X POST http://localhost:5001/api/email-sms/test \
+      -H "Content-Type: application/json" \
+      -d '{"phone_number":"8132702754","carrier":"verizon"}'
+
+================================================================================
+SECURITY
+================================================================================
+✓ .env file is gitignored (safe)
+✓ Use App Password (not regular password)
+✓ Can revoke App Password anytime
+✓ More secure than regular password
+
+================================================================================
+
+Questions? See NOTIFICATION_SETUP_GUIDE.md for complete documentation.
+
+Fixed: 2025-10-03
