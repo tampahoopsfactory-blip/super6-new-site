@@ -435,12 +435,12 @@ function CreateOrderModal({ events, activeEvent, onClose, onCreated }) {
               {/* Patron Info */}
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, marginBottom: 8 }}>
                 <div className="form-group" style={{ marginBottom: 0 }}>
-                  <label className="form-label" style={{ fontSize: 11 }}>Buyer Name</label>
-                  <input className="form-input" value={patronName} onChange={(e) => setPatronName(e.target.value)} placeholder="Optional" style={{ fontSize: 13 }} />
-                </div>
-                <div className="form-group" style={{ marginBottom: 0 }}>
                   <label className="form-label" style={{ fontSize: 11 }}>Phone</label>
                   <input className="form-input" value={patronPhone} onChange={(e) => setPatronPhone(e.target.value)} placeholder="+1..." style={{ fontSize: 13 }} />
+                </div>
+                <div className="form-group" style={{ marginBottom: 0 }}>
+                  <label className="form-label" style={{ fontSize: 11 }}>Buyer Name</label>
+                  <input className="form-input" value={patronName} onChange={(e) => setPatronName(e.target.value)} placeholder="Optional" style={{ fontSize: 13 }} />
                 </div>
               </div>
               <div className="form-group" style={{ marginBottom: 16 }}>
