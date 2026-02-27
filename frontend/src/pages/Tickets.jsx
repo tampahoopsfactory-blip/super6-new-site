@@ -6,8 +6,8 @@ import { Plus, Search, Download, QrCode, RotateCcw, ShieldCheck, X, Minus, Check
 const TICKET_TYPES = [
   { key: 'DAILY', label: 'Daily', color: '#006aff', desc: 'Single day' },
   { key: 'WEEKEND', label: 'Weekend', color: '#7c3aed', desc: 'Sat & Sun' },
-  { key: 'KIDS', label: 'Kids', color: '#f59e0b', desc: 'Single day (child)' },
-  { key: 'KIDS_WEEKEND', label: 'Kids Wknd', color: '#d97706', desc: 'Sat & Sun (child)' },
+  { key: 'KIDS', label: 'Kids Daily', color: '#f59e0b', desc: 'Single day (child)' },
+  { key: 'KIDS_WEEKEND', label: 'Kids Weekend', color: '#d97706', desc: 'Sat & Sun (child)' },
   { key: 'STAFF', label: 'Staff', color: '#059669', desc: 'Never expires' },
 ];
 
