@@ -439,7 +439,7 @@ function CreateOrderModal({ events, activeEvent, onClose, onCreated }) {
                   <input className="form-input" value={patronPhone} onChange={(e) => setPatronPhone(e.target.value)} placeholder="+1..." style={{ fontSize: 13 }} />
                 </div>
                 <div className="form-group" style={{ marginBottom: 0 }}>
-                  <label className="form-label" style={{ fontSize: 11 }}>Buyer Name</label>
+                  <label className="form-label" style={{ fontSize: 11 }}>Customer Name</label>
                   <input className="form-input" value={patronName} onChange={(e) => setPatronName(e.target.value)} placeholder="Optional" style={{ fontSize: 13 }} />
                 </div>
               </div>
