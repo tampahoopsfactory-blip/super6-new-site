@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  eventshield:
+    build: .
+    container_name: eventshield-pro
+    ports:
+      - "8000:8000"
+    volumes:
+      - eventshield-data:/app/data
+    env_file:
+      - backend/.env
+    environment:
+      - DATABASE_URL=sqlite+aiosqlite:///./data/eventshield.db
+    restart: unless-stopped
+    networks:
+      - eventshield-net
+
+  # Optional: PostgreSQL for production
+  # postgres:
+  #   image: postgres:15-alpine
+  #   container_name: eventshield-db
+  #   environment:
+  #     POSTGRES_DB: eventshield
+  #     POSTGRES_USER: eventshield
+  #     POSTGRES_PASSWORD: changeme
+  #   ports:
+  #     - "5432:5432"
+  #   volumes:
+  #     - pg-data:/var/lib/postgresql/data
+  #   networks:
+  #     - eventshield-net
+
+volumes:
+  eventshield-data:
+  # pg-data:
+
+networks:
+  eventshield-net:
+    driver: bridge
