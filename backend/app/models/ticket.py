@@ -1,10 +1,11 @@
 """Ticket model — a single admission ticket linked to a patron and event.
 
-Supports five ticket types per EventShield Pro requirements:
+Supports six ticket types per EventShield Pro requirements:
   DAILY        — expires at end of calendar day (23:59:59 local)
   WEEKEND      — expires at end of Sunday night (23:59:59)
   KIDS         — child daily, expires at end of calendar day
   KIDS_WEEKEND — child weekend, expires at end of Sunday night
+  COACH        — no expiry, unlimited access for coaches/trainers
   STAFF        — no expiry, unlimited access for workers/volunteers/officials
 """
 
@@ -28,6 +29,7 @@ class AdmissionType(str, enum.Enum):
     WEEKEND = "WEEKEND"
     KIDS = "KIDS"
     KIDS_WEEKEND = "KIDS_WEEKEND"
+    COACH = "COACH"
     STAFF = "STAFF"
 
 
@@ -37,6 +39,7 @@ TICKET_EXPIRY_RULES = {
     "WEEKEND": "end_of_weekend",
     "KIDS": "end_of_day",
     "KIDS_WEEKEND": "end_of_weekend",
+    "COACH": "never",
     "STAFF": "never",
 }
 
@@ -46,6 +49,7 @@ TICKET_MULTIENTRY_RULES = {
     "WEEKEND": True,         # re-entry allowed Sat & Sun
     "KIDS": True,            # re-entry allowed within day (child)
     "KIDS_WEEKEND": True,    # re-entry allowed Sat & Sun (child)
+    "COACH": True,           # unlimited access (coaches/trainers)
     "STAFF": True,           # unlimited access
 }
 

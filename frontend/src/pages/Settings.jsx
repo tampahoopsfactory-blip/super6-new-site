@@ -7,6 +7,7 @@ const TICKET_TYPES = [
   { key: 'WEEKEND', label: 'Weekend Pass', color: '#7c3aed' },
   { key: 'KIDS', label: 'Kids Daily', color: '#f59e0b' },
   { key: 'KIDS_WEEKEND', label: 'Kids Weekend', color: '#d97706' },
+  { key: 'COACH', label: 'Coach', color: '#0891b2' },
   { key: 'STAFF', label: 'Staff', color: '#059669' },
 ];
 
@@ -16,6 +17,7 @@ const EXPIRY_RULES = {
   WEEKEND:      { rule: 'fixed', label: 'End of Sunday (11:59 PM)' },
   KIDS:         { rule: 'fixed', label: 'End of day (11:59 PM)' },
   KIDS_WEEKEND: { rule: 'fixed', label: 'End of Sunday (11:59 PM)' },
+  COACH:        { rule: 'fixed', label: 'Never expires' },
   STAFF:        { rule: 'fixed', label: 'Never expires' },
 };
 
