@@ -272,7 +272,7 @@ function CreateOrderModal({ events, activeEvent, onClose, onCreated }) {
 
   const handleSubmit = async () => {
     if (totalTickets === 0) { setError('Add at least one ticket'); return; }
-    if (!eventId) { setError('Select an event first'); return; }
+    if (!eventId) { setError('No active event — create one in Events first'); return; }
     setLoading(true);
     setError('');
 
@@ -337,15 +337,6 @@ function CreateOrderModal({ events, activeEvent, onClose, onCreated }) {
 
           {!result && (
             <>
-              {/* Event select */}
-              <div className="form-group" style={{ marginBottom: 16 }}>
-                <label className="form-label">Event</label>
-                <select className="form-input" value={eventId} onChange={(e) => setEventId(e.target.value)} required>
-                  <option value="">Select event</option>
-                  {events.map((ev) => <option key={ev.event_id} value={ev.event_id}>{ev.name} ({ev.status})</option>)}
-                </select>
-              </div>
-
               {/* Ticket Type Push Buttons */}
               <label className="form-label" style={{ marginBottom: 8 }}>Ticket Types</label>
               {!pricesLoaded ? (
