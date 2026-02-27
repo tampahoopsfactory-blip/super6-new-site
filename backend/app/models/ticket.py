@@ -1,9 +1,11 @@
 """Ticket model — a single admission ticket linked to a patron and event.
 
-Supports three ticket types per EventShield Pro requirements:
-  DAILY    — expires at end of calendar day (23:59:59 local)
-  WEEKEND  — expires at end of Sunday night (23:59:59)
-  STAFF    — no expiry, unlimited access for workers/volunteers/officials
+Supports five ticket types per EventShield Pro requirements:
+  DAILY        — expires at end of calendar day (23:59:59 local)
+  WEEKEND      — expires at end of Sunday night (23:59:59)
+  KIDS         — child daily, expires at end of calendar day
+  KIDS_WEEKEND — child weekend, expires at end of Sunday night
+  STAFF        — no expiry, unlimited access for workers/volunteers/officials
 """
 
 import uuid
@@ -25,6 +27,7 @@ class AdmissionType(str, enum.Enum):
     DAILY = "DAILY"
     WEEKEND = "WEEKEND"
     KIDS = "KIDS"
+    KIDS_WEEKEND = "KIDS_WEEKEND"
     STAFF = "STAFF"
 
 
@@ -33,15 +36,17 @@ TICKET_EXPIRY_RULES = {
     "DAILY": "end_of_day",
     "WEEKEND": "end_of_weekend",
     "KIDS": "end_of_day",
+    "KIDS_WEEKEND": "end_of_weekend",
     "STAFF": "never",
 }
 
 # Multi-entry rules per ticket type
 TICKET_MULTIENTRY_RULES = {
-    "DAILY": True,      # re-entry allowed within day
-    "WEEKEND": True,    # re-entry allowed Sat & Sun
-    "KIDS": True,       # re-entry allowed within day (child admission)
-    "STAFF": True,      # unlimited access
+    "DAILY": True,           # re-entry allowed within day
+    "WEEKEND": True,         # re-entry allowed Sat & Sun
+    "KIDS": True,            # re-entry allowed within day (child)
+    "KIDS_WEEKEND": True,    # re-entry allowed Sat & Sun (child)
+    "STAFF": True,           # unlimited access
 }
 
 

@@ -7,12 +7,14 @@ const TICKET_TYPES = [
   { key: 'DAILY', label: 'Daily', color: '#006aff', desc: 'Single day' },
   { key: 'WEEKEND', label: 'Weekend', color: '#7c3aed', desc: 'Sat & Sun' },
   { key: 'KIDS', label: 'Kids', color: '#f59e0b', desc: 'Single day (child)' },
+  { key: 'KIDS_WEEKEND', label: 'Kids Wknd', color: '#d97706', desc: 'Sat & Sun (child)' },
   { key: 'STAFF', label: 'Staff', color: '#059669', desc: 'Never expires' },
 ];
 
 const TYPE_COLORS = {
   DAILY: 'badge-info', WEEKEND: 'badge-info',
-  KIDS: 'badge-warning', STAFF: 'badge-success',
+  KIDS: 'badge-warning', KIDS_WEEKEND: 'badge-warning',
+  STAFF: 'badge-success',
 };
 
 const STATUS_COLORS = {
@@ -255,7 +257,7 @@ function CreateOrderModal({ events, activeEvent, onClose, onCreated }) {
       setPrices(p);
       setPricesLoaded(true);
     }).catch(() => {
-      setPrices({ DAILY: 15, WEEKEND: 25, KIDS: 10, STAFF: 0 });
+      setPrices({ DAILY: 15, WEEKEND: 25, KIDS: 10, KIDS_WEEKEND: 18, STAFF: 0 });
       setPricesLoaded(true);
     });
   }, []);
