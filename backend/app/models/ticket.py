@@ -24,6 +24,7 @@ class TicketStatus(str, enum.Enum):
 class AdmissionType(str, enum.Enum):
     DAILY = "DAILY"
     WEEKEND = "WEEKEND"
+    KIDS = "KIDS"
     STAFF = "STAFF"
 
 
@@ -31,6 +32,7 @@ class AdmissionType(str, enum.Enum):
 TICKET_EXPIRY_RULES = {
     "DAILY": "end_of_day",
     "WEEKEND": "end_of_weekend",
+    "KIDS": "end_of_day",
     "STAFF": "never",
 }
 
@@ -38,6 +40,7 @@ TICKET_EXPIRY_RULES = {
 TICKET_MULTIENTRY_RULES = {
     "DAILY": True,      # re-entry allowed within day
     "WEEKEND": True,    # re-entry allowed Sat & Sun
+    "KIDS": True,       # re-entry allowed within day (child admission)
     "STAFF": True,      # unlimited access
 }
 

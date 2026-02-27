@@ -5,6 +5,7 @@ import { Save, Send, Mail, Phone, DollarSign, Check, Clock } from 'lucide-react'
 const TICKET_TYPES = [
   { key: 'DAILY', label: 'Daily Pass', color: '#006aff' },
   { key: 'WEEKEND', label: 'Weekend Pass', color: '#7c3aed' },
+  { key: 'KIDS', label: 'Kids Pass', color: '#f59e0b' },
   { key: 'STAFF', label: 'Staff', color: '#059669' },
 ];
 
@@ -12,6 +13,7 @@ const TICKET_TYPES = [
 const EXPIRY_RULES = {
   DAILY:   { rule: 'fixed', label: 'End of day (11:59 PM)' },
   WEEKEND: { rule: 'fixed', label: 'End of Sunday (11:59 PM)' },
+  KIDS:    { rule: 'fixed', label: 'End of day (11:59 PM)' },
   STAFF:   { rule: 'fixed', label: 'Never expires' },
 };
 

@@ -26,9 +26,10 @@ DEFAULT_SETTINGS = {
     "ticket_expiry_hours": "24",
     "admin_phone": "",
     "admin_email": "",
-    # Default ticket pricing — 3 types only
+    # Default ticket pricing — 4 types
     "price_DAILY": "15.00",
     "price_WEEKEND": "25.00",
+    "price_KIDS": "10.00",
     "price_STAFF": "0.00",
 }
 
@@ -66,11 +67,11 @@ async def get_pricing(
     admin=Depends(get_current_admin),
     db: AsyncSession = Depends(get_db),
 ):
-    """Return ticket pricing dict for the 3 ticket types."""
+    """Return ticket pricing dict for all ticket types."""
     result = await db.execute(select(AppSettings))
     existing = {s.key: s.value for s in result.scalars().all()}
     pricing = {}
-    for key in ["DAILY", "WEEKEND", "STAFF"]:
+    for key in ["DAILY", "WEEKEND", "KIDS", "STAFF"]:
         setting_key = f"price_{key}"
         pricing[key] = float(existing.get(setting_key, DEFAULT_SETTINGS.get(setting_key, "0")))
     return pricing
