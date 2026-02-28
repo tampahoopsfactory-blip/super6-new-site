@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { api } from '../utils/api';
 import {
   LayoutDashboard, Ticket, ScrollText, Calendar,
-  Radio, Settings, LogOut, WifiOff
+  Radio, Settings, LogOut, WifiOff, Shield
 } from 'lucide-react';
 
 const navItems = [
@@ -36,8 +36,19 @@ export default function Layout() {
     <div className="app-layout">
       <aside className="sidebar">
         <div className="sidebar-logo">
-          <h1>EventShield</h1>
-          <span>Access Control</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+            <div style={{
+              width: 32, height: 32, borderRadius: 8,
+              background: '#0066CC', display: 'flex',
+              alignItems: 'center', justifyContent: 'center',
+            }}>
+              <Shield size={18} color="#fff" strokeWidth={2.5} />
+            </div>
+            <div>
+              <h1>EventShield</h1>
+              <span>Access Control</span>
+            </div>
+          </div>
         </div>
         <nav className="sidebar-nav">
           {navItems.map(({ to, icon: Icon, label }) => (
@@ -47,12 +58,12 @@ export default function Layout() {
               end={to === '/'}
               className={({ isActive }) => isActive ? 'active' : ''}
             >
-              <Icon size={20} />
+              <Icon size={20} strokeWidth={1.8} />
               {label}
             </NavLink>
           ))}
           <a href="#" onClick={handleLogout} style={{ marginTop: 'auto' }}>
-            <LogOut size={20} />
+            <LogOut size={20} strokeWidth={1.8} />
             Sign Out
           </a>
         </nav>

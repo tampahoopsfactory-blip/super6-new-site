@@ -3,12 +3,12 @@ import { api } from '../utils/api';
 import { Save, Send, Mail, Phone, DollarSign, Check, Clock } from 'lucide-react';
 
 const TICKET_TYPES = [
-  { key: 'DAILY', label: 'Adult Daily', color: '#5AC8FA' },
-  { key: 'WEEKEND', label: 'Adult Weekend', color: '#7c3aed' },
-  { key: 'KIDS', label: 'Kids Daily', color: '#f59e0b' },
-  { key: 'KIDS_WEEKEND', label: 'Kids Weekend', color: '#d97706' },
-  { key: 'COACH', label: 'Coach', color: '#0891b2' },
-  { key: 'STAFF', label: 'Staff', color: '#059669' },
+  { key: 'DAILY', label: 'Adult Daily', color: '#0066CC' },
+  { key: 'WEEKEND', label: 'Adult Weekend', color: '#5856D6' },
+  { key: 'KIDS', label: 'Kids Daily', color: '#FF9500' },
+  { key: 'KIDS_WEEKEND', label: 'Kids Weekend', color: '#FF3B30' },
+  { key: 'COACH', label: 'Coach', color: '#5AC8FA' },
+  { key: 'STAFF', label: 'Staff', color: '#34C759' },
 ];
 
 // Expiry rules — matches backend TICKET_EXPIRY_RULES
@@ -104,7 +104,7 @@ export default function Settings() {
             <div className="flex gap-2 items-center">
               {pricingSaved && (
                 <span className="badge badge-success">
-                  <Check size={12} style={{ marginRight: 4 }} /> Saved
+                  <Check size={11} style={{ marginRight: 4 }} /> Saved
                 </span>
               )}
               <button
@@ -112,30 +112,31 @@ export default function Settings() {
                 onClick={handleSavePricing}
                 disabled={pricingSaving}
               >
-                <Save size={12} /> {pricingSaving ? 'Saving...' : 'Save All Prices'}
+                <Save size={14} /> {pricingSaving ? 'Saving...' : 'Save All Prices'}
               </button>
             </div>
           </div>
           <div className="card-body">
             <p className="text-sm text-muted" style={{ marginBottom: 16 }}>
-              Set default prices for each ticket type. These prices are used when creating new orders. Only admins can change pricing.
+              Set default prices for each ticket type. These prices are used when creating new orders.
             </p>
             {pricingLoading ? (
               <p className="text-muted text-center" style={{ padding: 24 }}>Loading pricing...</p>
             ) : (
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: 12 }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 12 }}>
                 {TICKET_TYPES.map((t) => (
                   <div key={t.key} style={{
-                    border: '1px solid #e5e7eb',
-                    borderRadius: 10,
+                    border: '1px solid #d1d1d6',
+                    borderRadius: 12,
                     padding: '14px 16px',
                     borderLeft: `4px solid ${t.color}`,
+                    background: '#fff',
                   }}>
-                    <label style={{ fontSize: 13, fontWeight: 700, color: t.color, display: 'block', marginBottom: 6 }}>
+                    <label style={{ fontSize: 13, fontWeight: 600, color: t.color, display: 'block', marginBottom: 6 }}>
                       {t.label}
                     </label>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                      <span style={{ fontSize: 18, fontWeight: 700, color: '#374151' }}>$</span>
+                      <span style={{ fontSize: 18, fontWeight: 700, color: '#1D1D1F' }}>$</span>
                       <input
                         type="number"
                         step="0.01"
@@ -143,9 +144,9 @@ export default function Settings() {
                         value={pricing[t.key] ?? 0}
                         onChange={(e) => setPricing((p) => ({ ...p, [t.key]: parseFloat(e.target.value) || 0 }))}
                         style={{
-                          width: '100%', height: 44, border: '1px solid #d1d5db', borderRadius: 8,
-                          padding: '0 14px', fontSize: 18, fontWeight: 700, color: '#1a1a2e',
-                          outline: 'none', background: '#f9fafb',
+                          width: '100%', height: 44, border: '1px solid #d1d1d6', borderRadius: 10,
+                          padding: '0 14px', fontSize: 18, fontWeight: 700, color: '#1D1D1F',
+                          outline: 'none', background: '#F5F5F7',
                         }}
                       />
                     </div>
@@ -172,14 +173,14 @@ export default function Settings() {
                 return (
                   <div key={t.key} style={{
                     display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                    padding: '12px 16px', borderRadius: 8,
-                    border: '1px solid #e5e7eb', background: '#fafafa',
+                    padding: '12px 16px', borderRadius: 10,
+                    border: '1px solid #e5e5ea', background: '#F5F5F7',
                   }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                       <div style={{ width: 4, height: 28, borderRadius: 4, background: t.color }} />
-                      <span style={{ fontWeight: 700, fontSize: 13, color: '#1a1a2e', minWidth: 130 }}>{t.label}</span>
+                      <span style={{ fontWeight: 600, fontSize: 13, color: '#1D1D1F', minWidth: 130 }}>{t.label}</span>
                     </div>
-                    <span style={{ fontSize: 13, color: '#6b7280', fontStyle: 'italic' }}>
+                    <span style={{ fontSize: 13, color: '#8e8e93', fontStyle: 'italic' }}>
                       {rule.label}
                     </span>
                   </div>

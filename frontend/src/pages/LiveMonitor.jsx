@@ -35,11 +35,11 @@ const eventTypeLabel = {
 };
 
 const alertTypeColors = {
-  TAMPER: '#dc2626',
-  TAILGATE: '#f59e0b',
-  FORCED_ENTRY: '#dc2626',
-  DEVICE_ERROR: '#ef4444',
-  OFFLINE: '#6b7280',
+  TAMPER: '#FF3B30',
+  TAILGATE: '#FF9500',
+  FORCED_ENTRY: '#FF3B30',
+  DEVICE_ERROR: '#FF3B30',
+  OFFLINE: '#8e8e93',
 };
 
 function formatTime(ts) {
@@ -68,7 +68,7 @@ export default function LiveMonitor() {
         <div>
           <h2>Live Monitor</h2>
           {s.active_event && (
-            <span className="text-sm text-muted">
+            <span className="text-sm text-muted" style={{ marginTop: 2, display: 'block' }}>
               {s.active_event.name} — {s.active_event.status}
             </span>
           )}
@@ -76,7 +76,7 @@ export default function LiveMonitor() {
         <div className="flex gap-2 items-center">
           {activeAlerts.length > 0 && (
             <span className="badge badge-danger" style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-              <AlertTriangle size={12} /> {activeAlerts.length} Alert{activeAlerts.length !== 1 ? 's' : ''}
+              <AlertTriangle size={11} /> {activeAlerts.length} Alert{activeAlerts.length !== 1 ? 's' : ''}
             </span>
           )}
           {!s.active_event && (
@@ -110,7 +110,7 @@ export default function LiveMonitor() {
           </div>
           <div className="stat-card">
             <div className="stat-label">Denied</div>
-            <div className="stat-value" style={{ color: s.denied_count > 0 ? 'var(--color-danger)' : undefined }}>
+            <div className="stat-value" style={{ color: s.denied_count > 0 ? '#FF3B30' : undefined }}>
               {s.denied_count ?? 0}
             </div>
             <div className="stat-sub">Access denials</div>
@@ -126,10 +126,10 @@ export default function LiveMonitor() {
 
         {/* Alerts Panel */}
         {activeAlerts.length > 0 && (
-          <div className="card mb-6" style={{ borderLeft: '4px solid #dc2626' }}>
+          <div className="card mb-6" style={{ borderLeft: '4px solid #FF3B30' }}>
             <div className="card-header">
               <h3 style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                <AlertTriangle size={16} color="#dc2626" /> Device Alerts
+                <AlertTriangle size={16} color="#FF3B30" /> Device Alerts
               </h3>
               <span className="badge badge-danger">{activeAlerts.length}</span>
             </div>
@@ -138,7 +138,7 @@ export default function LiveMonitor() {
                 <div key={alert.id} style={{
                   padding: '14px 20px',
                   minHeight: 48,
-                  borderBottom: '1px solid #f3f4f6',
+                  borderBottom: '1px solid var(--color-gray-100)',
                   display: 'flex',
                   alignItems: 'center',
                   gap: 12,
@@ -146,13 +146,13 @@ export default function LiveMonitor() {
                 }}>
                   <span style={{
                     width: 8, height: 8, borderRadius: '50%',
-                    background: alertTypeColors[alert.alert_type] || '#dc2626',
+                    background: alertTypeColors[alert.alert_type] || '#FF3B30',
                     flexShrink: 0,
                   }} />
-                  <span style={{ fontWeight: 700, minWidth: 100, color: alertTypeColors[alert.alert_type] || '#dc2626' }}>
+                  <span style={{ fontWeight: 600, minWidth: 100, color: alertTypeColors[alert.alert_type] || '#FF3B30' }}>
                     {alert.alert_type}
                   </span>
-                  <span style={{ flex: 1, color: '#374151' }}>{alert.message}</span>
+                  <span style={{ flex: 1, color: '#3a3a3c' }}>{alert.message}</span>
                   <span className="text-xs text-muted">{alert.device_id}</span>
                   <span className="text-xs text-muted">{formatTime(alert.timestamp)}</span>
                 </div>
@@ -183,8 +183,8 @@ export default function LiveMonitor() {
                 return (
                   <div className="feed-item" key={item.log_id}>
                     <span className="feed-time">{formatTime(item.timestamp)}</span>
-                    <Icon size={16} color={isGranted ? 'var(--color-success)' : 'var(--color-danger)'} />
-                    <span style={{ flex: 1 }}>{eventTypeLabel[item.event_type] || item.event_type}</span>
+                    <Icon size={16} color={isGranted ? '#34C759' : '#FF3B30'} />
+                    <span style={{ flex: 1, color: '#1D1D1F' }}>{eventTypeLabel[item.event_type] || item.event_type}</span>
                     <span className="text-xs text-muted">{item.gate_id}</span>
                     <span className={`badge ${isGranted ? 'badge-success' : 'badge-danger'}`}>
                       {isGranted ? 'GRANTED' : 'DENIED'}
@@ -218,10 +218,10 @@ export default function LiveMonitor() {
                       {d.ip_address && <>IP: {d.ip_address}<br /></>}
                       Faces: {d.face_count}/20,000<br />
                       <div className="flex gap-3" style={{ marginTop: 4 }}>
-                        {d.wifi_connected && <span className="text-xs" style={{ color: 'var(--color-success)' }}><Wifi size={10} /> WiFi</span>}
-                        {d.cellular_connected && <span className="text-xs" style={{ color: 'var(--color-info)' }}><Signal size={10} /> 4G</span>}
+                        {d.wifi_connected && <span className="text-xs" style={{ color: '#34C759' }}><Wifi size={10} /> WiFi</span>}
+                        {d.cellular_connected && <span className="text-xs" style={{ color: '#0066CC' }}><Signal size={10} /> 4G</span>}
                         {d.battery_level != null && (
-                          <span className="text-xs" style={{ color: d.battery_level < 20 ? 'var(--color-danger)' : '#6b7280' }}>
+                          <span className="text-xs" style={{ color: d.battery_level < 20 ? '#FF3B30' : '#8e8e93' }}>
                             <Battery size={10} /> {d.battery_level}%
                           </span>
                         )}

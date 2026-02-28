@@ -9,8 +9,8 @@ export default function Devices() {
   const [showCreate, setShowCreate] = useState(false);
   const [showList, setShowList] = useState(true);
   const [pingResult, setPingResult] = useState(null);
-  const [confirmAction, setConfirmAction] = useState(null); // { type: 'delete'|'regen', id, name }
-  const [tokenResult, setTokenResult] = useState(null); // { id, token }
+  const [confirmAction, setConfirmAction] = useState(null);
+  const [tokenResult, setTokenResult] = useState(null);
 
   const handlePing = async (id) => {
     setPingResult({ id, status: 'testing' });
@@ -59,24 +59,24 @@ export default function Devices() {
       {confirmAction && (
         <div className="page-body" style={{ paddingTop: 12, paddingBottom: 0 }}>
           <div className="card" style={{
-            textAlign: 'center', padding: 24,
-            border: '2px solid #ef4444', borderRadius: 14, background: '#fef2f2',
+            textAlign: 'center', padding: 28,
+            border: '2px solid #FF3B30', borderRadius: 16, background: 'var(--color-danger-bg)',
           }}>
-            <h3 style={{ color: '#dc2626', marginBottom: 8, fontSize: 18 }}>
+            <h3 style={{ color: '#FF3B30', marginBottom: 8, fontSize: 18, fontWeight: 700 }}>
               {confirmAction.type === 'delete' ? 'Delete Device?' : 'Regenerate Token?'}
             </h3>
-            <p style={{ fontSize: 15, color: '#6b7280', marginBottom: 16 }}>
+            <p style={{ fontSize: 15, color: '#48484a', marginBottom: 20 }}>
               {confirmAction.type === 'delete'
                 ? `Delete "${confirmAction.name}" (${confirmAction.id})? This will remove it from the system.`
                 : `Regenerate API token for "${confirmAction.name}"? The device will need to re-register.`}
             </p>
             <div style={{ display: 'flex', gap: 12, justifyContent: 'center' }}>
               <button className="btn btn-secondary" onClick={() => setConfirmAction(null)}
-                style={{ padding: '12px 28px', fontSize: 16 }}>
+                style={{ padding: '12px 28px' }}>
                 Cancel
               </button>
               <button className="btn btn-danger" onClick={executeConfirm}
-                style={{ padding: '12px 28px', fontSize: 16 }}>
+                style={{ padding: '12px 28px' }}>
                 {confirmAction.type === 'delete' ? 'Yes, Delete' : 'Yes, Regenerate'}
               </button>
             </div>
@@ -88,19 +88,19 @@ export default function Devices() {
       {tokenResult && (
         <div className="page-body" style={{ paddingTop: 12, paddingBottom: 0 }}>
           <div className="card" style={{
-            textAlign: 'center', padding: 24,
-            border: '2px solid #00d4aa', borderRadius: 14, background: '#e6faf5',
+            textAlign: 'center', padding: 28,
+            border: '2px solid #34C759', borderRadius: 16, background: 'var(--color-success-bg)',
           }}>
-            <h3 style={{ color: '#059669', marginBottom: 8, fontSize: 18 }}>New Token Generated</h3>
+            <h3 style={{ color: '#248a3d', marginBottom: 12, fontSize: 18, fontWeight: 700 }}>New Token Generated</h3>
             <div style={{
-              fontFamily: 'monospace', fontSize: 14, padding: '12px 16px',
-              background: '#fff', borderRadius: 8, border: '1px solid #d1d5db',
-              wordBreak: 'break-all', marginBottom: 12,
+              fontFamily: 'monospace', fontSize: 13, padding: '14px 16px',
+              background: '#fff', borderRadius: 10, border: '1px solid #d1d1d6',
+              wordBreak: 'break-all', marginBottom: 16,
             }}>
               {tokenResult.token}
             </div>
             <button className="btn btn-secondary" onClick={() => setTokenResult(null)}
-              style={{ padding: '10px 24px', fontSize: 15 }}>
+              style={{ padding: '10px 24px' }}>
               Dismiss
             </button>
           </div>
@@ -124,7 +124,7 @@ export default function Devices() {
 
             {devices?.length === 0 && (
               <div className="card" style={{ textAlign: 'center', padding: 48 }}>
-                <Radio size={40} color="var(--color-gray-300)" style={{ margin: '0 auto 16px' }} />
+                <Radio size={40} color="#8e8e93" style={{ margin: '0 auto 16px' }} />
                 <p className="text-muted">No X05 devices registered yet</p>
                 <p className="text-xs text-muted" style={{ marginTop: 8 }}>
                   X05 devices self-register when they connect. You can also register them above.
@@ -135,12 +135,12 @@ export default function Devices() {
             <div className="device-grid">
               {devices?.map((d) => (
                 <div className="device-tile" key={d.device_id}>
-                  <div className="flex items-center justify-between" style={{ marginBottom: 16 }}>
+                  <div className="flex items-center justify-between" style={{ marginBottom: 14 }}>
                     <div className="flex items-center gap-2">
                       {d.status === 'ONLINE' ? (
-                        <Wifi size={20} color="var(--color-success)" />
+                        <Wifi size={18} color="#34C759" />
                       ) : (
-                        <WifiOff size={20} color="var(--color-danger)" />
+                        <WifiOff size={18} color="#FF3B30" />
                       )}
                       <span className="device-name">{d.device_name}</span>
                     </div>
@@ -162,11 +162,11 @@ export default function Devices() {
                     {d.firmware_version && <div><strong>FW:</strong> {d.firmware_version}</div>}
 
                     <div className="flex gap-3" style={{ marginTop: 6 }}>
-                      {d.wifi_connected && <span style={{ fontSize: 13, color: 'var(--color-success)' }}><Wifi size={12} /> WiFi</span>}
-                      {d.cellular_connected && <span style={{ fontSize: 13, color: 'var(--color-info)' }}><Signal size={12} /> 4G</span>}
+                      {d.wifi_connected && <span style={{ fontSize: 12, color: '#34C759' }}><Wifi size={11} /> WiFi</span>}
+                      {d.cellular_connected && <span style={{ fontSize: 12, color: '#0066CC' }}><Signal size={11} /> 4G</span>}
                       {d.battery_level != null && (
-                        <span style={{ fontSize: 13, color: d.battery_level < 20 ? 'var(--color-danger)' : '#6b7280' }}>
-                          <Battery size={12} /> {d.battery_level}%
+                        <span style={{ fontSize: 12, color: d.battery_level < 20 ? '#FF3B30' : '#8e8e93' }}>
+                          <Battery size={11} /> {d.battery_level}%
                         </span>
                       )}
                     </div>
@@ -175,48 +175,48 @@ export default function Devices() {
                       <div className="flex gap-2 flex-wrap" style={{ marginTop: 8 }}>
                         {d.has_fingerprint && (
                           <span style={{
-                            background: '#f0fdf4', color: '#166534', padding: '4px 8px',
-                            borderRadius: 6, fontWeight: 600, fontSize: 12,
+                            background: '#eafbf0', color: '#248a3d', padding: '3px 8px',
+                            borderRadius: 6, fontWeight: 600, fontSize: 11,
                           }}>
-                            <Fingerprint size={12} /> Finger{d.finger_sdk_version ? ` v${d.finger_sdk_version}` : ''}
+                            <Fingerprint size={11} /> Finger{d.finger_sdk_version ? ` v${d.finger_sdk_version}` : ''}
                           </span>
                         )}
                         {d.has_iris && (
                           <span style={{
-                            background: '#fff7ed', color: '#c2410c', padding: '4px 8px',
-                            borderRadius: 6, fontWeight: 600, fontSize: 12,
+                            background: '#fff4e6', color: '#c93400', padding: '3px 8px',
+                            borderRadius: 6, fontWeight: 600, fontSize: 11,
                           }}>
-                            <Eye size={12} /> Iris{d.iris_sdk_version ? ` v${d.iris_sdk_version}` : ''}
+                            <Eye size={11} /> Iris{d.iris_sdk_version ? ` v${d.iris_sdk_version}` : ''}
                           </span>
                         )}
                         {d.has_nfc && (
                           <span style={{
-                            background: '#eff6ff', color: '#1e40af', padding: '4px 8px',
-                            borderRadius: 6, fontWeight: 600, fontSize: 12,
+                            background: '#E8F1FC', color: '#0066CC', padding: '3px 8px',
+                            borderRadius: 6, fontWeight: 600, fontSize: 11,
                           }}>
-                            <CreditCard size={12} /> NFC
+                            <CreditCard size={11} /> NFC
                           </span>
                         )}
                         {d.wiegand_enabled && (
                           <span style={{
-                            background: '#fdf4ff', color: '#7e22ce', padding: '4px 8px',
-                            borderRadius: 6, fontWeight: 600, fontSize: 12,
+                            background: '#f3ecff', color: '#5856D6', padding: '3px 8px',
+                            borderRadius: 6, fontWeight: 600, fontSize: 11,
                           }}>
                             WG
                           </span>
                         )}
                         {d.rs485_enabled && (
                           <span style={{
-                            background: '#fefce8', color: '#a16207', padding: '4px 8px',
-                            borderRadius: 6, fontWeight: 600, fontSize: 12,
+                            background: '#fff4e6', color: '#FF9500', padding: '3px 8px',
+                            borderRadius: 6, fontWeight: 600, fontSize: 11,
                           }}>
                             RS485
                           </span>
                         )}
                         {d.relay_mode && d.relay_mode !== 'NO' && (
                           <span style={{
-                            background: '#fef2f2', color: '#991b1b', padding: '4px 8px',
-                            borderRadius: 6, fontWeight: 600, fontSize: 12,
+                            background: 'var(--color-danger-bg)', color: '#FF3B30', padding: '3px 8px',
+                            borderRadius: 6, fontWeight: 600, fontSize: 11,
                           }}>
                             Relay: {d.relay_mode}
                           </span>
@@ -232,8 +232,9 @@ export default function Devices() {
                   {pingResult?.id === d.device_id && (
                     <div
                       style={{
-                        marginTop: 12, fontSize: 13, padding: '10px 14px', borderRadius: 8,
-                        background: pingResult.status === 'ONLINE' ? 'var(--color-success-bg)' : pingResult.status === 'testing' ? 'var(--color-info-bg)' : 'var(--color-danger-bg)',
+                        marginTop: 12, fontSize: 13, padding: '10px 14px', borderRadius: 10,
+                        background: pingResult.status === 'ONLINE' ? 'var(--color-success-bg)' : pingResult.status === 'testing' ? '#E8F1FC' : 'var(--color-danger-bg)',
+                        color: pingResult.status === 'ONLINE' ? '#248a3d' : pingResult.status === 'testing' ? '#0066CC' : '#FF3B30',
                       }}
                     >
                       {pingResult.status === 'testing' ? 'Checking heartbeat...' :
@@ -243,17 +244,14 @@ export default function Devices() {
                     </div>
                   )}
 
-                  <div className="flex gap-2 flex-wrap" style={{ marginTop: 16 }}>
-                    <button className="btn btn-primary btn-sm" onClick={() => handlePing(d.device_id)}
-                      style={{ padding: '10px 16px', fontSize: 14 }}>
+                  <div className="flex gap-2 flex-wrap" style={{ marginTop: 14 }}>
+                    <button className="btn btn-primary btn-sm" onClick={() => handlePing(d.device_id)}>
                       <Zap size={14} /> Ping
                     </button>
-                    <button className="btn btn-secondary btn-sm" onClick={() => handleRegenToken(d)}
-                      style={{ padding: '10px 16px', fontSize: 14 }}>
+                    <button className="btn btn-secondary btn-sm" onClick={() => handleRegenToken(d)}>
                       <Key size={14} /> Token
                     </button>
-                    <button className="btn btn-danger btn-sm" onClick={() => handleDelete(d)}
-                      style={{ padding: '10px 16px', fontSize: 14 }}>
+                    <button className="btn btn-danger btn-sm" onClick={() => handleDelete(d)}>
                       <Trash2 size={14} /> Delete
                     </button>
                   </div>
@@ -277,7 +275,7 @@ function Radio({ size, color, style }) {
 
 
 /* ============================================================
-   INLINE REGISTER DEVICE FORM — no popup
+   INLINE REGISTER DEVICE FORM — Apple-inspired
    ============================================================ */
 function InlineRegisterDeviceForm({ show, onToggle, onCreated }) {
   const [form, setForm] = useState({
@@ -315,30 +313,30 @@ function InlineRegisterDeviceForm({ show, onToggle, onCreated }) {
   };
 
   return (
-    <div className="card" style={{ border: '2px solid #5AC8FA', borderRadius: 16 }}>
+    <div className="card" style={{ borderRadius: 18, overflow: 'hidden' }}>
       <div
         style={{
-          background: '#5AC8FA', color: '#fff', padding: '14px 24px',
-          borderRadius: show ? '14px 14px 0 0' : 14,
+          background: '#0066CC', color: '#fff', padding: '16px 28px',
+          borderRadius: show ? '16px 16px 0 0' : 16,
           textAlign: 'center', cursor: 'pointer',
           display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
         }}
         onClick={onToggle}
       >
-        <h2 style={{ margin: 0, fontSize: 22, fontWeight: 800, letterSpacing: 0.5 }}>Register Device</h2>
-        {show ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+        <h2 style={{ margin: 0, fontSize: 20, fontWeight: 700, letterSpacing: -0.3 }}>Register Device</h2>
+        {show ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
       </div>
 
       {show && (
-        <div style={{ padding: '20px 28px' }}>
+        <div style={{ padding: '24px 28px' }}>
           {result && (
-            <div style={{ textAlign: 'center', padding: '24px 0' }}>
-              <div style={{ width: 64, height: 64, borderRadius: '50%', background: '#e6f9ed', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}>
-                <Check size={32} color="#059669" />
+            <div style={{ textAlign: 'center', padding: '28px 0' }}>
+              <div style={{ width: 56, height: 56, borderRadius: '50%', background: 'var(--color-success-bg)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}>
+                <Check size={28} color="#34C759" strokeWidth={2.5} />
               </div>
-              <h3 style={{ marginBottom: 4 }}>Device Registered!</h3>
+              <h3 style={{ marginBottom: 4, color: '#1D1D1F', fontWeight: 700 }}>Device Registered!</h3>
               <p className="text-muted">"{result.name}" added to the system</p>
-              <button className="btn btn-primary" onClick={resetForm} style={{ marginTop: 12, fontSize: 16, padding: '12px 32px' }}>
+              <button className="btn btn-primary" onClick={resetForm} style={{ marginTop: 12, padding: '12px 32px' }}>
                 <Plus size={16} /> Register Another
               </button>
             </div>
@@ -382,7 +380,7 @@ function InlineRegisterDeviceForm({ show, onToggle, onCreated }) {
               {error && <div style={{ color: 'var(--color-danger)', fontSize: 14, marginBottom: 12, fontWeight: 600 }}>{error}</div>}
               <button type="button" onClick={handleSubmit}
                 className="btn btn-primary"
-                style={{ width: '100%', justifyContent: 'center', padding: '16px 0', fontSize: 18, minHeight: 56, fontWeight: 800 }}
+                style={{ width: '100%', justifyContent: 'center', padding: '16px 0', fontSize: 18, minHeight: 56, fontWeight: 700, borderRadius: 12, letterSpacing: -0.3 }}
                 disabled={loading}>
                 {loading ? 'Registering...' : 'Register Device'}
               </button>

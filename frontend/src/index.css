@@ -1,44 +1,45 @@
 /* ===================================================================
-   EventShield Pro — Square-Inspired Design System
-   Clean, modern, professional. Inspired by squareup.com aesthetics.
+   EventShield Pro — Apple-Inspired Design System
+   Clean, spacious, refined. Inspired by apple.com aesthetics.
+   Palette: #0066CC, #1D1D1F, #F5F5F7, #FFFFFF
    =================================================================== */
 
 :root {
-  /* Square's color palette */
-  --color-black: #1a1a2e;
-  --color-near-black: #16213e;
-  --color-dark-gray: #2c3e50;
-  --color-gray-700: #4a5568;
-  --color-gray-500: #718096;
-  --color-gray-400: #a0aec0;
-  --color-gray-300: #cbd5e0;
-  --color-gray-200: #e2e8f0;
-  --color-gray-100: #edf2f7;
-  --color-gray-50: #f7fafc;
+  /* Apple Core Palette */
+  --color-black: #1D1D1F;
+  --color-near-black: #1D1D1F;
+  --color-dark-gray: #3a3a3c;
+  --color-gray-700: #48484a;
+  --color-gray-500: #8e8e93;
+  --color-gray-400: #aeaeb2;
+  --color-gray-300: #c7c7cc;
+  --color-gray-200: #d1d1d6;
+  --color-gray-100: #e5e5ea;
+  --color-gray-50: #F5F5F7;
   --color-white: #ffffff;
 
-  /* Accent — Soft Apple Blue */
-  --color-primary: #5AC8FA;
-  --color-primary-hover: #4AB8EA;
-  --color-primary-light: #EAF6FE;
+  /* Apple Blue — primary action color */
+  --color-primary: #0066CC;
+  --color-primary-hover: #0055B3;
+  --color-primary-light: #E8F1FC;
 
-  /* Status colors */
-  --color-success: #00d4aa;
-  --color-success-bg: #e6faf5;
-  --color-warning: #ffb800;
-  --color-warning-bg: #fff8e6;
-  --color-danger: #ff4444;
-  --color-danger-bg: #ffe6e6;
-  --color-info: #5AC8FA;
-  --color-info-bg: #EAF6FE;
+  /* Apple Status Colors */
+  --color-success: #34C759;
+  --color-success-bg: #eafbf0;
+  --color-warning: #FF9500;
+  --color-warning-bg: #fff4e6;
+  --color-danger: #FF3B30;
+  --color-danger-bg: #fff0ef;
+  --color-info: #0066CC;
+  --color-info-bg: #E8F1FC;
 
-  /* Typography */
-  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-size-xs: 0.75rem;
+  /* Typography — SF Pro stack */
+  --font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  --font-size-xs: 0.6875rem;
   --font-size-sm: 0.8125rem;
-  --font-size-base: 0.875rem;
+  --font-size-base: 0.9375rem;
   --font-size-md: 1rem;
-  --font-size-lg: 1.125rem;
+  --font-size-lg: 1.1875rem;
   --font-size-xl: 1.5rem;
   --font-size-2xl: 2rem;
   --font-size-3xl: 2.5rem;
@@ -54,20 +55,20 @@
   --space-10: 2.5rem;
   --space-12: 3rem;
 
-  /* Radii */
-  --radius-sm: 6px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 16px;
+  /* Radii — Apple-rounded */
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
   --radius-full: 9999px;
 
-  /* Shadows */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+  /* Shadows — soft Apple depth */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.03);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04);
 
   /* Sidebar */
-  --sidebar-width: 240px;
+  --sidebar-width: 250px;
 }
 
 * {
@@ -94,8 +95,8 @@ html, body {
 
 .sidebar {
   width: var(--sidebar-width);
-  background: var(--color-near-black);
-  color: var(--color-white);
+  background: var(--color-white);
+  color: var(--color-near-black);
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -104,29 +105,32 @@ html, body {
   bottom: 0;
   z-index: 100;
   transition: transform 0.2s ease;
+  border-right: 1px solid var(--color-gray-100);
 }
 
 .sidebar-logo {
-  padding: var(--space-6) var(--space-5);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: var(--space-6) var(--space-6);
+  border-bottom: 1px solid var(--color-gray-100);
 }
 
 .sidebar-logo h1 {
-  font-size: var(--font-size-lg);
+  font-size: 1.25rem;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
+  color: var(--color-near-black);
 }
 
 .sidebar-logo span {
   font-size: var(--font-size-xs);
-  color: var(--color-gray-400);
+  color: var(--color-gray-500);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
+  font-weight: 500;
 }
 
 .sidebar-nav {
   flex: 1;
-  padding: var(--space-3) 0;
+  padding: var(--space-4) 0;
   overflow-y: auto;
 }
 
@@ -134,36 +138,38 @@ html, body {
   display: flex;
   align-items: center;
   gap: var(--space-3);
-  padding: 14px var(--space-5);
+  padding: 12px var(--space-6);
   min-height: 48px;
-  color: var(--color-gray-400);
+  color: var(--color-gray-500);
   text-decoration: none;
-  font-size: 15px;
+  font-size: var(--font-size-base);
   font-weight: 500;
-  transition: all 0.15s ease;
+  transition: all 0.2s ease;
   border-left: 3px solid transparent;
+  margin: 2px 0;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
 }
 
 .sidebar-nav a:hover {
-  color: var(--color-white);
-  background: rgba(255, 255, 255, 0.04);
+  color: var(--color-near-black);
+  background: var(--color-gray-50);
 }
 
 .sidebar-nav a:active {
-  background: rgba(255, 255, 255, 0.10);
+  background: var(--color-gray-100);
 }
 
 .sidebar-nav a.active {
-  color: var(--color-white);
-  background: rgba(255, 255, 255, 0.06);
+  color: var(--color-primary);
+  background: var(--color-primary-light);
   border-left-color: var(--color-primary);
+  font-weight: 600;
 }
 
 .sidebar-status {
-  padding: var(--space-4) var(--space-5);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: var(--space-4) var(--space-6);
+  border-top: 1px solid var(--color-gray-100);
   font-size: var(--font-size-xs);
   color: var(--color-gray-500);
 }
@@ -172,12 +178,13 @@ html, body {
   margin-left: var(--sidebar-width);
   flex: 1;
   min-height: 100vh;
+  background: var(--color-gray-50);
 }
 
 .page-header {
   padding: var(--space-6) var(--space-8);
   background: var(--color-white);
-  border-bottom: 1px solid var(--color-gray-200);
+  border-bottom: 1px solid var(--color-gray-100);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -194,12 +201,18 @@ html, body {
   padding: var(--space-8);
 }
 
-/* ===== Cards ===== */
+/* ===== Cards — Apple frosted glass feel ===== */
 .card {
   background: var(--color-white);
   border-radius: var(--radius-lg);
-  border: 1px solid var(--color-gray-200);
+  border: none;
+  box-shadow: var(--shadow-sm);
   overflow: hidden;
+  transition: box-shadow 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
 }
 
 .card-header {
@@ -214,16 +227,18 @@ html, body {
   font-size: var(--font-size-base);
   font-weight: 600;
   color: var(--color-near-black);
+  display: flex;
+  align-items: center;
 }
 
 .card-body {
   padding: var(--space-6);
 }
 
-/* ===== Stat Cards ===== */
+/* ===== Stat Cards — Apple widget style ===== */
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: var(--space-4);
   margin-bottom: var(--space-6);
 }
@@ -231,8 +246,14 @@ html, body {
 .stat-card {
   background: var(--color-white);
   border-radius: var(--radius-lg);
-  border: 1px solid var(--color-gray-200);
+  box-shadow: var(--shadow-sm);
   padding: var(--space-5) var(--space-6);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
 }
 
 .stat-card .stat-label {
@@ -257,7 +278,7 @@ html, body {
   margin-top: var(--space-1);
 }
 
-/* ===== Tables ===== */
+/* ===== Tables — clean Apple aesthetic ===== */
 .table-wrap {
   overflow-x: auto;
 }
@@ -269,19 +290,19 @@ table {
 
 thead th {
   text-align: left;
-  padding: 12px 16px;
+  padding: 14px 16px;
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--color-gray-500);
-  border-bottom: 1px solid var(--color-gray-200);
+  border-bottom: 1px solid var(--color-gray-100);
   background: var(--color-gray-50);
   white-space: nowrap;
 }
 
 tbody td {
-  padding: 12px 16px;
+  padding: 14px 16px;
   font-size: 14px;
   color: var(--color-dark-gray);
   border-bottom: 1px solid var(--color-gray-100);
@@ -290,31 +311,33 @@ tbody td {
 
 tbody tr {
   min-height: 48px;
+  transition: background 0.15s ease;
 }
 
 tbody tr:hover {
   background: var(--color-gray-50);
 }
 
-/* ===== Buttons (touch-friendly: min 44px targets) ===== */
+/* ===== Buttons — Apple rounded pill style, touch-friendly ===== */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--space-2);
-  padding: 12px 20px;
+  padding: 10px 20px;
   min-height: 44px;
-  font-size: 15px;
+  font-size: var(--font-size-base);
   font-weight: 600;
   border-radius: var(--radius-md);
   border: none;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: all 0.2s ease;
   text-decoration: none;
   white-space: nowrap;
   font-family: var(--font-family);
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
+  letter-spacing: -0.01em;
 }
 
 .btn-primary {
@@ -324,21 +347,25 @@ tbody tr:hover {
 
 .btn-primary:hover {
   background: var(--color-primary-hover);
+  transform: translateY(-0.5px);
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.3);
 }
 
 .btn-primary:active {
   transform: scale(0.97);
+  box-shadow: none;
 }
 
 .btn-secondary {
-  background: var(--color-white);
+  background: var(--color-gray-50);
   color: var(--color-near-black);
-  border: 1px solid var(--color-gray-300);
+  border: 1px solid var(--color-gray-200);
 }
 
 .btn-secondary:hover {
-  background: var(--color-gray-50);
-  border-color: var(--color-gray-400);
+  background: var(--color-white);
+  border-color: var(--color-gray-300);
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-secondary:active {
@@ -351,32 +378,35 @@ tbody tr:hover {
 }
 
 .btn-danger:hover {
-  background: #e03c3c;
+  background: #E8342A;
+  transform: translateY(-0.5px);
+  box-shadow: 0 2px 8px rgba(255, 59, 48, 0.3);
 }
 
 .btn-danger:active {
   transform: scale(0.97);
+  box-shadow: none;
 }
 
 .btn-sm {
   padding: 8px 14px;
-  min-height: 40px;
-  font-size: 13px;
+  min-height: 38px;
+  font-size: var(--font-size-sm);
 }
 
 .btn-lg {
   padding: 14px 28px;
   min-height: 52px;
-  font-size: 16px;
+  font-size: var(--font-size-lg);
 }
 
-/* ===== Badges (touch-friendly) ===== */
+/* ===== Badges — Apple rounded capsule ===== */
 .badge {
   display: inline-flex;
   align-items: center;
-  padding: 4px 12px;
-  min-height: 28px;
-  font-size: 12px;
+  padding: 3px 10px;
+  min-height: 24px;
+  font-size: 11px;
   font-weight: 600;
   border-radius: var(--radius-full);
   letter-spacing: 0.02em;
@@ -384,22 +414,22 @@ tbody tr:hover {
 
 .badge-success {
   background: var(--color-success-bg);
-  color: #00a884;
+  color: #248a3d;
 }
 
 .badge-warning {
   background: var(--color-warning-bg);
-  color: #cc9300;
+  color: #c93400;
 }
 
 .badge-danger {
   background: var(--color-danger-bg);
-  color: var(--color-danger);
+  color: #d70015;
 }
 
 .badge-info {
   background: var(--color-info-bg);
-  color: var(--color-info);
+  color: var(--color-primary);
 }
 
 .badge-neutral {
@@ -407,37 +437,37 @@ tbody tr:hover {
   color: var(--color-gray-700);
 }
 
-/* ===== Forms (touch-friendly: min 44px inputs) ===== */
+/* ===== Forms — clean Apple inputs, touch-friendly ===== */
 .form-group {
   margin-bottom: var(--space-5);
 }
 
 .form-label {
   display: block;
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   font-weight: 600;
   color: var(--color-dark-gray);
-  margin-bottom: var(--space-2);
+  margin-bottom: 6px;
 }
 
 .form-input {
   width: 100%;
   padding: 10px 14px;
   min-height: 44px;
-  font-size: 15px;
+  font-size: var(--font-size-base);
   font-family: var(--font-family);
-  border: 1px solid var(--color-gray-300);
+  border: 1px solid var(--color-gray-200);
   border-radius: var(--radius-md);
   background: var(--color-white);
   color: var(--color-near-black);
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
   -webkit-tap-highlight-color: transparent;
 }
 
 .form-input:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px var(--color-primary-light);
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.15);
 }
 
 .form-input::placeholder {
@@ -446,7 +476,7 @@ tbody tr:hover {
 
 select.form-input {
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23718096' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%238e8e93' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 14px center;
   padding-right: 40px;
@@ -465,7 +495,7 @@ select.form-input {
 .status-dot.offline { background: var(--color-danger); }
 .status-dot.maintenance { background: var(--color-warning); }
 
-/* ===== Device tiles ===== */
+/* ===== Device tiles — Apple card widget ===== */
 .device-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -474,26 +504,28 @@ select.form-input {
 
 .device-tile {
   background: var(--color-white);
-  border: 1px solid var(--color-gray-200);
   border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
   padding: var(--space-5);
-  transition: border-color 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .device-tile:hover {
-  border-color: var(--color-gray-300);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
 }
 
 .device-tile .device-name {
   font-weight: 600;
   font-size: var(--font-size-base);
   margin-bottom: var(--space-1);
+  color: var(--color-near-black);
 }
 
 .device-tile .device-meta {
   font-size: var(--font-size-xs);
   color: var(--color-gray-500);
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 /* ===== Live feed ===== */
@@ -510,6 +542,11 @@ select.form-input {
   min-height: 48px;
   border-bottom: 1px solid var(--color-gray-100);
   font-size: 14px;
+  transition: background 0.15s ease;
+}
+
+.feed-item:hover {
+  background: var(--color-gray-50);
 }
 
 .feed-item:last-child { border-bottom: none; }
@@ -524,7 +561,7 @@ select.form-input {
 /* ===== Offline banner ===== */
 .offline-banner {
   background: var(--color-warning-bg);
-  color: #8a6500;
+  color: #c93400;
   padding: var(--space-2) var(--space-4);
   font-size: var(--font-size-sm);
   font-weight: 600;
@@ -535,13 +572,13 @@ select.form-input {
   gap: var(--space-2);
 }
 
-/* ===== Login ===== */
+/* ===== Login — Apple centered card ===== */
 .login-page {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-near-black);
+  background: var(--color-gray-50);
 }
 
 .login-card {
@@ -559,6 +596,7 @@ select.form-input {
   text-align: center;
   margin-bottom: var(--space-2);
   letter-spacing: -0.02em;
+  color: var(--color-near-black);
 }
 
 .login-card p {
@@ -578,6 +616,7 @@ select.form-input {
 .mt-6 { margin-top: var(--space-6); }
 .mb-4 { margin-bottom: var(--space-4); }
 .mb-6 { margin-bottom: var(--space-6); }
+.gap-1 { gap: var(--space-1); }
 .gap-2 { gap: var(--space-2); }
 .gap-3 { gap: var(--space-3); }
 .flex { display: flex; }
@@ -604,20 +643,23 @@ input[type="checkbox"] {
   width: 22px;
   height: 22px;
   cursor: pointer;
+  accent-color: var(--color-primary);
 }
 
-/* Device tiles — bigger touch targets */
-.device-tile {
-  padding: 20px;
+/* Scrollbar — subtle Apple style */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
 }
-
-.device-tile .device-name {
-  font-size: 16px;
+::-webkit-scrollbar-track {
+  background: transparent;
 }
-
-.device-tile .device-meta {
-  font-size: 13px;
-  line-height: 1.7;
+::-webkit-scrollbar-thumb {
+  background: var(--color-gray-300);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gray-400);
 }
 
 @media (max-width: 768px) {
