@@ -3,8 +3,8 @@ import { api } from '../utils/api';
 import { Save, Send, Mail, Phone, DollarSign, Check, Clock } from 'lucide-react';
 
 const TICKET_TYPES = [
-  { key: 'DAILY', label: 'Daily Pass', color: '#006aff' },
-  { key: 'WEEKEND', label: 'Weekend Pass', color: '#7c3aed' },
+  { key: 'DAILY', label: 'Adult Daily', color: '#006aff' },
+  { key: 'WEEKEND', label: 'Adult Weekend', color: '#7c3aed' },
   { key: 'KIDS', label: 'Kids Daily', color: '#f59e0b' },
   { key: 'KIDS_WEEKEND', label: 'Kids Weekend', color: '#d97706' },
   { key: 'COACH', label: 'Coach', color: '#0891b2' },

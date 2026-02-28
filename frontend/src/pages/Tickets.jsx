@@ -4,8 +4,8 @@ import { usePolling } from '../hooks/usePolling';
 import { Plus, Search, Download, QrCode, RotateCcw, ShieldCheck, X, Minus, Check, Users, ChevronDown, ChevronUp } from 'lucide-react';
 
 const TICKET_TYPES = [
-  { key: 'DAILY', label: 'Daily', color: '#006aff', desc: 'Single day' },
-  { key: 'WEEKEND', label: 'Weekend', color: '#7c3aed', desc: 'Sat & Sun' },
+  { key: 'DAILY', label: 'Adult Daily', color: '#006aff', desc: 'Single day' },
+  { key: 'WEEKEND', label: 'Adult Weekend', color: '#7c3aed', desc: 'Sat & Sun' },
   { key: 'KIDS', label: 'Kids Daily', color: '#f59e0b', desc: 'Single day (child)' },
   { key: 'KIDS_WEEKEND', label: 'Kids Weekend', color: '#d97706', desc: 'Sat & Sun (child)' },
   { key: 'COACH', label: 'Coach', color: '#0891b2', desc: 'Never expires' },
