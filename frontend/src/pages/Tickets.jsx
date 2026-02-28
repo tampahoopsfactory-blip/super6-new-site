@@ -85,16 +85,17 @@ export default function Tickets() {
 
   return (
     <>
+      <div style={{ textAlign: 'center', padding: '16px 0 8px' }}>
+        <button className="btn btn-primary" onClick={() => setShowCreate(true)}
+          style={{ fontSize: 22, padding: '16px 48px', minHeight: 60, borderRadius: 14, fontWeight: 800 }}>
+          <Plus size={22} /> New Ticket
+        </button>
+      </div>
       <div className="page-header">
         <h2>Tickets</h2>
-        <div className="flex gap-2">
-          <button className="btn btn-secondary btn-sm" onClick={handleExportCSV}>
-            <Download size={14} /> Export CSV
-          </button>
-          <button className="btn btn-primary btn-sm" onClick={() => setShowCreate(true)}>
-            <Plus size={14} /> New Order
-          </button>
-        </div>
+        <button className="btn btn-secondary btn-sm" onClick={handleExportCSV}>
+          <Download size={14} /> Export CSV
+        </button>
       </div>
 
       <div className="page-body">
