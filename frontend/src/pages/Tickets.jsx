@@ -336,12 +336,12 @@ function CreateOrderModal({ events, activeEvent, onClose, onCreated }) {
       position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.5)',
       display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000
     }} onClick={onClose}>
-      <div className="card" style={{ width: 520, maxHeight: '92vh', overflow: 'auto' }} onClick={(e) => e.stopPropagation()}>
+      <div className="card" style={{ width: 700, maxWidth: '96vw', maxHeight: '92vh', overflow: 'auto' }} onClick={(e) => e.stopPropagation()}>
         <div className="card-header">
           <h3>{totalTickets > 1 ? `Group Order (${totalTickets} tickets)` : 'New Ticket'}</h3>
           <button className="btn btn-secondary btn-sm" onClick={onClose}><X size={14} /></button>
         </div>
-        <div className="card-body" style={{ padding: '16px 20px' }}>
+        <div className="card-body" style={{ padding: '20px 28px' }}>
 
           {/* Success state */}
           {result && (
@@ -361,7 +361,7 @@ function CreateOrderModal({ events, activeEvent, onClose, onCreated }) {
               {!pricesLoaded ? (
                 <p className="text-muted text-center" style={{ padding: 16 }}>Loading prices...</p>
               ) : (
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 8, marginBottom: 20 }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 12, marginBottom: 20 }}>
                   {TICKET_TYPES.map((t) => {
                     const count = counts[t.key];
                     const isSelected = count > 0;
@@ -369,51 +369,51 @@ function CreateOrderModal({ events, activeEvent, onClose, onCreated }) {
                     return (
                       <div key={t.key} style={{
                         border: `2px solid ${isSelected ? t.color : '#e5e7eb'}`,
-                        borderRadius: 10,
-                        padding: '10px 12px',
+                        borderRadius: 12,
+                        padding: '14px 16px',
                         background: isSelected ? `${t.color}08` : '#fff',
                         transition: 'all 0.15s',
                       }}>
-                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 6 }}>
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
                           <div>
                             <span style={{
-                              fontWeight: 700, fontSize: 14, color: isSelected ? t.color : '#374151',
+                              fontWeight: 700, fontSize: 15, color: isSelected ? t.color : '#374151',
                             }}>{t.label}</span>
-                            <span style={{ fontSize: 11, color: '#9ca3af', marginLeft: 6 }}>{t.desc}</span>
+                            <span style={{ fontSize: 12, color: '#9ca3af', marginLeft: 6 }}>{t.desc}</span>
                           </div>
-                          {isSelected && <Check size={16} color={t.color} strokeWidth={3} />}
+                          {isSelected && <Check size={18} color={t.color} strokeWidth={3} />}
                         </div>
 
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                           <div style={{ display: 'flex', alignItems: 'center', gap: 0 }}>
                             <button type="button" onClick={() => decrement(t.key)}
                               style={{
-                                width: 32, height: 32, borderRadius: '8px 0 0 8px',
+                                width: 44, height: 44, borderRadius: '10px 0 0 10px',
                                 border: '1px solid #d1d5db', background: count > 0 ? '#f3f4f6' : '#f9fafb',
                                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                                 cursor: 'pointer', color: '#374151',
                               }}>
-                              <Minus size={14} />
+                              <Minus size={18} />
                             </button>
                             <div style={{
-                              width: 40, height: 32, display: 'flex', alignItems: 'center', justifyContent: 'center',
+                              width: 52, height: 44, display: 'flex', alignItems: 'center', justifyContent: 'center',
                               borderTop: '1px solid #d1d5db', borderBottom: '1px solid #d1d5db',
-                              fontWeight: 700, fontSize: 16, color: isSelected ? t.color : '#374151',
+                              fontWeight: 700, fontSize: 20, color: isSelected ? t.color : '#374151',
                               background: '#fff',
                             }}>{count}</div>
                             <button type="button" onClick={() => increment(t.key)}
                               style={{
-                                width: 32, height: 32, borderRadius: '0 8px 8px 0',
+                                width: 44, height: 44, borderRadius: '0 10px 10px 0',
                                 border: '1px solid #d1d5db', background: '#f3f4f6',
                                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                                 cursor: 'pointer', color: '#374151',
                               }}>
-                              <Plus size={14} />
+                              <Plus size={18} />
                             </button>
                           </div>
 
                           <span style={{
-                            fontSize: 15, fontWeight: 700,
+                            fontSize: 17, fontWeight: 700,
                             color: price > 0 ? '#1a1a2e' : '#9ca3af',
                           }}>
                             {price > 0 ? `$${price.toFixed(2)}` : 'FREE'}
@@ -452,36 +452,36 @@ function CreateOrderModal({ events, activeEvent, onClose, onCreated }) {
               )}
 
               {/* Buyer Contact Info */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, marginBottom: 8 }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 12 }}>
                 <div className="form-group" style={{ marginBottom: 0 }}>
-                  <label className="form-label" style={{ fontSize: 11 }}>Phone</label>
-                  <input className="form-input" value={patronPhone} onChange={(e) => setPatronPhone(e.target.value)} placeholder="+1..." style={{ fontSize: 13 }} />
+                  <label className="form-label" style={{ fontSize: 12 }}>Phone</label>
+                  <input className="form-input" value={patronPhone} onChange={(e) => setPatronPhone(e.target.value)} placeholder="+1..." style={{ fontSize: 15, height: 44, padding: '0 14px' }} />
                 </div>
                 <div className="form-group" style={{ marginBottom: 0 }}>
-                  <label className="form-label" style={{ fontSize: 11 }}>Email</label>
-                  <input className="form-input" type="email" value={patronEmail} onChange={(e) => setPatronEmail(e.target.value)} placeholder="Optional" style={{ fontSize: 13 }} />
+                  <label className="form-label" style={{ fontSize: 12 }}>Email</label>
+                  <input className="form-input" type="email" value={patronEmail} onChange={(e) => setPatronEmail(e.target.value)} placeholder="Optional" style={{ fontSize: 15, height: 44, padding: '0 14px' }} />
                 </div>
               </div>
 
               {/* Per-ticket Names */}
               {totalTickets === 1 && (
-                <div className="form-group" style={{ marginBottom: 16 }}>
-                  <label className="form-label" style={{ fontSize: 11 }}>Customer Name</label>
-                  <input className="form-input" value={patronName} onChange={(e) => setPatronName(e.target.value)} placeholder="Optional" style={{ fontSize: 13 }} />
+                <div className="form-group" style={{ marginBottom: 20 }}>
+                  <label className="form-label" style={{ fontSize: 12 }}>Customer Name</label>
+                  <input className="form-input" value={patronName} onChange={(e) => setPatronName(e.target.value)} placeholder="Optional" style={{ fontSize: 15, height: 44, padding: '0 14px' }} />
                 </div>
               )}
 
               {totalTickets > 1 && (
-                <div style={{ marginBottom: 16 }}>
-                  <label className="form-label" style={{ fontSize: 11, display: 'flex', alignItems: 'center', gap: 4, marginBottom: 8 }}>
-                    <User size={12} /> Name Each Person
+                <div style={{ marginBottom: 20 }}>
+                  <label className="form-label" style={{ fontSize: 12, display: 'flex', alignItems: 'center', gap: 4, marginBottom: 10 }}>
+                    <User size={14} /> Name Each Person
                   </label>
-                  <div style={{ display: 'grid', gap: 6 }}>
+                  <div style={{ display: 'grid', gap: 8 }}>
                     {individualTickets.map((t, idx) => (
-                      <div key={t.nameKey} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                      <div key={t.nameKey} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                         <span style={{
-                          fontSize: 11, fontWeight: 700, color: t.color,
-                          minWidth: 90, whiteSpace: 'nowrap',
+                          fontSize: 12, fontWeight: 700, color: t.color,
+                          minWidth: 110, whiteSpace: 'nowrap',
                         }}>
                           {t.label} #{t.index + 1}
                         </span>
@@ -490,7 +490,7 @@ function CreateOrderModal({ events, activeEvent, onClose, onCreated }) {
                           value={ticketNames[t.nameKey] || ''}
                           onChange={(e) => setTicketNames((prev) => ({ ...prev, [t.nameKey]: e.target.value }))}
                           placeholder={`Person ${idx + 1} name`}
-                          style={{ fontSize: 13, flex: 1 }}
+                          style={{ fontSize: 15, height: 44, padding: '0 14px', flex: 1 }}
                         />
                       </div>
                     ))}
@@ -502,7 +502,7 @@ function CreateOrderModal({ events, activeEvent, onClose, onCreated }) {
 
               <button type="button" onClick={handleSubmit}
                 className="btn btn-primary"
-                style={{ width: '100%', justifyContent: 'center', padding: '14px 0', fontSize: 16 }}
+                style={{ width: '100%', justifyContent: 'center', padding: '16px 0', fontSize: 18, minHeight: 56 }}
                 disabled={loading || totalTickets === 0}>
                 {loading ? 'Creating...' : totalTickets > 1
                   ? `Create ${totalTickets} Tickets — $${totalAmount.toFixed(2)}`
