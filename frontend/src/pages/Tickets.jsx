@@ -4,7 +4,7 @@ import { usePolling } from '../hooks/usePolling';
 import { Plus, Search, Download, QrCode, RotateCcw, ShieldCheck, X, Minus, Check, Users, ChevronDown, ChevronUp } from 'lucide-react';
 
 const TICKET_TYPES = [
-  { key: 'DAILY', label: 'Adult Daily', color: '#006aff', desc: 'Single day' },
+  { key: 'DAILY', label: 'Adult Daily', color: '#5AC8FA', desc: 'Single day' },
   { key: 'WEEKEND', label: 'Adult Weekend', color: '#7c3aed', desc: 'Sat & Sun' },
   { key: 'KIDS', label: 'Kids Daily', color: '#f59e0b', desc: 'Single day (child)' },
   { key: 'KIDS_WEEKEND', label: 'Kids Weekend', color: '#d97706', desc: 'Sat & Sun (child)' },
@@ -216,7 +216,7 @@ export default function Tickets() {
       {/* Inline QR Display — no popup */}
       {showQR && (
         <div className="page-body" style={{ paddingTop: 0 }}>
-          <div className="card" style={{ textAlign: 'center', padding: 24, border: '2px solid #006aff', borderRadius: 14 }}>
+          <div className="card" style={{ textAlign: 'center', padding: 24, border: '2px solid #5AC8FA', borderRadius: 14 }}>
             <h3 style={{ marginBottom: 12 }}>Ticket QR Code</h3>
             <img src={`data:image/png;base64,${showQR.qr_base64}`} alt="QR Code" style={{ width: 220, height: 220, margin: '0 auto' }} />
             <p className="text-xs text-muted" style={{ marginTop: 10, fontFamily: 'monospace' }}>{showQR.ticket_id}</p>
@@ -364,8 +364,8 @@ function InlineTicketForm({ onCreated }) {
   };
 
   return (
-    <div className="card" style={{ border: '2px solid #006aff', borderRadius: 16 }}>
-      <div style={{ background: '#006aff', color: '#fff', padding: '14px 24px', borderRadius: '14px 14px 0 0', textAlign: 'center' }}>
+    <div className="card" style={{ border: '2px solid #5AC8FA', borderRadius: 16 }}>
+      <div style={{ background: '#5AC8FA', color: '#fff', padding: '14px 24px', borderRadius: '14px 14px 0 0', textAlign: 'center' }}>
         <h2 style={{ margin: 0, fontSize: 22, fontWeight: 800, letterSpacing: 0.5 }}>New Ticket</h2>
       </div>
       <div style={{ padding: '20px 28px' }}>
@@ -457,7 +457,7 @@ function InlineTicketForm({ onCreated }) {
             {/* Order Summary */}
             {totalTickets > 0 && (
               <div style={{
-                background: '#f0f4ff', borderRadius: 10, padding: '12px 16px',
+                background: '#EAF6FE', borderRadius: 10, padding: '12px 16px',
                 marginBottom: 16, display: 'flex', justifyContent: 'space-between', alignItems: 'center'
               }}>
                 <div>
@@ -474,7 +474,7 @@ function InlineTicketForm({ onCreated }) {
                     {selectedTypes.map((t) => `${counts[t.key]}x ${t.label}`).join(' + ')}
                   </div>
                 </div>
-                <span style={{ fontWeight: 800, fontSize: 22, color: '#006aff' }}>
+                <span style={{ fontWeight: 800, fontSize: 22, color: '#5AC8FA' }}>
                   ${totalAmount.toFixed(2)}
                 </span>
               </div>

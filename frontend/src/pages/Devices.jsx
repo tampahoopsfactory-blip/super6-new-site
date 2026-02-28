@@ -315,10 +315,10 @@ function InlineRegisterDeviceForm({ show, onToggle, onCreated }) {
   };
 
   return (
-    <div className="card" style={{ border: '2px solid #006aff', borderRadius: 16 }}>
+    <div className="card" style={{ border: '2px solid #5AC8FA', borderRadius: 16 }}>
       <div
         style={{
-          background: '#006aff', color: '#fff', padding: '14px 24px',
+          background: '#5AC8FA', color: '#fff', padding: '14px 24px',
           borderRadius: show ? '14px 14px 0 0' : 14,
           textAlign: 'center', cursor: 'pointer',
           display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,

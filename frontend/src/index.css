@@ -17,10 +17,10 @@
   --color-gray-50: #f7fafc;
   --color-white: #ffffff;
 
-  /* Accent — Square Blue */
-  --color-primary: #006aff;
-  --color-primary-hover: #0050cc;
-  --color-primary-light: #e6f0ff;
+  /* Accent — Soft Apple Blue */
+  --color-primary: #5AC8FA;
+  --color-primary-hover: #4AB8EA;
+  --color-primary-light: #EAF6FE;
 
   /* Status colors */
   --color-success: #00d4aa;
@@ -29,8 +29,8 @@
   --color-warning-bg: #fff8e6;
   --color-danger: #ff4444;
   --color-danger-bg: #ffe6e6;
-  --color-info: #006aff;
-  --color-info-bg: #e6f0ff;
+  --color-info: #5AC8FA;
+  --color-info-bg: #EAF6FE;
 
   /* Typography */
   --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;

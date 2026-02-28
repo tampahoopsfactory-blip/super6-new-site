@@ -53,11 +53,11 @@ export default function Events() {
         <div className="page-body" style={{ paddingTop: 12, paddingBottom: 0 }}>
           <div className="card" style={{
             textAlign: 'center', padding: 24,
-            border: `2px solid ${confirmAction.type === 'activate' ? '#006aff' : '#ef4444'}`,
+            border: `2px solid ${confirmAction.type === 'activate' ? '#5AC8FA' : '#ef4444'}`,
             borderRadius: 14,
-            background: confirmAction.type === 'activate' ? '#f0f4ff' : '#fef2f2',
+            background: confirmAction.type === 'activate' ? '#EAF6FE' : '#fef2f2',
           }}>
-            <h3 style={{ color: confirmAction.type === 'activate' ? '#006aff' : '#dc2626', marginBottom: 8, fontSize: 18 }}>
+            <h3 style={{ color: confirmAction.type === 'activate' ? '#5AC8FA' : '#dc2626', marginBottom: 8, fontSize: 18 }}>
               {confirmAction.type === 'activate' ? 'Activate Event?' : 'End Event?'}
             </h3>
             <p style={{ fontSize: 15, color: '#6b7280', marginBottom: 16 }}>
@@ -103,7 +103,7 @@ export default function Events() {
 
             {!loading && !hasEvents && (
               <div className="card" style={{ textAlign: 'center', padding: 48 }}>
-                <Calendar size={36} color="#006aff" style={{ margin: '0 auto 16px' }} />
+                <Calendar size={36} color="#5AC8FA" style={{ margin: '0 auto 16px' }} />
                 <p className="text-muted">No events yet — create one above</p>
               </div>
             )}
@@ -113,7 +113,7 @@ export default function Events() {
                 {events.map((ev) => (
                   <div key={ev.event_id} className="card" style={{
                     borderLeft: ev.status === 'ACTIVE' ? '4px solid #00d4aa' :
-                                ev.status === 'UPCOMING' ? '4px solid #006aff' : '4px solid #e2e8f0',
+                                ev.status === 'UPCOMING' ? '4px solid #5AC8FA' : '4px solid #e2e8f0',
                   }}>
                     <div style={{ padding: '20px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16 }}>
                       <div style={{ flex: 1, minWidth: 240 }}>
@@ -225,10 +225,10 @@ function InlineCreateEventForm({ show, onToggle, onCreated }) {
   const set = (key, val) => setForm((f) => ({ ...f, [key]: val }));
 
   return (
-    <div className="card" style={{ border: '2px solid #006aff', borderRadius: 16 }}>
+    <div className="card" style={{ border: '2px solid #5AC8FA', borderRadius: 16 }}>
       <div
         style={{
-          background: '#006aff', color: '#fff', padding: '14px 24px',
+          background: '#5AC8FA', color: '#fff', padding: '14px 24px',
           borderRadius: show ? '14px 14px 0 0' : 14,
           textAlign: 'center', cursor: 'pointer',
           display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
@@ -313,9 +313,9 @@ function InlineCreateEventForm({ show, onToggle, onCreated }) {
                     <button type="button" onClick={() => set('multi_entry', true)}
                       style={{
                         flex: 1, padding: '12px 0', borderRadius: 10, fontWeight: 700, fontSize: 15,
-                        border: form.multi_entry ? '2px solid #006aff' : '2px solid #e5e7eb',
-                        background: form.multi_entry ? '#e6f0ff' : '#fff',
-                        color: form.multi_entry ? '#006aff' : '#6b7280',
+                        border: form.multi_entry ? '2px solid #5AC8FA' : '2px solid #e5e7eb',
+                        background: form.multi_entry ? '#EAF6FE' : '#fff',
+                        color: form.multi_entry ? '#5AC8FA' : '#6b7280',
                         cursor: 'pointer', minHeight: 44,
                       }}>
                       Yes
@@ -323,9 +323,9 @@ function InlineCreateEventForm({ show, onToggle, onCreated }) {
                     <button type="button" onClick={() => set('multi_entry', false)}
                       style={{
                         flex: 1, padding: '12px 0', borderRadius: 10, fontWeight: 700, fontSize: 15,
-                        border: !form.multi_entry ? '2px solid #006aff' : '2px solid #e5e7eb',
-                        background: !form.multi_entry ? '#e6f0ff' : '#fff',
-                        color: !form.multi_entry ? '#006aff' : '#6b7280',
+                        border: !form.multi_entry ? '2px solid #5AC8FA' : '2px solid #e5e7eb',
+                        background: !form.multi_entry ? '#EAF6FE' : '#fff',
+                        color: !form.multi_entry ? '#5AC8FA' : '#6b7280',
                         cursor: 'pointer', minHeight: 44,
                       }}>
                       No
