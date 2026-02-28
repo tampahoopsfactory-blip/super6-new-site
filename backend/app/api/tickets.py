@@ -177,10 +177,15 @@ async def create_group_order(
                 event_end=event.end_time,
                 event_expiry_hours=event.ticket_expiry_hours,
             )
+            # Use per-ticket name if provided, else fall back to group patron_name
+            ticket_name = body.patron_name
+            if item.patron_names and i < len(item.patron_names) and item.patron_names[i]:
+                ticket_name = item.patron_names[i]
+
             ticket = Ticket(
                 ticket_id=ticket_id,
                 event_id=body.event_id,
-                patron_name=body.patron_name,
+                patron_name=ticket_name,
                 patron_phone=encrypt_pii(body.patron_phone),
                 patron_email=encrypt_pii(body.patron_email),
                 admission_type=item.admission_type,

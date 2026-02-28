@@ -86,6 +86,7 @@ class TicketLineItem(BaseModel):
     admission_type: str
     quantity: int = 1
     unit_price: float = 0.00
+    patron_names: Optional[list[str]] = None
 
 
 class GroupOrderCreate(BaseModel):
