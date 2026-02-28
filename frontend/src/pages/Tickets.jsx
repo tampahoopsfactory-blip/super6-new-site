@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { api } from '../utils/api';
 import { usePolling } from '../hooks/usePolling';
-import { Plus, Search, Download, QrCode, RotateCcw, ShieldCheck, X, Minus, Check, Users } from 'lucide-react';
+import { Plus, Search, Download, QrCode, RotateCcw, ShieldCheck, X, Minus, Check, Users, ChevronDown, ChevronUp } from 'lucide-react';
 
 const TICKET_TYPES = [
   { key: 'DAILY', label: 'Daily', color: '#006aff', desc: 'Single day' },
@@ -26,22 +26,21 @@ const STATUS_COLORS = {
 export default function Tickets() {
   const [filter, setFilter] = useState({ page: '1', per_page: '50' });
   const [search, setSearch] = useState('');
-  const [showCreate, setShowCreate] = useState(false);
-  const [showQR, setShowQR] = useState(null);
-  const [events, setEvents] = useState([]);
+  const [showQR, setShowQR] = useState(null);        // inline QR display (no popup)
+  const [confirmRefund, setConfirmRefund] = useState(null); // inline refund confirm (no popup)
+  const [showHistory, setShowHistory] = useState(false);
 
   const fetchTickets = useCallback(() => api.getTickets(filter), [filter]);
   const { data: tickets, loading, refetch } = usePolling(fetchTickets, 10000);
 
-  useEffect(() => {
-    api.getEvents().then(setEvents).catch(() => {});
-  }, []);
-
-  const activeEvent = events.find((e) => e.status === 'ACTIVE');
-
   const handleRefund = async (id) => {
-    if (!confirm('Refund this ticket? This will revoke access.')) return;
-    await api.refundTicket(id);
+    setConfirmRefund(id);
+  };
+
+  const executeRefund = async () => {
+    if (!confirmRefund) return;
+    await api.refundTicket(confirmRefund);
+    setConfirmRefund(null);
     refetch();
   };
 
@@ -51,6 +50,7 @@ export default function Tickets() {
   };
 
   const handleViewQR = async (id) => {
+    if (showQR && showQR.ticket_id === id) { setShowQR(null); return; }
     const data = await api.getTicketQR(id);
     setShowQR(data);
   };
@@ -85,148 +85,160 @@ export default function Tickets() {
 
   return (
     <>
-      <div style={{ textAlign: 'center', padding: '16px 0 8px' }}>
-        <button className="btn btn-primary" onClick={() => setShowCreate(true)}
-          style={{ fontSize: 22, padding: '16px 48px', minHeight: 60, borderRadius: 14, fontWeight: 800 }}>
-          <Plus size={22} /> New Ticket
-        </button>
-      </div>
-      <div className="page-header">
-        <h2>Tickets</h2>
-        <button className="btn btn-secondary btn-sm" onClick={handleExportCSV}>
-          <Download size={14} /> Export CSV
-        </button>
+      {/* ====== INLINE TICKET ENTRY FORM — always on page ====== */}
+      <div className="page-body" style={{ paddingBottom: 0 }}>
+        <InlineTicketForm onCreated={refetch} />
       </div>
 
-      <div className="page-body">
-        {/* Filters */}
-        <div className="card mb-6">
-          <div className="card-body flex gap-3 flex-wrap items-center">
-            <div style={{ flex: 1, minWidth: 200 }}>
-              <div style={{ position: 'relative' }}>
-                <Search size={16} style={{ position: 'absolute', left: 12, top: 10, color: 'var(--color-gray-400)' }} />
-                <input
-                  className="form-input"
-                  placeholder="Search by name, email, ticket ID, or group..."
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                  style={{ paddingLeft: 36 }}
-                />
+      {/* ====== TICKET HISTORY (collapsible) ====== */}
+      <div className="page-body" style={{ paddingTop: 8 }}>
+        <button
+          className="btn btn-secondary"
+          onClick={() => setShowHistory(!showHistory)}
+          style={{ width: '100%', justifyContent: 'center', padding: '10px 0', fontSize: 14, marginBottom: 12 }}
+        >
+          {showHistory ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+          {showHistory ? ' Hide Ticket History' : ` Show Ticket History (${tickets?.length || 0})`}
+        </button>
+
+        {showHistory && (
+          <>
+            {/* Filters */}
+            <div className="card mb-6">
+              <div className="card-body flex gap-3 flex-wrap items-center">
+                <div style={{ flex: 1, minWidth: 200 }}>
+                  <div style={{ position: 'relative' }}>
+                    <Search size={16} style={{ position: 'absolute', left: 12, top: 10, color: 'var(--color-gray-400)' }} />
+                    <input
+                      className="form-input"
+                      placeholder="Search by name, email, ticket ID, or group..."
+                      value={search}
+                      onChange={(e) => setSearch(e.target.value)}
+                      style={{ paddingLeft: 36 }}
+                    />
+                  </div>
+                </div>
+                <select className="form-input" style={{ width: 160 }}
+                  value={filter.admission_type || ''}
+                  onChange={(e) => setFilter({ ...filter, admission_type: e.target.value || undefined })}>
+                  <option value="">All Types</option>
+                  {TICKET_TYPES.map((t) => <option key={t.key} value={t.key}>{t.label}</option>)}
+                </select>
+                <select className="form-input" style={{ width: 140 }}
+                  value={filter.status || ''}
+                  onChange={(e) => setFilter({ ...filter, status: e.target.value || undefined })}>
+                  <option value="">All Status</option>
+                  <option value="ACTIVE">Active</option>
+                  <option value="EXPIRED">Expired</option>
+                  <option value="REFUNDED">Refunded</option>
+                </select>
+                <button className="btn btn-secondary btn-sm" onClick={handleExportCSV}>
+                  <Download size={14} /> Export CSV
+                </button>
               </div>
             </div>
-            <select className="form-input" style={{ width: 160 }}
-              value={filter.admission_type || ''}
-              onChange={(e) => setFilter({ ...filter, admission_type: e.target.value || undefined })}>
-              <option value="">All Types</option>
-              {TICKET_TYPES.map((t) => <option key={t.key} value={t.key}>{t.label}</option>)}
-            </select>
-            <select className="form-input" style={{ width: 140 }}
-              value={filter.status || ''}
-              onChange={(e) => setFilter({ ...filter, status: e.target.value || undefined })}>
-              <option value="">All Status</option>
-              <option value="ACTIVE">Active</option>
-              <option value="EXPIRED">Expired</option>
-              <option value="REFUNDED">Refunded</option>
-            </select>
-          </div>
-        </div>
 
-        {/* Table */}
-        <div className="card">
-          <div className="table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>Ticket ID</th>
-                  <th>Group</th>
-                  <th>Patron</th>
-                  <th>Type</th>
-                  <th>Amount</th>
-                  <th>Status</th>
-                  <th>QR Used</th>
-                  <th>Biometrics</th>
-                  <th>Entries</th>
-                  <th>Created</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {loading && !tickets && (
-                  <tr><td colSpan={11} className="text-center text-muted" style={{ padding: 32 }}>Loading...</td></tr>
-                )}
-                {filteredTickets?.length === 0 && (
-                  <tr><td colSpan={11} className="text-center text-muted" style={{ padding: 32 }}>No tickets found</td></tr>
-                )}
-                {filteredTickets?.map((t) => (
-                  <tr key={t.ticket_id}>
-                    <td style={{ fontFamily: 'monospace', fontSize: 'var(--font-size-xs)' }}>
-                      ...{t.ticket_id.slice(-8)}
-                    </td>
-                    <td>
-                      {t.group_id ? (
-                        <span className="badge badge-neutral" style={{ fontFamily: 'monospace', fontSize: 10 }}>
-                          <Users size={10} style={{ marginRight: 2 }} />
-                          {t.group_id.slice(-6)}
-                        </span>
-                      ) : <span className="text-muted">-</span>}
-                    </td>
-                    <td>{t.patron_name || <span className="text-muted">-</span>}</td>
-                    <td><span className={`badge ${TYPE_COLORS[t.admission_type] || 'badge-neutral'}`}>{t.admission_type}</span></td>
-                    <td>${Number(t.amount_paid).toFixed(2)}</td>
-                    <td><span className={`badge ${STATUS_COLORS[t.status]}`}>{t.status}</span></td>
-                    <td>{t.qr_used ? <span className="badge badge-warning">USED</span> : <span className="text-muted">-</span>}</td>
-                    <td>
-                      <div className="flex gap-1">
-                        {t.face_enrolled && <span className="badge badge-success" style={{ fontSize: 10 }}>Face</span>}
-                        {t.iris_enrolled && <span className="badge badge-warning" style={{ fontSize: 10 }}>Iris</span>}
-                        {t.finger_enrolled && <span className="badge badge-info" style={{ fontSize: 10 }}>Finger</span>}
-                        {!t.face_enrolled && !t.iris_enrolled && !t.finger_enrolled && <span className="text-muted">-</span>}
-                      </div>
-                    </td>
-                    <td>{t.entry_count}</td>
-                    <td className="text-xs">{new Date(t.created_at).toLocaleDateString()}</td>
-                    <td>
-                      <div className="flex gap-2">
-                        <button className="btn btn-secondary btn-sm" onClick={() => handleViewQR(t.ticket_id)} title="View QR"><QrCode size={12} /></button>
-                        {t.status === 'ACTIVE' && (
-                          <>
-                            <button className="btn btn-secondary btn-sm" onClick={() => handleOverride(t.ticket_id)} title="Grant Access"><ShieldCheck size={12} /></button>
-                            <button className="btn btn-danger btn-sm" onClick={() => handleRefund(t.ticket_id)} title="Refund"><RotateCcw size={12} /></button>
-                          </>
-                        )}
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
+            {/* Table */}
+            <div className="card">
+              <div className="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Ticket ID</th>
+                      <th>Group</th>
+                      <th>Patron</th>
+                      <th>Type</th>
+                      <th>Amount</th>
+                      <th>Status</th>
+                      <th>QR Used</th>
+                      <th>Biometrics</th>
+                      <th>Entries</th>
+                      <th>Created</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {loading && !tickets && (
+                      <tr><td colSpan={11} className="text-center text-muted" style={{ padding: 32 }}>Loading...</td></tr>
+                    )}
+                    {filteredTickets?.length === 0 && (
+                      <tr><td colSpan={11} className="text-center text-muted" style={{ padding: 32 }}>No tickets found</td></tr>
+                    )}
+                    {filteredTickets?.map((t) => (
+                      <tr key={t.ticket_id}>
+                        <td style={{ fontFamily: 'monospace', fontSize: 'var(--font-size-xs)' }}>
+                          ...{t.ticket_id.slice(-8)}
+                        </td>
+                        <td>
+                          {t.group_id ? (
+                            <span className="badge badge-neutral" style={{ fontFamily: 'monospace', fontSize: 10 }}>
+                              <Users size={10} style={{ marginRight: 2 }} />
+                              {t.group_id.slice(-6)}
+                            </span>
+                          ) : <span className="text-muted">-</span>}
+                        </td>
+                        <td>{t.patron_name || <span className="text-muted">-</span>}</td>
+                        <td><span className={`badge ${TYPE_COLORS[t.admission_type] || 'badge-neutral'}`}>{t.admission_type}</span></td>
+                        <td>${Number(t.amount_paid).toFixed(2)}</td>
+                        <td><span className={`badge ${STATUS_COLORS[t.status]}`}>{t.status}</span></td>
+                        <td>{t.qr_used ? <span className="badge badge-warning">USED</span> : <span className="text-muted">-</span>}</td>
+                        <td>
+                          <div className="flex gap-1">
+                            {t.face_enrolled && <span className="badge badge-success" style={{ fontSize: 10 }}>Face</span>}
+                            {t.iris_enrolled && <span className="badge badge-warning" style={{ fontSize: 10 }}>Iris</span>}
+                            {t.finger_enrolled && <span className="badge badge-info" style={{ fontSize: 10 }}>Finger</span>}
+                            {!t.face_enrolled && !t.iris_enrolled && !t.finger_enrolled && <span className="text-muted">-</span>}
+                          </div>
+                        </td>
+                        <td>{t.entry_count}</td>
+                        <td className="text-xs">{new Date(t.created_at).toLocaleDateString()}</td>
+                        <td>
+                          <div className="flex gap-2">
+                            <button className="btn btn-secondary btn-sm" onClick={() => handleViewQR(t.ticket_id)} title="View QR"><QrCode size={12} /></button>
+                            {t.status === 'ACTIVE' && (
+                              <>
+                                <button className="btn btn-secondary btn-sm" onClick={() => handleOverride(t.ticket_id)} title="Grant Access"><ShieldCheck size={12} /></button>
+                                <button className="btn btn-danger btn-sm" onClick={() => handleRefund(t.ticket_id)} title="Refund"><RotateCcw size={12} /></button>
+                              </>
+                            )}
+                          </div>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </>
+        )}
       </div>
 
-      {/* QR Modal */}
+      {/* Inline QR Display — no popup */}
       {showQR && (
-        <div style={{
-          position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.5)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000
-        }} onClick={() => setShowQR(null)}>
-          <div className="card" style={{ padding: 32, textAlign: 'center', maxWidth: 360 }} onClick={(e) => e.stopPropagation()}>
-            <h3 style={{ marginBottom: 16 }}>Ticket QR Code</h3>
-            <img src={`data:image/png;base64,${showQR.qr_base64}`} alt="QR Code" style={{ width: 250, height: 250 }} />
-            <p className="text-xs text-muted" style={{ marginTop: 12, fontFamily: 'monospace' }}>{showQR.ticket_id}</p>
-            <button className="btn btn-secondary mt-4" onClick={() => setShowQR(null)}>Close</button>
+        <div className="page-body" style={{ paddingTop: 0 }}>
+          <div className="card" style={{ textAlign: 'center', padding: 24, border: '2px solid #006aff', borderRadius: 14 }}>
+            <h3 style={{ marginBottom: 12 }}>Ticket QR Code</h3>
+            <img src={`data:image/png;base64,${showQR.qr_base64}`} alt="QR Code" style={{ width: 220, height: 220, margin: '0 auto' }} />
+            <p className="text-xs text-muted" style={{ marginTop: 10, fontFamily: 'monospace' }}>{showQR.ticket_id}</p>
+            <button className="btn btn-secondary" onClick={() => setShowQR(null)} style={{ marginTop: 12 }}>
+              <X size={14} /> Close QR
+            </button>
           </div>
         </div>
       )}
 
-      {/* Create Order Modal */}
-      {showCreate && (
-        <CreateOrderModal
-          events={events}
-          activeEvent={activeEvent}
-          onClose={() => setShowCreate(false)}
-          onCreated={() => { setShowCreate(false); refetch(); }}
-        />
+      {/* Inline Refund Confirmation — no popup */}
+      {confirmRefund && (
+        <div className="page-body" style={{ paddingTop: 0 }}>
+          <div className="card" style={{ textAlign: 'center', padding: 24, border: '2px solid #ef4444', borderRadius: 14, background: '#fef2f2' }}>
+            <h3 style={{ color: '#dc2626', marginBottom: 8 }}>Refund Ticket?</h3>
+            <p style={{ fontSize: 14, color: '#6b7280', marginBottom: 16 }}>This will revoke access for ticket ...{confirmRefund.slice(-8)}</p>
+            <div style={{ display: 'flex', gap: 12, justifyContent: 'center' }}>
+              <button className="btn btn-secondary" onClick={() => setConfirmRefund(null)} style={{ padding: '10px 24px', fontSize: 15 }}>Cancel</button>
+              <button className="btn btn-danger" onClick={executeRefund} style={{ padding: '10px 24px', fontSize: 15 }}>Yes, Refund</button>
+            </div>
+          </div>
+        </div>
       )}
     </>
   );
@@ -234,11 +246,10 @@ export default function Tickets() {
 
 
 /* ============================================================
-   CREATE ORDER MODAL
-   Push-button ticket type selection with +/- quantity counters.
-   Prices loaded from admin Settings (read-only here).
+   INLINE TICKET FORM — renders directly on the page, no popup.
+   Always visible, always ready. No overlay, no z-index issues.
    ============================================================ */
-function CreateOrderModal({ events, activeEvent, onClose, onCreated }) {
+function InlineTicketForm({ onCreated }) {
   const [counts, setCounts] = useState(
     Object.fromEntries(TICKET_TYPES.map((t) => [t.key, 0]))
   );
@@ -298,6 +309,15 @@ function CreateOrderModal({ events, activeEvent, onClose, onCreated }) {
   const totalAmount = TICKET_TYPES.reduce((sum, t) => sum + counts[t.key] * (prices[t.key] || 0), 0);
   const selectedTypes = TICKET_TYPES.filter((t) => counts[t.key] > 0);
 
+  const resetForm = () => {
+    setCounts(Object.fromEntries(TICKET_TYPES.map((t) => [t.key, 0])));
+    setPatronName('');
+    setPatronPhone('');
+    setPatronEmail('');
+    setError('');
+    setResult(null);
+  };
+
   const handleSubmit = async () => {
     if (totalTickets === 0) { setError('Add at least one ticket'); return; }
     if (!eventId) { setError('Event not ready — please wait a moment and try again'); return; }
@@ -332,7 +352,9 @@ function CreateOrderModal({ events, activeEvent, onClose, onCreated }) {
         });
       }
       setResult({ count: totalTickets, total: totalAmount });
-      setTimeout(() => onCreated(), 1500);
+      onCreated();
+      // Auto-reset after showing success
+      setTimeout(() => resetForm(), 2000);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -341,160 +363,152 @@ function CreateOrderModal({ events, activeEvent, onClose, onCreated }) {
   };
 
   return (
-    <div style={{
-      position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.5)',
-      display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000
-    }} onClick={onClose}>
-      <div className="card" style={{ width: 700, maxWidth: '96vw', maxHeight: '92vh', overflow: 'auto' }} onClick={(e) => e.stopPropagation()}>
-        <div className="card-header">
-          <h3>{totalTickets > 1 ? `Group Order (${totalTickets} tickets)` : 'New Ticket'}</h3>
-          <button className="btn btn-secondary btn-sm" onClick={onClose}><X size={14} /></button>
-        </div>
-        <div className="card-body" style={{ padding: '20px 28px' }}>
+    <div className="card" style={{ border: '2px solid #006aff', borderRadius: 16 }}>
+      <div style={{ background: '#006aff', color: '#fff', padding: '14px 24px', borderRadius: '14px 14px 0 0', textAlign: 'center' }}>
+        <h2 style={{ margin: 0, fontSize: 22, fontWeight: 800, letterSpacing: 0.5 }}>New Ticket</h2>
+      </div>
+      <div style={{ padding: '20px 28px' }}>
 
-          {/* Success state */}
-          {result && (
-            <div style={{ textAlign: 'center', padding: '32px 0' }}>
-              <div style={{ width: 64, height: 64, borderRadius: '50%', background: '#e6f9ed', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}>
-                <Check size={32} color="#059669" />
-              </div>
-              <h3 style={{ marginBottom: 4 }}>{result.count} Ticket{result.count > 1 ? 's' : ''} Created</h3>
-              <p className="text-muted">Total: ${result.total.toFixed(2)}</p>
+        {/* Success state */}
+        {result && (
+          <div style={{ textAlign: 'center', padding: '24px 0' }}>
+            <div style={{ width: 64, height: 64, borderRadius: '50%', background: '#e6f9ed', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}>
+              <Check size={32} color="#059669" />
             </div>
-          )}
+            <h3 style={{ marginBottom: 4 }}>{result.count} Ticket{result.count > 1 ? 's' : ''} Created</h3>
+            <p className="text-muted">Total: ${result.total.toFixed(2)}</p>
+            <button className="btn btn-primary" onClick={resetForm} style={{ marginTop: 12, fontSize: 16, padding: '12px 32px' }}>
+              <Plus size={16} /> New Ticket
+            </button>
+          </div>
+        )}
 
-          {!result && (
-            <>
-              {/* Ticket Type Push Buttons */}
-              <label className="form-label" style={{ marginBottom: 8 }}>Ticket Types</label>
-              {!pricesLoaded ? (
-                <p className="text-muted text-center" style={{ padding: 16 }}>Loading prices...</p>
-              ) : (
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 12, marginBottom: 20 }}>
-                  {TICKET_TYPES.map((t) => {
-                    const count = counts[t.key];
-                    const isSelected = count > 0;
-                    const price = prices[t.key] || 0;
-                    return (
-                      <div key={t.key} style={{
-                        border: `2px solid ${isSelected ? t.color : '#e5e7eb'}`,
-                        borderRadius: 12,
-                        padding: '14px 16px',
-                        background: isSelected ? `${t.color}08` : '#fff',
-                        transition: 'all 0.15s',
-                      }}>
-                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
-                          <div>
-                            <span style={{
-                              fontWeight: 700, fontSize: 15, color: isSelected ? t.color : '#374151',
-                            }}>{t.label}</span>
-                            <span style={{ fontSize: 12, color: '#9ca3af', marginLeft: 6 }}>{t.desc}</span>
-                          </div>
-                          {isSelected && <Check size={18} color={t.color} strokeWidth={3} />}
-                        </div>
-
-                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                          <div style={{ display: 'flex', alignItems: 'center', gap: 0 }}>
-                            <button type="button" onClick={() => decrement(t.key)}
-                              style={{
-                                width: 44, height: 44, borderRadius: '10px 0 0 10px',
-                                border: '1px solid #d1d5db', background: count > 0 ? '#f3f4f6' : '#f9fafb',
-                                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                cursor: 'pointer', color: '#374151',
-                              }}>
-                              <Minus size={18} />
-                            </button>
-                            <div style={{
-                              width: 52, height: 44, display: 'flex', alignItems: 'center', justifyContent: 'center',
-                              borderTop: '1px solid #d1d5db', borderBottom: '1px solid #d1d5db',
-                              fontWeight: 700, fontSize: 20, color: isSelected ? t.color : '#374151',
-                              background: '#fff',
-                            }}>{count}</div>
-                            <button type="button" onClick={() => increment(t.key)}
-                              style={{
-                                width: 44, height: 44, borderRadius: '0 10px 10px 0',
-                                border: '1px solid #d1d5db', background: '#f3f4f6',
-                                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                cursor: 'pointer', color: '#374151',
-                              }}>
-                              <Plus size={18} />
-                            </button>
-                          </div>
-
+        {!result && (
+          <>
+            {/* Ticket Type Push Buttons */}
+            {!pricesLoaded ? (
+              <p className="text-muted text-center" style={{ padding: 16 }}>Loading prices...</p>
+            ) : (
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 12, marginBottom: 20 }}>
+                {TICKET_TYPES.map((t) => {
+                  const count = counts[t.key];
+                  const isSelected = count > 0;
+                  const price = prices[t.key] || 0;
+                  return (
+                    <div key={t.key} style={{
+                      border: `2px solid ${isSelected ? t.color : '#e5e7eb'}`,
+                      borderRadius: 12,
+                      padding: '14px 16px',
+                      background: isSelected ? `${t.color}08` : '#fff',
+                      transition: 'all 0.15s',
+                    }}>
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
+                        <div>
                           <span style={{
-                            fontSize: 17, fontWeight: 700,
-                            color: price > 0 ? '#1a1a2e' : '#9ca3af',
-                          }}>
-                            {price > 0 ? `$${price.toFixed(2)}` : 'FREE'}
-                          </span>
+                            fontWeight: 700, fontSize: 15, color: isSelected ? t.color : '#374151',
+                          }}>{t.label}</span>
+                          <span style={{ fontSize: 11, color: '#9ca3af', display: 'block' }}>{t.desc}</span>
                         </div>
+                        {isSelected && <Check size={18} color={t.color} strokeWidth={3} />}
                       </div>
-                    );
-                  })}
-                </div>
-              )}
 
-              {/* Order Summary */}
-              {totalTickets > 0 && (
-                <div style={{
-                  background: '#f0f4ff', borderRadius: 10, padding: '12px 16px',
-                  marginBottom: 16, display: 'flex', justifyContent: 'space-between', alignItems: 'center'
-                }}>
-                  <div>
-                    <span style={{ fontWeight: 700, fontSize: 14 }}>
-                      {totalTickets} ticket{totalTickets > 1 ? 's' : ''}
-                    </span>
-                    {totalTickets > 1 && (
-                      <span style={{ fontSize: 12, color: '#6b7280', marginLeft: 8 }}>
-                        <Users size={12} style={{ verticalAlign: -2, marginRight: 2 }} />
-                        Group Order
-                      </span>
-                    )}
-                    <div style={{ fontSize: 11, color: '#6b7280', marginTop: 2 }}>
-                      {selectedTypes.map((t) => `${counts[t.key]}x ${t.label}`).join(' + ')}
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 0 }}>
+                          <button type="button" onClick={() => decrement(t.key)}
+                            style={{
+                              width: 44, height: 44, borderRadius: '10px 0 0 10px',
+                              border: '1px solid #d1d5db', background: count > 0 ? '#f3f4f6' : '#f9fafb',
+                              display: 'flex', alignItems: 'center', justifyContent: 'center',
+                              cursor: 'pointer', color: '#374151',
+                            }}>
+                            <Minus size={18} />
+                          </button>
+                          <div style={{
+                            width: 48, height: 44, display: 'flex', alignItems: 'center', justifyContent: 'center',
+                            borderTop: '1px solid #d1d5db', borderBottom: '1px solid #d1d5db',
+                            fontWeight: 700, fontSize: 20, color: isSelected ? t.color : '#374151',
+                            background: '#fff',
+                          }}>{count}</div>
+                          <button type="button" onClick={() => increment(t.key)}
+                            style={{
+                              width: 44, height: 44, borderRadius: '0 10px 10px 0',
+                              border: '1px solid #d1d5db', background: '#f3f4f6',
+                              display: 'flex', alignItems: 'center', justifyContent: 'center',
+                              cursor: 'pointer', color: '#374151',
+                            }}>
+                            <Plus size={18} />
+                          </button>
+                        </div>
+
+                        <span style={{
+                          fontSize: 16, fontWeight: 700,
+                          color: price > 0 ? '#1a1a2e' : '#9ca3af',
+                        }}>
+                          {price > 0 ? `$${price.toFixed(2)}` : 'FREE'}
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                  <span style={{ fontWeight: 800, fontSize: 20, color: '#006aff' }}>
-                    ${totalAmount.toFixed(2)}
-                  </span>
-                </div>
-              )}
-
-              {/* Customer Info */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 12 }}>
-                <div className="form-group" style={{ marginBottom: 0 }}>
-                  <label className="form-label" style={{ fontSize: 12 }}>Phone</label>
-                  <input className="form-input" value={patronPhone} onChange={(e) => setPatronPhone(e.target.value)} placeholder="+1..." style={{ fontSize: 15, height: 44, padding: '0 14px' }} />
-                </div>
-                <div className="form-group" style={{ marginBottom: 0 }}>
-                  <label className="form-label" style={{ fontSize: 12 }}>Customer Name</label>
-                  <input className="form-input" value={patronName} onChange={(e) => setPatronName(e.target.value)} placeholder="Optional" style={{ fontSize: 15, height: 44, padding: '0 14px' }} />
-                </div>
+                  );
+                })}
               </div>
-              <div className="form-group" style={{ marginBottom: 20 }}>
+            )}
+
+            {/* Order Summary */}
+            {totalTickets > 0 && (
+              <div style={{
+                background: '#f0f4ff', borderRadius: 10, padding: '12px 16px',
+                marginBottom: 16, display: 'flex', justifyContent: 'space-between', alignItems: 'center'
+              }}>
+                <div>
+                  <span style={{ fontWeight: 700, fontSize: 14 }}>
+                    {totalTickets} ticket{totalTickets > 1 ? 's' : ''}
+                  </span>
+                  {totalTickets > 1 && (
+                    <span style={{ fontSize: 12, color: '#6b7280', marginLeft: 8 }}>
+                      <Users size={12} style={{ verticalAlign: -2, marginRight: 2 }} />
+                      Group Order
+                    </span>
+                  )}
+                  <div style={{ fontSize: 11, color: '#6b7280', marginTop: 2 }}>
+                    {selectedTypes.map((t) => `${counts[t.key]}x ${t.label}`).join(' + ')}
+                  </div>
+                </div>
+                <span style={{ fontWeight: 800, fontSize: 22, color: '#006aff' }}>
+                  ${totalAmount.toFixed(2)}
+                </span>
+              </div>
+            )}
+
+            {/* Customer Info */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 12, marginBottom: 16 }}>
+              <div className="form-group" style={{ marginBottom: 0 }}>
+                <label className="form-label" style={{ fontSize: 12 }}>Phone</label>
+                <input className="form-input" value={patronPhone} onChange={(e) => setPatronPhone(e.target.value)} placeholder="+1..." style={{ fontSize: 15, height: 44, padding: '0 14px' }} />
+              </div>
+              <div className="form-group" style={{ marginBottom: 0 }}>
+                <label className="form-label" style={{ fontSize: 12 }}>Customer Name</label>
+                <input className="form-input" value={patronName} onChange={(e) => setPatronName(e.target.value)} placeholder="Optional" style={{ fontSize: 15, height: 44, padding: '0 14px' }} />
+              </div>
+              <div className="form-group" style={{ marginBottom: 0 }}>
                 <label className="form-label" style={{ fontSize: 12 }}>Email</label>
                 <input className="form-input" type="email" value={patronEmail} onChange={(e) => setPatronEmail(e.target.value)} placeholder="Optional" style={{ fontSize: 15, height: 44, padding: '0 14px' }} />
               </div>
+            </div>
 
-              {error && <div style={{ color: 'var(--color-danger)', fontSize: 'var(--font-size-sm)', marginBottom: 12 }}>{error}</div>}
+            {error && <div style={{ color: 'var(--color-danger)', fontSize: 'var(--font-size-sm)', marginBottom: 12 }}>{error}</div>}
 
-              <button type="button" onClick={handleSubmit}
-                className="btn btn-primary"
-                style={{ width: '100%', justifyContent: 'center', padding: '16px 0', fontSize: 18, minHeight: 56 }}
-                disabled={loading || totalTickets === 0}>
-                {loading ? 'Creating...' : totalTickets > 1
-                  ? `Create ${totalTickets} Tickets — $${totalAmount.toFixed(2)}`
-                  : totalTickets === 1
-                    ? `Create Ticket — $${totalAmount.toFixed(2)}`
-                    : 'Select Ticket Type'}
-              </button>
-
-              <p className="text-xs text-muted" style={{ textAlign: 'center', marginTop: 8 }}>
-                Prices are set by admin in Settings
-              </p>
-            </>
-          )}
-        </div>
+            <button type="button" onClick={handleSubmit}
+              className="btn btn-primary"
+              style={{ width: '100%', justifyContent: 'center', padding: '16px 0', fontSize: 20, minHeight: 60, fontWeight: 800 }}
+              disabled={loading || totalTickets === 0}>
+              {loading ? 'Creating...' : totalTickets > 1
+                ? `Create ${totalTickets} Tickets — $${totalAmount.toFixed(2)}`
+                : totalTickets === 1
+                  ? `Create Ticket — $${totalAmount.toFixed(2)}`
+                  : 'Select Ticket Type'}
+            </button>
+          </>
+        )}
       </div>
     </div>
   );
