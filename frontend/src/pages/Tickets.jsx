@@ -248,12 +248,13 @@ function CreateOrderModal({ events, activeEvent, onClose, onCreated }) {
   const [patronName, setPatronName] = useState('');
   const [patronPhone, setPatronPhone] = useState('');
   const [patronEmail, setPatronEmail] = useState('');
-  const [eventId, setEventId] = useState(activeEvent?.event_id || '');
+  const [eventId, setEventId] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [result, setResult] = useState(null);
 
   useEffect(() => {
+    // Load pricing
     api.getPricing().then((p) => {
       setPrices(p);
       setPricesLoaded(true);
@@ -261,6 +262,32 @@ function CreateOrderModal({ events, activeEvent, onClose, onCreated }) {
       setPrices({ DAILY: 15, WEEKEND: 25, KIDS: 10, KIDS_WEEKEND: 18, COACH: 0, STAFF: 0 });
       setPricesLoaded(true);
     });
+
+    // Auto-resolve event: prefer active, then any existing, then auto-create
+    const resolveEvent = async () => {
+      try {
+        const allEvents = await api.getEvents();
+        const active = allEvents.find((e) => e.status === 'ACTIVE');
+        if (active) { setEventId(active.event_id); return; }
+        if (allEvents.length > 0) { setEventId(allEvents[0].event_id); return; }
+        // No events exist — create a default one
+        const now = new Date();
+        const endOfDay = new Date(now);
+        endOfDay.setHours(23, 59, 59, 999);
+        const newEvent = await api.createEvent({
+          name: `Event ${now.toLocaleDateString()}`,
+          event_date: now.toISOString().slice(0, 10),
+          start_time: now.toISOString(),
+          end_time: endOfDay.toISOString(),
+          admission_price: 0,
+          max_capacity: 9999,
+          multi_entry: true,
+          ticket_expiry_hours: 24,
+        });
+        setEventId(newEvent.event_id);
+      } catch { /* silent */ }
+    };
+    resolveEvent();
   }, []);
 
   const increment = (key) => setCounts((c) => ({ ...c, [key]: c[key] + 1 }));
@@ -272,7 +299,7 @@ function CreateOrderModal({ events, activeEvent, onClose, onCreated }) {
 
   const handleSubmit = async () => {
     if (totalTickets === 0) { setError('Add at least one ticket'); return; }
-    if (!eventId) { setError('No active event — create one in Events first'); return; }
+    if (!eventId) { setError('Event not ready — please wait a moment and try again'); return; }
     setLoading(true);
     setError('');
 
