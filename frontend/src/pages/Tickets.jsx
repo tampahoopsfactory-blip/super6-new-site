@@ -433,19 +433,19 @@ function CreateOrderModal({ events, activeEvent, onClose, onCreated }) {
               )}
 
               {/* Customer Info */}
-              <div className="form-group" style={{ marginBottom: 12 }}>
-                <label className="form-label" style={{ fontSize: 12 }}>Customer Name</label>
-                <input className="form-input" value={patronName} onChange={(e) => setPatronName(e.target.value)} placeholder="Optional" style={{ fontSize: 15, height: 44, padding: '0 14px' }} />
-              </div>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 20 }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 12 }}>
                 <div className="form-group" style={{ marginBottom: 0 }}>
                   <label className="form-label" style={{ fontSize: 12 }}>Phone</label>
                   <input className="form-input" value={patronPhone} onChange={(e) => setPatronPhone(e.target.value)} placeholder="+1..." style={{ fontSize: 15, height: 44, padding: '0 14px' }} />
                 </div>
                 <div className="form-group" style={{ marginBottom: 0 }}>
-                  <label className="form-label" style={{ fontSize: 12 }}>Email</label>
-                  <input className="form-input" type="email" value={patronEmail} onChange={(e) => setPatronEmail(e.target.value)} placeholder="Optional" style={{ fontSize: 15, height: 44, padding: '0 14px' }} />
+                  <label className="form-label" style={{ fontSize: 12 }}>Customer Name</label>
+                  <input className="form-input" value={patronName} onChange={(e) => setPatronName(e.target.value)} placeholder="Optional" style={{ fontSize: 15, height: 44, padding: '0 14px' }} />
                 </div>
+              </div>
+              <div className="form-group" style={{ marginBottom: 20 }}>
+                <label className="form-label" style={{ fontSize: 12 }}>Email</label>
+                <input className="form-input" type="email" value={patronEmail} onChange={(e) => setPatronEmail(e.target.value)} placeholder="Optional" style={{ fontSize: 15, height: 44, padding: '0 14px' }} />
               </div>
 
               {error && <div style={{ color: 'var(--color-danger)', fontSize: 'var(--font-size-sm)', marginBottom: 12 }}>{error}</div>}
