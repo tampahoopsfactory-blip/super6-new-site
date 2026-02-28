@@ -136,12 +136,13 @@ export default function LiveMonitor() {
             <div style={{ maxHeight: 240, overflow: 'auto' }}>
               {activeAlerts.map((alert) => (
                 <div key={alert.id} style={{
-                  padding: '10px 20px',
+                  padding: '14px 20px',
+                  minHeight: 48,
                   borderBottom: '1px solid #f3f4f6',
                   display: 'flex',
                   alignItems: 'center',
                   gap: 12,
-                  fontSize: 13,
+                  fontSize: 14,
                 }}>
                   <span style={{
                     width: 8, height: 8, borderRadius: '50%',

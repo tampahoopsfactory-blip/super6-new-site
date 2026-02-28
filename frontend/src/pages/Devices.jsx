@@ -1,13 +1,16 @@
 import { useState, useCallback } from 'react';
 import { api } from '../utils/api';
 import { usePolling } from '../hooks/usePolling';
-import { Plus, Wifi, WifiOff, Trash2, Zap, X, Battery, Signal, Key, Fingerprint, CreditCard, Eye } from 'lucide-react';
+import { Plus, Wifi, WifiOff, Trash2, Zap, Battery, Signal, Key, Fingerprint, CreditCard, Eye, Check, ChevronDown, ChevronUp, Copy } from 'lucide-react';
 
 export default function Devices() {
   const fetchDevices = useCallback(() => api.getDevices(), []);
   const { data: devices, loading, refetch } = usePolling(fetchDevices, 10000);
   const [showCreate, setShowCreate] = useState(false);
+  const [showList, setShowList] = useState(true);
   const [pingResult, setPingResult] = useState(null);
+  const [confirmAction, setConfirmAction] = useState(null); // { type: 'delete'|'regen', id, name }
+  const [tokenResult, setTokenResult] = useState(null); // { id, token }
 
   const handlePing = async (id) => {
     setPingResult({ id, status: 'testing' });
@@ -19,180 +22,247 @@ export default function Devices() {
     }
   };
 
-  const handleDelete = async (id) => {
-    if (!confirm(`Delete device ${id}? This will remove it from the system.`)) return;
-    await api.deleteDevice(id);
-    refetch();
+  const handleDelete = (d) => {
+    setConfirmAction({ type: 'delete', id: d.device_id, name: d.device_name });
   };
 
-  const handleRegenToken = async (id) => {
-    if (!confirm('Regenerate API token? The device will need to re-register.')) return;
-    const result = await api.regenerateDeviceToken(id);
-    alert(`New token: ${result.api_token.slice(0, 16)}...`);
-    refetch();
+  const handleRegenToken = (d) => {
+    setConfirmAction({ type: 'regen', id: d.device_id, name: d.device_name });
+  };
+
+  const executeConfirm = async () => {
+    if (!confirmAction) return;
+    if (confirmAction.type === 'delete') {
+      await api.deleteDevice(confirmAction.id);
+      setConfirmAction(null);
+      refetch();
+    } else if (confirmAction.type === 'regen') {
+      const result = await api.regenerateDeviceToken(confirmAction.id);
+      setConfirmAction(null);
+      setTokenResult({ id: confirmAction.id, token: result.api_token });
+      refetch();
+    }
   };
 
   return (
     <>
-      <div className="page-header">
-        <h2>X05 Devices</h2>
-        <button className="btn btn-primary btn-sm" onClick={() => setShowCreate(true)}>
-          <Plus size={14} /> Register Device
-        </button>
+      {/* ====== INLINE REGISTER DEVICE FORM ====== */}
+      <div className="page-body" style={{ paddingBottom: 0 }}>
+        <InlineRegisterDeviceForm
+          show={showCreate}
+          onToggle={() => setShowCreate(!showCreate)}
+          onCreated={refetch}
+        />
       </div>
 
-      <div className="page-body">
-        {loading && !devices && <div className="text-center text-muted" style={{ padding: 48 }}>Loading devices...</div>}
-
-        {devices?.length === 0 && (
-          <div className="card">
-            <div className="card-body text-center" style={{ padding: 48 }}>
-              <Radio size={40} color="var(--color-gray-300)" style={{ margin: '0 auto 16px' }} />
-              <p className="text-muted">No X05 devices registered yet</p>
-              <p className="text-xs text-muted" style={{ marginTop: 8, maxWidth: 400, margin: '8px auto 24px' }}>
-                X05 devices self-register when they connect. You can also register them manually below.
-              </p>
-              <button className="btn btn-primary mt-4" onClick={() => setShowCreate(true)}>
-                <Plus size={14} /> Register First Device
+      {/* ====== INLINE CONFIRM ACTION ====== */}
+      {confirmAction && (
+        <div className="page-body" style={{ paddingTop: 12, paddingBottom: 0 }}>
+          <div className="card" style={{
+            textAlign: 'center', padding: 24,
+            border: '2px solid #ef4444', borderRadius: 14, background: '#fef2f2',
+          }}>
+            <h3 style={{ color: '#dc2626', marginBottom: 8, fontSize: 18 }}>
+              {confirmAction.type === 'delete' ? 'Delete Device?' : 'Regenerate Token?'}
+            </h3>
+            <p style={{ fontSize: 15, color: '#6b7280', marginBottom: 16 }}>
+              {confirmAction.type === 'delete'
+                ? `Delete "${confirmAction.name}" (${confirmAction.id})? This will remove it from the system.`
+                : `Regenerate API token for "${confirmAction.name}"? The device will need to re-register.`}
+            </p>
+            <div style={{ display: 'flex', gap: 12, justifyContent: 'center' }}>
+              <button className="btn btn-secondary" onClick={() => setConfirmAction(null)}
+                style={{ padding: '12px 28px', fontSize: 16 }}>
+                Cancel
+              </button>
+              <button className="btn btn-danger" onClick={executeConfirm}
+                style={{ padding: '12px 28px', fontSize: 16 }}>
+                {confirmAction.type === 'delete' ? 'Yes, Delete' : 'Yes, Regenerate'}
               </button>
             </div>
           </div>
-        )}
+        </div>
+      )}
 
-        <div className="device-grid">
-          {devices?.map((d) => (
-            <div className="device-tile" key={d.device_id}>
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center gap-2">
-                  {d.status === 'ONLINE' ? (
-                    <Wifi size={18} color="var(--color-success)" />
-                  ) : (
-                    <WifiOff size={18} color="var(--color-danger)" />
-                  )}
-                  <span className="device-name">{d.device_name}</span>
-                </div>
-                <span className={`badge ${d.status === 'ONLINE' ? 'badge-success' : d.status === 'MAINTENANCE' ? 'badge-warning' : 'badge-danger'}`}>
-                  {d.status}
-                </span>
+      {/* ====== INLINE TOKEN RESULT ====== */}
+      {tokenResult && (
+        <div className="page-body" style={{ paddingTop: 12, paddingBottom: 0 }}>
+          <div className="card" style={{
+            textAlign: 'center', padding: 24,
+            border: '2px solid #00d4aa', borderRadius: 14, background: '#e6faf5',
+          }}>
+            <h3 style={{ color: '#059669', marginBottom: 8, fontSize: 18 }}>New Token Generated</h3>
+            <div style={{
+              fontFamily: 'monospace', fontSize: 14, padding: '12px 16px',
+              background: '#fff', borderRadius: 8, border: '1px solid #d1d5db',
+              wordBreak: 'break-all', marginBottom: 12,
+            }}>
+              {tokenResult.token}
+            </div>
+            <button className="btn btn-secondary" onClick={() => setTokenResult(null)}
+              style={{ padding: '10px 24px', fontSize: 15 }}>
+              Dismiss
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* ====== DEVICE LIST (collapsible) ====== */}
+      <div className="page-body" style={{ paddingTop: 12 }}>
+        <button
+          className="btn btn-secondary"
+          onClick={() => setShowList(!showList)}
+          style={{ width: '100%', justifyContent: 'center', padding: '12px 0', fontSize: 15, marginBottom: 12 }}
+        >
+          {showList ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+          {showList ? ' Hide Devices' : ` Show Devices (${devices?.length || 0})`}
+        </button>
+
+        {showList && (
+          <>
+            {loading && !devices && <div className="text-center text-muted" style={{ padding: 48 }}>Loading devices...</div>}
+
+            {devices?.length === 0 && (
+              <div className="card" style={{ textAlign: 'center', padding: 48 }}>
+                <Radio size={40} color="var(--color-gray-300)" style={{ margin: '0 auto 16px' }} />
+                <p className="text-muted">No X05 devices registered yet</p>
+                <p className="text-xs text-muted" style={{ marginTop: 8 }}>
+                  X05 devices self-register when they connect. You can also register them above.
+                </p>
               </div>
+            )}
 
-              <div className="device-meta">
-                <div><strong>Device ID:</strong> {d.device_id}</div>
-                <div><strong>Gate:</strong> {d.gate_name || d.gate_id}</div>
-                <div><strong>Model:</strong> {d.model || 'X05'}</div>
-                {d.serial_number && <div><strong>SN:</strong> {d.serial_number}</div>}
-                {d.ip_address && <div><strong>IP:</strong> {d.ip_address}</div>}
-                <div><strong>Faces:</strong> {d.face_count}/20,000</div>
-                {d.iris_count > 0 && <div><strong>Iris Templates:</strong> {d.iris_count}</div>}
-                {d.finger_count > 0 && <div><strong>Fingerprints:</strong> {d.finger_count}</div>}
-                {d.app_version && <div><strong>App:</strong> v{d.app_version}</div>}
-                {d.firmware_version && <div><strong>FW:</strong> {d.firmware_version}</div>}
-
-                {/* Connectivity */}
-                <div className="flex gap-3" style={{ marginTop: 4 }}>
-                  {d.wifi_connected && <span className="text-xs" style={{ color: 'var(--color-success)' }}><Wifi size={10} /> WiFi</span>}
-                  {d.cellular_connected && <span className="text-xs" style={{ color: 'var(--color-info)' }}><Signal size={10} /> 4G</span>}
-                  {d.battery_level != null && (
-                    <span className="text-xs" style={{ color: d.battery_level < 20 ? 'var(--color-danger)' : '#6b7280' }}>
-                      <Battery size={10} /> {d.battery_level}%
+            <div className="device-grid">
+              {devices?.map((d) => (
+                <div className="device-tile" key={d.device_id}>
+                  <div className="flex items-center justify-between" style={{ marginBottom: 16 }}>
+                    <div className="flex items-center gap-2">
+                      {d.status === 'ONLINE' ? (
+                        <Wifi size={20} color="var(--color-success)" />
+                      ) : (
+                        <WifiOff size={20} color="var(--color-danger)" />
+                      )}
+                      <span className="device-name">{d.device_name}</span>
+                    </div>
+                    <span className={`badge ${d.status === 'ONLINE' ? 'badge-success' : d.status === 'MAINTENANCE' ? 'badge-warning' : 'badge-danger'}`}>
+                      {d.status}
                     </span>
-                  )}
-                </div>
+                  </div>
 
-                {/* Biometric & Hardware Capabilities */}
-                {(d.has_fingerprint || d.has_iris || d.has_nfc || d.wiegand_enabled || d.rs485_enabled) && (
-                  <div className="flex gap-2 flex-wrap" style={{ marginTop: 6 }}>
-                    {d.has_fingerprint && (
-                      <span className="text-xs" style={{
-                        background: '#f0fdf4', color: '#166534', padding: '2px 6px',
-                        borderRadius: 4, fontWeight: 600,
-                      }}>
-                        <Fingerprint size={10} /> Finger{d.finger_sdk_version ? ` v${d.finger_sdk_version}` : ''}
-                      </span>
+                  <div className="device-meta">
+                    <div><strong>Device ID:</strong> {d.device_id}</div>
+                    <div><strong>Gate:</strong> {d.gate_name || d.gate_id}</div>
+                    <div><strong>Model:</strong> {d.model || 'X05'}</div>
+                    {d.serial_number && <div><strong>SN:</strong> {d.serial_number}</div>}
+                    {d.ip_address && <div><strong>IP:</strong> {d.ip_address}</div>}
+                    <div><strong>Faces:</strong> {d.face_count}/20,000</div>
+                    {d.iris_count > 0 && <div><strong>Iris Templates:</strong> {d.iris_count}</div>}
+                    {d.finger_count > 0 && <div><strong>Fingerprints:</strong> {d.finger_count}</div>}
+                    {d.app_version && <div><strong>App:</strong> v{d.app_version}</div>}
+                    {d.firmware_version && <div><strong>FW:</strong> {d.firmware_version}</div>}
+
+                    <div className="flex gap-3" style={{ marginTop: 6 }}>
+                      {d.wifi_connected && <span style={{ fontSize: 13, color: 'var(--color-success)' }}><Wifi size={12} /> WiFi</span>}
+                      {d.cellular_connected && <span style={{ fontSize: 13, color: 'var(--color-info)' }}><Signal size={12} /> 4G</span>}
+                      {d.battery_level != null && (
+                        <span style={{ fontSize: 13, color: d.battery_level < 20 ? 'var(--color-danger)' : '#6b7280' }}>
+                          <Battery size={12} /> {d.battery_level}%
+                        </span>
+                      )}
+                    </div>
+
+                    {(d.has_fingerprint || d.has_iris || d.has_nfc || d.wiegand_enabled || d.rs485_enabled) && (
+                      <div className="flex gap-2 flex-wrap" style={{ marginTop: 8 }}>
+                        {d.has_fingerprint && (
+                          <span style={{
+                            background: '#f0fdf4', color: '#166534', padding: '4px 8px',
+                            borderRadius: 6, fontWeight: 600, fontSize: 12,
+                          }}>
+                            <Fingerprint size={12} /> Finger{d.finger_sdk_version ? ` v${d.finger_sdk_version}` : ''}
+                          </span>
+                        )}
+                        {d.has_iris && (
+                          <span style={{
+                            background: '#fff7ed', color: '#c2410c', padding: '4px 8px',
+                            borderRadius: 6, fontWeight: 600, fontSize: 12,
+                          }}>
+                            <Eye size={12} /> Iris{d.iris_sdk_version ? ` v${d.iris_sdk_version}` : ''}
+                          </span>
+                        )}
+                        {d.has_nfc && (
+                          <span style={{
+                            background: '#eff6ff', color: '#1e40af', padding: '4px 8px',
+                            borderRadius: 6, fontWeight: 600, fontSize: 12,
+                          }}>
+                            <CreditCard size={12} /> NFC
+                          </span>
+                        )}
+                        {d.wiegand_enabled && (
+                          <span style={{
+                            background: '#fdf4ff', color: '#7e22ce', padding: '4px 8px',
+                            borderRadius: 6, fontWeight: 600, fontSize: 12,
+                          }}>
+                            WG
+                          </span>
+                        )}
+                        {d.rs485_enabled && (
+                          <span style={{
+                            background: '#fefce8', color: '#a16207', padding: '4px 8px',
+                            borderRadius: 6, fontWeight: 600, fontSize: 12,
+                          }}>
+                            RS485
+                          </span>
+                        )}
+                        {d.relay_mode && d.relay_mode !== 'NO' && (
+                          <span style={{
+                            background: '#fef2f2', color: '#991b1b', padding: '4px 8px',
+                            borderRadius: 6, fontWeight: 600, fontSize: 12,
+                          }}>
+                            Relay: {d.relay_mode}
+                          </span>
+                        )}
+                      </div>
                     )}
-                    {d.has_iris && (
-                      <span className="text-xs" style={{
-                        background: '#fff7ed', color: '#c2410c', padding: '2px 6px',
-                        borderRadius: 4, fontWeight: 600,
-                      }}>
-                        <Eye size={10} /> Iris{d.iris_sdk_version ? ` v${d.iris_sdk_version}` : ''}
-                      </span>
-                    )}
-                    {d.has_nfc && (
-                      <span className="text-xs" style={{
-                        background: '#eff6ff', color: '#1e40af', padding: '2px 6px',
-                        borderRadius: 4, fontWeight: 600,
-                      }}>
-                        <CreditCard size={10} /> NFC
-                      </span>
-                    )}
-                    {d.wiegand_enabled && (
-                      <span className="text-xs" style={{
-                        background: '#fdf4ff', color: '#7e22ce', padding: '2px 6px',
-                        borderRadius: 4, fontWeight: 600,
-                      }}>
-                        WG
-                      </span>
-                    )}
-                    {d.rs485_enabled && (
-                      <span className="text-xs" style={{
-                        background: '#fefce8', color: '#a16207', padding: '2px 6px',
-                        borderRadius: 4, fontWeight: 600,
-                      }}>
-                        RS485
-                      </span>
-                    )}
-                    {d.relay_mode && d.relay_mode !== 'NO' && (
-                      <span className="text-xs" style={{
-                        background: '#fef2f2', color: '#991b1b', padding: '2px 6px',
-                        borderRadius: 4, fontWeight: 600,
-                      }}>
-                        Relay: {d.relay_mode}
-                      </span>
+
+                    {d.last_heartbeat && (
+                      <div style={{ marginTop: 6 }}><strong>Last Ping:</strong> {new Date(d.last_heartbeat).toLocaleTimeString()}</div>
                     )}
                   </div>
-                )}
 
-                {d.last_heartbeat && (
-                  <div style={{ marginTop: 4 }}><strong>Last Ping:</strong> {new Date(d.last_heartbeat).toLocaleTimeString()}</div>
-                )}
-              </div>
+                  {pingResult?.id === d.device_id && (
+                    <div
+                      style={{
+                        marginTop: 12, fontSize: 13, padding: '10px 14px', borderRadius: 8,
+                        background: pingResult.status === 'ONLINE' ? 'var(--color-success-bg)' : pingResult.status === 'testing' ? 'var(--color-info-bg)' : 'var(--color-danger-bg)',
+                      }}
+                    >
+                      {pingResult.status === 'testing' ? 'Checking heartbeat...' :
+                       pingResult.status === 'ONLINE' ? `Online — last heartbeat ${pingResult.seconds_ago}s ago` :
+                       pingResult.status === 'UNKNOWN' ? 'Device has never connected' :
+                       `Offline — last seen ${pingResult.seconds_ago}s ago`}
+                    </div>
+                  )}
 
-              {pingResult?.id === d.device_id && (
-                <div
-                  className="mt-4 text-xs"
-                  style={{
-                    padding: '8px 12px',
-                    borderRadius: 6,
-                    background: pingResult.status === 'ONLINE' ? 'var(--color-success-bg)' : pingResult.status === 'testing' ? 'var(--color-info-bg)' : 'var(--color-danger-bg)',
-                  }}
-                >
-                  {pingResult.status === 'testing' ? 'Checking heartbeat...' :
-                   pingResult.status === 'ONLINE' ? `Online — last heartbeat ${pingResult.seconds_ago}s ago` :
-                   pingResult.status === 'UNKNOWN' ? 'Device has never connected' :
-                   `Offline — last seen ${pingResult.seconds_ago}s ago`}
+                  <div className="flex gap-2 flex-wrap" style={{ marginTop: 16 }}>
+                    <button className="btn btn-primary btn-sm" onClick={() => handlePing(d.device_id)}
+                      style={{ padding: '10px 16px', fontSize: 14 }}>
+                      <Zap size={14} /> Ping
+                    </button>
+                    <button className="btn btn-secondary btn-sm" onClick={() => handleRegenToken(d)}
+                      style={{ padding: '10px 16px', fontSize: 14 }}>
+                      <Key size={14} /> Token
+                    </button>
+                    <button className="btn btn-danger btn-sm" onClick={() => handleDelete(d)}
+                      style={{ padding: '10px 16px', fontSize: 14 }}>
+                      <Trash2 size={14} /> Delete
+                    </button>
+                  </div>
                 </div>
-              )}
-
-              <div className="flex gap-2 mt-4 flex-wrap">
-                <button className="btn btn-primary btn-sm" onClick={() => handlePing(d.device_id)}>
-                  <Zap size={12} /> Ping
-                </button>
-                <button className="btn btn-secondary btn-sm" onClick={() => handleRegenToken(d.device_id)} title="Regenerate API Token">
-                  <Key size={12} /> Token
-                </button>
-                <button className="btn btn-danger btn-sm" onClick={() => handleDelete(d.device_id)}>
-                  <Trash2 size={12} />
-                </button>
-              </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </>
+        )}
       </div>
-
-      {showCreate && (
-        <CreateDeviceModal onClose={() => setShowCreate(false)} onCreated={() => { setShowCreate(false); refetch(); }} />
-      )}
     </>
   );
 }
@@ -205,7 +275,11 @@ function Radio({ size, color, style }) {
   </div>;
 }
 
-function CreateDeviceModal({ onClose, onCreated }) {
+
+/* ============================================================
+   INLINE REGISTER DEVICE FORM — no popup
+   ============================================================ */
+function InlineRegisterDeviceForm({ show, onToggle, onCreated }) {
   const [form, setForm] = useState({
     device_id: '',
     device_name: '',
@@ -217,13 +291,22 @@ function CreateDeviceModal({ onClose, onCreated }) {
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [result, setResult] = useState(null);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const resetForm = () => {
+    setForm({ device_id: '', device_name: '', gate_id: '', gate_name: '', ip_address: '', serial_number: '', model: 'X05' });
+    setError('');
+    setResult(null);
+  };
+
+  const handleSubmit = async () => {
     setLoading(true);
+    setError('');
     try {
       await api.createDevice(form);
+      setResult({ name: form.device_name });
       onCreated();
+      setTimeout(() => resetForm(), 2000);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -232,57 +315,81 @@ function CreateDeviceModal({ onClose, onCreated }) {
   };
 
   return (
-    <div style={{
-      position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.5)',
-      display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000
-    }} onClick={onClose}>
-      <div className="card" style={{ width: 480, maxHeight: '90vh', overflow: 'auto' }} onClick={(e) => e.stopPropagation()}>
-        <div className="card-header">
-          <h3>Register X05 Device</h3>
-          <button className="btn btn-secondary btn-sm" onClick={onClose}><X size={14} /></button>
-        </div>
-        <div className="card-body">
-          <p className="text-xs text-muted" style={{ marginBottom: 16 }}>
-            X05 devices self-register via /api/x05/register with face, iris, fingerprint (FingerSDK v2.0.1), and NFC capabilities.
-          </p>
-          <form onSubmit={handleSubmit}>
-            <div className="grid-2">
-              <div className="form-group">
-                <label className="form-label">Device ID</label>
-                <input className="form-input" value={form.device_id} onChange={(e) => setForm({ ...form, device_id: e.target.value })} placeholder="e.g. x05_gate01" required />
-              </div>
-              <div className="form-group">
-                <label className="form-label">Device Name</label>
-                <input className="form-input" value={form.device_name} onChange={(e) => setForm({ ...form, device_name: e.target.value })} placeholder="e.g. Main Entrance" required />
-              </div>
-            </div>
-            <div className="grid-2">
-              <div className="form-group">
-                <label className="form-label">Gate ID</label>
-                <input className="form-input" value={form.gate_id} onChange={(e) => setForm({ ...form, gate_id: e.target.value })} placeholder="gate_01" required />
-              </div>
-              <div className="form-group">
-                <label className="form-label">Gate Name</label>
-                <input className="form-input" value={form.gate_name} onChange={(e) => setForm({ ...form, gate_name: e.target.value })} placeholder="Main Gate" />
-              </div>
-            </div>
-            <div className="grid-2">
-              <div className="form-group">
-                <label className="form-label">IP Address</label>
-                <input className="form-input" value={form.ip_address} onChange={(e) => setForm({ ...form, ip_address: e.target.value })} placeholder="Optional — device reports this" />
-              </div>
-              <div className="form-group">
-                <label className="form-label">Serial Number</label>
-                <input className="form-input" value={form.serial_number} onChange={(e) => setForm({ ...form, serial_number: e.target.value })} placeholder="Optional" />
-              </div>
-            </div>
-            {error && <div style={{ color: 'var(--color-danger)', fontSize: 'var(--font-size-sm)', marginBottom: 12 }}>{error}</div>}
-            <button type="submit" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }} disabled={loading}>
-              {loading ? 'Registering...' : 'Register Device'}
-            </button>
-          </form>
-        </div>
+    <div className="card" style={{ border: '2px solid #006aff', borderRadius: 16 }}>
+      <div
+        style={{
+          background: '#006aff', color: '#fff', padding: '14px 24px',
+          borderRadius: show ? '14px 14px 0 0' : 14,
+          textAlign: 'center', cursor: 'pointer',
+          display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+        }}
+        onClick={onToggle}
+      >
+        <h2 style={{ margin: 0, fontSize: 22, fontWeight: 800, letterSpacing: 0.5 }}>Register Device</h2>
+        {show ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
       </div>
+
+      {show && (
+        <div style={{ padding: '20px 28px' }}>
+          {result && (
+            <div style={{ textAlign: 'center', padding: '24px 0' }}>
+              <div style={{ width: 64, height: 64, borderRadius: '50%', background: '#e6f9ed', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}>
+                <Check size={32} color="#059669" />
+              </div>
+              <h3 style={{ marginBottom: 4 }}>Device Registered!</h3>
+              <p className="text-muted">"{result.name}" added to the system</p>
+              <button className="btn btn-primary" onClick={resetForm} style={{ marginTop: 12, fontSize: 16, padding: '12px 32px' }}>
+                <Plus size={16} /> Register Another
+              </button>
+            </div>
+          )}
+
+          {!result && (
+            <>
+              <p className="text-muted" style={{ marginBottom: 16, fontSize: 13 }}>
+                X05 devices self-register via /api/x05/register. You can also register them manually here.
+              </p>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+                <div className="form-group">
+                  <label className="form-label">Device ID</label>
+                  <input className="form-input" value={form.device_id} onChange={(e) => setForm({ ...form, device_id: e.target.value })} placeholder="e.g. x05_gate01" />
+                </div>
+                <div className="form-group">
+                  <label className="form-label">Device Name</label>
+                  <input className="form-input" value={form.device_name} onChange={(e) => setForm({ ...form, device_name: e.target.value })} placeholder="e.g. Main Entrance" />
+                </div>
+              </div>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+                <div className="form-group">
+                  <label className="form-label">Gate ID</label>
+                  <input className="form-input" value={form.gate_id} onChange={(e) => setForm({ ...form, gate_id: e.target.value })} placeholder="gate_01" />
+                </div>
+                <div className="form-group">
+                  <label className="form-label">Gate Name</label>
+                  <input className="form-input" value={form.gate_name} onChange={(e) => setForm({ ...form, gate_name: e.target.value })} placeholder="Main Gate" />
+                </div>
+              </div>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+                <div className="form-group">
+                  <label className="form-label">IP Address</label>
+                  <input className="form-input" value={form.ip_address} onChange={(e) => setForm({ ...form, ip_address: e.target.value })} placeholder="Optional" />
+                </div>
+                <div className="form-group">
+                  <label className="form-label">Serial Number</label>
+                  <input className="form-input" value={form.serial_number} onChange={(e) => setForm({ ...form, serial_number: e.target.value })} placeholder="Optional" />
+                </div>
+              </div>
+              {error && <div style={{ color: 'var(--color-danger)', fontSize: 14, marginBottom: 12, fontWeight: 600 }}>{error}</div>}
+              <button type="button" onClick={handleSubmit}
+                className="btn btn-primary"
+                style={{ width: '100%', justifyContent: 'center', padding: '16px 0', fontSize: 18, minHeight: 56, fontWeight: 800 }}
+                disabled={loading}>
+                {loading ? 'Registering...' : 'Register Device'}
+              </button>
+            </>
+          )}
+        </div>
+      )}
     </div>
   );
 }

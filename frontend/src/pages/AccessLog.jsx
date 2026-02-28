@@ -42,8 +42,8 @@ export default function AccessLogPage() {
     <>
       <div className="page-header">
         <h2>Access Log</h2>
-        <button className="btn btn-secondary btn-sm" onClick={handleExportCSV}>
-          <Download size={14} /> Export CSV
+        <button className="btn btn-secondary" onClick={handleExportCSV}>
+          <Download size={16} /> Export CSV
         </button>
       </div>
 
@@ -51,10 +51,10 @@ export default function AccessLogPage() {
         {/* Filters */}
         <div className="card mb-6">
           <div className="card-body flex gap-3 flex-wrap items-center">
-            <Filter size={16} color="var(--color-gray-400)" />
+            <Filter size={18} color="var(--color-gray-400)" />
             <select
               className="form-input"
-              style={{ width: 160 }}
+              style={{ width: 180, minHeight: 44 }}
               value={filter.gate || ''}
               onChange={(e) => setFilter({ ...filter, gate: e.target.value || undefined })}
             >
@@ -66,7 +66,7 @@ export default function AccessLogPage() {
             </select>
             <select
               className="form-input"
-              style={{ width: 160 }}
+              style={{ width: 180, minHeight: 44 }}
               value={filter.event_type || ''}
               onChange={(e) => setFilter({ ...filter, event_type: e.target.value || undefined })}
             >

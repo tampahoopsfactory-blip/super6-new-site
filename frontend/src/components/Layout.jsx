@@ -47,12 +47,12 @@ export default function Layout() {
               end={to === '/'}
               className={({ isActive }) => isActive ? 'active' : ''}
             >
-              <Icon size={18} />
+              <Icon size={20} />
               {label}
             </NavLink>
           ))}
           <a href="#" onClick={handleLogout} style={{ marginTop: 'auto' }}>
-            <LogOut size={18} />
+            <LogOut size={20} />
             Sign Out
           </a>
         </nav>

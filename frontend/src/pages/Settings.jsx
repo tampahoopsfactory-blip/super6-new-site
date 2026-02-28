@@ -134,8 +134,8 @@ export default function Settings() {
                     <label style={{ fontSize: 13, fontWeight: 700, color: t.color, display: 'block', marginBottom: 6 }}>
                       {t.label}
                     </label>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-                      <span style={{ fontSize: 16, fontWeight: 700, color: '#374151' }}>$</span>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                      <span style={{ fontSize: 18, fontWeight: 700, color: '#374151' }}>$</span>
                       <input
                         type="number"
                         step="0.01"
@@ -143,8 +143,8 @@ export default function Settings() {
                         value={pricing[t.key] ?? 0}
                         onChange={(e) => setPricing((p) => ({ ...p, [t.key]: parseFloat(e.target.value) || 0 }))}
                         style={{
-                          width: '100%', height: 36, border: '1px solid #d1d5db', borderRadius: 8,
-                          padding: '0 12px', fontSize: 16, fontWeight: 700, color: '#1a1a2e',
+                          width: '100%', height: 44, border: '1px solid #d1d5db', borderRadius: 8,
+                          padding: '0 14px', fontSize: 18, fontWeight: 700, color: '#1a1a2e',
                           outline: 'none', background: '#f9fafb',
                         }}
                       />
@@ -320,14 +320,15 @@ function SettingField({ label, settingKey, settings, setSettings, onSave, saving
           value={settings[settingKey] || ''}
           onChange={(e) => setSettings({ ...settings, [settingKey]: e.target.value })}
           placeholder={placeholder}
-          style={{ flex: 1 }}
+          style={{ flex: 1, minHeight: 44 }}
         />
         <button
-          className="btn btn-secondary btn-sm"
+          className="btn btn-secondary"
           onClick={() => onSave(settingKey, settings[settingKey] || '')}
           disabled={saving === settingKey}
+          style={{ minWidth: 48, minHeight: 44 }}
         >
-          <Save size={12} />
+          <Save size={16} />
         </button>
       </div>
     </div>
