@@ -320,6 +320,7 @@ function InlineTicketForm({ onCreated }) {
 
   const handleSubmit = async () => {
     if (totalTickets === 0) { setError('Add at least one ticket'); return; }
+    if (!patronPhone.trim()) { setError('Phone number is required'); return; }
     if (!eventId) { setError('Event not ready — please wait a moment and try again'); return; }
     setLoading(true);
     setError('');
@@ -482,8 +483,8 @@ function InlineTicketForm({ onCreated }) {
             {/* Customer Info */}
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 12, marginBottom: 16 }}>
               <div className="form-group" style={{ marginBottom: 0 }}>
-                <label className="form-label" style={{ fontSize: 12 }}>Phone</label>
-                <input className="form-input" value={patronPhone} onChange={(e) => setPatronPhone(e.target.value)} placeholder="+1..." style={{ fontSize: 15, height: 44, padding: '0 14px' }} />
+                <label className="form-label" style={{ fontSize: 12 }}>Phone <span style={{ color: '#ef4444' }}>*</span></label>
+                <input className="form-input" value={patronPhone} onChange={(e) => setPatronPhone(e.target.value)} placeholder="+1..." required style={{ fontSize: 15, height: 44, padding: '0 14px' }} />
               </div>
               <div className="form-group" style={{ marginBottom: 0 }}>
                 <label className="form-label" style={{ fontSize: 12 }}>Customer Name</label>
