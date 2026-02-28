@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { api } from '../utils/api';
 import { usePolling } from '../hooks/usePolling';
-import { Plus, Search, Download, QrCode, RotateCcw, ShieldCheck, X, Minus, Check, Users, User } from 'lucide-react';
+import { Plus, Search, Download, QrCode, RotateCcw, ShieldCheck, X, Minus, Check, Users } from 'lucide-react';
 
 const TICKET_TYPES = [
   { key: 'DAILY', label: 'Daily', color: '#006aff', desc: 'Single day' },
@@ -248,7 +248,6 @@ function CreateOrderModal({ events, activeEvent, onClose, onCreated }) {
   const [patronName, setPatronName] = useState('');
   const [patronPhone, setPatronPhone] = useState('');
   const [patronEmail, setPatronEmail] = useState('');
-  const [ticketNames, setTicketNames] = useState({});  // { "DAILY-0": "John", "KIDS-1": "Lily" }
   const [eventId, setEventId] = useState(activeEvent?.event_id || '');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -271,14 +270,6 @@ function CreateOrderModal({ events, activeEvent, onClose, onCreated }) {
   const totalAmount = TICKET_TYPES.reduce((sum, t) => sum + counts[t.key] * (prices[t.key] || 0), 0);
   const selectedTypes = TICKET_TYPES.filter((t) => counts[t.key] > 0);
 
-  // Build flat list of individual tickets for name inputs
-  const individualTickets = [];
-  selectedTypes.forEach((t) => {
-    for (let i = 0; i < counts[t.key]; i++) {
-      individualTickets.push({ type: t.key, label: t.label, color: t.color, index: i, nameKey: `${t.key}-${i}` });
-    }
-  });
-
   const handleSubmit = async () => {
     if (totalTickets === 0) { setError('Add at least one ticket'); return; }
     if (!eventId) { setError('No active event — create one in Events first'); return; }
@@ -286,27 +277,17 @@ function CreateOrderModal({ events, activeEvent, onClose, onCreated }) {
     setError('');
 
     try {
-      const items = selectedTypes.map((t) => {
-        // Collect per-ticket names for this type
-        const names = [];
-        for (let i = 0; i < counts[t.key]; i++) {
-          names.push(ticketNames[`${t.key}-${i}`] || '');
-        }
-        return {
-          admission_type: t.key,
-          quantity: counts[t.key],
-          unit_price: prices[t.key] || 0,
-          patron_names: names.some((n) => n) ? names : null,
-        };
-      });
+      const items = selectedTypes.map((t) => ({
+        admission_type: t.key,
+        quantity: counts[t.key],
+        unit_price: prices[t.key] || 0,
+      }));
 
       if (totalTickets === 1) {
         const item = items[0];
-        // Use per-ticket name if provided, else fall back to patron name
-        const name = (item.patron_names && item.patron_names[0]) || patronName || null;
         await api.createTicket({
           event_id: eventId,
-          patron_name: name,
+          patron_name: patronName || null,
           patron_phone: patronPhone || null,
           patron_email: patronEmail || null,
           admission_type: item.admission_type,
@@ -463,40 +444,10 @@ function CreateOrderModal({ events, activeEvent, onClose, onCreated }) {
                 </div>
               </div>
 
-              {/* Per-ticket Names */}
-              {totalTickets === 1 && (
-                <div className="form-group" style={{ marginBottom: 20 }}>
-                  <label className="form-label" style={{ fontSize: 12 }}>Customer Name</label>
-                  <input className="form-input" value={patronName} onChange={(e) => setPatronName(e.target.value)} placeholder="Optional" style={{ fontSize: 15, height: 44, padding: '0 14px' }} />
-                </div>
-              )}
-
-              {totalTickets > 1 && (
-                <div style={{ marginBottom: 20 }}>
-                  <label className="form-label" style={{ fontSize: 12, display: 'flex', alignItems: 'center', gap: 4, marginBottom: 10 }}>
-                    <User size={14} /> Name Each Person
-                  </label>
-                  <div style={{ display: 'grid', gap: 8 }}>
-                    {individualTickets.map((t, idx) => (
-                      <div key={t.nameKey} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                        <span style={{
-                          fontSize: 12, fontWeight: 700, color: t.color,
-                          minWidth: 110, whiteSpace: 'nowrap',
-                        }}>
-                          {t.label} #{t.index + 1}
-                        </span>
-                        <input
-                          className="form-input"
-                          value={ticketNames[t.nameKey] || ''}
-                          onChange={(e) => setTicketNames((prev) => ({ ...prev, [t.nameKey]: e.target.value }))}
-                          placeholder={`Person ${idx + 1} name`}
-                          style={{ fontSize: 15, height: 44, padding: '0 14px', flex: 1 }}
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
+              <div className="form-group" style={{ marginBottom: 20 }}>
+                <label className="form-label" style={{ fontSize: 12 }}>Customer Name</label>
+                <input className="form-input" value={patronName} onChange={(e) => setPatronName(e.target.value)} placeholder="Optional" style={{ fontSize: 15, height: 44, padding: '0 14px' }} />
+              </div>
 
               {error && <div style={{ color: 'var(--color-danger)', fontSize: 'var(--font-size-sm)', marginBottom: 12 }}>{error}</div>}
 
