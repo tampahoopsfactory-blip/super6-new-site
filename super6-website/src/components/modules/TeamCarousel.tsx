@@ -2,49 +2,84 @@ import Image from "next/image";
 import Link from "next/link";
 import { locations } from "@/data/site";
 
-/* ─── Locations Grid — Cinematic city grid
-   Editorial: section header on cream, then full-bleed city tiles below.
-   Asymmetric grid: 3 across top, then 1+2 wider on the second row. */
+/* ─── Location Sections — One photo per section.
+   Each market gets its own alternating split. No 5-photo grid clustering.
+   Atlanta carries a Coming Soon badge in its content panel. */
 
-export default function LocationsGrid() {
+export default function LocationSections() {
   return (
-    <section aria-label="Locations" style={{ background: "var(--cream)" }}>
-      <div style={{ padding: "var(--space-9) 0 var(--space-7)" }}>
-        <div className="container-xl">
-          <p className="section-label">Our Markets</p>
-          <h2 className="section-heading" style={{ maxWidth: "20ch" }}>
+    <>
+      {/* Section intro */}
+      <section className="section section-paper" aria-label="Our Markets">
+        <div className="container-xl" style={{ textAlign: "center" }}>
+          <p className="section-label" style={{ justifyContent: "center" }}>
+            Our Markets
+          </p>
+          <h2 className="section-heading" style={{ margin: "0 auto 16px" }}>
             Five cities. <em>One standard.</em>
           </h2>
-          <p className="section-desc" style={{ marginTop: 8 }}>
+          <p className="section-desc" style={{ margin: "0 auto" }}>
             Each market gets the same level of officiating, branding, and
-            production — whether it’s a flagship Orlando weekend or a new
-            launch on the road.
+            production &mdash; whether it&rsquo;s a flagship Orlando weekend
+            or a new launch on the road.
           </p>
         </div>
-      </div>
+      </section>
 
-      <div className="locations-grid">
-        {locations.map((loc) => (
-          <Link key={loc.slug} href={`/locations/${loc.slug}`} className="location-card">
-            <Image
-              src={loc.image}
-              alt={`${loc.city}, ${loc.state}`}
-              fill
-              sizes="(max-width: 768px) 100vw, 33vw"
-              className="object-cover"
-              quality={88}
-            />
-            <div className="location-card-overlay" />
-            <div className="location-card-content">
-              <h3 className="location-city">{loc.city}</h3>
-              <p className="location-state">{loc.state}</p>
+      {/* One section per location, alternating */}
+      {locations.map((loc, i) => {
+        const left = i % 2 === 0;
+        return (
+          <section
+            key={loc.slug}
+            aria-label={loc.name}
+            className={i % 2 === 1 ? "split-warm" : ""}
+          >
+            <div className="split">
+              <div
+                className="split-image"
+                style={{ order: left ? 0 : 1 }}
+              >
+                <Image
+                  src={loc.image}
+                  alt={`${loc.city}, ${loc.state}`}
+                  fill
+                  sizes="(max-width: 968px) 100vw, 50vw"
+                  quality={92}
+                  style={{ objectFit: "cover" }}
+                />
+                {loc.comingSoon && (
+                  <span className="location-badge" style={{ position: "absolute", top: 20, right: 20, zIndex: 3 }}>
+                    Coming Soon
+                  </span>
+                )}
+              </div>
+              <div
+                className="split-content"
+                style={{ order: left ? 1 : 0 }}
+              >
+                <p className="section-label">
+                  {loc.state === "GA" ? "Georgia" : "Florida"} &middot; {loc.city}
+                </p>
+                <h2 className="section-heading" style={{ maxWidth: "16ch" }}>
+                  {loc.name.replace(/^Super 6 /, "")}
+                </h2>
+                <p className="section-desc" style={{ marginBottom: 36 }}>
+                  {loc.description}
+                </p>
+                <div>
+                  <Link
+                    href={`/locations/${loc.slug}`}
+                    className={loc.comingSoon ? "btn btn-outline" : "btn btn-ink"}
+                  >
+                    {loc.comingSoon ? "Get notified" : "View location"}
+                  </Link>
+                </div>
+              </div>
             </div>
-            {loc.comingSoon && (
-              <span className="location-badge">Coming Soon</span>
-            )}
-          </Link>
-        ))}
-      </div>
-    </section>
+          </section>
+        );
+      })}
+    </>
   );
 }
