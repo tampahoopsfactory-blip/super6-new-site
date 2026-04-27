@@ -25,6 +25,7 @@ export default function PhotoGallery() {
               sizes={i === 0 ? "(max-width: 768px) 100vw, 34vw" : "(max-width: 768px) 100vw, 33vw"}
               className="object-cover"
               priority={i === 0}
+              quality={88}
             />
           </div>
         ))}

@@ -52,6 +52,7 @@ export default function DivisionCards() {
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
                 className="object-cover"
+                quality={88}
               />
               <div className="card-overlay" />
               <div className="card-content">

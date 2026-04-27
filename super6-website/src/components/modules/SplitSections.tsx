@@ -45,6 +45,7 @@ export default function MissionSplit() {
                 fill
                 sizes="(max-width: 968px) 100vw, 50vw"
                 className="object-cover"
+                quality={88}
               />
             </div>
             <div

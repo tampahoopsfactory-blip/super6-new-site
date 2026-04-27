@@ -18,7 +18,7 @@ export default function HeroSection() {
           fill
           priority
           sizes="100vw"
-          quality={88}
+          quality={92}
           style={{ objectFit: "cover", objectPosition: "center 35%" }}
           aria-hidden="true"
         />

@@ -58,11 +58,11 @@
   --dur-base:  420ms;
   --dur-slow:  720ms;
 
-  /* ── Photo grade — applied to all editorial photos via CSS filter
-        Subtle warmth, slight desaturation, gentle contrast bump.
-        Same look on every image so the site reads as "art-directed." ── */
-  --photo-grade: contrast(1.04) saturate(0.92) brightness(0.98);
-  --photo-grade-h: contrast(1.06) saturate(0.96) brightness(1.00);
+  /* ── Photo grade — minimal art-direction tint that lets the
+        underlying image punch through. Boosted contrast + saturation,
+        very slight warmth via near-neutral values. ── */
+  --photo-grade:   contrast(1.05) saturate(1.04) brightness(1.00);
+  --photo-grade-h: contrast(1.07) saturate(1.08) brightness(1.02);
 }
 
 /* ── Tailwind v4 inline theme (so Tailwind utilities know our tokens) ── */
@@ -1007,6 +1007,55 @@ img, video { display: block; max-width: 100%; height: auto; }
   object-fit: cover;
   filter: var(--photo-grade);
 }
+
+/* Rules page */
+.rule-pill {
+  display: inline-flex; align-items: center;
+  height: 36px;
+  padding: 0 16px;
+  background: var(--paper);
+  color: var(--ink-soft);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: 13px; font-weight: 500;
+  letter-spacing: 0.005em;
+  text-decoration: none;
+  transition: background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+}
+.rule-pill:hover {
+  background: var(--ink); color: var(--cream); border-color: var(--ink);
+}
+.rules-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+}
+@media (min-width: 968px) {
+  .rules-layout {
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .rules-side { position: sticky; top: 110px; }
+}
+.rule-block {
+  padding: 28px 0;
+  border-top: 1px solid var(--hairline);
+}
+.rule-block:first-child { border-top: 0; padding-top: 0; }
+.rule-block-title {
+  font-family: var(--font-display);
+  font-size: 22px; font-weight: 400;
+  letter-spacing: -0.014em; line-height: 1.2;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+.rule-block-body {
+  font-family: var(--font-body);
+  font-size: 16px; color: var(--ink-soft); line-height: 1.65;
+}
+.rule-block-body ul li { padding: 4px 0; }
 
 /* Contact page */
 .contact-grid {

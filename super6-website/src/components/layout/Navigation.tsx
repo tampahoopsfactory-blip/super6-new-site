@@ -11,7 +11,7 @@ const navLinks = [
   { label: "Our Mission", href: "/about" },
   { label: "Tournaments", href: "/register" },
   { label: "Locations", href: "/locations" },
-  { label: "College Corner", href: "/about" },
+  { label: "Rules", href: "/rules" },
   { label: "Contact", href: "/contact" },
 ];
 

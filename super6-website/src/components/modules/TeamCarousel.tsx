@@ -32,6 +32,7 @@ export default function LocationsGrid() {
               fill
               sizes="(max-width: 768px) 100vw, 33vw"
               className="object-cover"
+              quality={88}
             />
             <div className="location-card-overlay" />
             <div className="location-card-content">

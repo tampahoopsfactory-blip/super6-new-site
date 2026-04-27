@@ -29,6 +29,7 @@ export default function ContactPage() {
           fill
           priority
           sizes="100vw"
+          quality={92}
           aria-hidden="true"
         />
         <div className="container-xl">

@@ -180,11 +180,10 @@ export const registrationTiers = [
 export const footerColumns = {
   help: [
     { label: "Contact Us", href: "/contact" },
-    { label: "FAQs", href: "/about" },
-    { label: "Tournament Rules", href: "/about" },
+    { label: "Tournament Rules", href: "/rules" },
     { label: "Registration Help", href: "/register" },
-    { label: "Tournament Info", href: "/about" },
     { label: "Find a Location", href: "/locations" },
+    { label: "FAQs", href: "/about" },
   ],
   offerings: [
     { label: "Tournaments", href: "/register" },

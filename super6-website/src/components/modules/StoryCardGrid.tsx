@@ -99,6 +99,7 @@ export default function ExperienceSection() {
                 fill
                 sizes="(max-width: 768px) 50vw, 25vw"
                 className="object-cover"
+                quality={88}
               />
             </div>
           ))}
