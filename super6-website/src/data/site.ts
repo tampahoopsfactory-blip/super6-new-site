@@ -75,7 +75,7 @@ export const locations: Location[] = [
     city: "Clearwater",
     state: "FL",
     comingSoon: false,
-    image: "/media/curated/16-packed-sideline.jpg",
+    image: "/media/curated/23-female-athlete.jpg",
     description:
       "Elite youth basketball on the Tampa Bay coast. Family-friendly weekends with top regional talent.",
   },
@@ -105,7 +105,7 @@ export const locations: Location[] = [
     city: "Atlanta",
     state: "GA",
     comingSoon: true,
-    image: "/media/curated/14-coach-portrait.jpg",
+    image: "/media/curated/22-scorers-table.jpg",
     description:
       "Expanding to the Southeast's basketball capital. Super 6 brings its championship format to Georgia in 2026.",
   },

@@ -42,14 +42,14 @@ const values = [
 ];
 
 const photoGrid = [
-  "/media/curated/01-flagship-coach-pointer.jpg",
+  "/media/curated/23-female-athlete.jpg",
   "/media/curated/05-crowd-eruption.jpg",
   "/media/curated/09-trophy-raise.jpg",
   "/media/curated/03-drive-isolation.jpg",
-  "/media/curated/15-kids-whiteboard.jpg",
+  "/media/curated/26-bench-camaraderie.jpg",
   "/media/curated/12-coach-intensity.jpg",
   "/media/curated/17-young-spectators.jpg",
-  "/media/curated/16-packed-sideline.jpg",
+  "/media/curated/24-panoramic-crowd.jpg",
 ];
 
 export default function AboutPage() {
@@ -123,8 +123,8 @@ export default function AboutPage() {
         <div className="split">
           <div className="split-image">
             <Image
-              src="/media/curated/01-flagship-coach-pointer.jpg"
-              alt="Coach mentoring a player on the sideline"
+              src="/media/curated/25-coaches-clipboard.jpg"
+              alt="Coach mentoring two players on the sideline"
               fill
               sizes="(max-width: 968px) 100vw, 50vw"
               className="object-cover"

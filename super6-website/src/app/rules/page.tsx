@@ -24,7 +24,7 @@ export default function RulesPage() {
       {/* Hero */}
       <section className="page-hero">
         <Image
-          src="/media/curated/14-coach-portrait.jpg"
+          src="/media/curated/21-coach-whiteboard.jpg"
           alt=""
           fill
           priority

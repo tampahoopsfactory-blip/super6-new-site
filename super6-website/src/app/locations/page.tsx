@@ -16,7 +16,7 @@ export default function LocationsPage() {
       {/* Page Hero */}
       <section className="page-hero">
         <Image
-          src="/media/curated/16-packed-sideline.jpg"
+          src="/media/curated/24-panoramic-crowd.jpg"
           alt=""
           fill
           priority

@@ -22,12 +22,12 @@ export default function PhotoGallery() {
         }}
       >
         <Image
-          src="/media/curated/01-flagship-coach-pointer.jpg"
-          alt="Coach mentoring a player on the sideline at a Super 6 tournament"
+          src="/media/curated/15-kids-whiteboard.jpg"
+          alt="Young Super 6 players studying a play diagram together"
           fill
           quality={92}
           sizes="100vw"
-          style={{ objectFit: "cover", objectPosition: "center 40%" }}
+          style={{ objectFit: "cover", objectPosition: "center 35%" }}
         />
       </div>
     </section>
