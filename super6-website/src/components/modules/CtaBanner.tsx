@@ -1,25 +1,27 @@
 import Link from "next/link";
 
-/* ─── Final CTA — Full-bleed dark section
-   Under Armour: bold, monochromatic call to action.
-   Centered text, pill CTA buttons. ─── */
+/* ─── Final CTA — Editorial dark close
+   Warm-black background with subtle orange ambient glow.
+   Serif headline with italic accent, restrained CTA pair. */
+
 export default function CtaBanner() {
   return (
     <section className="cta-section" aria-label="Call to action">
       <div className="container-xl">
         <h2 className="cta-heading">
-          Ready to Compete?
+          Bring your team <em>this season.</em>
         </h2>
         <p className="cta-sub">
-          Join 1,000+ teams across Florida and Georgia. $99 entry.
-          3-game guarantee. Championship atmosphere at every tournament.
+          A thousand teams across Florida and Georgia have played a Super 6
+          weekend. Three-game guarantee. NFHS officials. A championship
+          atmosphere from tip-off to trophy.
         </p>
-        <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" as const }}>
-          <Link href="/register" className="btn btn-white">
-            Register Your Team
+        <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" as const }}>
+          <Link href="/register" className="btn btn-orange">
+            Register your team
           </Link>
-          <Link href="/contact" className="btn btn-outline" style={{ color: "var(--white)", borderColor: "rgba(255,255,255,0.3)" }}>
-            Contact Us
+          <Link href="/contact" className="btn btn-outline-light">
+            Talk to us
           </Link>
         </div>
       </div>

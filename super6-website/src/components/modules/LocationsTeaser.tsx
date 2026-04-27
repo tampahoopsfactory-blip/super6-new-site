@@ -1,27 +1,27 @@
 import Image from "next/image";
 import Link from "next/link";
 
-/* ─── Division Cards — 3-up Nike full-bleed category cards
-   Sharp corners, gradient overlay, white pill labels.
-   Uses real game photos for maximum visual impact. ─── */
+/* ─── Division Cards — Editorial 3-up category cards
+   Full-bleed photos with overlay; serif title + small caps subtitle.
+   Pure photographic moments, no chrome. */
 
 const divisions = [
   {
     label: "Boys Division",
-    subtitle: "12th–3rd Grade",
-    image: "/media/gallery/G1_24_Defensive_Action.jpg",
+    subtitle: "12th–3rd Grade · Elite, Competitive, Developmental",
+    image: "/media/curated/04-defensive-stance.jpg",
     href: "/register",
   },
   {
     label: "Girls Division",
-    subtitle: "12th–6th Grade",
-    image: "/media/gallery/G1_21_Youth_Dribbling.jpg",
+    subtitle: "12th–6th Grade · Three Levels of Play",
+    image: "/media/curated/13-team-king-crown.jpg",
     href: "/register",
   },
   {
-    label: "Elite Competitive",
-    subtitle: "Top-Tier Play",
-    image: "/media/gallery/G1_32_Contest_Layup.jpg",
+    label: "Elite Showcase",
+    subtitle: "Top-Tier Competition · Scout-Visible Weekends",
+    image: "/media/curated/08-fast-break.jpg",
     href: "/register",
   },
 ];
@@ -29,34 +29,34 @@ const divisions = [
 export default function DivisionCards() {
   return (
     <section className="section" aria-label="Divisions">
-      <div className="container-xl" style={{ textAlign: "center", marginBottom: "48px" }}>
+      <div className="container-xl" style={{ marginBottom: 56 }}>
         <p className="section-label">Find Your Competition</p>
-        <h2 className="section-heading" style={{ margin: "0 auto" }}>
-          Every Level. Every Division.
+        <h2 className="section-heading" style={{ maxWidth: "20ch" }}>
+          Every level. <em>Every division.</em>
         </h2>
       </div>
+
       <div className="container-xl">
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-          gap: "4px",
-        }}>
-          {divisions.map((div) => (
-            <Link key={div.label} href={div.href} className="card" style={{ textDecoration: "none" }}>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+            gap: 4,
+          }}
+        >
+          {divisions.map((d) => (
+            <Link key={d.label} href={d.href} className="card">
               <Image
-                src={div.image}
-                alt={div.label}
+                src={d.image}
+                alt={d.label}
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
                 className="object-cover"
               />
               <div className="card-overlay" />
               <div className="card-content">
-                <p className="card-label">{div.subtitle}</p>
-                <h3 className="card-title">{div.label}</h3>
-                <span className="btn-hero btn-hero-primary" style={{ height: "48px", padding: "0 28px", fontSize: "14px", fontWeight: 600, letterSpacing: "-0.01em" }}>
-                  Register Now
-                </span>
+                <p className="card-label">{d.subtitle}</p>
+                <h3 className="card-title">{d.label}</h3>
               </div>
             </Link>
           ))}

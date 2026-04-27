@@ -18,9 +18,9 @@ export const siteConfig = {
 /* ─── Announcement bar messages ─── */
 export const announcements = [
   {
-    text: "Orlando $99 Tournament — Feb 28 – Mar 1, 2026",
+    text: "2026 Season Registration Now Open",
     link: "/register",
-    linkText: "Register Now",
+    linkText: "Register",
   },
   {
     text: "New Location: Atlanta Coming Soon",
@@ -28,12 +28,12 @@ export const announcements = [
     linkText: "Learn More",
   },
   {
-    text: "NFHS-Certified Referees at Every Tournament",
+    text: "NFHS-Certified Officials at Every Tournament",
     link: "/about",
-    linkText: "Learn More",
+    linkText: "Our Standard",
   },
   {
-    text: "Boys 12th–3rd & Girls 12th–6th — 3 Game Guarantee",
+    text: "Boys 12th–3rd · Girls 12th–6th · Three-Game Guarantee",
     link: "/register",
     linkText: "Sign Up",
   },
@@ -65,9 +65,9 @@ export const locations: Location[] = [
     mapUrl:
       "https://www.google.com/maps/place/924+N+Magnolia+Ave,+Orlando,+FL+32803",
     comingSoon: false,
-    image: "/media/locations/court-branding.jpg",
+    image: "/media/curated/06-super6-banner-bokeh.jpg",
     description:
-      "Our flagship Orlando venue features professional courts, NFHS-certified referees, and a championship atmosphere for youth basketball tournaments year-round.",
+      "Our flagship venue. Custom court branding, NFHS-certified officials, and a championship atmosphere across the calendar.",
   },
   {
     slug: "clearwater",
@@ -75,9 +75,9 @@ export const locations: Location[] = [
     city: "Clearwater",
     state: "FL",
     comingSoon: false,
-    image: "/media/lifestyle/tournament-vibe.jpg",
+    image: "/media/curated/16-packed-sideline.jpg",
     description:
-      "Bringing elite youth basketball to the Tampa Bay coast. Clearwater tournaments feature top regional talent and a family-friendly competition environment.",
+      "Elite youth basketball on the Tampa Bay coast. Family-friendly weekends with top regional talent.",
   },
   {
     slug: "tampa",
@@ -85,9 +85,9 @@ export const locations: Location[] = [
     city: "Tampa",
     state: "FL",
     comingSoon: false,
-    image: "/media/lifestyle/basketball-action.jpg",
+    image: "/media/curated/03-drive-isolation.jpg",
     description:
-      "The Tampa market brings fierce competition and deep talent pools. Our Tampa events attract teams from across the Gulf Coast region.",
+      "Tampa brings fierce competition and deep talent pools. Our events attract teams from across the Gulf Coast region.",
   },
   {
     slug: "west-palm",
@@ -95,9 +95,9 @@ export const locations: Location[] = [
     city: "West Palm Beach",
     state: "FL",
     comingSoon: false,
-    image: "/media/lifestyle/game-intensity.jpg",
+    image: "/media/curated/09-trophy-raise.jpg",
     description:
-      "South Florida's premier youth basketball destination. West Palm Beach tournaments showcase the best talent from Miami-Dade to the Treasure Coast.",
+      "South Florida's premier youth basketball destination. The best of Miami-Dade through the Treasure Coast.",
   },
   {
     slug: "atlanta",
@@ -105,9 +105,9 @@ export const locations: Location[] = [
     city: "Atlanta",
     state: "GA",
     comingSoon: true,
-    image: "/media/lifestyle/coach-strategy.jpg",
+    image: "/media/curated/14-coach-portrait.jpg",
     description:
-      "Expanding to the Southeast's basketball capital. Atlanta is coming soon — bringing Super 6's championship tournament format to Georgia's youth basketball scene.",
+      "Expanding to the Southeast's basketball capital. Super 6 brings its championship format to Georgia in 2026.",
   },
 ];
 

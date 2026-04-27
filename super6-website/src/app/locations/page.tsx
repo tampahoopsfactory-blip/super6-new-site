@@ -14,33 +14,25 @@ export default function LocationsPage() {
   return (
     <>
       {/* Page Hero */}
-      <section className="relative bg-tm-black pt-32 pb-20">
-        <div
-          className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage: "url(/media/hero/hero-crowd.jpg)",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
+      <section className="page-hero">
+        <Image
+          src="/media/curated/16-packed-sideline.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
           aria-hidden="true"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 to-tm-black" />
-        <div className="tm-container relative">
-          <p
-            className="mb-4 text-xs font-medium tracking-widest uppercase text-white/60"
-
-          >
+        <div className="container-xl">
+          <p className="editorial-eyebrow" style={{ color: "var(--cream)", opacity: 0.85 }}>
             Where We Play
           </p>
-          <h1
-            className="mb-4 text-4xl font-semibold tracking-tight text-white md:text-6xl"
-
-          >
-            Our Locations
+          <h1>
+            Five cities. <em>One standard.</em>
           </h1>
-          <p className="max-w-xl text-base text-white/60 leading-relaxed">
+          <p>
             Championship-level youth basketball across Florida and Georgia.
-            Find the Super6 venue nearest you.
+            Find the venue closest to you.
           </p>
         </div>
       </section>

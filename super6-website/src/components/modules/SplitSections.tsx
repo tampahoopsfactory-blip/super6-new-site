@@ -1,27 +1,26 @@
 import Image from "next/image";
 import Link from "next/link";
 
-/* ─── Mission Split — 50/50 photo + text
-   Anthropic spacing × Nike photography. Full-bleed image,
-   generous padding on text side. Alternating layout. ─── */
+/* ─── Mission Split — 50/50 photo + editorial text
+   Alternating layout. Photo grade applied via CSS. */
 
 const sections = [
   {
     label: "Our Mission",
-    heading: "Bridging Education & Athletics",
+    heading: "Bridging education <em>and athletics.</em>",
     description:
-      "At Super 6, our mission is to bridge the education gap for underserved youth and prepare them for lasting success beyond the playing field. Through partnerships with top-tier institutions — including Ivy League universities, HBCUs, and leading colleges — we connect student-athletes with tutoring, test preparation, and college counseling services.",
-    cta: { label: "Learn More", href: "/about" },
-    image: "/media/gallery/G2_14_Large_Group_Team.jpg",
+      "Super 6 was founded on a simple idea: youth basketball can do more than crown weekend champions. Through partnerships with Ivy League universities, HBCUs, and leading colleges, we connect student-athletes to tutoring, test prep, and college counseling — the work that matters long after the trophy goes home.",
+    cta: { label: "Learn more", href: "/about" },
+    image: "/media/curated/11-team-montverde.jpg",
     imagePosition: "left" as const,
   },
   {
     label: "The Experience",
-    heading: "Championship Atmosphere",
+    heading: "A championship <em>atmosphere.</em>",
     description:
-      "From custom court branding and digital scorebooks to NFHS-certified referees and climate-controlled venues, every detail is designed to deliver a professional tournament experience. We bring a championship atmosphere to every weekend.",
-    cta: { label: "View Locations", href: "/locations" },
-    image: "/media/gallery/G1_11_Packed_Crowd.jpg",
+      "Custom court branding. Digital scorebooks. NFHS-certified referees. Climate-controlled venues. Every detail is engineered so that families and athletes feel the weight of the weekend — the moment the doors open.",
+    cta: { label: "View locations", href: "/locations" },
+    image: "/media/curated/05-crowd-eruption.jpg",
     imagePosition: "right" as const,
   },
 ];
@@ -31,8 +30,8 @@ export default function MissionSplit() {
     <>
       {sections.map((section) => (
         <section
-          key={section.heading}
-          aria-label={section.heading}
+          key={section.label}
+          aria-label={section.label}
           className={section.imagePosition === "right" ? "split-warm" : ""}
         >
           <div className="split">
@@ -42,9 +41,9 @@ export default function MissionSplit() {
             >
               <Image
                 src={section.image}
-                alt={section.heading}
+                alt={section.label}
                 fill
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 968px) 100vw, 50vw"
                 className="object-cover"
               />
             </div>
@@ -53,12 +52,15 @@ export default function MissionSplit() {
               style={{ order: section.imagePosition === "left" ? 1 : 0 }}
             >
               <p className="section-label">{section.label}</p>
-              <h2 className="section-heading">{section.heading}</h2>
-              <p className="section-desc" style={{ marginBottom: "32px" }}>
+              <h2
+                className="section-heading"
+                dangerouslySetInnerHTML={{ __html: section.heading }}
+              />
+              <p className="section-desc" style={{ marginBottom: 36 }}>
                 {section.description}
               </p>
               <div>
-                <Link href={section.cta.href} className="btn btn-black">
+                <Link href={section.cta.href} className="btn btn-ink">
                   {section.cta.label}
                 </Link>
               </div>

@@ -2,40 +2,74 @@
 
 import Image from "next/image";
 
-/* ─── Experience Section — Video + production story
-   Anthropic layout: generous grid, clean typography.
-   Left: video embed. Right: feature highlights. ─── */
+/* ─── Experience Section — Editorial story moment
+   Left: short feature list with serif sub-heads.
+   Right: full-bleed video with photo-grade. */
 
 const features = [
   {
     title: "NFHS-Certified Officials",
     description:
-      "Professional referees at every tournament ensure fair, competitive play at the highest standard.",
+      "Professional referees at every tournament. Fair, competitive play held to the highest standard in youth basketball.",
   },
   {
     title: "College Pipeline",
     description:
-      "Partnerships with Ivy League, HBCUs, and top colleges connect athletes to tutoring, test prep, and counseling.",
+      "Direct partnerships with Ivy League programs, HBCUs, and top-tier colleges connect athletes to tutoring, test prep, and counseling.",
   },
   {
-    title: "3-Game Guarantee",
+    title: "Three-Game Guarantee",
     description:
-      "Every team plays a minimum of three games per tournament — no early elimination, maximum court time.",
+      "Every team plays a minimum of three games per tournament. No early elimination, maximum court time.",
   },
 ];
 
 export default function ExperienceSection() {
   return (
-    <section className="section" style={{ background: "var(--surface)" }} aria-label="The Super 6 Experience">
+    <section className="section section-warm" aria-label="The Super 6 Experience">
       <div className="container-xl">
-        <div style={{ textAlign: "center", marginBottom: "64px" }}>
-          <p className="section-label">Why Super 6</p>
-          <h2 className="section-heading" style={{ margin: "0 auto" }}>
-            The Championship Experience
-          </h2>
-        </div>
-
         <div className="experience-grid">
+          {/* Text side */}
+          <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
+            <p className="section-label">Why Super 6</p>
+            <h2 className="section-heading">
+              Built for the moment <em>that matters.</em>
+            </h2>
+            <p className="section-desc" style={{ marginBottom: 48 }}>
+              Twelve years refining what a youth tournament should feel like. The
+              difference is in the details — the officiating, the access, the
+              guarantee that every athlete gets real minutes.
+            </p>
+            <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
+              {features.map((feature) => (
+                <div key={feature.title}>
+                  <h3
+                    style={{
+                      fontFamily: "var(--font-display)",
+                      fontSize: 24,
+                      fontWeight: 400,
+                      letterSpacing: "-0.018em",
+                      color: "var(--ink)",
+                      marginBottom: 8,
+                    }}
+                  >
+                    {feature.title}
+                  </h3>
+                  <p
+                    style={{
+                      fontSize: 16,
+                      color: "var(--slate)",
+                      lineHeight: 1.6,
+                      maxWidth: "52ch",
+                    }}
+                  >
+                    {feature.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
           {/* Video side */}
           <div className="experience-video">
             <video
@@ -48,51 +82,22 @@ export default function ExperienceSection() {
               <source src="/media/videos/hero-clip-4.mp4" type="video/mp4" />
             </video>
           </div>
-
-          {/* Features side */}
-          <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", gap: "32px" }}>
-            {features.map((feature) => (
-              <div key={feature.title}>
-                <h3 style={{
-                  fontSize: "18px",
-                  fontWeight: 500,
-                  color: "var(--white)",
-                  marginBottom: "8px",
-                  letterSpacing: "-0.01em",
-                }}>
-                  {feature.title}
-                </h3>
-                <p style={{
-                  fontSize: "15px",
-                  color: "var(--gray-700)",
-                  lineHeight: 1.6,
-                }}>
-                  {feature.description}
-                </p>
-              </div>
-            ))}
-          </div>
         </div>
 
         {/* Photo strip below */}
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
-          gap: "4px",
-          marginTop: "64px",
-        }}>
+        <div className="photo-strip" style={{ marginTop: 80 }}>
           {[
-            "/media/gallery/G1_04_Courtside_Coaching.jpg",
-            "/media/gallery/G2_05_Three_Staff_Celebration.jpg",
-            "/media/gallery/G1_06_Youth_Action_SHOWOUT.jpg",
-            "/media/gallery/G1_20_Halftime_Celebration.jpg",
+            "/media/curated/12-coach-intensity.jpg",
+            "/media/curated/06-super6-banner-bokeh.jpg",
+            "/media/curated/17-young-spectators.jpg",
+            "/media/curated/16-packed-sideline.jpg",
           ].map((src) => (
-            <div key={src} className="gallery-item" style={{ position: "relative", aspectRatio: "16/10", overflow: "hidden" }}>
+            <div key={src} className="photo-strip-item">
               <Image
                 src={src}
                 alt="Super 6 tournament moment"
                 fill
-                sizes="25vw"
+                sizes="(max-width: 768px) 50vw, 25vw"
                 className="object-cover"
               />
             </div>

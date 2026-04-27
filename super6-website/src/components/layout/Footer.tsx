@@ -41,18 +41,17 @@ export default function Footer() {
             <div className="footer-brand">
               <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
                 <Image
-                  src="/media/logos/logo-small-transparent.png"
+                  src="/media/logos/super6-mark.png"
                   alt="Super 6"
                   width={32}
                   height={32}
-                  className="object-contain"
-                  style={{ opacity: 0.8 }}
+                  style={{ width: "auto", height: 32, opacity: 0.92, filter: "brightness(1.05)" }}
                 />
                 <span className="footer-brand-name">Super 6</span>
               </div>
               <p className="footer-brand-desc">
                 Bridging the education gap for underserved youth through the power
-                of sports. Tournaments across Florida &amp; Georgia.
+                of sports. Tournaments across Florida & Georgia.
               </p>
               <div className="footer-social">
                 <a href={siteConfig.social.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
@@ -113,7 +112,7 @@ export default function Footer() {
               &copy; {currentYear} Super 6 Inc. All rights reserved.
             </p>
             <p className="footer-address">
-              {siteConfig.address} &bull; {siteConfig.phone}
+              {siteConfig.address} • {siteConfig.phone}
             </p>
           </div>
         </div>

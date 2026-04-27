@@ -54,33 +54,25 @@ export default function RegisterPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-tm-black pt-32 pb-16">
-        <div className="absolute inset-0">
-          <Image
-            src="/media/hero/hero-huddle.jpg"
-            alt="Team huddle at Super6 tournament"
-            fill
-            className="object-cover opacity-20"
-            priority
-          />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-tm-black" />
-        <div className="tm-container relative">
-          <p
-            className="mb-4 text-xs font-medium tracking-widest uppercase text-white/60"
-
-          >
+      <section className="page-hero">
+        <Image
+          src="/media/curated/10-trophy-team-banners.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          aria-hidden="true"
+        />
+        <div className="container-xl">
+          <p className="editorial-eyebrow" style={{ color: "var(--cream)", opacity: 0.85 }}>
             2026 Season
           </p>
-          <h1
-            className="mb-4 text-4xl font-semibold tracking-tight text-white md:text-6xl"
-
-          >
-            Register Your Team
+          <h1>
+            Register your <em>team.</em>
           </h1>
-          <p className="max-w-xl text-base text-white/60 leading-relaxed">
-            Secure your team&apos;s spot in the Southeast&apos;s most
-            competitive youth basketball tournament series.
+          <p>
+            Secure your spot in the Southeast&rsquo;s most competitive youth
+            basketball tournament series. Single weekend, full season, or club.
           </p>
         </div>
       </section>
@@ -464,7 +456,7 @@ export default function RegisterPage() {
                 href="/locations"
                 className="text-sm font-semibold text-tm-muted hover:text-white transition-colors"
               >
-                View Locations &rarr;
+                View Locations →
               </Link>
             </div>
           </div>

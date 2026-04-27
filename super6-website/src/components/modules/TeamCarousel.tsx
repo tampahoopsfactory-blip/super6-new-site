@@ -3,17 +3,23 @@ import Link from "next/link";
 import { locations } from "@/data/site";
 
 /* ─── Locations Grid — Cinematic city grid
-   Nike: full-bleed photography, bold city names, minimal chrome.
-   Asymmetric grid: 3 top, 2 bottom (one wider). ─── */
+   Editorial: section header on cream, then full-bleed city tiles below.
+   Asymmetric grid: 3 across top, then 1+2 wider on the second row. */
+
 export default function LocationsGrid() {
   return (
-    <section className="section" style={{ background: "var(--black)", padding: "0" }} aria-label="Locations">
-      <div style={{ padding: "var(--space-10) 0 0" }}>
-        <div className="container-xl" style={{ textAlign: "center", marginBottom: "48px" }}>
+    <section aria-label="Locations" style={{ background: "var(--cream)" }}>
+      <div style={{ padding: "var(--space-9) 0 var(--space-7)" }}>
+        <div className="container-xl">
           <p className="section-label">Our Markets</p>
-          <h2 className="section-heading">
-            Five Cities. One Standard.
+          <h2 className="section-heading" style={{ maxWidth: "20ch" }}>
+            Five cities. <em>One standard.</em>
           </h2>
+          <p className="section-desc" style={{ marginTop: 8 }}>
+            Each market gets the same level of officiating, branding, and
+            production — whether it’s a flagship Orlando weekend or a new
+            launch on the road.
+          </p>
         </div>
       </div>
 

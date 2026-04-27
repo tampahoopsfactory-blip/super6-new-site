@@ -32,41 +32,60 @@ export default async function LocationDetailPage({ params }: Props) {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-tm-black pt-28 pb-16">
-        <div className="absolute inset-0">
-          <Image
-            src={location.image}
-            alt={`Super6 ${location.city} venue`}
-            fill
-            className="object-cover opacity-30"
-            priority
-          />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-tm-black" />
-        <div className="tm-container relative">
+      <section className="page-hero">
+        <Image
+          src={location.image}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          aria-hidden="true"
+        />
+        <div className="container-xl">
           <Link
             href="/locations"
-            className="mb-6 inline-flex items-center gap-2 text-sm text-white/60 transition-colors hover:text-white"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 8,
+              fontSize: 13,
+              fontFamily: "var(--font-body)",
+              color: "rgba(244, 241, 234, 0.7)",
+              textDecoration: "none",
+              marginBottom: 24,
+              letterSpacing: 0.005,
+              transition: "color var(--dur-fast) var(--ease)",
+            }}
           >
-            <ArrowLeft size={16} />
+            <ArrowLeft size={14} />
             All Locations
           </Link>
 
           {location.comingSoon && (
-            <div className="mb-4 inline-block bg-s6-orange px-4 py-1.5 text-xs font-medium tracking-widest text-white uppercase">
+            <div
+              style={{
+                display: "inline-block",
+                marginBottom: 14,
+                padding: "5px 14px",
+                background: "var(--orange)",
+                color: "var(--white)",
+                fontFamily: "var(--font-body)",
+                fontSize: 11,
+                fontWeight: 600,
+                letterSpacing: "0.12em",
+                textTransform: "uppercase",
+                borderRadius: "var(--radius-pill)",
+              }}
+            >
               Coming Soon
             </div>
           )}
 
-          <h1
-            className="mb-4 text-4xl font-semibold tracking-tight text-white md:text-6xl"
-
-          >
-            {location.name}
-          </h1>
-          <p className="max-w-xl text-base text-white/60 leading-relaxed">
-            {location.description}
+          <p className="editorial-eyebrow" style={{ color: "var(--cream)", opacity: 0.85 }}>
+            {location.state === "GA" ? "Georgia" : "Florida"}
           </p>
+          <h1>{location.name}</h1>
+          <p>{location.description}</p>
         </div>
       </section>
 
