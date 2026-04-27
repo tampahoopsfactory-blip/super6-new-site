@@ -2,34 +2,100 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
 import { siteConfig, footerColumns } from "@/data/site";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [smsOptIn, setSmsOptIn] = useState(true);
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    // TODO: wire to backend (Mailchimp/Beehiiv for email, Twilio for SMS list).
+    // For now, just acknowledge — TK will hook up the destination later.
+    if (!email && !phone) return;
+    setSubmitted(true);
+  };
 
   return (
     <>
-      {/* Newsletter — Dark surface section */}
+      {/* Newsletter — email + SMS list */}
       <section className="footer-newsletter">
         <div className="container-xl">
           <h2 className="footer-newsletter-heading">Stay in the Game</h2>
           <p className="footer-newsletter-desc">
-            Tournament schedules, registration alerts, and updates delivered to your inbox.
+            Tournament schedules, registration alerts, and roster deadlines &mdash;
+            sent to your inbox and your phone.
           </p>
-          <form
-            className="footer-newsletter-form"
-            onSubmit={(e) => e.preventDefault()}
-          >
-            <input
-              type="email"
-              className="footer-newsletter-input"
-              placeholder="Enter your email"
-              aria-label="Email for newsletter"
-            />
-            <button type="submit" className="btn btn-black" style={{ flexShrink: 0 }}>
-              Subscribe
-            </button>
-          </form>
+
+          {submitted ? (
+            <div className="footer-newsletter-success" role="status">
+              <p
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: 22,
+                  color: "var(--orange)",
+                  marginBottom: 6,
+                }}
+              >
+                You&rsquo;re in.
+              </p>
+              <p style={{ fontSize: 14, color: "var(--slate)" }}>
+                We&rsquo;ll send your first update before the next tip-off.
+              </p>
+            </div>
+          ) : (
+            <form
+              className="footer-newsletter-form"
+              onSubmit={handleSubscribe}
+              noValidate
+            >
+              <input
+                type="email"
+                className="footer-newsletter-input"
+                placeholder="Email address"
+                aria-label="Email address"
+                autoComplete="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <input
+                type="tel"
+                className="footer-newsletter-input"
+                placeholder="Phone (for SMS alerts)"
+                aria-label="Phone number for SMS alerts"
+                autoComplete="tel"
+                inputMode="tel"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+              />
+
+              <label className="footer-newsletter-consent">
+                <input
+                  type="checkbox"
+                  checked={smsOptIn}
+                  onChange={(e) => setSmsOptIn(e.target.checked)}
+                  aria-describedby="sms-consent-text"
+                />
+                <span id="sms-consent-text">
+                  Yes &mdash; send me SMS updates from Super 6 about tournament
+                  schedules, registration, and roster deadlines. Message and data
+                  rates may apply. Reply STOP to opt out at any time.
+                </span>
+              </label>
+
+              <button
+                type="submit"
+                className="btn btn-orange footer-newsletter-submit"
+                disabled={!email && !phone}
+              >
+                Subscribe
+              </button>
+            </form>
+          )}
         </div>
       </section>
 
