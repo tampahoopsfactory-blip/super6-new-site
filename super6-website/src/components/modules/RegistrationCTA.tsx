@@ -2,7 +2,7 @@ import Link from "next/link";
 import { registrationTiers } from "@/data/site";
 
 /* ─── Pricing — Editorial registration tiers
-   Three cream cards on paper background, single featured.
+   Two cream cards on paper background, season pass featured.
    Serif prices, hairline dividers between features. */
 
 export default function PricingSection() {
@@ -16,7 +16,8 @@ export default function PricingSection() {
           </h2>
           <p className="section-desc" style={{ textAlign: "center" }}>
             Boys 12th–3rd grade and Girls 12th–6th grade across three
-            divisions. One tournament, a full season, or a club package.
+            divisions. One tournament or the full 10-event season — same
+            elite experience either way.
           </p>
         </div>
 
@@ -36,7 +37,7 @@ export default function PricingSection() {
                 ))}
               </ul>
               <Link
-                href={tier.id === "club-package" ? "/contact" : "/register"}
+                href="/register"
                 className={`btn ${tier.popular ? "btn-orange" : "btn-outline"}`}
                 style={{ width: "100%" }}
               >

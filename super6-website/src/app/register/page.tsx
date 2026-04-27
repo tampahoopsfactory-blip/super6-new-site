@@ -37,10 +37,6 @@ export default function RegisterPage() {
   });
 
   const handleTierSelect = (tierId: string) => {
-    if (tierId === "club-package") {
-      window.location.href = "/contact";
-      return;
-    }
     setSelectedTier(tierId);
     setFormData({ ...formData, tier: tierId });
     setStep("form");
@@ -73,7 +69,8 @@ export default function RegisterPage() {
           </h1>
           <p>
             Secure your spot in the Southeast&rsquo;s most competitive youth
-            basketball tournament series. Single weekend, full season, or club.
+            basketball tournament series. Single weekend or full 10-event
+            season — same elite experience either way.
           </p>
         </div>
       </section>
@@ -137,7 +134,7 @@ export default function RegisterPage() {
                 </p>
               </div>
 
-              <div className="grid gap-8 md:grid-cols-3">
+              <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-2">
                 {registrationTiers.map((tier) => (
                   <div
                     key={tier.id}

@@ -124,6 +124,18 @@ export const heroData = {
 
 
 /* ─── Registration tiers ─── */
+const sharedFeatures = [
+  "3 guaranteed games per event",
+  "Professional referees (NFHS certified)",
+  "Digital scorebook",
+  "Priority bracket seeding",
+  "Guaranteed championship bracket entry",
+  "Team profile on Super 6 website",
+  "Team profile on Super 6 app",
+  "Early access to schedule",
+  "Championship atmosphere",
+];
+
 export const registrationTiers = [
   {
     id: "single-tournament",
@@ -131,48 +143,19 @@ export const registrationTiers = [
     price: 99,
     priceLabel: "$99",
     period: "per team / per event",
-    features: [
-      "3 guaranteed games minimum",
-      "Professional referees (NFHS certified)",
-      "Digital scorebook",
-      "Championship atmosphere",
-    ],
+    features: sharedFeatures,
     cta: "Register Now",
     popular: false,
   },
   {
     id: "season-pass",
-    name: "Season Pass",
-    price: 350,
-    priceLabel: "$350",
-    period: "per team / full season",
-    features: [
-      "All regular-season tournaments included",
-      "Priority bracket seeding",
-      "Guaranteed championship bracket entry",
-      "Team profile on Super 6 website",
-      "Team profile on Super 6 app",
-      "Early access to schedule",
-    ],
-    cta: "Get Season Pass",
+    name: "Season Package",
+    price: 899,
+    priceLabel: "$899",
+    period: "per team / 10 events",
+    features: sharedFeatures,
+    cta: "Get Season Package",
     popular: true,
-  },
-  {
-    id: "club-package",
-    name: "Club Package",
-    price: 1200,
-    priceLabel: "$1,200",
-    period: "up to 4 teams / full season",
-    features: [
-      "Everything in Season Pass for up to 4 teams",
-      "Dedicated club coordinator",
-      "Club branding on court signage",
-      "Priority court scheduling",
-      "Annual club showcase event",
-      "Volume discount on additional teams",
-    ],
-    cta: "Contact Us",
-    popular: false,
   },
 ];
 
@@ -187,8 +170,7 @@ export const footerColumns = {
   ],
   offerings: [
     { label: "Tournaments", href: "/register" },
-    { label: "Season Pass", href: "/register" },
-    { label: "Club Packages", href: "/register" },
+    { label: "Season Package", href: "/register" },
     { label: "College Corner", href: "/about" },
     { label: "College Pipeline", href: "/about" },
     { label: "Hiring Referees", href: "/contact" },

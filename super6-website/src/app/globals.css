@@ -724,8 +724,9 @@ img, video { display: block; max-width: 100%; height: auto; }
    ════════════════════════════════════════════ */
 .pricing-grid {
   display: grid; grid-template-columns: 1fr; gap: 20px; align-items: stretch;
+  max-width: 880px; margin-left: auto; margin-right: auto;
 }
-@media (min-width: 768px) { .pricing-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 768px) { .pricing-grid { grid-template-columns: repeat(2, 1fr); } }
 
 .pricing-card {
   background: var(--paper);
