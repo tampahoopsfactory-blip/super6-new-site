@@ -58,11 +58,13 @@
   --dur-base:  420ms;
   --dur-slow:  720ms;
 
-  /* ── Photo grade — minimal art-direction tint that lets the
-        underlying image punch through. Boosted contrast + saturation,
-        very slight warmth via near-neutral values. ── */
-  --photo-grade:   contrast(1.05) saturate(1.04) brightness(1.00);
-  --photo-grade-h: contrast(1.07) saturate(1.08) brightness(1.02);
+  /* ── Photo grade — unified editorial color treatment applied to
+        every photograph on the site so they read as one art-directed
+        set, regardless of original camera/lighting/year shot.
+        Warm sepia cast + boosted contrast + slight saturation lift.
+        Same look on every image = "same photographer" feel. ── */
+  --photo-grade:   contrast(1.10) saturate(1.06) brightness(0.99) sepia(0.06);
+  --photo-grade-h: contrast(1.12) saturate(1.10) brightness(1.01) sepia(0.04);
 }
 
 /* ── Tailwind v4 inline theme (so Tailwind utilities know our tokens) ── */
@@ -357,13 +359,13 @@ img, video { display: block; max-width: 100%; height: auto; }
   inset: 0;
   width: 100%; height: 100%;
   object-fit: cover;
-  filter: brightness(1.00) contrast(1.04) saturate(0.98);
+  filter: var(--photo-grade);
   animation: ken-burns 28s var(--ease-soft) infinite alternate;
   will-change: transform;
 }
-/* Next/Image renders <span><img /></span>; ensure inner img inherits */
+/* Next/Image renders <span><img /></span>; ensure inner img inherits the unified grade */
 .editorial-hero-media img {
-  filter: brightness(1.00) contrast(1.04) saturate(0.98);
+  filter: var(--photo-grade);
 }
 .editorial-hero::before {
   content: "";
@@ -1235,7 +1237,7 @@ img, video { display: block; max-width: 100%; height: auto; }
   width: 100%; height: 100%;
   object-fit: cover;
   opacity: 0.55;
-  filter: brightness(0.85) contrast(1.05) saturate(0.85);
+  filter: var(--photo-grade);
 }
 .page-hero .container-xl { position: relative; z-index: 2; }
 .page-hero h1 {
@@ -1305,7 +1307,7 @@ img, video { display: block; max-width: 100%; height: auto; }
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   object-fit: cover;
-  filter: brightness(0.78) contrast(1.05) saturate(0.85);
+  filter: var(--photo-grade);
 }
 .hero-overlay {
   position: absolute; inset: 0;

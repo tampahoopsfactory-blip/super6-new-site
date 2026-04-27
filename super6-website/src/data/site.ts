@@ -75,7 +75,7 @@ export const locations: Location[] = [
     city: "Clearwater",
     state: "FL",
     comingSoon: false,
-    image: "/media/curated/23-female-athlete.jpg",
+    image: "/media/curated/26-bench-camaraderie.jpg",
     description:
       "Elite youth basketball on the Tampa Bay coast. Family-friendly weekends with top regional talent.",
   },

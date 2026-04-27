@@ -11,7 +11,7 @@ const sections = [
     description:
       "Super 6 was founded on a simple idea: youth basketball can do more than crown weekend champions. Through partnerships with Ivy League universities, HBCUs, and leading colleges, we connect student-athletes to tutoring, test prep, and college counseling — the work that matters long after the trophy goes home.",
     cta: { label: "Learn more", href: "/about" },
-    image: "/media/curated/26-bench-camaraderie.jpg",
+    image: "/media/curated/13-team-king-crown.jpg",
     imagePosition: "left" as const,
   },
   {

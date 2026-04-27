@@ -21,8 +21,8 @@ const divisions = [
     headline: "Girls, <em>12th–6th grade.</em>",
     description:
       "Three levels of competitive play with the same officiating standard, the same production, and the same college-pipeline introductions as the boys' bracket. Every weekend.",
-    image: "/media/curated/13-team-king-crown.jpg",
-    objectPosition: "center 30%",
+    image: "/media/curated/23-female-athlete.jpg",
+    objectPosition: "center center",
     imagePosition: "right" as const,
     href: "/register",
   },
