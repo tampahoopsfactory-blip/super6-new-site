@@ -1,7 +1,5 @@
 "use client";
 
-import Image from "next/image";
-
 /* ─── Experience Section — Editorial story moment
    Left: short feature list with serif sub-heads.
    Right: full-bleed video with photo-grade. */
@@ -84,26 +82,6 @@ export default function ExperienceSection() {
           </div>
         </div>
 
-        {/* Photo strip below */}
-        <div className="photo-strip" style={{ marginTop: 80 }}>
-          {[
-            "/media/curated/12-coach-intensity.jpg",
-            "/media/curated/06-super6-banner-bokeh.jpg",
-            "/media/curated/17-young-spectators.jpg",
-            "/media/curated/16-packed-sideline.jpg",
-          ].map((src) => (
-            <div key={src} className="photo-strip-item">
-              <Image
-                src={src}
-                alt="Super 6 tournament moment"
-                fill
-                sizes="(max-width: 768px) 50vw, 25vw"
-                className="object-cover"
-                quality={88}
-              />
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );

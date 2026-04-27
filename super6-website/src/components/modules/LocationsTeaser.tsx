@@ -9,7 +9,7 @@ const divisions = [
   {
     label: "Boys Division",
     subtitle: "12th–3rd Grade · Elite, Competitive, Developmental",
-    image: "/media/curated/04-defensive-stance.jpg",
+    image: "/media/curated/02-rebound-contest.jpg",
     href: "/register",
   },
   {
