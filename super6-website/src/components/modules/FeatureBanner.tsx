@@ -9,7 +9,7 @@ export default function PhotoGallery() {
   return (
     <section
       aria-label="Editorial moment"
-      style={{ background: "var(--cream)", padding: 0 }}
+      style={{ background: "var(--cream)", padding: "96px 0" }}
     >
       <div
         style={{
