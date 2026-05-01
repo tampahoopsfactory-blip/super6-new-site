@@ -34,7 +34,7 @@ export default function RulesPage() {
         />
         <div className="container-xl">
           <p className="editorial-eyebrow" style={{ color: "var(--cream)", opacity: 0.85 }}>
-            Tournament Rules
+            #1 Tournament Organization in Florida · Tournament Rules
           </p>
           <h1>
             Played by the <em>book.</em>
@@ -244,7 +244,7 @@ export default function RulesPage() {
               />
               <RuleBlock
                 title="Mercy Rule"
-                body="If the score margin reaches a set threshold, the game clock will run continuously. When the margin closes back to within 10 points, the clock returns to standard stoppage rules."
+                body="If the score difference reaches 20 points, the game clock runs continuously. If the difference closes back to 10 points, the clock stops again per standard rules."
               />
               <RuleBlock
                 title="Overtime — First Period"
