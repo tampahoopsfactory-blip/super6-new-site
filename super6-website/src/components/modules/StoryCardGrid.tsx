@@ -73,8 +73,8 @@ export default function ExperienceSection() {
           {/* Photo side */}
           <div className="experience-video">
             <Image
-              src="/media/uploads/experience-thunder-boxout.jpg"
-              alt="Super 6 Series tournament — Thunder players boxing out under the rim, scoreboard and Super 6 banner visible"
+              src="/media/uploads/elite-referees.jpg"
+              alt="Two NFHS-certified Super 6 Series referees holding the game ball at a tournament"
               fill
               sizes="(max-width: 968px) 100vw, 45vw"
               quality={92}

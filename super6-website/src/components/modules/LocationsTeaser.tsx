@@ -31,7 +31,7 @@ const divisions = [
     headline: "Elite. <em>Scout-visible.</em>",
     description:
       "Top-tier weekends where the best teams in the Southeast play in front of college coaches and recruiters. Limited spots, invite-priority, scout-credentialed.",
-    image: "/media/uploads/elite-referees.jpg",
+    image: "/media/uploads/experience-thunder-boxout.jpg",
     objectPosition: "center center",
     imagePosition: "left" as const,
     href: "/register",
