@@ -13,11 +13,6 @@ const programs = [
     body: "College counseling, SAT/ACT prep, all-subject tutoring, career-development workshops, internships, and networking — through partnerships with Ivy League, HBCU, and traditional colleges.",
   },
   {
-    name: "SportsSpace by Super6",
-    status: "Expanding",
-    body: "Multi-court indoor sports facilities. Self-funded 2.5-court proof-of-concept already operating. Phase 2: 20 basketball / 40 volleyball courts, 120,000 sqft per site.",
-  },
-  {
     name: "Super6 TV",
     status: "Active · HBCU League Pass",
     body: "Live event streaming, game recordings, commentary, and pre/post-game interviews. Carried on HBCU League Pass. Building toward the ESPN of youth sports.",
@@ -26,11 +21,6 @@ const programs = [
     name: "Athletic Training",
     status: "Active",
     body: "Skills development, strength & conditioning, power, speed, and jump training — open to athletes ages 3–8 and developmental-skill youth often shut out of club sports.",
-  },
-  {
-    name: "Government Referee Services",
-    status: "Federal Contract",
-    body: "Referee services delivered to Patrick Space Force Base under federal contract FA252121A0003 ($110,010, 2022–2023). Federal-grade officiating standard.",
   },
 ];
 
