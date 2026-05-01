@@ -9,7 +9,7 @@ const sections = [
     label: "Our Mission",
     heading: "Bridging education <em>and athletics.</em>",
     description:
-      "Super 6 was founded on a simple idea: youth basketball can do more than crown weekend champions. Through partnerships with Ivy League universities, HBCUs, and leading colleges, we connect student-athletes to tutoring, test prep, and college counseling — the work that matters long after the trophy goes home.",
+      "Super 6 was founded in 2014 to bridge the education gap for underserved and developmental-skill youth — through programs that stress the importance of high-academic education to prepare kids for life well after sports. We reach our students through sport. Through partnerships with Ivy League, HBCU, and traditional colleges, we provide the most relevant tutoring, SAT/ACT prep, and academic college counseling.",
     cta: { label: "Learn more", href: "/about" },
     image: "/media/uploads/mission-team.jpg",
     imagePosition: "left" as const,

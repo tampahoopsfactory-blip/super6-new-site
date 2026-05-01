@@ -3,6 +3,10 @@ import ImpactStrip from "@/components/modules/ServiceGrid";
 import MissionSplit from "@/components/modules/SplitSections";
 import PhotoGallery from "@/components/modules/FeatureBanner";
 import ExperienceSection from "@/components/modules/StoryCardGrid";
+import AdvantagesSection from "@/components/modules/AdvantagesSection";
+import ProgramsSection from "@/components/modules/ProgramsSection";
+import AlumniSection from "@/components/modules/AlumniSection";
+import TestimonialsSection from "@/components/modules/TestimonialsSection";
 import DivisionCards from "@/components/modules/LocationsTeaser";
 import PricingSection from "@/components/modules/RegistrationCTA";
 import LocationsGrid from "@/components/modules/TeamCarousel";
@@ -21,10 +25,14 @@ export default function HomePage() {
       <HeroSection />
       <FadeIn><ImpactStrip /></FadeIn>
       <FadeIn><MissionSplit /></FadeIn>
+      <FadeIn><AdvantagesSection /></FadeIn>
       <FadeIn><PhotoGallery /></FadeIn>
       <FadeIn><ExperienceSection /></FadeIn>
+      <FadeIn><ProgramsSection /></FadeIn>
+      <FadeIn><AlumniSection /></FadeIn>
       <FadeIn><DivisionCards /></FadeIn>
       <FadeIn><PricingSection /></FadeIn>
+      <FadeIn><TestimonialsSection /></FadeIn>
       <FadeIn><LocationsGrid /></FadeIn>
       <FadeIn><CtaSection /></FadeIn>
     </>

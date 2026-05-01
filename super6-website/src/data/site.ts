@@ -5,7 +5,7 @@ export const siteConfig = {
     "At Super 6, our mission is to bridge the education gap for underserved youth and prepare them for lasting success beyond the playing field. We deliver programs that build a strong academic foundation through the power of sports.",
   url: "https://www.thesuper6.com",
   phone: "813-563-9767",
-  email: "info@thesuper6.com",
+  email: "tk@thesuper6.com",
   address: "924 N Magnolia Avenue Suite 202-1151, Orlando, FL 32803",
   social: {
     instagram: "https://www.instagram.com/super6florida/",

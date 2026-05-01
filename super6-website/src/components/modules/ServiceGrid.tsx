@@ -3,10 +3,10 @@
    Anthropic editorial × Players' Tribune masthead. */
 
 const stats = [
-  { number: "12", suffix: "+", label: "Years Running" },
-  { number: "400", suffix: "+", label: "Tournaments Hosted" },
-  { number: "1,000", suffix: "+", label: "Teams Served" },
-  { number: "5", suffix: "", label: "Cities, Two States" },
+  { number: "24K", suffix: "", label: "Athletes Served Annually" },
+  { number: "125K", suffix: "", label: "Annual Event Attendees" },
+  { number: "2,000", suffix: "+", label: "Annual Teams" },
+  { number: "300", suffix: "+", label: "Annual Clubs" },
 ];
 
 export default function ImpactStrip() {

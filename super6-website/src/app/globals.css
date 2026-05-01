@@ -1522,3 +1522,198 @@ img, video { display: block; max-width: 100%; height: auto; }
 .mosaic-content { position: relative; z-index: 2; display: flex; align-items: flex-end; justify-content: center; height: 100%; padding: 0 24px 80px; }
 .mosaic-text { display: flex; flex-direction: column; align-items: center; max-width: 800px; }
 .mosaic-actions { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+
+/* ════════════════════════════════════════════
+   Advantages section — milestone stats & competitive edge.
+   Dark editorial card grid on cream-warm.
+   ════════════════════════════════════════════ */
+.advantages-section {
+  padding: 96px 24px;
+  background: var(--ink);
+  color: var(--cream);
+}
+@media (min-width: 768px) { .advantages-section { padding: 120px 56px; } }
+.advantages-section .section-heading { color: var(--cream); }
+.advantages-section .section-desc { color: rgba(244,241,234,0.78); }
+.advantages-intro { text-align: center; max-width: 720px; margin: 0 auto 64px; }
+.advantages-intro .section-desc { margin: 0 auto; }
+.advantages-grid {
+  display: grid; grid-template-columns: 1fr; gap: 28px;
+}
+@media (min-width: 768px) { .advantages-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; } }
+@media (min-width: 1180px) { .advantages-grid { grid-template-columns: repeat(3, 1fr); } }
+.advantage-card {
+  background: rgba(244,241,234,0.04);
+  border: 1px solid rgba(244,241,234,0.10);
+  border-radius: var(--radius-lg);
+  padding: 36px 32px;
+  transition: background var(--dur-base) var(--ease), border-color var(--dur-base) var(--ease), transform var(--dur-base) var(--ease);
+}
+.advantage-card:hover { background: rgba(244,241,234,0.07); border-color: rgba(243,84,34,0.4); transform: translateY(-3px); }
+.advantage-eyebrow {
+  font-family: var(--font-body);
+  font-size: 11px; font-weight: 600; letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin: 0 0 14px;
+}
+.advantage-headline {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 2.6vw, 36px);
+  font-weight: 400; letter-spacing: -0.022em; line-height: 1.05;
+  color: var(--cream);
+  margin: 0 0 16px;
+}
+.advantage-body {
+  font-family: var(--font-body);
+  font-size: 15px; line-height: 1.65;
+  color: rgba(244,241,234,0.82);
+  margin: 0;
+}
+
+/* ════════════════════════════════════════════
+   Programs section — six service-line cards.
+   ════════════════════════════════════════════ */
+.programs-section { padding: 96px 24px; }
+@media (min-width: 768px) { .programs-section { padding: 120px 56px; } }
+.programs-intro { text-align: center; max-width: 720px; margin: 0 auto 64px; }
+.programs-intro .section-desc { margin: 0 auto; }
+.programs-grid {
+  display: grid; grid-template-columns: 1fr; gap: 24px;
+}
+@media (min-width: 768px) { .programs-grid { grid-template-columns: repeat(2, 1fr); gap: 28px; } }
+@media (min-width: 1180px) { .programs-grid { grid-template-columns: repeat(3, 1fr); } }
+.program-card {
+  background: var(--paper);
+  border: 1px solid var(--hairline-soft);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  transition: border-color var(--dur-base) var(--ease), transform var(--dur-base) var(--ease), box-shadow var(--dur-base) var(--ease);
+}
+.program-card:hover { border-color: var(--orange); transform: translateY(-3px); box-shadow: 0 18px 44px rgba(14,13,11,0.10); }
+.program-card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
+.program-name {
+  font-family: var(--font-display);
+  font-size: 22px; font-weight: 400; letter-spacing: -0.018em; line-height: 1.15;
+  color: var(--ink); margin: 0;
+}
+.program-status {
+  font-family: var(--font-body);
+  font-size: 10px; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--orange);
+  white-space: nowrap; padding-top: 4px;
+}
+.program-body {
+  font-family: var(--font-body);
+  font-size: 15px; line-height: 1.65; color: var(--slate);
+  margin: 0;
+}
+
+/* ════════════════════════════════════════════
+   Alumni section — featured stories + college list.
+   ════════════════════════════════════════════ */
+.alumni-section { padding: 96px 24px; }
+@media (min-width: 768px) { .alumni-section { padding: 120px 56px; } }
+.alumni-intro { text-align: center; max-width: 720px; margin: 0 auto 64px; }
+.alumni-intro .section-desc { margin: 0 auto; }
+.alumni-grid {
+  display: grid; grid-template-columns: 1fr; gap: 24px;
+  margin-bottom: 64px;
+}
+@media (min-width: 968px) { .alumni-grid { grid-template-columns: repeat(3, 1fr); gap: 32px; } }
+.alumni-card {
+  background: var(--paper);
+  border: 1px solid var(--hairline-soft);
+  border-radius: var(--radius-lg);
+  padding: 36px 32px;
+  border-top: 4px solid var(--orange);
+}
+.alumni-college {
+  font-family: var(--font-body);
+  font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--orange);
+  margin: 0 0 12px;
+}
+.alumni-name {
+  font-family: var(--font-display);
+  font-size: 26px; font-weight: 400; letter-spacing: -0.022em; line-height: 1.1;
+  color: var(--ink); margin: 0 0 16px;
+}
+.alumni-body {
+  font-family: var(--font-body);
+  font-size: 15px; line-height: 1.65; color: var(--slate);
+  margin: 0;
+}
+.alumni-college-list {
+  text-align: center;
+  border-top: 1px solid var(--hairline-soft);
+  padding-top: 48px;
+}
+.alumni-college-list-label {
+  font-family: var(--font-body);
+  font-size: 11px; font-weight: 600; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--slate);
+  margin: 0 0 24px;
+}
+.alumni-college-list ul {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 0;
+}
+.alumni-college-list li {
+  font-family: var(--font-display);
+  font-size: clamp(16px, 1.7vw, 22px); font-weight: 400;
+  letter-spacing: -0.012em;
+  color: var(--ink);
+  padding: 6px 18px;
+  position: relative;
+}
+.alumni-college-list li:not(:last-child)::after {
+  content: "·"; position: absolute; right: -3px; color: var(--orange); font-weight: 600;
+}
+
+/* ════════════════════════════════════════════
+   Testimonials — pull quotes in card grid.
+   ════════════════════════════════════════════ */
+.testimonials-section { padding: 96px 24px; }
+@media (min-width: 768px) { .testimonials-section { padding: 120px 56px; } }
+.testimonials-intro { text-align: center; max-width: 720px; margin: 0 auto 64px; }
+.testimonials-grid {
+  display: grid; grid-template-columns: 1fr; gap: 24px;
+}
+@media (min-width: 768px) { .testimonials-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; } }
+.testimonial-card {
+  background: var(--paper);
+  border: 1px solid var(--hairline-soft);
+  border-radius: var(--radius-lg);
+  padding: 36px 32px;
+  margin: 0;
+  position: relative;
+}
+.testimonial-card::before {
+  content: "\201C";
+  font-family: var(--font-display);
+  font-size: 64px; line-height: 1; color: var(--orange);
+  position: absolute; top: 14px; left: 24px;
+  opacity: 0.35;
+}
+.testimonial-quote {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 1.7vw, 22px); font-weight: 400;
+  letter-spacing: -0.012em; line-height: 1.45;
+  color: var(--ink); margin: 14px 0 24px;
+  font-style: italic;
+}
+.testimonial-attribution {
+  display: flex; flex-direction: column; gap: 2px;
+  border-top: 1px solid var(--hairline-soft);
+  padding-top: 18px;
+}
+.testimonial-name {
+  font-family: var(--font-body);
+  font-size: 15px; font-weight: 600; color: var(--ink);
+}
+.testimonial-role {
+  font-family: var(--font-body);
+  font-size: 13px; color: var(--slate);
+}
