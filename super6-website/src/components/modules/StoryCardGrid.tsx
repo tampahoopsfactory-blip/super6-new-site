@@ -1,8 +1,10 @@
 "use client";
 
+import Image from "next/image";
+
 /* ─── Experience Section — Editorial story moment
    Left: short feature list with serif sub-heads.
-   Right: full-bleed video with photo-grade. */
+   Right: full-bleed photo with photo-grade. */
 
 const features = [
   {
@@ -68,17 +70,16 @@ export default function ExperienceSection() {
             </div>
           </div>
 
-          {/* Video side */}
+          {/* Photo side */}
           <div className="experience-video">
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              poster="/media/videos/hero-clip-4-poster.jpg"
-            >
-              <source src="/media/videos/hero-clip-4.mp4" type="video/mp4" />
-            </video>
+            <Image
+              src="/media/uploads/experience-thunder-boxout.jpg"
+              alt="Super 6 Series tournament — Thunder players boxing out under the rim, scoreboard and Super 6 banner visible"
+              fill
+              sizes="(max-width: 968px) 100vw, 45vw"
+              quality={92}
+              style={{ objectFit: "cover" }}
+            />
           </div>
         </div>
 

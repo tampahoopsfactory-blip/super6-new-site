@@ -1071,12 +1071,14 @@ img, video { display: block; max-width: 100%; height: auto; }
 @media (min-width: 968px) { .experience-grid { grid-template-columns: 1.1fr 0.9fr; gap: 80px; } }
 .experience-video {
   position: relative;
-  aspect-ratio: 16/10;
+  aspect-ratio: 3/2;
   overflow: hidden;
   border-radius: var(--radius-lg);
   background: var(--cream-warm);
+  min-height: 420px;
 }
-.experience-video video {
+.experience-video video,
+.experience-video img {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   object-fit: cover;
