@@ -247,7 +247,7 @@ img, video { display: block; max-width: 100%; height: auto; }
 }
 
 .nav-links { display: none; align-items: center; gap: 0; list-style: none; }
-@media (min-width: 1024px) { .nav-links { display: flex; } }
+@media (min-width: 1024px) { .nav-links { display: flex; margin-left: auto; margin-right: 18px; } }
 .nav-links a {
   display: inline-flex; align-items: center;
   padding: 0 18px; height: var(--nav-height);
