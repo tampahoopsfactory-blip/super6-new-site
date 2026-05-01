@@ -22,12 +22,12 @@ export default function PhotoGallery() {
         }}
       >
         <Image
-          src="/media/uploads/celtics-super6.jpg"
-          alt="Super 6 Series tournament — Celtics player driving past defender with Super 6 banner in background"
+          src="/media/uploads/hero-dunk.jpg"
+          alt="Super 6 player throwing down a dunk during tournament play at Lions Athletics arena"
           fill
           quality={92}
           sizes="100vw"
-          style={{ objectFit: "cover", objectPosition: "center center" }}
+          style={{ objectFit: "cover", objectPosition: "center 35%" }}
         />
       </div>
     </section>
