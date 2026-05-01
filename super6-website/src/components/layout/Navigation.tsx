@@ -51,18 +51,6 @@ export default function Navigation() {
 
       {/* Main navigation */}
       <nav className={`nav-main ${pathname === "/" && !scrolled ? "nav-main--transparent" : ""} ${scrolled ? "nav-main--scrolled" : ""}`} role="navigation" aria-label="Main">
-        <Link href="/" className="nav-logo">
-          <Image
-            src="/media/logos/super6-mark.png"
-            alt="Super 6"
-            width={32}
-            height={32}
-            className="nav-logo-img"
-            style={{ height: 30, width: "auto" }}
-          />
-          <span className="nav-logo-text">Super 6</span>
-        </Link>
-
         <ul className="nav-links">
           {navLinks.map((link) => (
             <li key={link.href + link.label}>
