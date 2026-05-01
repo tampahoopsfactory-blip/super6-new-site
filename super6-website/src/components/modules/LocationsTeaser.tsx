@@ -11,7 +11,7 @@ const divisions = [
     headline: "Boys, <em>12th–3rd grade.</em>",
     description:
       "Three levels of play — Elite, Competitive, and Developmental — at every Super 6 weekend. NFHS officials, custom court branding, college-pipeline access for top-tier teams.",
-    image: "/media/uploads/boys-division-defense.jpg",
+    image: "/media/uploads/boys-division-drive.jpg",
     objectPosition: "center center",
     imagePosition: "left" as const,
     href: "/register",
