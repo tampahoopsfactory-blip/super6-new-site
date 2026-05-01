@@ -5,7 +5,7 @@ const programs = [
   {
     name: "Athletic Event Operations",
     status: "Core · Active",
-    body: "Weekly sold-out youth basketball tournaments. Most affordable in Florida — $79 per team. NFHS-certified officials. Media coverage. Best-in-class production.",
+    body: "Weekly sold-out youth basketball tournaments. Most affordable in Florida — $99 per team. NFHS-certified officials. Media coverage. Best-in-class production.",
   },
   {
     name: "BooksFirst Academic Program",

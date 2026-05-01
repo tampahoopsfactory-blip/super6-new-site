@@ -16,7 +16,7 @@ const testimonials = [
   },
   {
     quote:
-      "The quality of Super 6's $79 tournaments is just the same as significantly more expensive tournaments. To only pay $79 per tournament and enjoy the beaches of Florida and the amusement parks — you cannot beat that deal.",
+      "The quality of Super 6's tournaments is just the same as significantly more expensive ones. Pay one fair price, enjoy the beaches of Florida and the amusement parks — you cannot beat that deal.",
     name: "James Kuan",
     role: "Acaciawood Basketball, California",
   },

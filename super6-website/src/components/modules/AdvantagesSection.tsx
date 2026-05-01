@@ -5,8 +5,8 @@
 const advantages = [
   {
     eyebrow: "Cost",
-    headline: "$79 vs. $375.",
-    body: "We run the lowest-cost youth basketball tournaments in Florida — $79 per team, when the industry standard is $375 or more. Same officiating standard. Same production. Better access.",
+    headline: "$99 vs. $375.",
+    body: "We run the lowest-cost youth basketball tournaments in Florida — $99 per team, when the industry standard is $375 or more. Same officiating standard. Same production. Better access.",
   },
   {
     eyebrow: "Federal Contract",
