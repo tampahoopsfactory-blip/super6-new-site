@@ -17,11 +17,6 @@ const programs = [
     status: "Active · HBCU League Pass",
     body: "Live event streaming, game recordings, commentary, and pre/post-game interviews. Carried on HBCU League Pass. Building toward the ESPN of youth sports.",
   },
-  {
-    name: "Athletic Training",
-    status: "Active",
-    body: "Skills development, strength & conditioning, power, speed, and jump training — open to athletes ages 3–8 and developmental-skill youth often shut out of club sports.",
-  },
 ];
 
 export default function ProgramsSection() {
