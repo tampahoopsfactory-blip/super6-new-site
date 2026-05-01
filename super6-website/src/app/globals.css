@@ -372,8 +372,13 @@ img, video { display: block; max-width: 100%; height: auto; }
   position: absolute; inset: 0;
   z-index: 1;
   background:
-    /* primary scrim — full bottom band for centered headline */
-    linear-gradient(180deg, rgba(14,13,11,0) 35%, rgba(14,13,11,0.15) 50%, rgba(14,13,11,0.55) 75%, rgba(14,13,11,0.85) 100%),
+    /* primary scrim — anchored bottom-left for left-aligned headline */
+    radial-gradient(ellipse 75% 70% at 22% 92%,
+      rgba(14,13,11,0.92) 0%,
+      rgba(14,13,11,0.78) 24%,
+      rgba(14,13,11,0.40) 48%,
+      rgba(14,13,11,0.08) 72%,
+      rgba(14,13,11,0) 100%),
     /* nav-area top scrim */
     linear-gradient(180deg, rgba(14,13,11,0.70) 0%, rgba(14,13,11,0.10) 20%, rgba(14,13,11,0) 40%);
   pointer-events: none;
@@ -381,8 +386,8 @@ img, video { display: block; max-width: 100%; height: auto; }
 .editorial-hero-content {
   position: relative; z-index: 2;
   display: flex; flex-direction: column; justify-content: flex-end;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
   height: 100%;
   padding: var(--nav-height) 24px 56px;
   max-width: var(--container-max);
@@ -390,14 +395,16 @@ img, video { display: block; max-width: 100%; height: auto; }
 }
 @media (min-width: 768px) {
   .editorial-hero-content {
-    padding: var(--nav-height) 56px 64px;
+    padding: var(--nav-height) 56px 80px;
+    /* Anchor the text block in the left third of the frame */
+    align-items: flex-start;
   }
-  .editorial-hero-content .editorial-headline { max-width: 14ch; margin-left: auto; margin-right: auto; }
-  .editorial-hero-content .editorial-sub { max-width: 56ch; margin-left: auto; margin-right: auto; }
-  .editorial-hero-content .editorial-actions { justify-content: center; }
+  .editorial-hero-content .editorial-headline { max-width: 12ch; }
+  .editorial-hero-content .editorial-sub { max-width: 38ch; }
+  .editorial-hero-content .editorial-actions { justify-content: flex-start; }
 }
 @media (min-width: 1280px) {
-  .editorial-hero-content { padding: var(--nav-height) 80px 72px; }
+  .editorial-hero-content { padding: var(--nav-height) 80px 96px; }
 }
 .editorial-eyebrow {
   display: inline-flex; align-items: center; gap: 10px;
