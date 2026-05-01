@@ -14,14 +14,15 @@ const featured = [
   },
   {
     name: "Varun Ajjarapu",
-    college: "Penn State (via U.S. Coast Guard Academy)",
-    body: "Enrolled at 12. Recruited by MIT, University of Chicago, Harvard, Dartmouth, Emory, NYU, Johns Hopkins, U.S. Coast Guard Academy. National Honor Society. Goal: orthopedic surgeon in the NBA.",
+    college: "Cornell · Thunder Rock Capital",
+    body: "Enrolled at 12. Recruited by MIT, University of Chicago, Harvard, Dartmouth, Emory, NYU, Johns Hopkins, U.S. Coast Guard Academy. National Honor Society. Graduated Cornell University and now Vice President at Thunder Rock Capital LLC in New York City — investment banking focused on IPOs, follow-on offerings, and M&A advisory. Registered Representative of Finalis Securities LLC (FINRA / SIPC).",
   },
 ];
 
 const colleges = [
   "Brown University",
   "Dartmouth College",
+  "Cornell University",
   "MIT",
   "University of Chicago",
   "Harvard University",
