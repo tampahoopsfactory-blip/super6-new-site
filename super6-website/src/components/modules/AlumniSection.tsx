@@ -15,7 +15,7 @@ const featured = [
   {
     name: "Varun Ajjarapu",
     college: "Cornell · Thunder Rock Capital",
-    body: "Enrolled at 12. Recruited by MIT, University of Chicago, Harvard, Dartmouth, Emory, NYU, Johns Hopkins, U.S. Coast Guard Academy. National Honor Society. Graduated Cornell University and now Vice President at Thunder Rock Capital LLC in New York City — investment banking focused on IPOs, follow-on offerings, and M&A advisory. Registered Representative of Finalis Securities LLC (FINRA / SIPC).",
+    body: "Recruited by MIT, University of Chicago, Harvard, Dartmouth, Emory, NYU, Johns Hopkins, U.S. Coast Guard Academy. National Honor Society. Graduated Cornell University and now Vice President at Thunder Rock Capital LLC in New York City — investment banking focused on IPOs, follow-on offerings, and M&A advisory. Registered Representative of Finalis Securities LLC (FINRA / SIPC).",
   },
 ];
 
