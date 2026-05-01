@@ -22,12 +22,12 @@ export default function PhotoGallery() {
         }}
       >
         <Image
-          src="/media/curated/15-kids-whiteboard.jpg"
-          alt="Young Super 6 players studying a play diagram together"
+          src="/media/uploads/celtics-super6.jpg"
+          alt="Super 6 Series tournament — Celtics player driving past defender with Super 6 banner in background"
           fill
           quality={92}
           sizes="100vw"
-          style={{ objectFit: "cover", objectPosition: "center 35%" }}
+          style={{ objectFit: "cover", objectPosition: "center center" }}
         />
       </div>
     </section>

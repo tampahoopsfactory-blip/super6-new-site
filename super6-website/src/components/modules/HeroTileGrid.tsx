@@ -13,13 +13,13 @@ export default function HeroSection() {
     <section className="editorial-hero" aria-label="Hero">
       <div className="editorial-hero-media">
         <Image
-          src="/media/curated/04-defensive-stance.jpg"
+          src="/media/uploads/hero-dunk.jpg"
           alt=""
           fill
           priority
           sizes="100vw"
           quality={92}
-          style={{ objectFit: "cover", objectPosition: "center 35%" }}
+          style={{ objectFit: "cover", objectPosition: "center 30%" }}
           aria-hidden="true"
         />
       </div>
