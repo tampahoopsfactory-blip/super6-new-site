@@ -65,9 +65,6 @@ export default function Navigation() {
         </ul>
 
         <div className="nav-right">
-          <Link href="/register" className="nav-cta">
-            Register Now
-          </Link>
           <button
             className="nav-hamburger"
             onClick={() => setMobileOpen(true)}
