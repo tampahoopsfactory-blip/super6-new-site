@@ -5,7 +5,7 @@ const featured = [
   {
     name: "Tim Keeley II",
     college: "Brown · UCSF Medical",
-    body: "Recruited by Yale and MIT. Graduated Brown University with honors in Biology — 3.9 GPA. National Honor Society. Research internships at Brown, University Orthopedics, and Moffitt Cancer Center. Currently a 4th-year medical student at the University of California, San Francisco (UCSF), pursuing Sports Orthopedic Surgery — while serving as Director of Investor Relations & COO of Super6 Inc.",
+    body: "Recruited by Yale and MIT. Graduated Brown University with honors in Biology — 3.9 GPA. National Honor Society. Research internships at Brown, University Orthopedics, and Moffitt Cancer Center. Currently a 4th-year medical student at the University of California, San Francisco (UCSF), pursuing Sports Orthopedic Surgery.",
   },
   {
     name: "Zion Carter",
