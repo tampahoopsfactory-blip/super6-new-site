@@ -70,16 +70,28 @@ export default function ExperienceSection() {
             </div>
           </div>
 
-          {/* Photo side */}
-          <div className="experience-video">
-            <Image
-              src="/media/uploads/elite-referees.jpg"
-              alt="Two NFHS-certified Super 6 Series referees holding the game ball at a tournament"
-              fill
-              sizes="(max-width: 968px) 100vw, 45vw"
-              quality={92}
-              style={{ objectFit: "cover" }}
-            />
+          {/* Photo side — editorial 2-photo stack */}
+          <div className="experience-photo-stack">
+            <figure className="experience-photo-primary">
+              <Image
+                src="/media/uploads/refs-crew.jpg"
+                alt="Super 6 officiating crew of four NFHS-certified referees with the Super 6 banner"
+                fill
+                sizes="(max-width: 968px) 100vw, 45vw"
+                quality={92}
+                style={{ objectFit: "cover" }}
+              />
+            </figure>
+            <figure className="experience-photo-secondary">
+              <Image
+                src="/media/uploads/elite-referees.jpg"
+                alt="Two NFHS-certified Super 6 referees holding the game ball"
+                fill
+                sizes="(max-width: 968px) 50vw, 22vw"
+                quality={92}
+                style={{ objectFit: "cover", objectPosition: "center 30%" }}
+              />
+            </figure>
           </div>
         </div>
 
