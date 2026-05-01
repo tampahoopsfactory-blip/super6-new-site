@@ -266,6 +266,66 @@ img, video { display: block; max-width: 100%; height: auto; }
 }
 .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
 
+/* ── More mega-menu ───────────────────────────── */
+.nav-mega-trigger { position: relative; }
+.nav-mega-button {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 0 18px; height: var(--nav-height);
+  font-family: var(--font-body);
+  font-size: 14px; font-weight: 500; letter-spacing: 0.005em;
+  color: var(--ink-soft);
+  background: transparent; border: 0; cursor: pointer;
+  transition: color var(--dur-fast) var(--ease);
+}
+.nav-mega-button:hover { color: var(--ink); }
+.nav-main--transparent .nav-mega-button { color: var(--cream); }
+.nav-main--scrolled .nav-mega-button { color: var(--ink) !important; }
+.nav-mega-chevron { transition: transform var(--dur-fast) var(--ease); }
+.nav-mega-trigger.is-open .nav-mega-chevron { transform: rotate(180deg); }
+.nav-mega-trigger.is-open .nav-mega-button { color: var(--orange); }
+
+.nav-mega-panel {
+  position: absolute; top: calc(var(--nav-height) - 8px); right: 0;
+  min-width: 720px;
+  background: var(--paper);
+  border: 1px solid var(--hairline-soft);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 24px 64px rgba(14,13,11,0.18), 0 4px 12px rgba(14,13,11,0.06);
+  padding: 32px 36px;
+  z-index: 110;
+  animation: mega-fade-in 200ms var(--ease) both;
+}
+@keyframes mega-fade-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.nav-mega-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(140px, 1fr));
+  gap: 28px;
+}
+.nav-mega-col-title {
+  font-family: var(--font-body);
+  font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin: 0 0 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--hairline-soft);
+}
+.nav-mega-col ul { list-style: none; padding: 0; margin: 0; }
+.nav-mega-col li { margin-bottom: 10px; }
+.nav-mega-col li:last-child { margin-bottom: 0; }
+.nav-mega-col a {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 14px; font-weight: 500; letter-spacing: -0.005em;
+  color: var(--ink);
+  text-decoration: none;
+  transition: color var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+}
+.nav-mega-col a:hover { color: var(--orange); transform: translateX(2px); }
+
 .nav-right { display: flex; align-items: center; gap: 12px; }
 
 .nav-cta {
