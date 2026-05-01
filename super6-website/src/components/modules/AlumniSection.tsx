@@ -9,8 +9,8 @@ const featured = [
   },
   {
     name: "Zion Carter",
-    college: "Dartmouth College",
-    body: "Enrolled at 14. Recruited for basketball by Princeton, MIT, Hobart, Claremont. Recruited for football by Columbia, Brown, Princeton, Dartmouth. National Honor Society. Currently at Dartmouth playing football. Apple finance intern (Summer 2022).",
+    college: "Dartmouth · Apple",
+    body: "Enrolled at 14. Recruited for basketball by Princeton, MIT, Hobart, Claremont. Recruited for football by Columbia, Brown, Princeton, Dartmouth. National Honor Society. Graduated Dartmouth College and now working in finance at Apple in Silicon Valley, CA.",
   },
   {
     name: "Varun Ajjarapu",
