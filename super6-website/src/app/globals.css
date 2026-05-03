@@ -1527,6 +1527,49 @@ img, video { display: block; max-width: 100%; height: auto; }
   max-width: 42ch;
 }
 
+/* Rules payment notice — accepted payment methods inside Admission rule */
+.rules-payment-notice {
+  margin-top: 16px;
+  padding: 16px 18px;
+  background: var(--paper);
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+}
+.rules-payment-headline {
+  font-size: 14px;
+  color: var(--ink);
+  margin: 0 0 12px;
+  line-height: 1.5;
+}
+.rules-payment-no-cash {
+  display: inline-block;
+  font-weight: 600;
+  color: var(--ink);
+  border-bottom: 2px solid var(--orange);
+  padding-bottom: 1px;
+}
+.rules-payment-methods {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.rules-payment-methods li {
+  display: inline-flex;
+  align-items: center;
+  height: 30px;
+  padding: 0 14px;
+  background: var(--cream);
+  color: var(--ink);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.005em;
+}
+
 /* Rules callout — orange-accented notice line above a RuleBlock list */
 .rules-callout {
   display: flex;

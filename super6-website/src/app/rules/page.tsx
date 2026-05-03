@@ -110,7 +110,29 @@ export default function RulesPage() {
             <div className="rules-body">
               <RuleBlock
                 title="Admission"
-                body="Travel sports come with financial pressure on clubs. To keep events affordable and high-quality, everyone except players in uniform and a maximum of two coaches per team is required to pay venue admission."
+                body={
+                  <>
+                    <p>
+                      Travel sports come with financial pressure on clubs. To
+                      keep events affordable and high-quality, everyone except
+                      players in uniform and a maximum of two coaches per team
+                      is required to pay venue admission.
+                    </p>
+                    <div className="rules-payment-notice">
+                      <p className="rules-payment-headline">
+                        <span className="rules-payment-no-cash">Cash is not accepted</span>{" "}
+                        at the gate. We accept the following:
+                      </p>
+                      <ul className="rules-payment-methods">
+                        <li>Cash App</li>
+                        <li>Venmo</li>
+                        <li>Apple Pay</li>
+                        <li>Zelle</li>
+                        <li>All major credit cards</li>
+                      </ul>
+                    </div>
+                  </>
+                }
               />
               <RuleBlock
                 title="Reporting Violations"
