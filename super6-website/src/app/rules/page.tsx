@@ -134,93 +134,102 @@ export default function RulesPage() {
                       </p>
                       <ul className="rules-payment-methods">
                         <li className="rules-payment-method">
-                          <span className="rules-payment-logo rules-payment-logo--cashapp" aria-hidden="true">
-                            <svg viewBox="0 0 64 64" width="40" height="40">
-                              <rect width="64" height="64" rx="14" fill="#00D632" />
-                              <path
-                                d="M40.5 24.2c.4-.4.4-1.1 0-1.5l-2.4-2.4a1.06 1.06 0 0 0-1.5 0c-1.4 1.5-3.4 2.3-5.6 2.3-2 0-3.4.7-3.4 2 0 1.5 1.7 2 3.7 2.6 3.6 1 8.1 2.3 8.1 7.7 0 4.5-3.5 7.4-8 8l-.4 2.6c-.1.5-.5.9-1 .9h-3.2c-.6 0-1.1-.6-1-1.2l.5-2.7c-2.4-.5-4.5-1.6-6-3-.4-.4-.4-1.1 0-1.5l2.5-2.5c.4-.4 1.1-.4 1.5 0 1.6 1.5 3.7 2.4 5.9 2.3 2.4 0 4-.9 4-2.5 0-1.4-1.7-1.9-3.8-2.5-3.6-1-7.9-2.3-7.9-7.5 0-4.5 3.4-7.5 7.9-8.1l.4-2.5c.1-.5.5-.9 1-.9h3.2c.6 0 1.1.6 1 1.2l-.5 2.6c2 .5 3.9 1.6 5.5 3z"
+                          <span className="rules-payment-logo" aria-hidden="true">
+                            <svg viewBox="0 0 64 64" width="56" height="56">
+                              <rect width="64" height="64" rx="14" fill="#0E0D0B" />
+                              <text
+                                x="32"
+                                y="46"
+                                textAnchor="middle"
+                                fontFamily="var(--font-display), serif"
+                                fontSize="44"
+                                fontWeight="700"
                                 fill="#fff"
-                              />
+                              >
+                                $
+                              </text>
                             </svg>
                           </span>
                           <span className="rules-payment-method-name">Cash App</span>
                         </li>
 
                         <li className="rules-payment-method">
-                          <span className="rules-payment-logo rules-payment-logo--venmo" aria-hidden="true">
-                            <svg viewBox="0 0 64 64" width="40" height="40">
-                              <rect width="64" height="64" rx="14" fill="#008CFF" />
-                              <path
-                                d="M46 18.8c0 6-5.1 13.7-9.3 19.2H27l-3.7-22 8-.8 2 15.7c1.8-3 4.1-7.7 4.1-10.9 0-1.8-.3-3-.8-4l7.3-1.5c1 1.6 1.4 3.3 1.4 4.3z"
+                          <span className="rules-payment-logo" aria-hidden="true">
+                            <svg viewBox="0 0 64 64" width="56" height="56">
+                              <rect width="64" height="64" rx="14" fill="#0E0D0B" />
+                              <text
+                                x="32"
+                                y="48"
+                                textAnchor="middle"
+                                fontFamily="var(--font-display), serif"
+                                fontSize="42"
+                                fontStyle="italic"
+                                fontWeight="700"
                                 fill="#fff"
-                              />
+                              >
+                                v
+                              </text>
                             </svg>
                           </span>
                           <span className="rules-payment-method-name">Venmo</span>
                         </li>
 
                         <li className="rules-payment-method">
-                          <span className="rules-payment-logo rules-payment-logo--applepay" aria-hidden="true">
-                            <svg viewBox="0 0 64 40" width="56" height="36">
-                              <rect width="64" height="40" rx="6" fill="#000" />
+                          <span className="rules-payment-logo" aria-hidden="true">
+                            <svg viewBox="0 0 64 64" width="56" height="56">
+                              <rect width="64" height="64" rx="14" fill="#0E0D0B" />
                               <path
-                                d="M17.7 14.4c-.5.6-1.4 1.1-2.2 1-.1-.9.3-1.8.8-2.4.5-.6 1.5-1.1 2.2-1.1.1.9-.3 1.8-.8 2.5zm.8 1.2c-1.2-.1-2.3.7-2.8.7-.6 0-1.5-.7-2.5-.6-1.3 0-2.4.7-3.1 1.9-1.3 2.3-.3 5.6 1 7.5.6.9 1.4 1.9 2.4 1.9.9 0 1.3-.6 2.4-.6s1.4.6 2.4.6c1 0 1.7-.9 2.3-1.9.7-1 1-2.1 1-2.1s-1.9-.7-1.9-3c0-1.9 1.6-2.8 1.7-2.9-.9-1.4-2.4-1.5-2.9-1.5z"
+                                d="M33.4 22.4c-1 1.2-2.7 2.2-4.4 2-.2-1.7.6-3.6 1.6-4.7 1.1-1.3 2.9-2.2 4.3-2.3.2 1.8-.5 3.7-1.5 5zm1.5 2.4c-2.5-.1-4.6 1.4-5.8 1.4-1.2 0-3-1.3-5-1.3-2.5 0-4.9 1.5-6.2 3.8-2.7 4.6-.7 11.4 1.9 15.2 1.3 1.9 2.8 4 4.8 3.9 1.9-.1 2.6-1.2 4.9-1.2 2.3 0 3 1.2 5 1.2 2.1 0 3.4-1.9 4.7-3.8 1.5-2.2 2-4.3 2.1-4.4-.1 0-4-1.5-4-6 0-3.7 3.1-5.5 3.2-5.6-1.7-2.5-4.5-2.8-5.5-2.9-2.5-.3-4.6 1.4-5.8 1.4-1.1 0-2.7-1-4.5-1z"
                                 fill="#fff"
                               />
-                              <text
-                                x="26"
-                                y="26"
-                                fontFamily="-apple-system, sans-serif"
-                                fontSize="13"
-                                fontWeight="500"
-                                fill="#fff"
-                              >
-                                Pay
-                              </text>
                             </svg>
                           </span>
                           <span className="rules-payment-method-name">Apple Pay</span>
                         </li>
 
                         <li className="rules-payment-method">
-                          <span className="rules-payment-logo rules-payment-logo--zelle" aria-hidden="true">
-                            <svg viewBox="0 0 64 64" width="40" height="40">
-                              <rect width="64" height="64" rx="14" fill="#6D1ED4" />
-                              <path
-                                d="M28.5 14h7v3.6h-2.6v3.5h11v3.4L31.6 41.7h11.4V46H30v-3.5h2.6V39H21.6v-3.4l12.3-17.2H22.5V14z"
+                          <span className="rules-payment-logo" aria-hidden="true">
+                            <svg viewBox="0 0 64 64" width="56" height="56">
+                              <rect width="64" height="64" rx="14" fill="#0E0D0B" />
+                              <text
+                                x="32"
+                                y="46"
+                                textAnchor="middle"
+                                fontFamily="var(--font-display), serif"
+                                fontSize="42"
+                                fontWeight="700"
                                 fill="#fff"
-                              />
+                              >
+                                Z
+                              </text>
                             </svg>
                           </span>
                           <span className="rules-payment-method-name">Zelle</span>
                         </li>
 
                         <li className="rules-payment-method">
-                          <span className="rules-payment-logo rules-payment-logo--card" aria-hidden="true">
-                            <svg viewBox="0 0 64 40" width="56" height="36">
-                              <defs>
-                                <linearGradient id="cardGrad" x1="0" y1="0" x2="1" y2="1">
-                                  <stop offset="0" stopColor="#1a1f71" />
-                                  <stop offset="1" stopColor="#0e0d0b" />
-                                </linearGradient>
-                              </defs>
-                              <rect width="64" height="40" rx="6" fill="url(#cardGrad)" />
-                              <rect x="6" y="9" width="14" height="9" rx="1.5" fill="#F3B042" />
-                              <rect x="6" y="9" width="14" height="9" rx="1.5" fill="none" stroke="#9c6f1f" strokeOpacity="0.4" />
-                              <line x1="6" y1="13.5" x2="20" y2="13.5" stroke="#9c6f1f" strokeOpacity="0.5" />
-                              <line x1="13" y1="9" x2="13" y2="18" stroke="#9c6f1f" strokeOpacity="0.5" />
-                              <text
-                                x="6"
-                                y="32"
-                                fontFamily="ui-monospace, monospace"
-                                fontSize="8"
-                                fill="#fff"
-                                letterSpacing="1.4"
-                              >
-                                •••• 0000
-                              </text>
-                              <circle cx="48" cy="24" r="7" fill="#EB001B" fillOpacity="0.9" />
-                              <circle cx="56" cy="24" r="7" fill="#F79E1B" fillOpacity="0.9" />
+                          <span className="rules-payment-logo" aria-hidden="true">
+                            <svg viewBox="0 0 64 64" width="56" height="56">
+                              <rect width="64" height="64" rx="14" fill="#0E0D0B" />
+                              <rect
+                                x="14"
+                                y="20"
+                                width="36"
+                                height="24"
+                                rx="3"
+                                fill="none"
+                                stroke="#fff"
+                                strokeWidth="2.5"
+                              />
+                              <line
+                                x1="14"
+                                y1="27"
+                                x2="50"
+                                y2="27"
+                                stroke="#fff"
+                                strokeWidth="2.5"
+                              />
+                              <rect x="20" y="36" width="9" height="3" fill="#fff" />
                             </svg>
                           </span>
                           <span className="rules-payment-method-name">Credit Cards</span>

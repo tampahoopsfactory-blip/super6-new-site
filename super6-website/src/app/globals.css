@@ -1663,11 +1663,11 @@ img, video { display: block; max-width: 100%; height: auto; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 40px;
+  height: 56px;
 }
 .rules-payment-logo svg {
   display: block;
-  border-radius: 8px;
+  border-radius: 12px;
 }
 .rules-payment-method-name {
   font-family: var(--font-body);
