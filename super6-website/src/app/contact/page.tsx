@@ -21,28 +21,60 @@ export default function ContactPage() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="page-hero">
-        <Image
-          src="/media/curated/12-coach-intensity.jpg"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          quality={92}
-          aria-hidden="true"
-        />
-        <div className="container-xl">
-          <p className="editorial-eyebrow" style={{ color: "var(--cream)", opacity: 0.85 }}>
-            Get in Touch
-          </p>
-          <h1>
+      {/* Hero — Editorial Direct Line treatment */}
+      <section className="contact-hero">
+        <div className="contact-hero-photo">
+          <Image
+            src="/media/uploads/team-staff.jpg"
+            alt=""
+            fill
+            priority
+            quality={94}
+            sizes="(max-width: 968px) 100vw, 55vw"
+            aria-hidden="true"
+            style={{ objectFit: "cover", objectPosition: "center 35%" }}
+          />
+        </div>
+
+        <div className="contact-hero-panel">
+          <div className="contact-hero-meta">
+            <span className="contact-hero-meta-tag">Direct Line</span>
+            <span className="contact-hero-meta-divider" />
+            <span>RESPONSE WITHIN 1 BUSINESS DAY</span>
+          </div>
+
+          <div className="contact-hero-wordmark" aria-hidden="true">
+            <span className="contact-hero-word-primary">REACH</span>
+            <span className="contact-hero-word-accent">OUT.</span>
+            <span className="contact-hero-word-tag">Open Line</span>
+          </div>
+
+          <h1 className="contact-hero-headline">
             Have a question? <em>We&rsquo;re listening.</em>
           </h1>
-          <p>
-            Registration, venue partnerships, sponsorships, press &mdash;
-            we&rsquo;ll get back to you within one business day.
+
+          <p className="contact-hero-desc">
+            Registration, venue partnerships, sponsorships, press — write us.
+            A real human on the Super 6 team will write you back within one
+            business day.
           </p>
+
+          <div className="contact-hero-channels">
+            <a
+              className="contact-hero-channel"
+              href={`mailto:${siteConfig.email}`}
+            >
+              <span className="contact-hero-channel-label">Email</span>
+              <span className="contact-hero-channel-value">{siteConfig.email}</span>
+            </a>
+            <a
+              className="contact-hero-channel"
+              href={`tel:${siteConfig.phone}`}
+            >
+              <span className="contact-hero-channel-label">Phone</span>
+              <span className="contact-hero-channel-value">{siteConfig.phone}</span>
+            </a>
+          </div>
         </div>
       </section>
 

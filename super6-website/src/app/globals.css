@@ -1528,6 +1528,198 @@ img, video { display: block; max-width: 100%; height: auto; }
 }
 
 /* ════════════════════════════════════════════
+   Contact Hero — Editorial "Direct Line" treatment
+   Mirrors the rules-hero split structure for visual continuity.
+   ════════════════════════════════════════════ */
+.contact-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  background: var(--ink);
+  color: var(--cream);
+  min-height: 640px;
+  overflow: hidden;
+  isolation: isolate;
+}
+@media (min-width: 968px) {
+  .contact-hero {
+    grid-template-columns: 0.95fr 1.05fr;
+    min-height: 720px;
+  }
+}
+
+.contact-hero-photo {
+  position: relative;
+  width: 100%;
+  min-height: 320px;
+  order: 2;
+}
+@media (min-width: 968px) {
+  .contact-hero-photo { order: 1; min-height: 720px; }
+}
+.contact-hero-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(14,13,11,0.55) 0%, rgba(14,13,11,0.18) 40%, rgba(14,13,11,0.05) 100%),
+    linear-gradient(180deg, rgba(14,13,11,0.30) 0%, rgba(14,13,11,0.55) 100%);
+  pointer-events: none;
+}
+.contact-hero-photo img {
+  filter: var(--photo-grade) saturate(0.95) contrast(1.04);
+}
+
+.contact-hero-panel {
+  position: relative;
+  z-index: 2;
+  padding: 56px 28px 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 28px;
+  order: 1;
+}
+@media (min-width: 968px) {
+  .contact-hero-panel {
+    padding: 96px 80px 96px 88px;
+    gap: 32px;
+    order: 2;
+    border-left: 1px solid rgba(245, 240, 230, 0.08);
+  }
+}
+
+.contact-hero-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(245, 240, 230, 0.78);
+}
+.contact-hero-meta-tag {
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 10px;
+  background: var(--orange);
+  color: var(--ink);
+  border-radius: 2px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+.contact-hero-meta-divider {
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  background: var(--orange);
+}
+
+.contact-hero-wordmark {
+  position: relative;
+  display: grid;
+  font-family: var(--font-display);
+  line-height: 0.88;
+  letter-spacing: -0.04em;
+  margin: 4px 0 0;
+}
+.contact-hero-word-primary,
+.contact-hero-word-accent {
+  font-size: clamp(72px, 11vw, 168px);
+  font-weight: 400;
+  text-transform: uppercase;
+}
+.contact-hero-word-primary { color: var(--cream); }
+.contact-hero-word-accent {
+  color: var(--orange);
+  font-style: italic;
+}
+.contact-hero-word-tag {
+  margin-top: 14px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  color: rgba(245, 240, 230, 0.6);
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.contact-hero-word-tag::before {
+  content: "";
+  display: inline-block;
+  width: 32px;
+  height: 1px;
+  background: rgba(245, 240, 230, 0.32);
+}
+
+.contact-hero-headline {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.4vw, 44px);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--cream);
+  margin: 8px 0 0;
+  max-width: 22ch;
+}
+.contact-hero-headline em {
+  font-style: italic;
+  color: var(--orange);
+}
+.contact-hero-desc {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(245, 240, 230, 0.78);
+  max-width: 54ch;
+}
+
+.contact-hero-channels {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  padding-top: 28px;
+  margin-top: 8px;
+  border-top: 1px solid rgba(245, 240, 230, 0.12);
+}
+@media (min-width: 560px) {
+  .contact-hero-channels { grid-template-columns: 1fr 1fr; gap: 28px; }
+}
+.contact-hero-channel {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-decoration: none;
+  color: var(--cream);
+  transition: transform var(--dur-fast) var(--ease);
+}
+.contact-hero-channel:hover { transform: translateY(-2px); }
+.contact-hero-channel:hover .contact-hero-channel-value {
+  color: var(--orange);
+}
+.contact-hero-channel-label {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+.contact-hero-channel-value {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2vw, 26px);
+  font-weight: 400;
+  letter-spacing: -0.012em;
+  color: var(--cream);
+  transition: color var(--dur-fast) var(--ease);
+  word-break: break-word;
+}
+
+/* ════════════════════════════════════════════
    Rules — Payment Notice (NO CASH callout)
    Bold, orange, attention-commanding. Goes inside Admission rule.
    ════════════════════════════════════════════ */
