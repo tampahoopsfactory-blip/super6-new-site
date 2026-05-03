@@ -1527,28 +1527,113 @@ img, video { display: block; max-width: 100%; height: auto; }
   max-width: 42ch;
 }
 
-/* Rules payment notice — accepted payment methods inside Admission rule */
+/* ════════════════════════════════════════════
+   Rules — Payment Notice (NO CASH callout)
+   Bold, orange, attention-commanding. Goes inside Admission rule.
+   ════════════════════════════════════════════ */
 .rules-payment-notice {
-  margin-top: 16px;
-  padding: 16px 18px;
-  background: var(--paper);
-  border: 1px solid var(--hairline);
-  border-radius: 4px;
+  position: relative;
+  margin-top: 24px;
+  padding: 28px 28px 26px;
+  background: var(--ink);
+  color: var(--cream);
+  border-radius: 6px;
+  border-left: 6px solid var(--orange);
+  box-shadow: 0 16px 44px rgba(14,13,11,0.22);
+  overflow: hidden;
+  isolation: isolate;
 }
-.rules-payment-headline {
-  font-size: 14px;
+.rules-payment-notice::before {
+  content: "";
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 180px; height: 180px;
+  background: radial-gradient(circle at center, rgba(243, 84, 34, 0.22) 0%, rgba(243, 84, 34, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+.rules-payment-header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+.rules-payment-tag {
+  display: inline-flex;
+  align-items: center;
+  height: 26px;
+  padding: 0 12px;
+  background: var(--orange);
   color: var(--ink);
-  margin: 0 0 12px;
-  line-height: 1.5;
+  border-radius: 3px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
 }
-.rules-payment-no-cash {
+/* Stylized struck-out CASH word */
+.rules-payment-cashout {
+  position: relative;
   display: inline-block;
-  font-weight: 600;
-  color: var(--ink);
-  border-bottom: 2px solid var(--orange);
-  padding-bottom: 1px;
+  padding: 4px 14px;
+  border: 2px solid var(--orange);
+  border-radius: 3px;
+  transform: rotate(-4deg);
 }
+.rules-payment-cash-word {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: var(--orange);
+}
+.rules-payment-cash-word::after {
+  content: "";
+  position: absolute;
+  left: -8px; right: -8px;
+  top: 50%;
+  height: 3px;
+  background: var(--orange);
+  transform: translateY(-50%) rotate(-2deg);
+  pointer-events: none;
+}
+
+.rules-payment-headline {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3.2vw, 34px);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--cream);
+  margin: 0 0 10px;
+}
+.rules-payment-headline em {
+  font-style: italic;
+  color: var(--orange);
+  font-weight: 500;
+}
+.rules-payment-sub {
+  position: relative;
+  z-index: 1;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: rgba(245, 240, 230, 0.78);
+  margin: 0 0 18px;
+  max-width: 56ch;
+}
+
+/* Pill chips for accepted methods */
 .rules-payment-methods {
+  position: relative;
+  z-index: 1;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -1559,15 +1644,23 @@ img, video { display: block; max-width: 100%; height: auto; }
 .rules-payment-methods li {
   display: inline-flex;
   align-items: center;
-  height: 30px;
-  padding: 0 14px;
+  height: 34px;
+  padding: 0 16px;
   background: var(--cream);
   color: var(--ink);
-  border: 1px solid var(--hairline);
+  border: 1px solid var(--orange);
   border-radius: var(--radius-pill);
+  font-family: var(--font-body);
   font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.005em;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: transform var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+}
+.rules-payment-methods li:hover {
+  background: var(--orange);
+  color: var(--ink);
+  transform: translateY(-1px);
 }
 
 /* Rules callout — orange-accented notice line above a RuleBlock list */

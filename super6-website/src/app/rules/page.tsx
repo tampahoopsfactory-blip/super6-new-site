@@ -118,10 +118,19 @@ export default function RulesPage() {
                       players in uniform and a maximum of two coaches per team
                       is required to pay venue admission.
                     </p>
-                    <div className="rules-payment-notice">
+                    <div className="rules-payment-notice" role="note">
+                      <div className="rules-payment-header">
+                        <span className="rules-payment-tag">Important</span>
+                        <span className="rules-payment-cashout" aria-hidden="true">
+                          <span className="rules-payment-cash-word">CASH</span>
+                        </span>
+                      </div>
                       <p className="rules-payment-headline">
-                        <span className="rules-payment-no-cash">Cash is not accepted</span>{" "}
-                        at the gate. We accept the following:
+                        We do <em>not</em> accept cash at the gate.
+                      </p>
+                      <p className="rules-payment-sub">
+                        Pay quickly and securely with any of the following —
+                        please have your method ready before reaching the front.
                       </p>
                       <ul className="rules-payment-methods">
                         <li>Cash App</li>
