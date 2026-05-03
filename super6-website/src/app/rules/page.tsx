@@ -21,29 +21,54 @@ const sections = [
 export default function RulesPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="page-hero">
-        <Image
-          src="/media/curated/21-coach-whiteboard.jpg"
-          alt=""
-          fill
-          priority
-          quality={92}
-          sizes="100vw"
-          aria-hidden="true"
-        />
-        <div className="container-xl">
-          <p className="editorial-eyebrow" style={{ color: "var(--cream)", opacity: 0.85 }}>
-            #1 Tournament Organization in Florida · Tournament Rules
-          </p>
-          <h1>
+      {/* Hero — Editorial Rule Book treatment */}
+      <section className="rules-hero">
+        <div className="rules-hero-photo">
+          <Image
+            src="/media/uploads/refs-crew.jpg"
+            alt=""
+            fill
+            priority
+            quality={94}
+            sizes="(max-width: 968px) 100vw, 55vw"
+            aria-hidden="true"
+            style={{ objectFit: "cover", objectPosition: "center 30%" }}
+          />
+        </div>
+
+        <div className="rules-hero-panel">
+          <div className="rules-hero-meta">
+            <span className="rules-hero-meta-tag">OFFICIAL</span>
+            <span className="rules-hero-meta-divider" />
+            <span>2026 SEASON · NFHS STANDARD</span>
+          </div>
+
+          <div className="rules-hero-wordmark" aria-hidden="true">
+            <span className="rules-hero-word-game">GAME</span>
+            <span className="rules-hero-word-rules">
+              RULES
+              <em className="rules-hero-amp">&</em>
+            </span>
+            <span className="rules-hero-word-book">RULE BOOK</span>
+          </div>
+
+          <h1 className="rules-hero-headline">
             Played by the <em>book.</em>
           </h1>
-          <p>
+
+          <p className="rules-hero-desc">
             Super 6 follows National Federation of High School Basketball
-            standards. The rules below govern conduct, uniform compliance, game
-            format, eligibility, and scheduling at every Super 6 weekend.
+            standards. The rules below govern conduct, uniform compliance,
+            game format, eligibility, and scheduling at every Super 6 weekend.
           </p>
+
+          <div className="rules-hero-index">
+            <span className="rules-hero-index-num">07</span>
+            <div className="rules-hero-index-text">
+              <span className="rules-hero-index-label">Sections</span>
+              <span className="rules-hero-index-sub">Conduct · Uniform · Format · Tiebreakers · Eligibility · Scheduling</span>
+            </div>
+          </div>
         </div>
       </section>
 

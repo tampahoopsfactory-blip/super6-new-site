@@ -1332,6 +1332,201 @@ img, video { display: block; max-width: 100%; height: auto; }
   transform: translateX(4px);
 }
 
+/* ════════════════════════════════════════════
+   Rules Hero — Editorial "Rule Book" treatment
+   ════════════════════════════════════════════ */
+.rules-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  background: var(--ink);
+  color: var(--cream);
+  min-height: 640px;
+  overflow: hidden;
+  isolation: isolate;
+}
+@media (min-width: 968px) {
+  .rules-hero {
+    grid-template-columns: 0.95fr 1.05fr;
+    min-height: 720px;
+  }
+}
+
+.rules-hero-photo {
+  position: relative;
+  width: 100%;
+  min-height: 320px;
+  order: 2;
+}
+@media (min-width: 968px) {
+  .rules-hero-photo { order: 1; min-height: 720px; }
+}
+.rules-hero-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(14,13,11,0.55) 0%, rgba(14,13,11,0.18) 40%, rgba(14,13,11,0.05) 100%),
+    linear-gradient(180deg, rgba(14,13,11,0.35) 0%, rgba(14,13,11,0.55) 100%);
+  pointer-events: none;
+}
+.rules-hero-photo img {
+  filter: var(--photo-grade) saturate(0.95) contrast(1.04);
+}
+
+.rules-hero-panel {
+  position: relative;
+  z-index: 2;
+  padding: 56px 28px 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 28px;
+  order: 1;
+}
+@media (min-width: 968px) {
+  .rules-hero-panel {
+    padding: 96px 80px 96px 88px;
+    gap: 32px;
+    order: 2;
+    border-left: 1px solid rgba(245, 240, 230, 0.08);
+  }
+}
+
+/* OFFICIAL · 2026 SEASON · NFHS STANDARD */
+.rules-hero-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(245, 240, 230, 0.78);
+}
+.rules-hero-meta-tag {
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 10px;
+  background: var(--orange);
+  color: var(--ink);
+  border-radius: 2px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+.rules-hero-meta-divider {
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  background: var(--orange);
+}
+
+/* GAME / RULES / RULE BOOK stacked wordmark */
+.rules-hero-wordmark {
+  position: relative;
+  display: grid;
+  font-family: var(--font-display);
+  line-height: 0.88;
+  letter-spacing: -0.04em;
+  margin: 4px 0 0;
+}
+.rules-hero-word-game,
+.rules-hero-word-rules {
+  font-size: clamp(72px, 11vw, 168px);
+  font-weight: 400;
+  color: var(--cream);
+  text-transform: uppercase;
+}
+.rules-hero-word-rules {
+  position: relative;
+  color: var(--orange);
+  font-style: italic;
+}
+.rules-hero-amp {
+  display: none; /* unused — reserved for future flourish */
+}
+.rules-hero-word-book {
+  margin-top: 14px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  color: rgba(245, 240, 230, 0.6);
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.rules-hero-word-book::before {
+  content: "";
+  display: inline-block;
+  width: 32px;
+  height: 1px;
+  background: rgba(245, 240, 230, 0.32);
+}
+
+/* Spoken headline + description */
+.rules-hero-headline {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.4vw, 44px);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--cream);
+  margin: 8px 0 0;
+  max-width: 22ch;
+}
+.rules-hero-headline em {
+  font-style: italic;
+  color: var(--orange);
+}
+.rules-hero-desc {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(245, 240, 230, 0.78);
+  max-width: 54ch;
+}
+
+/* "07 Sections" rule book index */
+.rules-hero-index {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-top: 28px;
+  margin-top: 8px;
+  border-top: 1px solid rgba(245, 240, 230, 0.12);
+}
+.rules-hero-index-num {
+  font-family: var(--font-display);
+  font-size: 56px;
+  font-weight: 400;
+  color: var(--cream);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.rules-hero-index-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.rules-hero-index-label {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+.rules-hero-index-sub {
+  font-size: 13px;
+  color: rgba(245, 240, 230, 0.7);
+  letter-spacing: 0.005em;
+  line-height: 1.4;
+  max-width: 42ch;
+}
+
 /* Rules page */
 .rule-pill {
   display: inline-flex; align-items: center;
