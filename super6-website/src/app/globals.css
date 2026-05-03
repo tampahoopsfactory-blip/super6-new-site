@@ -1630,37 +1630,57 @@ img, video { display: block; max-width: 100%; height: auto; }
   max-width: 56ch;
 }
 
-/* Pill chips for accepted methods */
+/* Branded payment method cards — logo + name */
 .rules-payment-methods {
   position: relative;
   z-index: 1;
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 10px;
 }
-.rules-payment-methods li {
-  display: inline-flex;
+.rules-payment-method {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  height: 34px;
-  padding: 0 16px;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 10px;
   background: var(--cream);
   color: var(--ink);
-  border: 1px solid var(--orange);
-  border-radius: var(--radius-pill);
-  font-family: var(--font-body);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  transition: transform var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+  border: 1px solid rgba(243, 84, 34, 0.5);
+  border-radius: 8px;
+  transition: transform var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
 }
-.rules-payment-methods li:hover {
-  background: var(--orange);
+.rules-payment-method:hover {
+  transform: translateY(-2px);
+  border-color: var(--orange);
+  box-shadow: 0 8px 18px rgba(243, 84, 34, 0.18);
+}
+.rules-payment-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+}
+.rules-payment-logo svg {
+  display: block;
+  border-radius: 8px;
+}
+.rules-payment-method-name {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   color: var(--ink);
-  transform: translateY(-1px);
+  text-align: center;
+  line-height: 1.2;
+}
+@media (min-width: 720px) {
+  .rules-payment-methods { grid-template-columns: repeat(5, 1fr); }
 }
 
 /* Rules callout — orange-accented notice line above a RuleBlock list */
