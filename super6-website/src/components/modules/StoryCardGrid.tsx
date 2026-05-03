@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 /* ─── Experience Section — Editorial story moment
    Left: short feature list with serif sub-heads.
@@ -68,6 +69,25 @@ export default function ExperienceSection() {
                 </div>
               ))}
             </div>
+
+            {/* Game Rules — major callout, clickable, opens /rules */}
+            <Link href="/rules" className="experience-rules-cta">
+              <div className="experience-rules-cta-text">
+                <p className="experience-rules-cta-eyebrow">Tournament Rule Book</p>
+                <h3 className="experience-rules-cta-title">
+                  Game Rules
+                </h3>
+                <p className="experience-rules-cta-body">
+                  Format, eligibility, mercy rule, overtime, conduct — every line
+                  governing Super 6 play. Read before you register.
+                </p>
+              </div>
+              <span className="experience-rules-cta-arrow" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <path d="M5 12h14M13 5l7 7-7 7" />
+                </svg>
+              </span>
+            </Link>
           </div>
 
           {/* Photo side — editorial 2-photo stack */}
