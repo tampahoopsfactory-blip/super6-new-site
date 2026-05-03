@@ -136,7 +136,7 @@ export default function RulesPage() {
                         <li className="rules-payment-method">
                           <span className="rules-payment-logo" aria-hidden="true">
                             <svg viewBox="0 0 64 64" width="56" height="56">
-                              <rect width="64" height="64" rx="14" fill="#F35422" />
+                              <rect width="64" height="64" rx="14" fill="#FBF7EE" />
                               <text
                                 x="32"
                                 y="46"
@@ -144,7 +144,7 @@ export default function RulesPage() {
                                 fontFamily="var(--font-display), serif"
                                 fontSize="44"
                                 fontWeight="700"
-                                fill="#fff"
+                                fill="#F35422"
                               >
                                 $
                               </text>
@@ -156,7 +156,7 @@ export default function RulesPage() {
                         <li className="rules-payment-method">
                           <span className="rules-payment-logo" aria-hidden="true">
                             <svg viewBox="0 0 64 64" width="56" height="56">
-                              <rect width="64" height="64" rx="14" fill="#F35422" />
+                              <rect width="64" height="64" rx="14" fill="#FBF7EE" />
                               <text
                                 x="32"
                                 y="48"
@@ -165,7 +165,7 @@ export default function RulesPage() {
                                 fontSize="42"
                                 fontStyle="italic"
                                 fontWeight="700"
-                                fill="#fff"
+                                fill="#F35422"
                               >
                                 v
                               </text>
@@ -177,10 +177,10 @@ export default function RulesPage() {
                         <li className="rules-payment-method">
                           <span className="rules-payment-logo" aria-hidden="true">
                             <svg viewBox="0 0 64 64" width="56" height="56">
-                              <rect width="64" height="64" rx="14" fill="#F35422" />
+                              <rect width="64" height="64" rx="14" fill="#FBF7EE" />
                               <path
                                 d="M33.4 22.4c-1 1.2-2.7 2.2-4.4 2-.2-1.7.6-3.6 1.6-4.7 1.1-1.3 2.9-2.2 4.3-2.3.2 1.8-.5 3.7-1.5 5zm1.5 2.4c-2.5-.1-4.6 1.4-5.8 1.4-1.2 0-3-1.3-5-1.3-2.5 0-4.9 1.5-6.2 3.8-2.7 4.6-.7 11.4 1.9 15.2 1.3 1.9 2.8 4 4.8 3.9 1.9-.1 2.6-1.2 4.9-1.2 2.3 0 3 1.2 5 1.2 2.1 0 3.4-1.9 4.7-3.8 1.5-2.2 2-4.3 2.1-4.4-.1 0-4-1.5-4-6 0-3.7 3.1-5.5 3.2-5.6-1.7-2.5-4.5-2.8-5.5-2.9-2.5-.3-4.6 1.4-5.8 1.4-1.1 0-2.7-1-4.5-1z"
-                                fill="#fff"
+                                fill="#F35422"
                               />
                             </svg>
                           </span>
@@ -190,7 +190,7 @@ export default function RulesPage() {
                         <li className="rules-payment-method">
                           <span className="rules-payment-logo" aria-hidden="true">
                             <svg viewBox="0 0 64 64" width="56" height="56">
-                              <rect width="64" height="64" rx="14" fill="#F35422" />
+                              <rect width="64" height="64" rx="14" fill="#FBF7EE" />
                               <text
                                 x="32"
                                 y="46"
@@ -198,7 +198,7 @@ export default function RulesPage() {
                                 fontFamily="var(--font-display), serif"
                                 fontSize="42"
                                 fontWeight="700"
-                                fill="#fff"
+                                fill="#F35422"
                               >
                                 Z
                               </text>
@@ -210,7 +210,7 @@ export default function RulesPage() {
                         <li className="rules-payment-method">
                           <span className="rules-payment-logo" aria-hidden="true">
                             <svg viewBox="0 0 64 64" width="56" height="56">
-                              <rect width="64" height="64" rx="14" fill="#F35422" />
+                              <rect width="64" height="64" rx="14" fill="#FBF7EE" />
                               <rect
                                 x="14"
                                 y="20"
@@ -218,7 +218,7 @@ export default function RulesPage() {
                                 height="24"
                                 rx="3"
                                 fill="none"
-                                stroke="#fff"
+                                stroke="#F35422"
                                 strokeWidth="2.5"
                               />
                               <line
@@ -226,10 +226,10 @@ export default function RulesPage() {
                                 y1="27"
                                 x2="50"
                                 y2="27"
-                                stroke="#fff"
+                                stroke="#F35422"
                                 strokeWidth="2.5"
                               />
-                              <rect x="20" y="36" width="9" height="3" fill="#fff" />
+                              <rect x="20" y="36" width="9" height="3" fill="#F35422" />
                             </svg>
                           </span>
                           <span className="rules-payment-method-name">Credit Cards</span>
