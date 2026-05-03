@@ -148,6 +148,10 @@ export default function RulesPage() {
               </h2>
             </aside>
             <div className="rules-body">
+              <p className="rules-callout">
+                <span className="rules-callout-tag">Notice</span>
+                Game officials will be monitoring uniform compliance.
+              </p>
               <RuleBlock
                 title="Matching Uniforms"
                 body="All players must wear matching, unmodified uniforms. Any player without a matching uniform will not be allowed to play. The Super 6 enforces a strict uniform-matching policy and does not make exceptions."

@@ -1527,6 +1527,37 @@ img, video { display: block; max-width: 100%; height: auto; }
   max-width: 42ch;
 }
 
+/* Rules callout — orange-accented notice line above a RuleBlock list */
+.rules-callout {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  margin: 0 0 32px;
+  background: rgba(243, 84, 34, 0.08);
+  border-left: 3px solid var(--orange);
+  border-radius: 2px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.45;
+}
+.rules-callout-tag {
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 10px;
+  background: var(--orange);
+  color: var(--ink);
+  border-radius: 2px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
 /* Rules page */
 .rule-pill {
   display: inline-flex; align-items: center;
