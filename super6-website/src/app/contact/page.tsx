@@ -25,14 +25,14 @@ export default function ContactPage() {
       <section className="contact-hero">
         <div className="contact-hero-photo">
           <Image
-            src="/media/uploads/team-staff.jpg"
+            src="/media/uploads/contact-tk-welcome.jpg"
             alt=""
             fill
             priority
             quality={94}
             sizes="(max-width: 968px) 100vw, 55vw"
             aria-hidden="true"
-            style={{ objectFit: "cover", objectPosition: "center 35%" }}
+            style={{ objectFit: "cover", objectPosition: "center 30%" }}
           />
         </div>
 
