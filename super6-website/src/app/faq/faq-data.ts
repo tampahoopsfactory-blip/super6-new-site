@@ -339,10 +339,9 @@ export const faqSections: FaqSection[] = [
         slug: "biometric-entry",
         q: "Do you use facial recognition or biometric entry?",
         a: `- **Yes** — biometric check-in at the gate
-- **Why:** stops badge swapping; only **paid** spectators get in
+- **Security:** the biometric screen helps **security** enforce **watchlists / blacklists** against **bad actors**, stop **badge swapping**, and **prevent tailgating** into the event — only **paid**, enrolled spectators get in
 - **First check-in:** ~**10 seconds**
 - **Same-day re-entry:** **instant** after you're enrolled`,
-        pending: true,
       },
       {
         slug: "wristbands",
