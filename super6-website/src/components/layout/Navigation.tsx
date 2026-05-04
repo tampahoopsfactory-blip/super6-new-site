@@ -8,6 +8,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { announcements } from "@/data/site";
 
 const navLinks = [
+  { label: "Home", href: "/" },
   { label: "Our Mission", href: "/about" },
   { label: "Tournaments", href: "/register" },
   { label: "Locations", href: "/locations" },
