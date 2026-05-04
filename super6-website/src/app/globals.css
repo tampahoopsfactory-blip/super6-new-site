@@ -466,6 +466,16 @@ img, video { display: block; max-width: 100%; height: auto; }
 @media (min-width: 1280px) {
   .editorial-hero-content { padding: var(--nav-height) 80px 96px; }
 }
+.editorial-hero-logo {
+  display: block;
+  width: auto;
+  height: 84px;
+  margin-bottom: 22px;
+  filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.45));
+}
+@media (min-width: 1280px) {
+  .editorial-hero-logo { height: 110px; margin-bottom: 28px; }
+}
 .editorial-eyebrow {
   display: inline-flex; align-items: center; gap: 10px;
   font-family: var(--font-body);

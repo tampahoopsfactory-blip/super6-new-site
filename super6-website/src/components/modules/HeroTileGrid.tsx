@@ -25,6 +25,14 @@ export default function HeroSection() {
       </div>
 
       <div className="editorial-hero-content">
+        <Image
+          src="/media/logos/super6-mark-transparent.png"
+          alt="Super 6"
+          width={140}
+          height={112}
+          priority
+          className="editorial-hero-logo"
+        />
         <span className="editorial-eyebrow">Florida · Georgia · Est. 2014</span>
         <h1 className="editorial-headline">
           Where champions <em>are made.</em>

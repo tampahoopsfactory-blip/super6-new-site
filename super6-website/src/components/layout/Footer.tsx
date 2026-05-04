@@ -107,11 +107,11 @@ export default function Footer() {
             <div className="footer-brand">
               <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
                 <Image
-                  src="/media/logos/super6-mark.png"
+                  src="/media/logos/super6-mark-transparent.png"
                   alt="Super 6"
-                  width={32}
+                  width={40}
                   height={32}
-                  style={{ width: "auto", height: 32, opacity: 0.92, filter: "brightness(1.05)" }}
+                  style={{ width: "auto", height: 36 }}
                 />
                 <span className="footer-brand-name">Super 6</span>
               </div>
