@@ -58,16 +58,6 @@ export const faqSections: FaqSection[] = [
     icon: "sparkles",
     items: [
       {
-        slug: "check-in-process-team-book",
-        q: "Tell me about your check-in process. Do I need to have my team book?",
-        a: `- **No team book** — Super6 does **not** use traditional paper team books at check-in
-- **School portal on the athlete's own device:** each player must be ready to log in to their **school portal** on their **personal phone**, **away from coaches and parents**, with a **Super6 site manager** present
-- **What we're proving:** the athlete is in the **correct grade** for the division / event they entered
-- **If a player cannot complete verification:** any games that athlete **already played** in the tournament may be **ruled forfeits**
-- **Athlete review during play:** site managers, referees, and staff watch for players who **appear above grade**, look **materially more developed** than peers, or **dominate** in ways that don't match the division — same standard as check-in: keep the bracket honest and catch **bad actors** early
-- **Why it matters:** strong check-in and in-game monitoring cut down on late arrivals skipping verification and on programs trying to slip ineligible players onto the floor`,
-      },
-      {
         slug: "cost-to-enter",
         q: "How much does it cost to enter a team?",
         a: `- **Two parts:** tiered registration fee + mandatory team fee
@@ -243,9 +233,19 @@ export const faqSections: FaqSection[] = [
     number: "04",
     label: "Rules & Eligibility",
     title: "Rules & Eligibility",
-    description: "On-court rules (NFHS highlights), eligibility challenges, and the full rule book at [/rules](/rules).",
+    description: "Grade verification at check-in, eligibility challenges, on-court NFHS highlights, and the full rule book at [/rules](/rules).",
     icon: "book-open",
     items: [
+      {
+        slug: "check-in-process-team-book",
+        q: "Tell me about your check-in process. Do I need to have my team book?",
+        a: `- **No team book** — Super6 does **not** use traditional paper team books at check-in
+- **School portal on the athlete's own device:** each player must be ready to log in to their **school portal** on their **personal phone**, **away from coaches and parents**, with a **Super6 site manager** present
+- **What we're proving:** the athlete is in the **correct grade** for the division / event they entered
+- **If a player cannot complete verification:** any games that athlete **already played** in the tournament may be **ruled forfeits**
+- **Athlete review during play:** site managers, referees, and staff watch for players who **appear above grade**, look **materially more developed** than peers, or **dominate** in ways that don't match the division — same standard as check-in: keep the bracket honest and catch **bad actors** early
+- **Why it matters:** strong check-in and in-game monitoring cut down on late arrivals skipping verification and on programs trying to slip ineligible players onto the floor`,
+      },
       {
         slug: "game-length",
         q: "How long are the games?",
