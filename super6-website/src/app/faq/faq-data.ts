@@ -162,8 +162,7 @@ export const faqSections: FaqSection[] = [
         a: `- **Most Super6 information does not require a login** — you **do not need** login credentials to access schedules and general updates in the app. **Download** the Super6 app and **use it**
 - **Follow your team:** when you **follow your team** in the app, you'll get **automatic text messages (SMS)** from the app for anything relevant to **that team** — schedule releases, changes, and other updates
 - **If you are signing in** (coach / registered account): use the **same email** you registered with
-- **Password reset email missing?** Check **spam** first
-- Still stuck? [Contact](/contact) — we resolve same-day during the week`,
+- **Password reset email missing?** Check **spam** first`,
       },
       {
         slug: "push-notifications",
