@@ -340,7 +340,6 @@ export const faqSections: FaqSection[] = [
         q: "Do you use facial recognition or biometric entry?",
         a: `- **Yes** — biometric check-in at the gate
 - **Security:** the biometric screen helps **security** enforce **watchlists / blacklists** against **bad actors**, stop **badge swapping**, and **prevent tailgating** into the event — only **paid**, enrolled spectators get in
-- **First check-in:** ~**10 seconds**
 - **Same-day re-entry:** **instant** after you're enrolled`,
       },
       {
