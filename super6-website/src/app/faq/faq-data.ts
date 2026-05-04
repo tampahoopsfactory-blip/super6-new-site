@@ -499,9 +499,9 @@ export const faqSections: FaqSection[] = [
   {
     id: "refunds-weather",
     number: "08",
-    label: "Refunds & Weather",
-    title: "Refunds, Weather & Disputes",
-    description: "Cancellations, weather delays, forfeits, and how to escalate.",
+    label: "Refunds & Disputes",
+    title: "Refunds & Disputes",
+    description: "Refunds, forfeits, and how to escalate.",
     icon: "cloud-rain",
     items: [
       {
@@ -519,16 +519,6 @@ export const faqSections: FaqSection[] = [
 - We can't guarantee opposing-team attendance — make sure your scheduled opponent is present before tip-off
 
 **No exceptions to this policy.**`,
-      },
-      {
-        slug: "weather-delays",
-        q: "What happens if there's a weather delay or cancellation?",
-        a: `- **Any venue** — indoor or outdoor — can be affected by severe weather
-- **Updates:** real-time, **Super6 app only**
-- **If play is delayed:** bracket **reseats automatically** — your next game time updates in the app
-- **Refunds:** **none** for weather
-- **If the event starts** and is then stopped by weather, it is **treated as played**`,
-        pending: true,
       },
       {
         slug: "dispute-resolution",
