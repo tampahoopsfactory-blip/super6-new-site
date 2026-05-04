@@ -97,7 +97,7 @@ export default function OfficialsPage() {
               rel="noopener noreferrer"
               className="btn btn-orange officials-hero-cta-button"
             >
-              Sign Up
+              Join the Team
               <svg
                 width="18"
                 height="18"
@@ -205,7 +205,7 @@ export default function OfficialsPage() {
               rel="noopener noreferrer"
               className="btn btn-orange officials-final-button"
             >
-              Sign Up
+              Join the Team
               <svg
                 width="18"
                 height="18"

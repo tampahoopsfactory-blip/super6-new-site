@@ -13,6 +13,7 @@ const navLinks = [
   { label: "Locations", href: "/locations" },
   { label: "Schedule", href: "/schedule" },
   { label: "Coaches", href: "/coaches" },
+  { label: "Officials", href: "/officials" },
   { label: "Rules", href: "/rules" },
   { label: "Contact", href: "/contact" },
 ];
@@ -31,9 +32,9 @@ const megaMenu = [
     title: "Community",
     links: [
       { label: "For Coaches", href: "/coaches" },
-      { label: "For Officials", href: "/officials" },
       { label: "For Players", href: "/players" },
       { label: "Photo Gallery", href: "/gallery" },
+      { label: "Champions", href: "/champions" },
     ],
   },
   {
@@ -42,7 +43,7 @@ const megaMenu = [
       { label: "News & Updates", href: "/news" },
       { label: "FAQs", href: "/faq" },
       { label: "Apparel & Shop", href: "/shop" },
-      { label: "Champions", href: "/champions" },
+      { label: "Press Kit", href: "/press" },
     ],
   },
   {
@@ -50,8 +51,8 @@ const megaMenu = [
     links: [
       { label: "About Us", href: "/about" },
       { label: "Sponsorships", href: "/sponsors" },
-      { label: "Press Kit", href: "/press" },
       { label: "Careers", href: "/careers" },
+      { label: "Become an Official", href: "/officials" },
     ],
   },
 ];
