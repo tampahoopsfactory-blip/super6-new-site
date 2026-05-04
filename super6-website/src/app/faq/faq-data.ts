@@ -109,9 +109,9 @@ export const faqSections: FaqSection[] = [
       {
         slug: "refund-policy",
         q: "Do you offer refunds?",
-        a: `- **No** — under no circumstances
-- Covers registration fees, gate badges, and **any other purchase**
-- Plan accordingly **before** you pay`,
+        a: `- **Default: no** — we do **not** offer refunds under normal circumstances
+- **Only exception:** you **paid team registration** for an event **in your division**, and that **division is not played** because **Super6 cannot field enough teams** to make the bracket — we send an **immediate refund**. **We do not hold your money**
+- **No refunds on:** gate badges, security & officials fees, **any other purchase**, or team registration when your division **does** run — **plan before you pay**`,
       },
     ],
   },
@@ -491,9 +491,9 @@ export const faqSections: FaqSection[] = [
       {
         slug: "refunds-final",
         q: "Are refunds ever issued?",
-        a: `- **No** — we do not issue refunds under any circumstances
-- Applies to **registration**, **gate badges**, **security & officials fees**, and **any other purchase**
-- **Decide before you pay** — all sales are final`,
+        a: `- **Default: no** — same policy as [Do you offer refunds?](#refund-policy) in Getting Started
+- **Only exception:** **paid team registration** for a division that **Super6 cancels** because **not enough teams** register to run it — **immediate refund**. **We do not hold your money**
+- **Otherwise:** **registration** (when your division runs), **gate**, **security & officials**, and **everything else** — **no refunds** — **decide before you pay**`,
       },
       {
         slug: "forfeit-policy",
