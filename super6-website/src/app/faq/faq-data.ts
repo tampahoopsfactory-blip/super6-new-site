@@ -417,9 +417,9 @@ export const faqSections: FaqSection[] = [
       {
         slug: "jerseys-printing",
         q: "What if our jerseys are still being printed?",
-        a: `- **Don't show up** without legal uniforms
-- **Zero exceptions** on the uniform rule
-- We'd rather you **skip the weekend** than **lose the $25** security & officials fee at the door for nothing`,
+        a: `- **Super6 rents uniforms** for **$100 for the weekend** — ask **site staff** at the venue for availability and pickup
+- **Don't show up** without legal uniforms (your own **or** a confirmed rental)
+- **Zero exceptions** on the uniform rule`,
       },
       {
         slug: "conduct-policy",
