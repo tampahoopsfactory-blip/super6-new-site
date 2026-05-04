@@ -125,6 +125,11 @@ See the [No-cash policy](#no-cash-policy) below — we do **not** accept cash at
         body: `All uniforms must have **pressed numbers** — home, away, and reversible sets. This is mandatory for every team.`,
       },
       {
+        slug: "no-ink-markings",
+        title: "No Sharpie or ink on jerseys",
+        body: `**Sharpie**, marker, or **any ink markings** on a **jersey or T-shirt** are **not** permitted. Those athletes **may not play**. **No exceptions**.`,
+      },
+      {
         slug: "numbers-both-sides",
         title: "Numbers on both sides",
         body: `Uniforms must have numbers on both sides. **No two players on a team may share a number.** Violations may result in removal from the event by the site director or referee.`,

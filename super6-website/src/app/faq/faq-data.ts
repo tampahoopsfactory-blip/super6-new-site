@@ -407,6 +407,7 @@ export const faqSections: FaqSection[] = [
 - **Away (top on schedule):** **dark** uniforms
 - **Numbers:** pressed on home, away, and reversibles — **front and back** — **no** duplicate numbers on one roster
 - **No T-shirts** — not acceptable as a uniform
+- **No Sharpie, marker, or any ink** on a **jersey or T-shirt** (hand-drawn numbers, scribbles, etc.) — **that athlete cannot play** — **no exceptions**
 - **Coaches:** collared shirt **or** team apparel
 - **Pre-game:** refs check every game — **out of uniform = can't play**
 - **Team not in compliance** may be assessed a **technical foul** before tip-off`,
