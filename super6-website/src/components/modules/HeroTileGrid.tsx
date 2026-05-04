@@ -25,14 +25,23 @@ export default function HeroSection() {
       </div>
 
       <div className="editorial-hero-content">
-        <span className="editorial-eyebrow">Florida · Georgia · Est. 2014</span>
+        <span className="editorial-eyebrow">
+          Florida · Georgia · Since 2014
+        </span>
         <h1 className="editorial-headline">
-          Where champions <em>are made.</em>
+          <span className="brand-mark">SUPER6.</span> Where champions{" "}
+          <em>are made.</em>
         </h1>
+        <p className="editorial-kicker">
+          The South&apos;s standard for youth basketball.
+        </p>
         <p className="editorial-sub">
-          Twelve years building the South’s most competitive youth basketball
-          tournaments. NFHS-certified officials. College pipeline. A championship
-          atmosphere every weekend.
+          Twelve years building the most competitive youth weekends in two
+          states — NFHS-certified officiating, a real college pipeline, and
+          championship atmosphere from the first tip to the last whistle.
+        </p>
+        <p className="editorial-sub-tag">
+          Boys and girls · 3rd–12th grade · Every event, every weekend
         </p>
         <div className="editorial-actions">
           <Link href="/register" className="btn-hero btn-hero-primary">

@@ -13,9 +13,11 @@ const navLinks = [
   { label: "Tournaments", href: "/register" },
   { label: "Locations", href: "/locations" },
   { label: "Schedule", href: "/schedule" },
+  { label: "Gallery", href: "/gallery" },
   { label: "Coaches", href: "/coaches" },
   { label: "Hiring Officials", href: "/officials" },
   { label: "Rules", href: "/rules" },
+  { label: "FAQ", href: "/faq" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -34,7 +36,6 @@ const megaMenu = [
     links: [
       { label: "For Coaches", href: "/coaches" },
       { label: "For Players", href: "/players" },
-      { label: "Photo Gallery", href: "/gallery" },
       { label: "Champions", href: "/champions" },
     ],
   },

@@ -9,7 +9,6 @@ import AlumniSection from "@/components/modules/AlumniSection";
 import TestimonialsSection from "@/components/modules/TestimonialsSection";
 import DivisionCards from "@/components/modules/LocationsTeaser";
 import PricingSection from "@/components/modules/RegistrationCTA";
-import LocationsGrid from "@/components/modules/TeamCarousel";
 import CtaSection from "@/components/modules/CtaBanner";
 import FadeIn from "@/components/ui/FadeIn";
 
@@ -33,7 +32,6 @@ export default function HomePage() {
       <FadeIn><DivisionCards /></FadeIn>
       <FadeIn><PricingSection /></FadeIn>
       <FadeIn><TestimonialsSection /></FadeIn>
-      <FadeIn><LocationsGrid /></FadeIn>
       <FadeIn><CtaSection /></FadeIn>
     </>
   );

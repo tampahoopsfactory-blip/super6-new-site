@@ -7,24 +7,26 @@ import Link from "next/link";
 
 const divisions = [
   {
-    label: "Boys Division",
-    headline: "Boys, <em>12th–3rd grade.</em>",
+    label: "Boys & Girls Division",
+    headline: "Boys & Girls, <em>12th–3rd grade.</em>",
     description:
       "Three levels of play — Elite, Competitive, and Developmental — at every Super 6 weekend. NFHS officials, custom court branding, college-pipeline access for top-tier teams.",
-    image: "/media/uploads/boys-division-ballers.jpg",
+    image: "/media/uploads/boys-division-packed-house.jpg",
     objectPosition: "center center",
     imagePosition: "left" as const,
     href: "/register",
+    cta: "Register your team",
   },
   {
-    label: "Girls Division",
-    headline: "Girls, <em>12th–6th grade.</em>",
+    label: "Event Security",
+    headline: "Safety <em>before the spark.</em>",
     description:
-      "Three levels of competitive play with the same officiating standard, the same production, and the same college-pipeline introductions as the boys' bracket. Every weekend.",
-    image: "/media/curated/23-female-athlete.jpg",
+      "Every bag checked. Every entrance covered. Our partner crew at Big Kelly's Security reads the room before it turns — diffusing tension, redirecting energy, and stepping in long before anything flares up. Families feel the difference the second they walk in. We don't run a Super 6 weekend without them.",
+    image: "/media/uploads/bks-bag-check.jpg",
     objectPosition: "center center",
     imagePosition: "right" as const,
-    href: "/register",
+    href: "/about",
+    cta: "Meet the team",
   },
   {
     label: "Elite Showcase",
@@ -35,6 +37,7 @@ const divisions = [
     objectPosition: "center center",
     imagePosition: "left" as const,
     href: "/register",
+    cta: "Apply for Elite",
   },
 ];
 
@@ -91,7 +94,7 @@ export default function DivisionSections() {
               </p>
               <div>
                 <Link href={d.href} className="btn btn-ink">
-                  Register your team
+                  {d.cta}
                 </Link>
               </div>
             </div>
