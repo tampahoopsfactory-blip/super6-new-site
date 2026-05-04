@@ -127,9 +127,10 @@ export const faqSections: FaqSection[] = [
       {
         slug: "why-the-app",
         q: "Why do I need the Super6 app?",
-        a: `- **Exclusive source** for schedules, brackets, court assignments, and real-time updates
-- **Website** can show stale data on some devices — don't rely on it live
-- **App** pushes updates as they happen — that's why we built it`,
+        a: `- **Super6 runs the event through the app** — schedules, brackets, court assignments, and every change made **during the weekend** land there first and stay **current**
+- **We strongly urge coaches, parents, and players to use the app — not the website** — for anything time- or location-sensitive
+- **The website can cache on phones** — you may see **old** brackets, times, or courts while the app already shows the **live** state. Do **not** treat the public site as a real-time feed
+- **If you rely on the website and miss a game, miss a tip time, or show up on the wrong schedule because the copy on your device was out of date, Super6 is not responsible** — the app is the official channel; use it`,
       },
       {
         slug: "download-app",
