@@ -5,16 +5,16 @@ needs polish, what's polish-only. This is the working source of truth for
 all future Cursor and Claude Code sessions. Pick the next unchecked P0,
 finish it end-to-end, push, then return for the next.
 
-**Generated:** 2026-05-04 · **Last update:** 2026-05-04 17:18 EDT
+**Generated:** 2026-05-04 · **Last update:** 2026-05-04 17:35 EDT
 **Auditor:** Cursor (Claude Opus 4.7)
-**Branch:** `claude/pensive-cray` · **Last commit:** `5141300`
+**Branch:** `claude/pensive-cray` · **Last commit:** `0b473a8`
 **Build:** PASSING (30/30 static pages prerendered)
 **Lint:** 0 errors / 3 warnings — auto-resolves with P0-02
 
-**Closed this session (2026-05-04):** P0-01, P0-03, P0-04, P1-04.
-**Partially closed:** P0-05 (nav-pruned + noindex'd; pending TK decision on per-route fate).
+**Closed this session (2026-05-04):** P0-01, P0-03, P0-04, P1-04, P1-02 (`/rules` leg).
+**Partially closed:** P0-05 (nav-pruned + noindex'd; pending TK decision on per-route fate), P1-02 (`/coaches`, `/officials`, `/programs` legs still open).
 **Open and waiting on TK:** P0-02 (registration backing store + price confirmation), P0-05 (per-route fate), P1-01 (FAQ pending answers), P1-03 (testimonial / alumni names), P1-05 (newsletter ESP).
-**Open and ready to execute without TK input:** P1-02 (FAQ pattern to /rules), P2-* items.
+**Open and ready to execute without TK input:** P1-02 (`/coaches` next, then `/officials`, `/programs`), P2-* items.
 
 ---
 
@@ -216,7 +216,11 @@ a 5-min Loom or sends bullet answers and the agent rewrites in voice.
 
 ---
 
-## P1-02 — [ ] Apply FAQ editorial pattern to `/rules`, `/coaches`, `/officials`, `/programs`
+## P1-02 — [~] Apply FAQ editorial pattern to `/rules`, `/coaches`, `/officials`, `/programs` — PARTIAL 2026-05-04 (commit `0b473a8`)
+
+**Closed:** `/rules` (commit `0b473a8`). Server component + typed `rules-data.ts` (7 sections, 39 rules) + colocated `_components/` (RulesClient, RulesItem, RulesSection, SectionNav, SectionIcon, RulesSearch). Reuses `faq-*` CSS classes verbatim — zero new tokens, zero duplication, future tweaks to the editorial accordion land on both `/faq` and `/rules` from one CSS edit.
+
+**Still open:** `/coaches`, `/officials`, `/programs`. Same recipe applies. Pages are 350 / 227 / 295 lines respectively; estimate ~half-day each.
 **Problem.** The FAQ page is the gold-standard editorial implementation
 (scroll-spy rail, sticky chips, accordion cards, JSON-LD schema, single-
 open behavior). Other content-heavy pages (`/rules` 543 lines,

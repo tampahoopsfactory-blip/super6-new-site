@@ -116,6 +116,7 @@ The FAQ data file flags 14 items where I drafted plausible policy copy that need
 - P0-04 — `Navigation.tsx` `set-state-in-effect` lint error fixed via `setTimeout` defer.
 - P1-04 — Lint debt cleared (0 errors, 3 warnings — all auto-resolve with P0-02).
 - P0-05 (partial) — Pruned stub pages from mega-menu and `noindex`'d their metadata.
+- P1-02 (`/rules` leg) — Restructured /rules under the FAQ pattern: typed rules-data.ts (7 sections, 39 rules), colocated _components/ adapter (RulesClient/Item/Section/SectionNav/SectionIcon/Search), reuses faq-* CSS classes. Single-open accordion + scroll-spy rail + deep-link expand + ESC-clear search all live.
 
 **Open P0 items:**
 1. **P0-02** — `/api/checkout` is still a Stripe mock. `.env.example` now documents the full env surface (webhook secret, price IDs, backing-store options) but actual wiring waits on TK to pick a backing store (Supabase / Airtable / Sheets / email-only).
