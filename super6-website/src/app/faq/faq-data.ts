@@ -425,9 +425,12 @@ export const faqSections: FaqSection[] = [
       {
         slug: "conduct-policy",
         q: "What's the conduct policy?",
-        a: `- **Zero tolerance** for disrespect toward officials, staff, or other teams
-- **Penalty:** immediate ejection from the venue/tournament + possible **permanent ban**
-- **Parent / relative / friend** is the problem? **That athlete** is barred for the weekend`,
+        a: `- **Super6 is different:** we're **not like** a lot of other tournament organizations you may play — our **conduct bar is high** and **non-negotiable**
+- **Zero tolerance** for **disrespect**, **unruliness**, or **belligerent** behavior toward **officials**, **staff**, **other teams**, or families in the building — we expect everyone **safe and cordial** and a **positive environment for kids**
+- **Belligerence:** **security** will **escort you out** of the gym — **no refunds** under **any** circumstances for conduct-driven removals
+- **Fights:** if a **team incites or is involved in a fight**, that program may be **permanently banned** from future Super6 events
+- **Players / coaches:** **immediate ejection** from the venue or tournament + possible **permanent ban**
+- **Parent / relative / friend** is the problem? **That athlete** is **barred for the weekend**`,
       },
       {
         slug: "ejection-rules",
