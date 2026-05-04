@@ -207,7 +207,10 @@ If your team can't fill the book or clock spot, the game is forfeited. **No exce
       {
         slug: "running-late",
         q: "What if your team is running late?",
-        a: `**If your team is running late:** games start **5 minutes after** the scheduled time (or 5 minutes after the previous game ends, whichever is later). Teams not ready to play within that 5-minute window risk forfeiting the game.`,
+        a: `**If your team is running late:**
+
+- Games start **5 minutes after** the scheduled time, **or** 5 minutes after the previous game ends — **whichever is later**.
+- Teams not ready to play within that **5-minute window** risk **forfeiting the game**.`,
       },
     ],
   },
