@@ -303,7 +303,7 @@ Teams unable to meet these requirements will be **disqualified and will not rece
       {
         slug: "eligibility-challenges",
         title: "Eligibility challenges",
-        body: `Eligibility challenges are accepted at a fee of **$100 per athlete challenged**. The site coordinator works with the head coach to review the proof of eligibility. If proper documentation is not provided, the player will be removed from the tournament. **If a game has already been played and the player is found ineligible, the team forfeits that game.** If the challenge is upheld, the $100 fee is returned to the challenger.`,
+        body: `**Anyone** may file an eligibility challenge. The challenger pays **$100 per athlete challenged** via **Cash App or Venmo only** (not credit card). The **site director** conducts verification **one-on-one with the athlete only** — no coaches, parents, or others. The athlete must **in real time** log in to **their school portal** and show they are in the **correct grade** for that division. The site director may ask **specific questions** (grade, teachers, classes, prior grades) to confirm division fit. **If the athlete fails or cannot complete verification**, **all games** that athlete played or would play **in that division** at the event are **forfeited** (past and future). If the challenge is upheld, the **$100 fee is returned** to the challenger.`,
       },
       {
         slug: "girls-playing-down",

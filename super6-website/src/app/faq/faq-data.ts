@@ -429,11 +429,14 @@ export const faqSections: FaqSection[] = [
       },
       {
         slug: "eligibility-challenge",
-        q: "Can I challenge another team's player eligibility?",
-        a: `- **Yes** — fee is **$100 per athlete** challenged
-- **No docs** = that player **can't play**
-- **Game already played** + player ruled ineligible = **forfeit that game**
-- **Challenge upheld** = **$100 back** to the challenger`,
+        q: "How do I challenge an athlete I think is older or in the wrong division?",
+        a: `- **Anyone** may challenge — there is **no restriction** on who can file a challenge
+- **$100 challenge fee** per athlete challenged — paid by the challenger via **Cash App or Venmo only** (**not** credit card)
+- **Site director** conducts a **full check** with **only the athlete** present — **no coaches, no parents, no one else** in the room
+- **Athlete must** in **real time** log in to **their school portal** and show proof they are in the **correct grade** for that division at that moment
+- **Site director** may ask **specific questions** (current grade, teachers, classes, prior grades, etc.) to confirm the athlete belongs in that division
+- **If the athlete fails** the challenge or **cannot** complete verification — **all games** that athlete played **or would play** in **that division** at this event are **forfeited** (past and future)
+- **Challenge upheld** (player ruled ineligible): **$100 refunded** to the challenger`,
       },
     ],
   },
