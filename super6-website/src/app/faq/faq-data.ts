@@ -532,11 +532,12 @@ export const faqSections: FaqSection[] = [
       {
         slug: "contact-escalation",
         q: "Who do I contact if I still have questions?",
-        a: `- **Schedule, court, real-time event questions:** the Super6 app
+        a: `- **Before the event:** you can always **text Super6** at [**813-563-9767**](tel:+18135639767)
+- **Once the event has started:** contact the **site director** on-site for time-sensitive questions at the venue
+- **Schedule, court, real-time event questions:** the Super6 app
 - **Roster updates:** [basketball.exposureevents.com](https://basketball.exposureevents.com) → Dashboard → Edit Roster
 - **Registration, billing, anything else:** [Contact Super6](/contact)
-
-We respond same-day during the week.`,
+- **Contact form / email:** we respond **same-day during the work week**`,
       },
     ],
   },
