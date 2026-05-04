@@ -42,7 +42,7 @@ const payTiers = [
 ];
 
 const programFacts = [
-  { label: "Schedule", value: "Weekly · weekend events" },
+  { label: "Schedule", value: "Weekends only · Sat & Sun" },
   { label: "Booking Day", value: "Tuesdays at 7 PM" },
   { label: "Coverage", value: "Multi-city tournaments" },
   { label: "Payout", value: "Same-day Sunday" },
