@@ -368,7 +368,8 @@ export const faqSections: FaqSection[] = [
         slug: "sneak-in",
         q: "What happens if someone tries to sneak in or swap badges?",
         a: `- **Sneak / swap / side door** = **immediate removal** by security
-- **Athlete tied to the violator** = barred for that weekend's event
+- **Athlete tied to the violator** = **barred** for that weekend's event — the **team coach** is **required** to tell staff **which player(s)** on the roster are associated with that bad actor
+- **Coach will not identify the athlete(s):** **team forfeit**
 - **3 spectator violations** from one team = **whole team** out, all games forfeited, **no refund**
 - **We enforce this** — tell families **before** they arrive`,
       },
