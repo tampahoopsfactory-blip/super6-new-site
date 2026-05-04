@@ -108,14 +108,14 @@ The FAQ data file flags 14 items where I drafted plausible policy copy that need
 
 ## What's next
 
-No `super6-FULL-audit.md` was found in the project — see "Open questions for TK" below. In its absence, the next priorities based on session context and the FAQ-pending items are:
+`super6-FULL-audit.md` was rebuilt at the worktree root on 2026-05-04 by scanning the codebase against the FAQ gold standard. It is the single source of truth for prioritized work. Pull from it in priority order: P0 first, then P1, then P2.
 
-1. **TK reviews 14 pending FAQ items** in `super6-website/src/app/faq/faq-data.ts` and replaces draft copy with confirmed policy. Each item is marked `pending: true` and renders a TODO pill.
-2. **Apply FAQ design pattern to other content pages.** The Google Doc design brief is the canonical reference: https://docs.google.com/document/d/1mvdrkVibsUYIZ7OPQ1i6LocAb-JYq4-A9IGramTl108/edit. Strong candidates: `/rules` (already partially editorial), `/programs`, `/coaches`, `/players`.
-3. **Fix preexisting `Navigation.tsx` lint error** (`react-hooks/set-state-in-effect` at line 106) by deferring the `setMegaOpen(false)` via `setTimeout(0)` or similar pattern, mirroring the fix used in `FAQClient.tsx` for the same rule.
+**Top three P0 items right now:**
+1. **P0-01** — Mega-menu links to `/programs/college-pipeline`, `/programs/camps`, `/programs/showcase`, `/programs/training` all 404. Build the four pages or collapse to anchors on `/programs`.
+2. **P0-02** — `/api/checkout` is a mock. Stripe is commented out. Real registration money cannot move until this is wired.
+3. **P0-03** — `sitemap.ts` is missing 14+ live routes. SEO leak.
 
-### Blockers / open questions
-- The handoff prompt referenced `super6-FULL-audit.md` — that file does not exist in this repo. Next agent should ask TK where the audit lives or treat the 14 pending FAQ items + design-brief application as the working punch list.
+See `super6-FULL-audit.md` for full P0/P1/P2 ranking, files, acceptance criteria, and TK-decision items.
 
 ---
 
@@ -152,8 +152,12 @@ Dev server runs at http://localhost:3000 — Turbopack-powered. **Hard-reload (C
 
 ## Open questions for TK
 
-1. **Where is `super6-FULL-audit.md`?** The handoff prompt references it as the source of truth for the punch list, but it doesn't exist in this repo. Without it, the next agent has only the 14 FAQ pending items + design-brief replication as the working list.
-2. **Do you want the new Security spread (Big Kelly's BKS Security) to also be its own dedicated band on the homepage, or is the current single replacement of the Why Super 6 section sufficient?** Current state: replaced. Earlier in the session I'd built a separate band; you asked to replace, not add — so it was deleted. Confirm if you want both treatments or just the replacement.
-3. **The 14 `pending: true` FAQ items** — should the next agent draft tighter copy for your review, or do you want to dictate the answers directly?
-4. **Hero photo** — current homepage hero uses `celtics-super6.jpg`. Confirm if you want this kept or swapped for newer 2026 imagery.
-5. **Preexisting lint errors** in `Navigation.tsx`, `coaches/page.tsx`, `shop/page.tsx`, `sponsors/page.tsx`, `api/checkout/route.ts` — fix in this branch or defer to a cleanup PR?
+The audit (`super6-FULL-audit.md`) consolidates these into a single decision block at its bottom. The high-leverage answers needed before the next session can fully execute:
+
+1. **P0-01** — Build dedicated `/programs/<slug>` pages or collapse to anchored sections?
+2. **P0-02** — Registration backing store (Supabase / Airtable / Google Sheets webhook / email-only) and confirm pricing ($99 single / $899 season).
+3. **P0-05** — Of `/players`, `/press`, `/careers`, `/shop`, which are launch-required vs. removable from nav?
+4. **P1-01** — 14 FAQ pending items: dictate answers directly or have the agent draft tighter copy for review?
+5. **P1-03** — Real testimonial and alumni names, or remove those sections from the homepage stack until data exists?
+6. **Pre-existing question** — BKS Security spread: keep as the replacement of "Why Super 6" only, or also bring back as its own dedicated band?
+7. **Pre-existing question** — Hero photo `celtics-super6.jpg`: keep or swap for newer 2026 imagery?

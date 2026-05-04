@@ -141,7 +141,10 @@ super6-website/
 
 ## Critical references
 
-- **HANDOFF.md** (project root) — current session state, what's done,
+- **`super6-FULL-audit.md`** (project root) — ranked production punch
+  list (P0 / P1 / P2). The next unchecked item in priority order is
+  always the next thing to work on unless TK explicitly redirects.
+- **`HANDOFF.md`** (project root) — current session state, what's done,
   what's next, open questions
 - **Design brief Google Doc** — canonical FAQ pattern:
   https://docs.google.com/document/d/1mvdrkVibsUYIZ7OPQ1i6LocAb-JYq4-A9IGramTl108/edit
