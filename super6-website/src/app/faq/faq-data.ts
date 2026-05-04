@@ -319,6 +319,9 @@ export const faqSections: FaqSection[] = [
         slug: "who-pays-gate",
         q: "Who pays at the gate?",
         a: `- **No charge:** uniformed players + up to **two coaches** per team
+- **Assistant coach** is responsible for your team's **game clock** and **scorebook (book table)** — making sure both are covered every game is on **your bench**, not Super6
+- **Second coach badge at check-in:** the individual who receives your team's **second** complimentary coach badge is **assigned** to run the **clock** or the **book** as required — they may **pass those duties** to a **team mom** or another **responsible, capable** adult who can operate the clock or keep the book
+- **No extra badge for book or clock:** Super6 **does not** issue another gate badge for someone who only works the book or clock — **that coverage stays the assistant coach's responsibility** to arrange within your **two** complimentary coach admissions
 - **Everyone else pays:** parents, family, friends, extra coaches
 - **Badges:** good **all day** at the venue — **not** per game`,
       },
