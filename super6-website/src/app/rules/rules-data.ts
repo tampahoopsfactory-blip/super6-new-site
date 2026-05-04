@@ -241,7 +241,7 @@ Teams unable to meet these requirements will be **disqualified and will not rece
       {
         slug: "mercy-rule",
         title: "Mercy rule",
-        body: `If the score difference reaches **20 points**, the game clock runs continuously. If the difference closes back to **10 points**, the clock stops again per standard rules.`,
+        body: `If the score difference reaches **20 points**, the game clock runs continuously. If the difference closes to **10 points or fewer**, the clock stops again per standard rules. **If the lead reaches 30 points**, the clock runs straight through the final **3 minutes** with **no** stoppage. **If the trailing team is still down by 30 or more with 5:00 or less remaining in regulation**, the game is an **automatic forfeit** — referees or game officials **stop the game**.`,
       },
       {
         slug: "overtime-first",

@@ -301,8 +301,8 @@ export const faqSections: FaqSection[] = [
         slug: "mercy-rule",
         q: "What's the mercy rule?",
         a: `- **Lead ≥ 30:** running clock runs straight to the buzzer (**no** stop in the final 3 minutes)
-- **Lead drops below 20:** normal stop-clock rules **resume**`,
-        pending: true,
+- **Still trailing by 30 or more with 5:00 or less left in regulation:** **automatic forfeit** — referees or game officials **stop the game**
+- **Within 10 points:** once the margin is **10 or fewer**, normal stop-clock rules **resume** through the end of the game`,
       },
     ],
   },
