@@ -102,7 +102,9 @@ export const faqSections: FaqSection[] = [
       {
         slug: "team-requirements",
         q: "What does my team need to provide to play?",
-        a: `- Proof of team insurance (**mandatory**)
+        a: `- **Team insurance (mandatory):** each team **must carry its own** coverage and provide **proof** — Super6 **does not** insure your team or substitute for your program's coverage
+- **Liability:** Super6 is **not responsible or liable** for injury, loss, damage, or other harm to **athletes, spectators, patrons**, or anyone else in connection with our events — **your team and your guests attend at your own risk**
+- **When you sign up for an event:** you **consent** that **you are responsible for your party** — including **parents, friends, athletes, coaches**, and anyone you bring, register, or represent — **not Super6**
 - Full matching uniforms with pressed numbers (**no t-shirts**)
 - A team website or social media page
 - Proof of previous tournament participation
