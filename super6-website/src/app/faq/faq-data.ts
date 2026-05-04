@@ -90,7 +90,13 @@ To update your roster after registering, log in to [basketball.exposureevents.co
       {
         slug: "age-divisions",
         q: "What age cutoffs and divisions do you offer?",
-        a: `**Boys and Girls, 3rd–12th grade.** D1 and D2 brackets where team count supports it. Players are placed by current school grade — verified through the school portal at check-in. Players may play **up** within the same club, never down.`,
+        a: `**Boys and Girls, 3rd–12th grade.** We offer **D1**, **D2**, and **D3** brackets where team count supports it:
+
+- **D1** — the highest level of competitive play.
+- **D2** — a team that is forming and coming together.
+- **D3** — a team that is developmental.
+
+Players are placed by current school grade — verified through the school portal at check-in. Players may play **up** within the same club, never down.`,
       },
       {
         slug: "team-requirements",
