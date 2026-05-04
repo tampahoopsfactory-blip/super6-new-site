@@ -1,4 +1,28 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is the [Next.js](https://nextjs.org) project for **www.thesuper6.com** — the public website for Super 6 youth basketball tournaments.
+
+## Resume Development
+
+Picking this project back up (or continuing in Cursor after a Claude Code session)? Read these in order:
+
+1. **`../HANDOFF.md`** — current session state: what's done, what's in flight, what's next, open questions for TK.
+2. **`../CLAUDE.md`** / **`../.cursorrules`** — TK preferences and engineering rules. Both files are kept identical so the agent behaves the same in Claude Code and Cursor. Do not edit one without mirroring the other.
+3. **Design brief Google Doc** — canonical FAQ-pattern reference: <https://docs.google.com/document/d/1mvdrkVibsUYIZ7OPQ1i6LocAb-JYq4-A9IGramTl108/edit>
+4. **`src/app/faq/`** — gold-standard editorial implementation. Mimic this structure (server `page.tsx`, colocated `_components/`, typed `<route>-data.ts`) when building new content pages.
+5. **`src/app/globals.css`** — design tokens and component CSS. Pull all colors / spacing / fonts from here; never invent new tokens.
+
+### Quick start
+
+```bash
+cd "/Users/timothykeeley/ACCESS CONTROL PROJECT BOTH AP/Paradym EventShieldPro/DS-F8881 Documents/.claude/worktrees/pensive-cray/super6-website"
+npm install
+npm run dev          # http://localhost:3000 (Turbopack — hard-reload Cmd-Shift-R after CSS edits)
+npm run build        # must pass before declaring work done
+npm run lint         # 0 errors / 0 warnings on touched files
+```
+
+### Branch
+
+Active working branch: `claude/pensive-cray` — pushed to `origin/claude/pensive-cray`. Default base is `main`. Never amend commits, never bypass git hooks, never push to `main`.
 
 ## Getting Started
 
