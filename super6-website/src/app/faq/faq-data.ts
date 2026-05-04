@@ -247,6 +247,17 @@ export const faqSections: FaqSection[] = [
 - **Why it matters:** strong check-in and in-game monitoring cut down on late arrivals skipping verification and on programs trying to slip ineligible players onto the floor`,
       },
       {
+        slug: "eligibility-challenge",
+        q: "How do I challenge an athlete I think is older or in the wrong division?",
+        a: `- **Anyone** may challenge — there is **no restriction** on who can file a challenge
+- **$100 challenge fee** per athlete challenged — paid by the challenger via **Cash App or Venmo only** (**not** credit card)
+- **Site director** conducts a **full check** with **only the athlete** present — **no coaches, no parents, no one else** in the room
+- **Athlete must** in **real time** log in to **their school portal** and show proof they are in the **correct grade** for that division at that moment
+- **Site director** may ask **specific questions** (current grade, teachers, classes, prior grades, etc.) to confirm the athlete belongs in that division
+- **If the athlete fails** the challenge or **cannot** complete verification — **all games** that athlete played **or would play** in **that division** at this event are **forfeited** (past and future)
+- **Challenge upheld** (player ruled ineligible): **$100 refunded** to the challenger`,
+      },
+      {
         slug: "game-length",
         q: "How long are the games?",
         a: `- **3rd–7th grade:** two **16-minute** halves, running clock
@@ -298,17 +309,6 @@ export const faqSections: FaqSection[] = [
         a: `- **Lead ≥ 30:** running clock runs straight to the buzzer (**no** stop in the final 3 minutes)
 - **Lead drops below 20:** normal stop-clock rules **resume**`,
         pending: true,
-      },
-      {
-        slug: "eligibility-challenge",
-        q: "How do I challenge an athlete I think is older or in the wrong division?",
-        a: `- **Anyone** may challenge — there is **no restriction** on who can file a challenge
-- **$100 challenge fee** per athlete challenged — paid by the challenger via **Cash App or Venmo only** (**not** credit card)
-- **Site director** conducts a **full check** with **only the athlete** present — **no coaches, no parents, no one else** in the room
-- **Athlete must** in **real time** log in to **their school portal** and show proof they are in the **correct grade** for that division at that moment
-- **Site director** may ask **specific questions** (current grade, teachers, classes, prior grades, etc.) to confirm the athlete belongs in that division
-- **If the athlete fails** the challenge or **cannot** complete verification — **all games** that athlete played **or would play** in **that division** at this event are **forfeited** (past and future)
-- **Challenge upheld** (player ruled ineligible): **$100 refunded** to the challenger`,
       },
     ],
   },
