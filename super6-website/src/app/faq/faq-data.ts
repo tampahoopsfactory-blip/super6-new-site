@@ -60,15 +60,12 @@ export const faqSections: FaqSection[] = [
       {
         slug: "cost-to-enter",
         q: "How much does it cost to enter a team?",
-        a: `Two parts to every entry — a tiered registration fee plus a mandatory team fee.
-
-**Registration (per team, per event):**
-
-- **$99** if paid by the Sunday prior to the event
-- **$125** after that Sunday's deadline
-- **$195** after the schedule has been released
-
-**Mandatory:** $25 security & officials fee for every team, every event. No exceptions.`,
+        a: `- **Two parts:** tiered registration fee + mandatory team fee
+- **Registration (per team, per event):**
+  - **$99** — paid by the **Sunday prior** to the event
+  - **$125** — after that Sunday's deadline
+  - **$195** — after the schedule has been released
+- **Mandatory:** **$25** security & officials fee — **every team, every event** — no exceptions`,
       },
       {
         slug: "how-to-register",
@@ -79,39 +76,42 @@ export const faqSections: FaqSection[] = [
 - Set up your team profile
 - List your roster (players)
 - Pay the registration
-
-To update your roster after registering, log in to [basketball.exposureevents.com](https://basketball.exposureevents.com), go to **Dashboard** at the top, and edit.`,
+- **Roster updates after you register:** log in to [basketball.exposureevents.com](https://basketball.exposureevents.com) → **Dashboard** (top) → edit`,
       },
       {
         slug: "registration-deadline",
         q: "What is the registration deadline?",
-        a: `The **$99** deadline is the Sunday before the event. After that, **$125**. After the schedule is released (Wednesday 8 PM), it jumps to **$195**. Pay early — it's a real discount.`,
+        a: `- **$99** — pay by the **Sunday before** the event
+- **$125** — after that Sunday's deadline
+- **$195** — after the schedule is released (**Wednesday 8 PM** in the app)
+- Pay early — it's a real discount`,
       },
       {
         slug: "age-divisions",
         q: "What age cutoffs and divisions do you offer?",
-        a: `**Boys and Girls, 3rd–12th grade.** We offer **D1**, **D2**, and **D3** brackets where team count supports it:
-
-- **D1** — the highest level of competitive play.
-- **D2** — a team that is forming and coming together.
-- **D3** — a team that is developmental.
-
-Players are placed by current school grade — verified through the school portal at check-in. Players may play **up** within the same club, never down.`,
+        a: `- **Boys and Girls, 3rd–12th grade**
+- **D1**, **D2**, and **D3** brackets where team count supports it:
+  - **D1** — the highest level of competitive play
+  - **D2** — a team that is forming and coming together
+  - **D3** — a team that is developmental
+- **Grade placement:** current school grade — verified through the **school portal** at check-in
+- **Play up:** allowed within the same club — **never down**`,
       },
       {
         slug: "team-requirements",
         q: "What does my team need to provide to play?",
-        a: `- Proof of team insurance (mandatory)
-- Full matching uniforms with pressed numbers (no t-shirts)
+        a: `- Proof of team insurance (**mandatory**)
+- Full matching uniforms with pressed numbers (**no t-shirts**)
 - A team website or social media page
 - Proof of previous tournament participation
-
-Teams that can't meet these requirements will be disqualified. **No refund.**`,
+- **Can't meet the list?** disqualified — **no refund**`,
       },
       {
         slug: "refund-policy",
         q: "Do you offer refunds?",
-        a: `**No.** Under no circumstances do we offer refunds. This includes registration fees, gate badges, and any other purchase. Plan accordingly before you pay.`,
+        a: `- **No** — under no circumstances
+- Covers registration fees, gate badges, and **any other purchase**
+- Plan accordingly **before** you pay`,
       },
     ],
   },
@@ -127,7 +127,9 @@ Teams that can't meet these requirements will be disqualified. **No refund.**`,
       {
         slug: "why-the-app",
         q: "Why do I need the Super6 app?",
-        a: `The app is the **exclusive source** for event schedules, brackets, court assignments, and real-time updates. The website caches old data on some devices. The app pushes updates as they happen — that's why we built it.`,
+        a: `- **Exclusive source** for schedules, brackets, court assignments, and real-time updates
+- **Website** can show stale data on some devices — don't rely on it live
+- **App** pushes updates as they happen — that's why we built it`,
       },
       {
         slug: "download-app",
@@ -138,23 +140,33 @@ Teams that can't meet these requirements will be disqualified. **No refund.**`,
       {
         slug: "schedule-release",
         q: "When does the schedule come out?",
-        a: `Every **Wednesday at 8 PM** in the app. We don't release it earlier and we don't take requests for early team-participation info — fair, balanced matchups depend on us controlling that release.`,
+        a: `- **Every Wednesday at 8 PM** — in the app only
+- **No early release** — we don't take requests for early team info
+- **Why:** fair, balanced matchups depend on controlling that release`,
       },
       {
         slug: "no-screenshots",
         q: "Why shouldn't I share screenshots of the schedule?",
-        a: `Screenshots go stale within minutes — court changes, bracket reseeding, weather adjustments all happen in real time. **Always pull the schedule from the app**, not from a screenshot. It protects your team from showing up at the wrong court.`,
+        a: `- Screenshots go **stale within minutes** — courts, brackets, and weather shift in real time
+- **Always pull from the app** — never trust a screenshot as current
+- **Protects your team** from showing up at the wrong court`,
       },
       {
         slug: "app-login-issues",
         q: "I can't log in to the app — what now?",
-        a: `Make sure you're using the same email you registered with. If your reset email doesn't arrive, check spam, then contact us via [Contact](/contact) and we'll resolve it same-day during the week.`,
+        a: `- Use the **same email** you registered with
+- Reset email missing? Check **spam** first
+- Still stuck? [Contact](/contact) — we resolve same-day during the week`,
         pending: true,
       },
       {
         slug: "push-notifications",
         q: "Do I need to enable push notifications?",
-        a: `**Yes — strongly recommended.** Court changes, weather delays, and bracket updates push only through the app. If notifications are off, you may miss a tip-off change. Enable them under **Settings → Notifications → Super6** on iOS, or **App Info → Notifications** on Android.`,
+        a: `- **Yes — strongly recommended**
+- Courts, weather, and bracket updates **push through the app only**
+- Notifications **off** = you can miss a tip-off change
+- **iOS:** **Settings → Notifications → Super6**
+- **Android:** **App Info → Notifications**`,
         pending: true,
       },
     ],
@@ -171,38 +183,38 @@ Teams that can't meet these requirements will be disqualified. **No refund.**`,
       {
         slug: "divisions-offered",
         q: "What divisions do you offer?",
-        a: `Boys and Girls, **3rd–12th grade**. **D1**, **D2**, and **D3** brackets where team count supports it:
-
-- **D1** — the highest level of competitive play.
-- **D2** — a team that is forming and coming together.
-- **D3** — a team that is developmental.
-
-For grade placement and play-up rules, see [What age cutoffs and divisions do you offer?](#age-divisions).`,
+        a: `- **Boys and Girls, 3rd–12th grade**
+- **D1**, **D2**, and **D3** brackets where team count supports it:
+  - **D1** — the highest level of competitive play
+  - **D2** — a team that is forming and coming together
+  - **D3** — a team that is developmental
+- **Grade + play-up rules:** [What age cutoffs and divisions do you offer?](#age-divisions)`,
       },
       {
         slug: "game-guarantee",
         q: "What's the game guarantee?",
-        a: `**3 games minimum** per team, per event.`,
+        a: `- **3 games minimum** per team, per event`,
       },
       {
         slug: "home-away",
         q: "How are home and away assigned?",
-        a: `On the schedule, the **top team is Away**, the **bottom team is Home**.
-
+        a: `- On the schedule: **top = Away**, **bottom = Home**
 - **Away team:** runs the clock (assistant coach)
 - **Home team:** runs the game book (assistant coach)
-
-If your team can't fill the book or clock spot, the game is forfeited. **No exceptions.**`,
+- **Can't fill book or clock?** game is forfeited — **no exceptions**`,
       },
       {
         slug: "tiebreakers",
         q: "How do you break ties in pool play?",
-        a: `Head-to-head result first. If still tied, **15-point differential** decides. If still tied, an automated coin flip via Exposure Events determines seeding.`,
+        a: `- **1.** Head-to-head result
+- **2.** Still tied? **15-point differential**
+- **3.** Still tied? Automated coin flip via **Exposure Events**`,
       },
       {
         slug: "arrival-time",
         q: "What time should we arrive?",
-        a: `**One hour before your scheduled game.** All teams must complete check-in before their 2nd game at the latest.`,
+        a: `- **Arrive:** one hour before your scheduled game
+- **Check-in deadline:** before your **2nd game** at the latest`,
       },
       {
         slug: "running-late",
@@ -226,15 +238,18 @@ If your team can't fill the book or clock spot, the game is forfeited. **No exce
       {
         slug: "game-length",
         q: "How long are the games?",
-        a: `- **3rd–7th grade:** Two 16-minute halves, running clock
-- **8th–12th grade:** Two 18-minute halves, running clock
-- Clock stops at the **3-minute mark** before the end of the game
-- If the score difference drops to **20 points**, the running clock starts again. If it drops back to **10 points**, the clock stops again.`,
+        a: `- **3rd–7th grade:** two **16-minute** halves, running clock
+- **8th–12th grade:** two **18-minute** halves, running clock
+- Clock **stops** at the **3-minute mark** before the end of regulation
+- **Spread hits 20:** running clock **on**
+- **Spread back to 10:** clock **stops** again (normal rules)`,
       },
       {
         slug: "timeouts",
         q: "How many timeouts does each team get?",
-        a: `**Four 30-second timeouts** per game. Overtime: one additional timeout in the first OT period and one additional in the second OT.`,
+        a: `- **Regulation:** **four** 30-second timeouts per game
+- **1st OT:** one **additional** timeout per team
+- **2nd OT:** one **additional** timeout per team`,
       },
       {
         slug: "overtime",
@@ -252,23 +267,25 @@ If your team can't fill the book or clock spot, the game is forfeited. **No exce
       {
         slug: "ball-size",
         q: "What ball size do you use?",
-        a: `- **3rd–5th grade (Boys & Girls):** 28.5" (size 6)
-- **6th–8th grade Girls / 6th grade Boys:** 28.5" (size 6)
-- **7th–12th grade Boys & 9th–12th grade Girls:** 29.5" (size 7)
-
-Teams bring their own warm-up ball. The head referee selects a suitable game ball from the two teams.`,
+        a: `- **3rd–5th (Boys & Girls):** 28.5" (size 6)
+- **6th–8th Girls / 6th Boys:** 28.5" (size 6)
+- **7th–12th Boys & 9th–12th Girls:** 29.5" (size 7)
+- **Warm-up:** teams bring their own ball
+- **Game ball:** head referee picks from the two teams' balls`,
         pending: true,
       },
       {
         slug: "shot-clock",
         q: "Is there a shot clock?",
-        a: `**No shot clock** at any Super6 division. NFHS standard — full possession governed by closely-guarded and 10-second backcourt rules.`,
+        a: `- **No shot clock** at any Super6 division
+- **NFHS standard** — possession governed by closely-guarded and 10-second backcourt rules`,
         pending: true,
       },
       {
         slug: "mercy-rule",
         q: "What's the mercy rule?",
-        a: `When the score difference reaches **30 points or more**, running clock continues uninterrupted to the final buzzer (no clock stop in the final 3 minutes). If the lead drops back below 20, normal stop-clock rules resume.`,
+        a: `- **Lead ≥ 30:** running clock runs straight to the buzzer (**no** stop in the final 3 minutes)
+- **Lead drops below 20:** normal stop-clock rules **resume**`,
         pending: true,
       },
     ],
@@ -285,7 +302,9 @@ Teams bring their own warm-up ball. The head referee selects a suitable game bal
       {
         slug: "who-pays-gate",
         q: "Who pays at the gate?",
-        a: `Everyone except **uniformed players** and up to **two coaches per team**. Parents, family, friends, additional coaches — all pay. Badges are valid all day at the venue, **not per game**.`,
+        a: `- **No charge:** uniformed players + up to **two coaches** per team
+- **Everyone else pays:** parents, family, friends, extra coaches
+- **Badges:** good **all day** at the venue — **not** per game`,
       },
       {
         slug: "gate-prices",
@@ -294,40 +313,47 @@ Teams bring their own warm-up ball. The head referee selects a suitable game bal
 - **Saturday:** Adults $19.95 / Kids $9.95
 - **Sunday:** Adults $19.95 / Kids $9.95
 - **One-day-only events:** Adults $34.95 / Kids $17.95
-
-No weekend passes. **All sales final. No refunds.**`,
+- **No weekend passes**
+- **All sales final — no refunds**`,
       },
       {
         slug: "biometric-entry",
         q: "Do you use facial recognition or biometric entry?",
-        a: `**Yes.** Super6 venues use a biometric check-in system at the gate to prevent badge swapping and ensure only paid spectators enter. First-time check-in takes ~10 seconds; re-entry on the same day is instant.`,
+        a: `- **Yes** — biometric check-in at the gate
+- **Why:** stops badge swapping; only **paid** spectators get in
+- **First check-in:** ~**10 seconds**
+- **Same-day re-entry:** **instant** after you're enrolled`,
         pending: true,
       },
       {
         slug: "wristbands",
         q: "Do you issue wristbands?",
-        a: `Wristbands are issued at the gate after payment and biometric check-in. Wristbands must be visible at all times inside the venue. **Wristband tampering = removal and athlete barred from the weekend.**`,
+        a: `- Issued at the gate **after** payment + biometric check-in
+- Must stay **visible** at all times inside the venue
+- **Tampering** = removal + **athlete barred** for the weekend`,
         pending: true,
       },
       {
         slug: "spectator-passes",
         q: "Are there spectator passes for the whole weekend?",
-        a: `**No weekend passes.** Each day is purchased separately at the rates above.`,
+        a: `- **No weekend passes**
+- **Each day** purchased separately (see gate prices above)`,
       },
       {
         slug: "reentry",
         q: "Can spectators leave and come back the same day?",
-        a: `**Yes — same-day re-entry is allowed** with a valid wristband. Biometric check confirms identity on re-entry. No re-entry across days without a new ticket.`,
+        a: `- **Yes** — same-day re-entry with a **valid wristband**
+- **Biometric** confirms identity on the way back in
+- **Different day?** need a **new** ticket — no cross-day re-entry`,
         pending: true,
       },
       {
         slug: "sneak-in",
         q: "What happens if someone tries to sneak in or swap badges?",
-        a: `- Unauthorized entry, badge swapping, or side-door entry = **immediate removal** by security
-- The associated athlete is barred from that weekend's event
-- **3 violations** from a team's spectators = entire team is expelled, all games forfeited, no refund
-
-**We enforce this.** Tell your families before they show up.`,
+        a: `- **Sneak / swap / side door** = **immediate removal** by security
+- **Athlete tied to the violator** = barred for that weekend's event
+- **3 spectator violations** from one team = **whole team** out, all games forfeited, **no refund**
+- **We enforce this** — tell families **before** they arrive`,
       },
     ],
   },
@@ -343,53 +369,60 @@ No weekend passes. **All sales final. No refunds.**`,
       {
         slug: "hiring-officials",
         q: "How do I sign up to officiate Super6?",
-        a: `Visit [/officials](/officials) for the full program — pay tiers, schedule, and the application form. We staff weekends only (Saturday & Sunday) and book on Tuesdays at 7 PM.`,
+        a: `- **Start here:** [/officials](/officials) — pay tiers, schedule, application
+- **When we staff:** weekends only (**Sat & Sun**)
+- **Booking:** **Tuesdays at 7 PM**`,
       },
       {
         slug: "coach-credentials",
         q: "What credentials do coaches need?",
-        a: `Coaches must wear **collared shirts or team apparel** on the bench. Coaches must be listed on the team profile in Exposure Events. Background-check or certification requirements vary by venue — check the event page before traveling.`,
+        a: `- **Bench dress:** collared shirts **or** team apparel
+- **Roster:** coaches listed on the team profile in **Exposure Events**
+- **Background checks / certs:** **vary by venue** — read the **event page** before you travel`,
         pending: true,
       },
       {
         slug: "uniform-requirements",
         q: "What are the uniform requirements?",
-        a: `**Strict matching only — no exceptions.**
-
-- **Home team:** white or light-colored uniforms (listed at the bottom on the schedule)
-- **Away team:** dark-colored uniforms (listed at the top on the schedule)
-- Pressed numbers required on home, away, and reversible sets — front and back, no shared numbers
-- **No T-shirts.** T-shirts are not acceptable uniforms.
-- Coaches: collared shirts or team apparel
-
-Referees check uniforms before every game. Non-compliance means the athlete cannot play. A team that doesn't follow uniform rules may be assessed a technical foul before tip-off.`,
+        a: `- **Strict matching only** — no exceptions
+- **Home (bottom on schedule):** white or **light** uniforms
+- **Away (top on schedule):** **dark** uniforms
+- **Numbers:** pressed on home, away, and reversibles — **front and back** — **no** duplicate numbers on one roster
+- **No T-shirts** — not acceptable as a uniform
+- **Coaches:** collared shirt **or** team apparel
+- **Pre-game:** refs check every game — **out of uniform = can't play**
+- **Team not in compliance** may be assessed a **technical foul** before tip-off`,
       },
       {
         slug: "jerseys-printing",
         q: "What if our jerseys are still being printed?",
-        a: `**Don't show up.** Seriously. We will not make exceptions on the uniform rule, and we'd rather you skip the event than burn your $25 fee at the door.`,
+        a: `- **Don't show up** without legal uniforms
+- **Zero exceptions** on the uniform rule
+- We'd rather you **skip the weekend** than **lose the $25** security & officials fee at the door for nothing`,
       },
       {
         slug: "conduct-policy",
         q: "What's the conduct policy?",
-        a: `We have a **strict zero-tolerance conduct policy.** Disrespect toward officials, staff, or other teams = immediate ejection from the venue/tournament and possible permanent ban from future Super6 events.
-
-If a parent, relative, or friend of an athlete is the violator, the associated athlete is barred from that weekend's event.`,
+        a: `- **Zero tolerance** for disrespect toward officials, staff, or other teams
+- **Penalty:** immediate ejection from the venue/tournament + possible **permanent ban**
+- **Parent / relative / friend** is the problem? **That athlete** is barred for the weekend`,
       },
       {
         slug: "ejection-rules",
         q: "What happens if a player or coach is ejected?",
-        a: `An ejected player or coach must leave the playing area immediately and is **suspended from the team's next Super6 game**. A second ejection in the same season triggers a Super6 director review and possible permanent ban. **Fees and forfeits apply per the forfeit policy.**`,
+        a: `- **Leave the floor now** — no debate
+- **Next Super6 game:** automatic **suspension**
+- **Second ejection same season:** director review + possible **permanent ban**
+- **Money:** fees & forfeits follow the **forfeit policy**`,
         pending: true,
       },
       {
         slug: "eligibility-challenge",
         q: "Can I challenge another team's player eligibility?",
-        a: `Yes. Challenge fee is **$100 per athlete challenged**.
-
-- If proper documentation isn't provided, that player can't participate
-- If a game has already been played and the player is found ineligible, the team forfeits that game
-- If the challenge is upheld (player ineligible), the **$100 fee is refunded** to the challenger`,
+        a: `- **Yes** — fee is **$100 per athlete** challenged
+- **No docs** = that player **can't play**
+- **Game already played** + player ruled ineligible = **forfeit that game**
+- **Challenge upheld** = **$100 back** to the challenger`,
       },
     ],
   },
@@ -405,37 +438,43 @@ If a parent, relative, or friend of an athlete is the violator, the associated a
       {
         slug: "venue-locations",
         q: "Where are Super6 events held?",
-        a: `Super6 runs across **Florida and Georgia**:
-
+        a: `- **Markets:** **Florida** + **Georgia**
 - **Orlando** — primary hub
 - **Tampa**
 - **Clearwater**
 - **West Palm Beach**
 - **Atlanta, GA**
-
-Specific venue addresses post on each event listing once confirmed. See [/locations](/locations) for the full season map.`,
+- **Addresses:** drop on each event listing once the building is locked
+- **Map:** [/locations](/locations)`,
       },
       {
         slug: "parking",
         q: "Is there parking at the venues?",
-        a: `**Yes — all venues include on-site or adjacent parking.** Parking details are included in your pre-event email and posted in the app the week of the event. Arrive 60 minutes before tip-off to allow for parking, check-in, and warm-up.`,
+        a: `- **Yes** — on-site **or** walkable adjacent parking at every building we use
+- **Details:** pre-event email + app (**week of** the tournament)
+- **Plan:** be parked **60 minutes** before tip — leaves room for check-in + warm-ups`,
         pending: true,
       },
       {
         slug: "food-policy",
         q: "Can we bring outside food and drinks?",
-        a: `**No outside food or drinks** at most Super6 venues. Each venue has on-site concessions with team-friendly pricing. Sealed water bottles for athletes are allowed; check the event page for venue-specific exceptions.`,
+        a: `- **Outside food / drinks:** **not allowed** at most venues
+- **Concessions:** on-site with team-friendly pricing
+- **Athletes:** sealed **water** is usually OK — read the **event page** for that gym's rules`,
         pending: true,
       },
       {
         slug: "warmup-ball",
         q: "Do we bring our own basketball?",
-        a: `**Yes — for warmups.** Super6 does not provide warm-up balls. The head referee selects a suitable game ball from the two teams.`,
+        a: `- **Yes** — bring your own for **warmups**
+- **Super6 does not** supply warm-up balls
+- **Game ball:** referee picks from **your two** game balls`,
       },
       {
         slug: "hotel-discounts",
         q: "Do you have hotel discounts for traveling teams?",
-        a: `**Yes.** Discounted room blocks are available at [thesuper6.com/copy-of-hotels-orl-1](/copy-of-hotels-orl-1). Book early — rates and availability are limited.`,
+        a: `- **Yes** — discounted room blocks live here: [Hotel blocks](/copy-of-hotels-orl-1)
+- **Book early** — price and inventory **go fast**`,
       },
     ],
   },
@@ -451,7 +490,9 @@ Specific venue addresses post on each event listing once confirmed. See [/locati
       {
         slug: "refunds-final",
         q: "Are refunds ever issued?",
-        a: `**No.** Under no circumstances do we offer refunds — registration fees, gate badges, security & officials fees, and any other purchase are all final. Plan accordingly.`,
+        a: `- **No** — we do not issue refunds under any circumstances
+- Applies to **registration**, **gate badges**, **security & officials fees**, and **any other purchase**
+- **Decide before you pay** — all sales are final`,
       },
       {
         slug: "forfeit-policy",
@@ -465,13 +506,20 @@ Specific venue addresses post on each event listing once confirmed. See [/locati
       {
         slug: "weather-delays",
         q: "What happens if there's a weather delay or cancellation?",
-        a: `Outdoor and indoor venues alike are subject to weather delays. Updates push through the **Super6 app** in real time. If a session is delayed, the schedule reseats automatically and your team's next game time updates in the app. **No refunds for weather** — events that begin and are then cut short by weather are considered played.`,
+        a: `- **Any venue** — indoor or outdoor — can be affected by severe weather
+- **Updates:** real-time, **Super6 app only**
+- **If play is delayed:** bracket **reseats automatically** — your next game time updates in the app
+- **Refunds:** **none** for weather
+- **If the event starts** and is then stopped by weather, it is **treated as played**`,
         pending: true,
       },
       {
         slug: "dispute-resolution",
         q: "How do I dispute a result, ruling, or fee?",
-        a: `On-court rulings are **final** at the moment they're called. Post-event disputes (eligibility, forfeit fees, conduct decisions) go through the Super6 director. Email through the [Contact page](/contact) with your team name, event date, and a clear summary. We respond same-day during the week.`,
+        a: `- **On the court:** rulings are **final** when made — no re-argument at the scorer's table
+- **After the event:** eligibility, forfeit fees, conduct → **Super6 director**
+- **How to escalate:** email via [Contact](/contact) — include **team name**, **event date**, and a clear summary
+- **Response time:** same-day during the **work week**`,
         pending: true,
       },
       {
