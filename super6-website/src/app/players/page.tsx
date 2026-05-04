@@ -4,6 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Players | Super6 Basketball",
   description: "Super6 player resources — coming soon.",
+  robots: { index: false, follow: false },
 };
 
 export default function PlayersPage() {

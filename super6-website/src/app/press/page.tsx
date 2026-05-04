@@ -4,6 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Press | Super6 Basketball",
   description: "Super6 press resources and media kit — coming soon.",
+  robots: { index: false, follow: false },
 };
 
 export default function PressPage() {

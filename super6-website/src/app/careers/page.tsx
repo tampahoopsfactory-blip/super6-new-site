@@ -4,6 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Careers | Super6 Basketball",
   description: "Opportunities to work with Super6 — coming soon.",
+  robots: { index: false, follow: false },
 };
 
 export default function CareersPage() {

@@ -4,6 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Shop | Super6 Basketball",
   description: "Super6 merchandise and gear — coming soon.",
+  robots: { index: false, follow: false },
 };
 
 export default function ShopPage() {
@@ -40,7 +41,7 @@ export default function ShopPage() {
             }}
           >
             Super6 gear and merchandise is on the way. Check back soon — or
-            register your team while you're here.
+            register your team while you&apos;re here.
           </p>
           <Link
             href="/register"
