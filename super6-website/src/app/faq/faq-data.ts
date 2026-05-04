@@ -90,12 +90,11 @@ To update your roster after registering, log in to [basketball.exposureevents.co
       {
         slug: "age-divisions",
         q: "What age cutoffs and divisions do you offer?",
-        a: `**Boys and Girls, 3rd–12th grade.** We offer **D1**, **D2**, **D3**, and **D4** brackets where team count supports it:
+        a: `**Boys and Girls, 3rd–12th grade.** We offer **D1**, **D2**, and **D3** brackets where team count supports it:
 
 - **D1** — the highest level of competitive play.
 - **D2** — a team that is forming and coming together.
 - **D3** — a team that is developmental.
-- **D4** — teams coming **directly from league** who have **never played travel ball before** and are **very inexperienced**. Super6 may place a D4 team in a **lower competitive bracket** when matchups or overall competition call for it, so games stay safe and appropriate for everyone on the floor.
 
 Players are placed by current school grade — verified through the school portal at check-in. Players may play **up** within the same club, never down.`,
       },
@@ -172,7 +171,7 @@ Teams that can't meet these requirements will be disqualified. **No refund.**`,
       {
         slug: "divisions-offered",
         q: "What divisions do you offer?",
-        a: `Boys and Girls, **3rd–12th grade**. **D1**, **D2**, **D3**, and **D4** brackets where team count supports it. See [What age cutoffs and divisions do you offer?](#age-divisions) for what each level means.`,
+        a: `Boys and Girls, **3rd–12th grade**. **D1**, **D2**, and **D3** brackets where team count supports it.`,
       },
       {
         slug: "game-guarantee",
