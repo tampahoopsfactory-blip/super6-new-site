@@ -112,7 +112,7 @@ See the [No-cash policy](#no-cash-policy) below — we do **not** accept cash at
       {
         slug: "matching-uniforms",
         title: "Matching uniforms",
-        body: `All players must wear matching, **unmodified** uniforms. Any player without a matching uniform will not be allowed to play. Super 6 enforces a strict uniform-matching policy and **does not make exceptions**.`,
+        body: `All players must wear matching, **unmodified** uniforms. **Shorts must match** across the roster — a correct jersey with **mismatched shorts** is **not** acceptable. Any player without a matching uniform will not be allowed to play. Super 6 enforces a strict uniform-matching policy and **does not make exceptions**.`,
       },
       {
         slug: "no-tshirts",
