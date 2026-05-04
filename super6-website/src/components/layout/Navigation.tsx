@@ -25,27 +25,26 @@ const megaMenu = [
   {
     title: "Programs",
     links: [
-      { label: "College Pipeline", href: "/programs/college-pipeline" },
-      { label: "Camps & Clinics", href: "/programs/camps" },
-      { label: "Showcase Series", href: "/programs/showcase" },
-      { label: "Skills Training", href: "/programs/training" },
+      { label: "Youth Development · 3rd–5th", href: "/programs#youth" },
+      { label: "Travel Teams · 6th–8th", href: "/programs#travel" },
+      { label: "School Programs", href: "/programs#school" },
+      { label: "Elite Competition · 9th–12th", href: "/programs#elite" },
     ],
   },
   {
     title: "Community",
     links: [
       { label: "For Coaches", href: "/coaches" },
-      { label: "For Players", href: "/players" },
       { label: "Champions", href: "/champions" },
+      { label: "News & Updates", href: "/news" },
     ],
   },
   {
     title: "Resources",
     links: [
-      { label: "News & Updates", href: "/news" },
       { label: "FAQs", href: "/faq" },
-      { label: "Apparel & Shop", href: "/shop" },
-      { label: "Press Kit", href: "/press" },
+      { label: "Rules", href: "/rules" },
+      { label: "Schedule", href: "/schedule" },
     ],
   },
   {
@@ -53,7 +52,6 @@ const megaMenu = [
     links: [
       { label: "About Us", href: "/about" },
       { label: "Sponsorships", href: "/sponsors" },
-      { label: "Careers", href: "/careers" },
       { label: "Become an Official", href: "/officials" },
     ],
   },
@@ -102,8 +100,13 @@ export default function Navigation() {
     };
   }, [megaOpen]);
 
-  // Close mega-menu when route changes
-  useEffect(() => { setMegaOpen(false); }, [pathname]);
+  // Close mega-menu when route changes.
+  // Deferred via setTimeout to satisfy react-hooks/set-state-in-effect — same
+  // pattern used in src/app/faq/_components/FAQClient.tsx.
+  useEffect(() => {
+    const t = setTimeout(() => setMegaOpen(false), 0);
+    return () => clearTimeout(t);
+  }, [pathname]);
 
   const announcement = announcements[announcementIdx];
 
