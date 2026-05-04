@@ -417,7 +417,8 @@ export const faqSections: FaqSection[] = [
       {
         slug: "jerseys-printing",
         q: "What if our jerseys are still being printed?",
-        a: `- **Super6 rents uniforms** for **$100 for the weekend** — ask **site staff** at the venue for availability and pickup
+        a: `- **Request a rental:** send a **text message** to the Super6 number on the [**Contact**](/contact) page asking to **rent uniforms** — must be sent by **Wednesday** prior to the event
+- **Super6 rents uniforms** for **$100 for the weekend** — after your text is confirmed, **site staff** at the venue handle **availability and pickup**
 - **Don't show up** without legal uniforms (your own **or** a confirmed rental)
 - **Zero exceptions** on the uniform rule`,
       },
