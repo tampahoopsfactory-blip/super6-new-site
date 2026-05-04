@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Game Officials | Super6 Basketball",
+  title: "Hiring Officials | Super6 Basketball",
   description:
-    "Super6 is hiring NFHS-certified referees. Weekly games, running-clock pay $20–$27/hr, immediate Sunday payouts. Apply now.",
+    "Super 6 is hiring NFHS-certified referees. Weekly weekend games, $20–$27/hr, same-day Sunday payouts. Apply now.",
 };
 
 const SIGNUP_URL =
@@ -42,10 +42,10 @@ const payTiers = [
 ];
 
 const programFacts = [
-  { label: "Game Format", value: "Running clock" },
-  { label: "Avg. Game Time", value: "40–45 minutes" },
   { label: "Schedule", value: "Weekly · weekend events" },
-  { label: "Payout", value: "Immediately after Sunday games" },
+  { label: "Booking Day", value: "Tuesdays at 7 PM" },
+  { label: "Coverage", value: "Multi-city tournaments" },
+  { label: "Payout", value: "Same-day Sunday" },
 ];
 
 export default function OfficialsPage() {
@@ -70,7 +70,7 @@ export default function OfficialsPage() {
           <div className="officials-hero-meta">
             <span className="officials-hero-meta-tag">Now Hiring</span>
             <span className="officials-hero-meta-divider" />
-            <span>$20–$27/HR · RUNNING CLOCK</span>
+            <span>$20–$27 PER HOUR · WEEKLY GAMES</span>
           </div>
 
           <div className="officials-hero-wordmark" aria-hidden="true">
@@ -124,12 +124,12 @@ export default function OfficialsPage() {
           <div className="officials-section-intro">
             <p className="section-label">Pay Structure</p>
             <h2 className="section-heading">
-              Three tiers. <em>Running clock.</em>
+              Three tiers. <em>Built for officials.</em>
             </h2>
             <p className="section-desc">
-              Officials are paid by the hour at running-clock games. Tier
-              placement is based on experience level and consistency with
-              Super 6 events.
+              Officials are paid by the hour. Tier placement is based on
+              experience level and consistency with Super 6 events — show up,
+              call clean ball, and you move up.
             </p>
           </div>
 
