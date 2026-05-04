@@ -24,15 +24,17 @@ export default function HeroSection() {
         />
       </div>
 
+      {/* Floating brand mark, bottom-right of the hero */}
+      <Image
+        src="/media/logos/super6-mark-transparent.png"
+        alt="Super 6"
+        width={280}
+        height={280}
+        priority
+        className="editorial-hero-mark"
+      />
+
       <div className="editorial-hero-content">
-        <Image
-          src="/media/logos/super6-mark-transparent.png"
-          alt="Super 6"
-          width={140}
-          height={112}
-          priority
-          className="editorial-hero-logo"
-        />
         <span className="editorial-eyebrow">Florida · Georgia · Est. 2014</span>
         <h1 className="editorial-headline">
           Where champions <em>are made.</em>
