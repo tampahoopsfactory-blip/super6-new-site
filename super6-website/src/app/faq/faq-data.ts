@@ -162,16 +162,6 @@ export const faqSections: FaqSection[] = [
         a: `- **Most Super6 information does not require a login** — you **do not need** login credentials to access schedules and general updates in the app. **Download** the Super6 app and **use it**
 - **Follow your team:** when you **follow your team** in the app, you'll get **automatic text messages (SMS)** from the app for anything relevant to **that team** — schedule releases, changes, and other updates`,
       },
-      {
-        slug: "push-notifications",
-        q: "Do I need to enable push notifications?",
-        a: `- **Yes — strongly recommended**
-- Courts, weather, and bracket updates **push through the app only**
-- Notifications **off** = you can miss a tip-off change
-- **iOS:** **Settings → Notifications → Super6**
-- **Android:** **App Info → Notifications**`,
-        pending: true,
-      },
     ],
   },
 
