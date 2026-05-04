@@ -55,14 +55,14 @@ export default function OfficialsPage() {
       <section className="officials-hero">
         <div className="officials-hero-photo">
           <Image
-            src="/media/uploads/elite-referees.jpg"
+            src="/media/uploads/officials-refs-shake.jpg"
             alt=""
             fill
             priority
             quality={94}
             sizes="(max-width: 968px) 100vw, 55vw"
             aria-hidden="true"
-            style={{ objectFit: "cover", objectPosition: "center 28%" }}
+            style={{ objectFit: "cover", objectPosition: "center 35%" }}
           />
         </div>
 
