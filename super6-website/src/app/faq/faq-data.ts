@@ -45,7 +45,7 @@ export const faqIntro = {
   eyebrow: "Frequently Asked",
   title: "Asked & answered.",
   body:
-    "Florida's longest-running youth basketball tournament. Boys and girls, 3rd–12th grade. 3–4 game minimum every event. Schedule drops Wednesdays at 8 PM in the Super6 app. Built directly on the rules at /rules — when in doubt, the rules page wins.",
+    "Florida's longest-running youth basketball tournament. Boys and girls, 3rd–12th grade. Three-game minimum every event. Schedule drops Wednesdays at 8 PM in the Super6 app. Built directly on the rules at /rules — when in doubt, the rules page wins.",
 };
 
 export const faqSections: FaqSection[] = [
@@ -182,7 +182,7 @@ For grade placement and play-up rules, see [What age cutoffs and divisions do yo
       {
         slug: "game-guarantee",
         q: "What's the game guarantee?",
-        a: `**3–4 games minimum** per team, per event.`,
+        a: `**3 games minimum** per team, per event.`,
       },
       {
         slug: "home-away",
