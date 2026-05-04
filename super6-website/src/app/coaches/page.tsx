@@ -179,8 +179,8 @@ export default function CoachesPage() {
               margin: 0,
             }}
           >
-            "The best-run youth basketball tournament I have been to in 20 years
-            of coaching."
+            &ldquo;The best-run youth basketball tournament I have been to in 20 years
+            of coaching.&rdquo;
           </blockquote>
         </div>
       </section>
