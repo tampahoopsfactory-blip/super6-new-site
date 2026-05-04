@@ -88,8 +88,10 @@ export const faqSections: FaqSection[] = [
       },
       {
         slug: "age-divisions",
-        q: "What age cutoffs and divisions do you offer?",
-        a: `- **Boys and Girls, 3rd–12th grade**
+        q: "What grade divisions do you offer?",
+        a: `- **We are not an age-based organization** — we are a **grade-based** organization
+- **An athlete must** be in the **appropriate grade** to play in that **grade division**
+- **Boys and Girls, 3rd–12th grade**
 - **D1**, **D2**, and **D3** brackets where team count supports it:
   - **D1** — the highest level of competitive play
   - **D2** — a team that is forming and coming together
@@ -184,12 +186,14 @@ export const faqSections: FaqSection[] = [
       {
         slug: "divisions-offered",
         q: "What divisions do you offer?",
-        a: `- **Boys and Girls, 3rd–12th grade**
+        a: `- **We are not an age-based organization** — we are a **grade-based** organization
+- **An athlete must** be in the **appropriate grade** to play in that **grade division**
+- **Boys and Girls, 3rd–12th grade**
 - **D1**, **D2**, and **D3** brackets where team count supports it:
   - **D1** — the highest level of competitive play
   - **D2** — a team that is forming and coming together
   - **D3** — a team that is developmental
-- **Grade + play-up rules:** [What age cutoffs and divisions do you offer?](#age-divisions)`,
+- **Grade placement + play up:** [What grade divisions do you offer?](#age-divisions)`,
       },
       {
         slug: "game-guarantee",
