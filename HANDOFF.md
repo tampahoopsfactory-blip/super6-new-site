@@ -110,12 +110,18 @@ The FAQ data file flags 14 items where I drafted plausible policy copy that need
 
 `super6-FULL-audit.md` was rebuilt at the worktree root on 2026-05-04 by scanning the codebase against the FAQ gold standard. It is the single source of truth for prioritized work. Pull from it in priority order: P0 first, then P1, then P2.
 
-**Top three P0 items right now:**
-1. **P0-01** — Mega-menu links to `/programs/college-pipeline`, `/programs/camps`, `/programs/showcase`, `/programs/training` all 404. Build the four pages or collapse to anchors on `/programs`.
-2. **P0-02** — `/api/checkout` is a mock. Stripe is commented out. Real registration money cannot move until this is wired.
-3. **P0-03** — `sitemap.ts` is missing 14+ live routes. SEO leak.
+**Closed in this Cursor session (2026-05-04, after handoff):**
+- P0-01 — Mega-menu 404s. Repointed to anchored sections on `/programs` that already render (`#youth`, `#travel`, `#school`, `#elite`).
+- P0-03 — Sitemap rebuilt to include all 16 indexable public routes.
+- P0-04 — `Navigation.tsx` `set-state-in-effect` lint error fixed via `setTimeout` defer.
+- P1-04 — Lint debt cleared (0 errors, 3 warnings — all auto-resolve with P0-02).
+- P0-05 (partial) — Pruned stub pages from mega-menu and `noindex`'d their metadata.
 
-See `super6-FULL-audit.md` for full P0/P1/P2 ranking, files, acceptance criteria, and TK-decision items.
+**Open P0 items:**
+1. **P0-02** — `/api/checkout` is still a Stripe mock. `.env.example` now documents the full env surface (webhook secret, price IDs, backing-store options) but actual wiring waits on TK to pick a backing store (Supabase / Airtable / Sheets / email-only).
+2. **P0-05 (final leg)** — Per-route decision on `/players`, `/press`, `/careers`, `/shop`: build real content, redirect to siblings, or delete.
+
+See `super6-FULL-audit.md` for full P0/P1/P2 ranking, files, acceptance criteria, and the consolidated TK-decision block at the bottom.
 
 ---
 

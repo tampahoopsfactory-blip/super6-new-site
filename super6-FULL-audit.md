@@ -5,10 +5,16 @@ needs polish, what's polish-only. This is the working source of truth for
 all future Cursor and Claude Code sessions. Pick the next unchecked P0,
 finish it end-to-end, push, then return for the next.
 
-**Generated:** 2026-05-04 · **Auditor:** Cursor (Claude Opus 4.7)
-**Branch:** `claude/pensive-cray` · **Last commit:** `6b7ad73`
+**Generated:** 2026-05-04 · **Last update:** 2026-05-04 17:18 EDT
+**Auditor:** Cursor (Claude Opus 4.7)
+**Branch:** `claude/pensive-cray` · **Last commit:** `5141300`
 **Build:** PASSING (30/30 static pages prerendered)
-**Lint:** 4 errors / 4 warnings — itemized in P0-04 / P1-04
+**Lint:** 0 errors / 3 warnings — auto-resolves with P0-02
+
+**Closed this session (2026-05-04):** P0-01, P0-03, P0-04, P1-04.
+**Partially closed:** P0-05 (nav-pruned + noindex'd; pending TK decision on per-route fate).
+**Open and waiting on TK:** P0-02 (registration backing store + price confirmation), P0-05 (per-route fate), P1-01 (FAQ pending answers), P1-03 (testimonial / alumni names), P1-05 (newsletter ESP).
+**Open and ready to execute without TK input:** P1-02 (FAQ pattern to /rules), P2-* items.
 
 ---
 
@@ -25,7 +31,7 @@ Effort is rough: S = under 30 min, M = 30 min – 2 hr, L = half-day, XL = full 
 
 # P0 — Production blockers
 
-## P0-01 — [ ] Mega-menu links go to 404 pages
+## P0-01 — [x] Mega-menu links go to 404 pages — CLOSED 2026-05-04 (commit `3fadea6`)
 **Problem.** `Navigation.tsx` mega-menu links to four program subpages
 that do not exist: `/programs/college-pipeline`, `/programs/camps`,
 `/programs/showcase`, `/programs/training`. Anyone hitting the Programs
@@ -86,7 +92,7 @@ email-only?) — without that the webhook has nowhere to write.
 
 ---
 
-## P0-03 — [ ] Sitemap is missing 14+ live routes
+## P0-03 — [x] Sitemap is missing 14+ live routes — CLOSED 2026-05-04 (commit `cb78cbe`)
 **Problem.** `src/app/sitemap.ts` only emits 6 URLs (`/`, `/locations`,
 `/locations/[slug]` × N, `/about`, `/contact`, `/register`). The site
 ships these public routes that are not in the sitemap and therefore
@@ -112,7 +118,7 @@ Tampa", etc.).
 
 ---
 
-## P0-04 — [ ] `Navigation.tsx` lint error blocks clean lint
+## P0-04 — [x] `Navigation.tsx` lint error blocks clean lint — CLOSED 2026-05-04 (commit `3fadea6`)
 **Problem.** `react-hooks/set-state-in-effect` error at
 `Navigation.tsx:106` (`useEffect(() => { setMegaOpen(false); }, [pathname]);`).
 This is the only **error**-level lint problem in the entire repo
@@ -138,7 +144,9 @@ fix pattern is already documented in CLAUDE.md and used in
 
 ---
 
-## P0-05 — [ ] Stub pages publicly linked but render "Coming soon"
+## P0-05 — [~] Stub pages publicly linked but render "Coming soon" — PARTIAL 2026-05-04 (commits `3fadea6`, `cb78cbe`)
+
+**Status:** Removed from mega-menu and `noindex`'d so Google won't surface them. Routes still exist, still render "Coming soon" for direct visitors. To fully close: TK decides per page — build real content, redirect to a sibling page, or delete the route entirely.
 **Problem.** `/players`, `/press`, `/careers`, `/shop` all render the
 exact same 56-line "Coming soon." card. They are linked from the
 mega-menu (Community, Resources, Connect columns). For a tournament
@@ -271,7 +279,9 @@ a paragraph of voice for each section.
 
 ---
 
-## P1-04 — [ ] 3 lint errors and 4 warnings outside `Navigation.tsx`
+## P1-04 — [x] 3 lint errors and 4 warnings outside `Navigation.tsx` — CLOSED 2026-05-04 (commits `cb78cbe`, `5141300`)
+
+**Status:** Lint now reports 0 errors / 3 warnings. The remaining 3 warnings are in `api/checkout/route.ts` on destructured params (`coachName`, `division`, `location`) that auto-resolve when P0-02 wires the Stripe session metadata. Not worth churning with throwaway `_` prefixes.
 **Problem.** Cosmetic lint debt:
 - `coaches/page.tsx:182,183` — unescaped `"` (2 errors)
 - `shop/page.tsx:43` — unescaped `'` (1 error)
