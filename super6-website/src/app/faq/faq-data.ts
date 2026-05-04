@@ -402,7 +402,8 @@ export const faqSections: FaqSection[] = [
       {
         slug: "uniform-requirements",
         q: "What are the uniform requirements?",
-        a: `- **Strict matching only** — no exceptions
+        a: `- **Why it matters:** Super6 draws teams **from all over the world** who play **each weekend**. We're **very intentional** about **our floors**, how games **look**, and **sharp, matching uniforms** — that presentation **adds value to the whole tournament**. **Our strict uniform policy is not here to penalize teams** — it's to **elevate and maintain** the **quality of our games** and the **way our floors look** when you're competing
+- **Strict matching only** — no exceptions
 - **Home (bottom on schedule):** white or **light** uniforms
 - **Away (top on schedule):** **dark** uniforms
 - **Numbers:** pressed on home, away, and reversibles — **front and back** — **no** duplicate numbers on one roster
