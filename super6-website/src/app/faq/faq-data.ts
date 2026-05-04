@@ -288,14 +288,12 @@ export const faqSections: FaqSection[] = [
 - **7th–12th Boys & 9th–12th Girls:** 29.5" (size 7)
 - **Warm-up:** teams bring their own ball
 - **Game ball:** head referee picks from the two teams' balls`,
-        pending: true,
       },
       {
         slug: "shot-clock",
         q: "Is there a shot clock?",
         a: `- **No shot clock** at any Super6 division
 - **NFHS standard** — possession governed by closely-guarded and 10-second backcourt rules`,
-        pending: true,
       },
       {
         slug: "mercy-rule",
@@ -348,7 +346,6 @@ export const faqSections: FaqSection[] = [
         a: `- Issued at the gate **after** payment + biometric check-in
 - Must stay **visible** at all times inside the venue
 - **Tampering** = removal + **athlete barred** for the weekend`,
-        pending: true,
       },
       {
         slug: "spectator-passes",
@@ -362,7 +359,6 @@ export const faqSections: FaqSection[] = [
         a: `- **Yes** — same-day re-entry with a **valid wristband**
 - **Biometric** confirms identity on the way back in
 - **Different day?** need a **new** ticket — no cross-day re-entry`,
-        pending: true,
       },
       {
         slug: "sneak-in",
@@ -397,7 +393,6 @@ export const faqSections: FaqSection[] = [
         a: `- **Bench dress:** collared shirts **or** team apparel
 - **Roster:** coaches listed on the team profile in **Exposure Events**
 - **Background checks / certs:** **vary by venue** — read the **event page** before you travel`,
-        pending: true,
       },
       {
         slug: "uniform-requirements",
@@ -439,7 +434,6 @@ export const faqSections: FaqSection[] = [
 - **Next Super6 game:** automatic **suspension**
 - **Second ejection same season:** director review + possible **permanent ban**
 - **Money:** fees & forfeits follow the **forfeit policy**`,
-        pending: true,
       },
     ],
   },
@@ -470,7 +464,6 @@ export const faqSections: FaqSection[] = [
         a: `- **Yes** — on-site **or** walkable adjacent parking at every building we use
 - **Details:** pre-event email + app (**week of** the tournament)
 - **Plan:** be parked **60 minutes** before tip — leaves room for check-in + warm-ups`,
-        pending: true,
       },
       {
         slug: "food-policy",
@@ -478,7 +471,6 @@ export const faqSections: FaqSection[] = [
         a: `- **Outside food / drinks:** **not allowed** at most venues
 - **Concessions:** on-site with team-friendly pricing
 - **Athletes:** sealed **water** is usually OK — read the **event page** for that gym's rules`,
-        pending: true,
       },
       {
         slug: "warmup-ball",
@@ -527,7 +519,6 @@ export const faqSections: FaqSection[] = [
 - **After the event:** eligibility, forfeit fees, conduct → **Super6 director**
 - **How to escalate:** email via [Contact](/contact) — include **team name**, **event date**, and a clear summary
 - **Response time:** same-day during the **work week**`,
-        pending: true,
       },
       {
         slug: "contact-escalation",
