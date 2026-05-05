@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { REGISTER_LINK_PROPS } from "@/lib/links";
 
 export const metadata: Metadata = {
-  title: "Champions | Super6 Basketball",
+  title: "Champions | Super6 Series LLC Basketball",
   description:
-    "Super6 tournament champions — the programs that competed, won, and came back stronger every season.",
+    "Super6 Series LLC tournament champions — the programs that competed, won, and came back stronger every season.",
 };
 
 const seasons = [
@@ -88,7 +89,7 @@ export default function ChampionsPage() {
             className="editorial-eyebrow"
             style={{ color: "var(--cream)", opacity: 0.85 }}
           >
-            Super6 · Champions
+            Super6 Series LLC · Champions
           </p>
           <h1>
             The programs
@@ -103,7 +104,7 @@ export default function ChampionsPage() {
               marginTop: "1.25rem",
             }}
           >
-            Division champions from every Super6 event on record.
+            Division champions from every Super6 Series LLC event on record.
           </p>
         </div>
       </section>
@@ -231,7 +232,7 @@ export default function ChampionsPage() {
             championship every event.
           </p>
           <Link
-            href="/register"
+            {...REGISTER_LINK_PROPS}
             className="btn-primary"
             style={{ fontSize: "1rem", padding: "0.9rem 2rem" }}
           >

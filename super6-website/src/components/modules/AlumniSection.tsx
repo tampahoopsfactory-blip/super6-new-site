@@ -47,11 +47,12 @@ export default function AlumniSection() {
       <div className="container-xl">
         <div className="alumni-intro">
           <p className="section-label">College Pipeline</p>
-          <h2 id="alumni-heading" className="section-heading">
-            Where our alumni <em>land.</em>
+          <h2 id="alumni-heading" className="section-heading alumni-heading-notable">
+            <span className="alumni-notable-prefix">Notable alumni:</span> Where our alumni{" "}
+            <em>land.</em>
           </h2>
           <p className="section-desc">
-            Super 6 athletes are recruited by — and enroll at — the most
+            Super6 Series LLC athletes are recruited by — and enroll at — the most
             selective academic institutions in the country. Three featured
             stories below; the placement list runs deeper.
           </p>

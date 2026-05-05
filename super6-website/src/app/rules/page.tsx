@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import RulesClient from "./_components/RulesClient";
 import { rulesIntro, rulesSections, totalRules } from "./rules-data";
+import { REGISTER_LINK_PROPS } from "@/lib/links";
+import { siteSmsHref } from "@/data/site";
 
 /* ─── /rules — server component
    - Editorial split hero (kept from previous design — already matches the
@@ -19,12 +21,12 @@ import { rulesIntro, rulesSections, totalRules } from "./rules-data";
 export const metadata: Metadata = {
   title: "Tournament Rules",
   description:
-    "Official Super 6 youth basketball tournament rules. Conduct, uniform compliance, game format, player eligibility, tiebreakers, scheduling. NFHS standards.",
+    "Official Super6 Series LLC youth basketball tournament rules. Conduct, uniform compliance, game format, player eligibility, tiebreakers, scheduling. NFHS standards.",
   alternates: { canonical: "/rules" },
   openGraph: {
-    title: "Tournament Rules | Super6",
+    title: "Tournament Rules | Super6 Series LLC",
     description:
-      "Conduct, uniforms, game format, eligibility, tiebreakers, scheduling — the 2026 Super 6 rule book.",
+      "Conduct, uniforms, game format, eligibility, tiebreakers, scheduling — the 2026 Super6 Series LLC rule book.",
     url: "/rules",
     type: "website",
   },
@@ -232,7 +234,7 @@ export default function RulesPage() {
 
         <div className="faq-footnote-wrap">
           <p className="faq-footnote">
-            By participating in a Super 6 event, your team agrees to all rules
+            By participating in a Super6 Series LLC event, your team agrees to all rules
             and policies on this page. For non-rule questions, see the{" "}
             <Link href="/faq" className="faq-link">
               FAQ
@@ -255,12 +257,12 @@ export default function RulesPage() {
             Now that you know how the weekend works, lock in your spot.
           </p>
           <div className="faq-final-cta-actions">
-            <Link href="/register" className="btn-hero btn-hero-primary">
+            <Link {...REGISTER_LINK_PROPS} className="btn-hero btn-hero-primary">
               Register your team
             </Link>
-            <Link href="/contact" className="btn-hero btn-hero-secondary">
-              Question? Contact us
-            </Link>
+            <a href={siteSmsHref} className="btn-hero btn-hero-secondary">
+              Text Super6
+            </a>
           </div>
         </div>
       </section>

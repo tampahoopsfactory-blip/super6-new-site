@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Hiring Officials | Super6 Basketball",
+  title: "Hiring Officials | Super6 Series LLC Basketball",
   description:
-    "Super 6 is hiring NFHS-certified referees. Weekly weekend games, $20–$27/hr, same-day Sunday payouts. Apply now.",
+    "Super6 Series LLC is hiring NFHS-certified referees. Weekly weekend games, $20–$27/hr, same-day Sunday payouts. Apply now.",
 };
 
 const SIGNUP_URL =
@@ -14,10 +14,10 @@ const programPoints = [
   "Bookings are made every Tuesday at 7:00 PM.",
   "We are looking for qualified referees who can cover all of our games.",
   "Special consideration is given for long-term consistency in availability and quality of work.",
-  "Referee consistency with Super 6 will secure court(s) for games long-term.",
+  "Referee consistency with Super6 Series LLC will secure court(s) for games long-term.",
   "If you are only looking for a few games from time-to-time, please still apply.",
   "Select only the city(s) and dates you are available.",
-  "Must be available to work the entire event unless prior arrangements are established with Super 6.",
+  "Must be available to work the entire event unless prior arrangements are established with Super6 Series LLC.",
 ];
 
 const payTiers = [
@@ -128,7 +128,7 @@ export default function OfficialsPage() {
             </h2>
             <p className="section-desc">
               Officials are paid by the hour. Tier placement is based on
-              experience level and consistency with Super 6 events — show up,
+              experience level and consistency with Super6 Series LLC events — show up,
               call clean ball, and you move up.
             </p>
           </div>

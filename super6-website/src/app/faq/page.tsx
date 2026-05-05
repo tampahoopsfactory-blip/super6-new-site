@@ -8,6 +8,8 @@ import {
   faqSections,
   totalQuestions,
 } from "./faq-data";
+import { REGISTER_LINK_PROPS } from "@/lib/links";
+import { siteSmsHref } from "@/data/site";
 
 /* ─── /faq — server component
    - Editorial hero (kept from previous design, spacing tightened below)
@@ -16,12 +18,12 @@ import {
 */
 
 export const metadata: Metadata = {
-  title: "FAQ | Super6",
+  title: "FAQ | Super6 Series LLC",
   description:
-    "Answers to the most common Super6 questions — registration, the Super6 app, schedule, game rules, eligibility, gate security, officials, venues, and refunds.",
+    "Answers to the most common Super6 Series LLC questions — registration, the Super6 Series LLC app, schedule, game rules, eligibility, gate security, officials, venues, and refunds.",
   alternates: { canonical: "/faq" },
   openGraph: {
-    title: "FAQ | Super6",
+    title: "FAQ | Super6 Series LLC",
     description:
       "Registration, app, schedule, rules, gate security, officials, venues, refunds — all in one place.",
     url: "/faq",
@@ -100,7 +102,7 @@ export default function FAQPage() {
 
         <div className="faq-footnote-wrap">
           <p className="faq-footnote">
-            By participating in a Super6 event, your team agrees to all rules
+            By participating in a Super6 Series LLC event, your team agrees to all rules
             and policies on{" "}
             <Link href="/rules" className="faq-link">
               thesuper6.com/rules
@@ -118,14 +120,14 @@ export default function FAQPage() {
             We answer same-day, every weekday.
           </h2>
           <p className="faq-final-cta-sub">
-            Real-time event questions belong in the Super6 app. Anything else —
+            Real-time event questions belong in the Super6 Series LLC app. Anything else —
             registration, billing, eligibility — comes through here.
           </p>
           <div className="faq-final-cta-actions">
-            <Link href="/contact" className="btn-hero btn-hero-primary">
-              Contact Super6
-            </Link>
-            <Link href="/register" className="btn-hero btn-hero-secondary">
+            <a href={siteSmsHref} className="btn-hero btn-hero-primary">
+              Text Super6
+            </a>
+            <Link {...REGISTER_LINK_PROPS} className="btn-hero btn-hero-secondary">
               Register a team
             </Link>
           </div>

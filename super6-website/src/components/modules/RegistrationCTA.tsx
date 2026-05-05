@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { registrationTiers } from "@/data/site";
+import { REGISTER_LINK_PROPS } from "@/lib/links";
 
 /* ─── Pricing — Editorial registration tiers
    Two cream cards on paper background, season pass featured.
@@ -37,7 +38,7 @@ export default function PricingSection() {
                 ))}
               </ul>
               <Link
-                href="/register"
+                {...REGISTER_LINK_PROPS}
                 className={`btn ${tier.popular ? "btn-orange" : "btn-outline"}`}
                 style={{ width: "100%" }}
               >

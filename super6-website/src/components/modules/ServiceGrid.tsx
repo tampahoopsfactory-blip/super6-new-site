@@ -33,7 +33,7 @@ export default function ImpactStrip() {
           <div className="impact-logo-cell">
             <Image
               src="/media/logos/super6-diamond-only.png"
-              alt="Super 6"
+              alt="Super6 Series LLC"
               width={160}
               height={160}
               className="impact-logo"

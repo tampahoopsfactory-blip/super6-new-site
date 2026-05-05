@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { REGISTER_LINK_PROPS } from "@/lib/links";
 
 export const metadata: Metadata = {
-  title: "Players | Super6 Basketball",
-  description: "Super6 player resources — coming soon.",
+  title: "Players | Super6 Series LLC Basketball",
+  description: "Super6 Series LLC player resources — coming soon.",
   robots: { index: false, follow: false },
 };
 
@@ -44,11 +45,11 @@ export default function PlayersPage() {
             meantime, find your next event and get on the court.
           </p>
           <Link
-            href="/schedule"
+            {...REGISTER_LINK_PROPS}
             className="btn-primary"
             style={{ fontSize: "1rem", padding: "0.9rem 2rem" }}
           >
-            View 2026 Schedule
+            Register on Exposure Events
           </Link>
         </div>
       </section>

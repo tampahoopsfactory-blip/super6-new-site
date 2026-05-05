@@ -18,11 +18,11 @@ export async function POST(req: NextRequest) {
     const priceMap: Record<string, { amount: number; name: string }> = {
       "single-tournament": {
         amount: 9900, // $99.00 in cents
-        name: "Super6 Single Tournament Registration",
+        name: "Super6 Series LLC Single Tournament Registration",
       },
       "season-pass": {
         amount: 89900, // $899.00 in cents — 10 events
-        name: "Super6 Season Package Registration (10 events)",
+        name: "Super6 Series LLC Season Package Registration (10 events)",
       },
     };
 

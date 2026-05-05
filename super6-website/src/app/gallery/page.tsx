@@ -1,4 +1,4 @@
-/* ─── /gallery — the visual story of Super 6.
+/* ─── /gallery — the visual story of Super6 Series LLC.
 
    Server component: renders metadata + the static hero, then mounts the
    client GalleryGrid (which owns filter state and the lightbox).
@@ -9,11 +9,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import GalleryGrid from "@/components/gallery/GalleryGrid";
+import { REGISTER_LINK_PROPS } from "@/lib/links";
+import { siteSmsHref } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Gallery | Super 6 Series",
+  title: "Gallery | Super6 Series LLC",
   description:
-    "Thirteen years of Super 6 Series in pictures — tournament action, behind-the-scenes work, packed venues, champions, and the brand moments that built the league.",
+    "Thirteen years of Super6 Series LLC in pictures — tournament action, behind-the-scenes work, packed venues, champions, and the brand moments that built the league.",
 };
 
 export default function GalleryPage() {
@@ -30,12 +32,12 @@ export default function GalleryPage() {
             The next photo on this page <em>is yours.</em>
           </h2>
           <div className="gallery-cta-actions">
-            <Link href="/register" className="btn btn-orange">
+            <Link {...REGISTER_LINK_PROPS} className="btn btn-orange">
               Register your team
             </Link>
-            <Link href="/contact" className="btn btn-outline">
-              Talk to the team
-            </Link>
+            <a href={siteSmsHref} className="btn btn-outline">
+              Text Super6
+            </a>
           </div>
         </div>
       </section>

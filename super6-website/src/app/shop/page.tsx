@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { REGISTER_LINK_PROPS } from "@/lib/links";
 
 export const metadata: Metadata = {
-  title: "Shop | Super6 Basketball",
-  description: "Super6 merchandise and gear — coming soon.",
+  title: "Shop | Super6 Series LLC Basketball",
+  description: "Super6 Series LLC merchandise and gear — coming soon.",
   robots: { index: false, follow: false },
 };
 
@@ -40,11 +41,11 @@ export default function ShopPage() {
               marginBottom: "2.5rem",
             }}
           >
-            Super6 gear and merchandise is on the way. Check back soon — or
+            Super6 Series LLC gear and merchandise is on the way. Check back soon — or
             register your team while you&apos;re here.
           </p>
           <Link
-            href="/register"
+            {...REGISTER_LINK_PROPS}
             className="btn-primary"
             style={{ fontSize: "1rem", padding: "0.9rem 2rem" }}
           >

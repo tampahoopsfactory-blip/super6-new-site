@@ -38,7 +38,7 @@ export type GalleryPhoto = {
   src: string;
   alt: string;
   title: string;        // e.g. "[Event Name - Year]"
-  event: string;        // e.g. "Super 6 Showcase, Tampa"
+  event: string;        // e.g. "Super6 Series LLC Showcase, Tampa"
   year: number;         // e.g. 2024
   category: GalleryCategory;
   featured?: boolean;   // span 2 cols
@@ -68,7 +68,7 @@ export const CATEGORY_META: Record<GalleryCategory, { label: string; eyebrow: st
   "venues-facilities": {
     label: "Venues & Facilities",
     eyebrow: "The Rooms We Take Over",
-    blurb: "Multi-court setups, packed crowds, the scale of a Super 6 weekend.",
+    blurb: "Multi-court setups, packed crowds, the scale of a Super6 Series LLC weekend.",
   },
   "athletes-champions": {
     label: "Athletes & Champions",
@@ -88,7 +88,7 @@ export const PHOTOS: GalleryPhoto[] = [
   {
     id: "ta-01", src: "/media/gallery/G1_01_Dunk_Action.jpg",
     alt: "Player rising for a dunk above the rim",
-    title: "[Above the Rim — 2024]", event: "Super 6 Showcase, Tampa", year: 2024,
+    title: "[Above the Rim — 2024]", event: "Super6 Series LLC Showcase, Tampa", year: 2024,
     category: "tournament-action", featured: true, aspect: "wide",
   },
   {
@@ -124,7 +124,7 @@ export const PHOTOS: GalleryPhoto[] = [
   {
     id: "ta-07", src: "/media/gallery/G1_32_Contest_Layup.jpg",
     alt: "Contested layup at the rim",
-    title: "[At the Rim — 2024]", event: "Super 6 Showcase, Tampa", year: 2024,
+    title: "[At the Rim — 2024]", event: "Super6 Series LLC Showcase, Tampa", year: 2024,
     category: "tournament-action", aspect: "tall",
   },
   {
@@ -162,7 +162,7 @@ export const PHOTOS: GalleryPhoto[] = [
   {
     id: "bts-01", src: "/media/uploads/bks-bag-check.jpg",
     alt: "Big Kelly's Security crew checking bags at the entrance",
-    title: "[Security Check-in — 2025]", event: "Super 6 Showcase, Tampa", year: 2025,
+    title: "[Security Check-in — 2025]", event: "Super6 Series LLC Showcase, Tampa", year: 2025,
     category: "behind-the-scenes", featured: true, aspect: "wide",
   },
   {
@@ -180,7 +180,7 @@ export const PHOTOS: GalleryPhoto[] = [
   {
     id: "bts-04", src: "/media/uploads/refs-crew.jpg",
     alt: "Officiating crew before tip-off",
-    title: "[The Crew — 2024]", event: "Super 6 Showcase, Tampa", year: 2024,
+    title: "[The Crew — 2024]", event: "Super6 Series LLC Showcase, Tampa", year: 2024,
     category: "behind-the-scenes", aspect: "landscape",
   },
   {
@@ -200,7 +200,7 @@ export const PHOTOS: GalleryPhoto[] = [
   {
     id: "vf-01", src: "/media/gallery/G1_11_Packed_Crowd.jpg",
     alt: "Packed crowd in the stands",
-    title: "[Sold Out — 2024]", event: "Super 6 Showcase, Tampa", year: 2024,
+    title: "[Sold Out — 2024]", event: "Super6 Series LLC Showcase, Tampa", year: 2024,
     category: "venues-facilities", featured: true, aspect: "wide",
   },
   {
@@ -226,7 +226,7 @@ export const PHOTOS: GalleryPhoto[] = [
   {
     id: "ac-01", src: "/media/curated/09-trophy-raise.jpg",
     alt: "Trophy raised after championship win",
-    title: "[Trophy Lift — 2024]", event: "Super 6 Showcase, Tampa", year: 2024,
+    title: "[Trophy Lift — 2024]", event: "Super6 Series LLC Showcase, Tampa", year: 2024,
     category: "athletes-champions", featured: true, aspect: "wide",
   },
   {
@@ -256,7 +256,7 @@ export const PHOTOS: GalleryPhoto[] = [
   {
     id: "ac-06", src: "/media/curated/23-female-athlete.jpg",
     alt: "Athlete portrait",
-    title: "[Player Portrait — 2024]", event: "Super 6 Showcase, Tampa", year: 2024,
+    title: "[Player Portrait — 2024]", event: "Super6 Series LLC Showcase, Tampa", year: 2024,
     category: "athletes-champions", aspect: "tall",
   },
   {
@@ -275,19 +275,19 @@ export const PHOTOS: GalleryPhoto[] = [
   /* Brand Moments ─────────────────────────────── */
   {
     id: "bm-01", src: "/media/curated/06-super6-banner-bokeh.jpg",
-    alt: "Super 6 banner in soft focus on the court",
-    title: "[The Banner — 2024]", event: "Super 6 Showcase, Tampa", year: 2024,
+    alt: "Super6 Series LLC banner in soft focus on the court",
+    title: "[The Banner — 2024]", event: "Super6 Series LLC Showcase, Tampa", year: 2024,
     category: "brand-moments", featured: true, aspect: "wide",
   },
   {
     id: "bm-02", src: "/media/uploads/celtics-super6.jpg",
-    alt: "Super 6 alongside professional team partnership",
-    title: "[Pro Partnership — 2025]", event: "Boston Celtics × Super 6", year: 2025,
+    alt: "Super6 Series LLC alongside professional team partnership",
+    title: "[Pro Partnership — 2025]", event: "Boston Celtics × Super6 Series LLC", year: 2025,
     category: "brand-moments", aspect: "landscape",
   },
   {
     id: "bm-03", src: "/media/gallery/G2_04_Solo_Coach_With_Banner.jpg",
-    alt: "Coach in front of Super 6 brand wall",
+    alt: "Coach in front of Super6 Series LLC brand wall",
     title: "[Brand Wall — 2024]", event: "Spring Classic, Orlando", year: 2024,
     category: "brand-moments", aspect: "portrait",
   },
@@ -299,8 +299,8 @@ export const PHOTOS: GalleryPhoto[] = [
   },
   {
     id: "bm-05", src: "/media/uploads/img-22-jersey.jpg",
-    alt: "Custom Super 6 jersey on the rack",
-    title: "[Custom Threads — 2024]", event: "Super 6 Showcase, Tampa", year: 2024,
+    alt: "Custom Super6 Series LLC jersey on the rack",
+    title: "[Custom Threads — 2024]", event: "Super6 Series LLC Showcase, Tampa", year: 2024,
     category: "brand-moments", aspect: "portrait",
   },
 ];
@@ -317,11 +317,11 @@ export type TimelineFrame = {
 };
 
 export const TIMELINE: TimelineFrame[] = [
-  { year: 2014, yearLabel: "Year 1",  src: "/media/curated/01-flagship-coach-pointer.jpg",  caption: "[The first whistle. One court, one weekend, one bracket.]", alt: "Coach directing at first Super 6 event" },
+  { year: 2014, yearLabel: "Year 1",  src: "/media/curated/01-flagship-coach-pointer.jpg",  caption: "[The first whistle. One court, one weekend, one bracket.]", alt: "Coach directing at first Super6 Series LLC event" },
   { year: 2015, yearLabel: "Year 2",  src: "/media/curated/14-coach-portrait.jpg",          caption: "[The standard set. Same brackets, sharper edges.]",         alt: "Coach portrait" },
   { year: 2016, yearLabel: "Year 3",  src: "/media/gallery/G1_05_Crowd_Spectator.jpg",      caption: "[Sidelines start to swell.]",                              alt: "Crowd along the sideline" },
   { year: 2017, yearLabel: "Year 4",  src: "/media/gallery/G2_11_Youth_Team_Promo.jpg",     caption: "[New teams. New cities scouting in.]",                     alt: "Youth team in promotional shot" },
-  { year: 2018, yearLabel: "Year 5",  src: "/media/curated/16-packed-sideline.jpg",         caption: "[First sold-out weekend.]",                                alt: "Packed sideline at Super 6" },
+  { year: 2018, yearLabel: "Year 5",  src: "/media/curated/16-packed-sideline.jpg",         caption: "[First sold-out weekend.]",                                alt: "Packed sideline at Super6 Series LLC" },
   { year: 2019, yearLabel: "Year 6",  src: "/media/curated/17-young-spectators.jpg",        caption: "[Expansion year. The schedule doubles.]",                  alt: "Young spectators watching" },
   { year: 2020, yearLabel: "Year 7",  src: "/media/gallery/G2_19_Coaching_Huddle_Scene.jpg",caption: "[Through the shutdown — and back.]",                       alt: "Coaching huddle" },
   { year: 2021, yearLabel: "Year 8",  src: "/media/gallery/G1_08_Team_Huddle_Celebration.jpg", caption: "[The return. Louder than before.]",                     alt: "Team huddle celebration" },
@@ -367,7 +367,7 @@ export const SPOTLIGHTS: Spotlight[] = [
   {
     id: "sp-01",
     src: "/media/curated/24-panoramic-crowd.jpg",
-    alt: "Panoramic packed venue at a Super 6 weekend",
+    alt: "Panoramic packed venue at a Super6 Series LLC weekend",
     eyebrow: "13 Years In",
     quote:
       "What started as one weekend on one court is now a circuit. The kids who came to play are now coaching the kids who came to watch them.",
@@ -381,7 +381,7 @@ export const SPOTLIGHTS: Spotlight[] = [
     eyebrow: "The Standard",
     quote:
       "We don't run weekends. We run rooms. Every entrance covered, every official certified, every minute on the clock earned.",
-    meta: "The Super 6 Way",
+    meta: "The Super6 Series LLC Way",
     placeAfter: "athletes-champions",
   },
 ];
@@ -408,7 +408,7 @@ export const FEATURED_YEAR: FeaturedYear = {
   eyebrow: "The Featured Year",
   headline: "2024 — the year the room got bigger.",
   intro:
-    "Sold-out weekends. New venues. The first nationally-televised Super 6 broadcast on HBCU League Pass. A look back at the year that proved the league had outgrown the gym.",
+    "Sold-out weekends. New venues. The first nationally-televised Super6 Series LLC broadcast on HBCU League Pass. A look back at the year that proved the league had outgrown the gym.",
   featuredId: "ac-01",                                   // big spotlight (trophy raise)
   supportingIds: ["ta-01", "vf-01", "bm-01"],            // dunk, packed crowd, banner
   placeAfter: "behind-the-scenes",

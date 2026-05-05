@@ -6,16 +6,17 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { announcements } from "@/data/site";
+import { REGISTER_LINK_PROPS } from "@/lib/links";
 
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "Our Mission", href: "/about" },
   { label: "Tournaments", href: "/register" },
   { label: "Locations", href: "/locations" },
-  { label: "Schedule", href: "/schedule" },
   { label: "Gallery", href: "/gallery" },
   { label: "Coaches", href: "/coaches" },
   { label: "Hiring Officials", href: "/officials" },
+  { label: "AI Events", href: "/ai-events" },
   { label: "Rules", href: "/rules" },
   { label: "FAQ", href: "/faq" },
   { label: "Contact", href: "/contact" },
@@ -43,8 +44,8 @@ const megaMenu = [
     title: "Resources",
     links: [
       { label: "FAQs", href: "/faq" },
+      { label: "AI Events", href: "/ai-events" },
       { label: "Rules", href: "/rules" },
-      { label: "Schedule", href: "/schedule" },
     ],
   },
   {
@@ -176,15 +177,20 @@ export default function Navigation() {
       {/* Mobile menu */}
       <div className={`mobile-menu ${mobileOpen ? "mobile-menu--open" : ""}`} role="dialog" aria-modal="true">
         <div className="mobile-menu-header">
-          <Link href="/" className="nav-logo" onClick={() => setMobileOpen(false)}>
+          <Link
+            href="/"
+            className="nav-logo"
+            aria-label="Super6 Series LLC"
+            onClick={() => setMobileOpen(false)}
+          >
             <Image
               src="/media/logos/logo-small-transparent.png"
-              alt="Super 6"
-              width={36}
-              height={36}
-              className="h-8 w-8 object-contain"
+              alt="Super6 Series LLC"
+              width={64}
+              height={64}
+              className="object-contain"
+              style={{ width: 64, height: 64 }}
             />
-            <span className="nav-logo-text">Super 6</span>
           </Link>
           <button
             className="mobile-menu-close"
@@ -203,7 +209,11 @@ export default function Navigation() {
           ))}
         </nav>
         <div className="mobile-menu-footer">
-          <Link href="/register" className="mobile-menu-cta" onClick={() => setMobileOpen(false)}>
+          <Link
+            {...REGISTER_LINK_PROPS}
+            className="mobile-menu-cta"
+            onClick={() => setMobileOpen(false)}
+          >
             Register Your Team
           </Link>
         </div>

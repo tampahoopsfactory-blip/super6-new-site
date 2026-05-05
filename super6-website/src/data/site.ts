@@ -1,8 +1,8 @@
 export const siteConfig = {
-  name: "Super 6",
+  name: "Super6 Series LLC",
   tagline: "#1 Tournament Organization in Florida",
   description:
-    "At Super 6, our mission is to bridge the education gap for underserved youth and prepare them for lasting success beyond the playing field. We deliver programs that build a strong academic foundation through the power of sports.",
+    "At Super6 Series LLC, our mission is to bridge the education gap for underserved youth and prepare them for lasting success beyond the playing field. We deliver programs that build a strong academic foundation through the power of sports.",
   url: "https://www.thesuper6.com",
   phone: "813-563-9767",
   email: "tk@thesuper6.com",
@@ -14,6 +14,16 @@ export const siteConfig = {
     youtube: "https://youtu.be/4Kv2O-sMPmY?list=PLkRC0fweoTKx6VTSY3AcbVbOMkev2RjGg",
   },
 } as const;
+
+/** US display numbers like 813-563-9767 → `sms:+18135639767` (prefer texting over voice). */
+export function smsHrefFromDisplayPhone(display: string): string {
+  const digits = display.replace(/\D/g, "");
+  if (digits.length === 10) return `sms:+1${digits}`;
+  if (digits.length === 11 && digits.startsWith("1")) return `sms:+${digits}`;
+  return digits.length > 0 ? `sms:+${digits}` : "sms:";
+}
+
+export const siteSmsHref = smsHrefFromDisplayPhone(siteConfig.phone);
 
 /* ─── Announcement bar messages ─── */
 export const announcements = [
@@ -57,7 +67,7 @@ export type Location = {
 export const locations: Location[] = [
   {
     slug: "orlando",
-    name: "Super 6 Orlando",
+    name: "Super6 Series LLC Orlando",
     city: "Orlando",
     state: "FL",
     address: "924 N Magnolia Avenue Suite 202-1151, Orlando, FL 32803",
@@ -71,7 +81,7 @@ export const locations: Location[] = [
   },
   {
     slug: "clearwater",
-    name: "Super 6 Clearwater",
+    name: "Super6 Series LLC Clearwater",
     city: "Clearwater",
     state: "FL",
     comingSoon: false,
@@ -81,7 +91,7 @@ export const locations: Location[] = [
   },
   {
     slug: "tampa",
-    name: "Super 6 Tampa",
+    name: "Super6 Series LLC Tampa",
     city: "Tampa",
     state: "FL",
     comingSoon: false,
@@ -90,24 +100,24 @@ export const locations: Location[] = [
       "Tampa brings fierce competition and deep talent pools. Our events attract teams from across the Gulf Coast region.",
   },
   {
-    slug: "west-palm",
-    name: "Super 6 West Palm",
-    city: "West Palm Beach",
+    slug: "boca-raton",
+    name: "Super6 Series LLC Boca Raton",
+    city: "Boca Raton",
     state: "FL",
     comingSoon: false,
     image: "/media/curated/09-trophy-raise.jpg",
     description:
-      "South Florida's premier youth basketball destination. The best of Miami-Dade through the Treasure Coast.",
+      "South Florida's premier youth basketball destination. Palm Beach County competition with coast-to-coast draw.",
   },
   {
     slug: "atlanta",
-    name: "Super 6 Atlanta",
+    name: "Super6 Series LLC Atlanta",
     city: "Atlanta",
     state: "GA",
     comingSoon: true,
     image: "/media/curated/22-scorers-table.jpg",
     description:
-      "Expanding to the Southeast's basketball capital. Super 6 brings its championship format to Georgia in 2026.",
+      "Expanding to the Southeast's basketball capital. Super6 Series LLC brings its championship format to Georgia in 2026.",
   },
 ];
 
@@ -130,8 +140,8 @@ const sharedFeatures = [
   "Digital scorebook",
   "Priority bracket seeding",
   "Guaranteed championship bracket entry",
-  "Team profile on Super 6 website",
-  "Team profile on Super 6 app",
+  "Team profile on Super6 Series LLC website",
+  "Team profile on Super6 Series LLC app",
   "Early access to schedule",
   "Championship atmosphere",
 ];
@@ -177,7 +187,7 @@ export const footerColumns = {
   ],
   company: [
     { label: "Our Mission", href: "/about" },
-    { label: "Inside Super 6", href: "/about" },
+    { label: "Inside Super6 Series LLC", href: "/about" },
     { label: "12 Years Strong", href: "/about" },
     { label: "Testimonials", href: "/about" },
     { label: "Locations", href: "/locations" },

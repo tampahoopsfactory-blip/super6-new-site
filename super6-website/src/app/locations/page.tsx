@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { MapPin, ArrowRight, Phone } from "lucide-react";
-import { locations, siteConfig } from "@/data/site";
+import { locations, siteConfig, siteSmsHref } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Locations",
   description:
-    "Find Super6 youth basketball tournaments near you. Venues in Orlando, Clearwater, Tampa, West Palm Beach, and Atlanta (coming soon).",
+    "Find Super6 Series LLC youth basketball tournaments near you. Venues in Orlando, Clearwater, Tampa, Boca Raton, and Atlanta (coming soon).",
 };
 
 export default function LocationsPage() {
@@ -51,7 +51,7 @@ export default function LocationsPage() {
                 <div className="tm-img-zoom relative aspect-[16/10]">
                   <Image
                     src={loc.image}
-                    alt={`Super6 ${loc.city} venue`}
+                    alt={`Super6 Series LLC ${loc.city} venue`}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover"
@@ -104,22 +104,22 @@ export default function LocationsPage() {
             className="mb-4 text-2xl md:text-3xl font-semibold tracking-tight text-tm-body"
 
           >
-            Want to Host a Super6 Tournament?
+            Want to Host a Super6 Series LLC Tournament?
           </h2>
           <p className="mx-auto mb-8 max-w-lg text-sm text-tm-muted leading-relaxed">
             We&apos;re always looking for great venues. If you have a facility
-            that can host championship-level youth basketball, let&apos;s talk.
+            that can host championship-level youth basketball, text us.
           </p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link href="/contact" className="tm-btn tm-btn-black tm-btn-pill">
               Get in Touch
             </Link>
             <a
-              href={`tel:${siteConfig.phone}`}
+              href={siteSmsHref}
               className="flex items-center gap-2 text-sm font-semibold text-tm-muted hover:text-white transition-colors"
             >
               <Phone size={16} />
-              {siteConfig.phone}
+              Text {siteConfig.phone}
             </a>
           </div>
         </div>

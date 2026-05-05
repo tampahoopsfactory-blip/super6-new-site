@@ -237,7 +237,7 @@ export default function FAQClient({ sections }: Props) {
                 Try a different keyword — registration, schedule, gate,
                 refunds, uniforms, app — or{" "}
                 <a href="/contact" className="faq-link">
-                  contact Super6 directly
+                  contact Super6 Series LLC directly
                 </a>
                 . We respond same-day during the week.
               </p>

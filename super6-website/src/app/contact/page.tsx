@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { siteConfig } from "@/data/site";
+import { siteConfig, siteSmsHref } from "@/data/site";
 
 export default function ContactPage() {
   const [formState, setFormState] = useState({
@@ -55,7 +55,7 @@ export default function ContactPage() {
 
           <p className="contact-hero-desc">
             Registration, venue partnerships, sponsorships, press — write us.
-            A real human on the Super 6 team will write you back within one
+            A real human on the Super6 Series LLC team will write you back within one
             business day.
           </p>
 
@@ -69,10 +69,12 @@ export default function ContactPage() {
             </a>
             <a
               className="contact-hero-channel"
-              href={`tel:${siteConfig.phone}`}
+              href={siteSmsHref}
             >
-              <span className="contact-hero-channel-label">Phone</span>
-              <span className="contact-hero-channel-value">{siteConfig.phone}</span>
+              <span className="contact-hero-channel-label">SMS</span>
+              <span className="contact-hero-channel-value">
+                Text {siteConfig.phone}
+              </span>
             </a>
           </div>
         </div>
@@ -124,10 +126,10 @@ export default function ContactPage() {
                       marginBottom: 8,
                     }}
                   >
-                    Phone
+                    SMS
                   </p>
                   <a
-                    href={`tel:${siteConfig.phone}`}
+                    href={siteSmsHref}
                     style={{
                       fontFamily: "var(--font-display)",
                       fontSize: 28,
@@ -136,7 +138,7 @@ export default function ContactPage() {
                       textDecoration: "none",
                     }}
                   >
-                    {siteConfig.phone}
+                    Text {siteConfig.phone}
                   </a>
                 </div>
 

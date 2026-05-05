@@ -62,7 +62,7 @@ export default function LocationSections() {
                   {loc.state === "GA" ? "Georgia" : "Florida"} &middot; {loc.city}
                 </p>
                 <h2 className="section-heading" style={{ maxWidth: "16ch" }}>
-                  {loc.name.replace(/^Super 6 /, "")}
+                  {loc.name.replace(/^Super6 Series LLC /, "")}
                 </h2>
                 <p className="section-desc" style={{ marginBottom: 36 }}>
                   {loc.description}

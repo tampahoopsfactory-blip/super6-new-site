@@ -13,7 +13,7 @@ const programs = [
     body: "College counseling, SAT/ACT prep, all-subject tutoring, career-development workshops, internships, and networking — through partnerships with Ivy League, HBCU, and traditional colleges.",
   },
   {
-    name: "Super6 TV",
+    name: "Super6 Series LLC TV",
     status: "Active · HBCU League Pass",
     body: "Live event streaming, game recordings, commentary, and pre/post-game interviews. Carried on HBCU League Pass. Building toward the ESPN of youth sports.",
   },

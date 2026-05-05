@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { siteConfig, footerColumns } from "@/data/site";
+import { siteConfig, footerColumns, siteSmsHref } from "@/data/site";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -81,7 +81,7 @@ export default function Footer() {
                   aria-describedby="sms-consent-text"
                 />
                 <span id="sms-consent-text">
-                  Yes &mdash; send me SMS updates from Super 6 about tournament
+                  Yes &mdash; send me SMS updates from Super6 Series LLC about tournament
                   schedules, registration, and roster deadlines. Message and data
                   rates may apply. Reply STOP to opt out at any time.
                 </span>
@@ -105,16 +105,20 @@ export default function Footer() {
           <div className="footer-grid">
             {/* Brand column */}
             <div className="footer-brand">
-              <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
+              <Link
+                href="/"
+                aria-label="Super6 Series LLC"
+                className="footer-brand-mark"
+              >
                 <Image
                   src="/media/logos/super6-mark-transparent.png"
-                  alt="Super 6"
-                  width={40}
-                  height={32}
-                  style={{ width: "auto", height: 36 }}
+                  alt="Super6 Series LLC"
+                  width={144}
+                  height={120}
+                  priority={false}
+                  style={{ width: "auto", height: 96 }}
                 />
-                <span className="footer-brand-name">Super 6</span>
-              </div>
+              </Link>
               <p className="footer-brand-desc">
                 Bridging the education gap for underserved youth through the power
                 of sports. Tournaments across Florida & Georgia.
@@ -175,10 +179,11 @@ export default function Footer() {
           {/* Bottom bar */}
           <div className="footer-bottom">
             <p className="footer-copyright">
-              &copy; {currentYear} Super 6 Inc. All rights reserved.
+              &copy; {currentYear} Super6 Series LLC. All rights reserved.
             </p>
             <p className="footer-address">
-              {siteConfig.address} • {siteConfig.phone}
+              {siteConfig.address} •{" "}
+              <a href={siteSmsHref}>Text {siteConfig.phone}</a>
             </p>
           </div>
         </div>

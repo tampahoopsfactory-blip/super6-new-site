@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { siteSmsHref } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Careers | Super6 Basketball",
-  description: "Opportunities to work with Super6 — coming soon.",
+  title: "Careers | Super6 Series LLC Basketball",
+  description: "Opportunities to work with Super6 Series LLC — coming soon.",
   robots: { index: false, follow: false },
 };
 
@@ -40,16 +40,16 @@ export default function CareersPage() {
               marginBottom: "2.5rem",
             }}
           >
-            Open positions at Super6 will be posted here. Interested in joining
+            Open positions at Super6 Series LLC will be posted here. Interested in joining
             the team? Send us a message.
           </p>
-          <Link
-            href="/contact"
+          <a
+            href={siteSmsHref}
             className="btn-primary"
             style={{ fontSize: "1rem", padding: "0.9rem 2rem" }}
           >
-            Contact Us
-          </Link>
+            Text Super6
+          </a>
         </div>
       </section>
     </main>

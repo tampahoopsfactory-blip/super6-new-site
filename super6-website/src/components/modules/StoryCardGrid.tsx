@@ -32,13 +32,13 @@ export default function SecuritySpread() {
   return (
     <section
       className="security-spread"
-      aria-label="Event security at Super 6"
+      aria-label="Event security at Super6 Series LLC"
     >
       <div className="security-spread-stage">
         <div className="security-spread-visual">
           <Image
             src="/media/uploads/security-bag-check-full.png"
-            alt="Security officer inspecting a bag at the venue entrance during a Super 6 tournament"
+            alt="Security officer inspecting a bag at the venue entrance during a Super6 Series LLC tournament"
             fill
             sizes="(max-width: 968px) 100vw, 46vw"
             quality={95}
@@ -58,17 +58,17 @@ export default function SecuritySpread() {
           <div className="security-spread-content">
             <p className="security-spread-eyebrow">
               <span className="security-spread-eyebrow-rule" aria-hidden="true" />
-              Why Super 6 · Event Security
+              Why Super6 Series LLC · Event Security
             </p>
             <h2 className="security-spread-headline">
-              Professional event security <em>at every Super 6 weekend.</em>
+              Professional event security <em>at every Super6 Series LLC weekend.</em>
             </h2>
             <p className="security-spread-subhead-plain">
               Licensed personnel at entries, on the floor, and in parking areas —{" "}
-              <strong>every Super 6 weekend</strong>.
+              <strong>every Super6 Series LLC weekend</strong>.
             </p>
             <p className="security-spread-lede">
-              Every bag checked. Every entrance covered. Security is a Super 6 priority — our staff
+              Every bag checked. Every entrance covered. Security is a Super6 Series LLC priority — our staff
               keep events safe, calm, and orderly while hundreds of families, athletes, and staff
               share one building — the standard your families expect when they arrive.
             </p>
@@ -107,7 +107,7 @@ export default function SecuritySpread() {
                 <p className="security-spread-signature-eyebrow">Security standard</p>
                 <p className="security-spread-signature-name">Contracted event security</p>
                 <p className="security-spread-signature-tag">
-                  Professional coverage at every Super 6 venue.
+                  Professional coverage at every Super6 Series LLC venue.
                 </p>
               </div>
             </div>
@@ -123,7 +123,7 @@ export default function SecuritySpread() {
           </div>
           <p className="security-spread-rules-cta-body">
             Conduct, gate security, uniform compliance, ejections, forfeits — every line governing
-            Super 6 play. Read before you register.
+            Super6 Series LLC play. Read before you register.
           </p>
           <span className="security-spread-rules-cta-arrow" aria-hidden="true">
             <svg

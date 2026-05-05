@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { siteSmsHref } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Press | Super6 Basketball",
-  description: "Super6 press resources and media kit — coming soon.",
+  title: "Press | Super6 Series LLC Basketball",
+  description: "Super6 Series LLC press resources and media kit — coming soon.",
   robots: { index: false, follow: false },
 };
 
@@ -41,15 +41,15 @@ export default function PressPage() {
             }}
           >
             Press kit, media assets, and coverage inquiries. For immediate media
-            requests, contact us directly.
+            requests, text Super6 directly.
           </p>
-          <Link
-            href="/contact"
+          <a
+            href={siteSmsHref}
             className="btn-primary"
             style={{ fontSize: "1rem", padding: "0.9rem 2rem" }}
           >
-            Media Inquiries
-          </Link>
+            Text Super6
+          </a>
         </div>
       </section>
     </main>

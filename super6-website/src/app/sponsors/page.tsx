@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { siteSmsHref } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Sponsors | Super6 Basketball",
+  title: "Sponsors | Super6 Series LLC Basketball",
   description:
-    "Partner with Super6 — the #1 youth basketball tournament organization in Florida. Reach coaches, players, and families across the Southeast.",
+    "Partner with Super6 Series LLC — the #1 youth basketball tournament organization in Florida. Reach coaches, players, and families across the Southeast.",
 };
 
 const tiers = [
@@ -13,7 +13,7 @@ const tiers = [
     price: "Contact for pricing",
     color: "var(--s6-orange)",
     perks: [
-      "Naming rights for one event (e.g. 'The [Brand] Super6 Spring Kickoff')",
+      "Naming rights for one event (e.g. 'The [Brand] Super6 Series LLC Spring Kickoff')",
       "Logo on all event signage, banners, and digital assets",
       "Top placement on website, emails, and social media",
       "Branded court presence at your named event",
@@ -96,7 +96,7 @@ export default function SponsorsPage() {
               marginTop: "1.25rem",
             }}
           >
-            Super6 connects you directly with coaches, players, and families
+            Super6 Series LLC connects you directly with coaches, players, and families
             across Florida and the Southeast — the decision-makers in youth
             basketball.
           </p>
@@ -250,7 +250,7 @@ export default function SponsorsPage() {
       >
         <div className="container-xl" style={{ maxWidth: "560px" }}>
           <h2 style={{ color: "var(--cream)", marginBottom: "1rem" }}>
-            Ready to partner with Super6?
+            Ready to partner with Super6 Series LLC?
           </h2>
           <p
             style={{
@@ -263,13 +263,13 @@ export default function SponsorsPage() {
             We work with brands that align with competitive youth sports. Reach
             out and let us build the right package for you.
           </p>
-          <Link
-            href="/contact"
+          <a
+            href={siteSmsHref}
             className="btn-primary"
             style={{ fontSize: "1rem", padding: "0.9rem 2rem" }}
           >
-            Get Sponsorship Info
-          </Link>
+            Text Super6
+          </a>
         </div>
       </section>
     </main>

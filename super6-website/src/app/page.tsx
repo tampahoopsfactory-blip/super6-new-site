@@ -1,4 +1,5 @@
 import HeroSection from "@/components/modules/HeroTileGrid";
+import HeroActionBar from "@/components/modules/HeroActionBar";
 import ImpactStrip from "@/components/modules/ServiceGrid";
 import MissionSplit from "@/components/modules/SplitSections";
 import PhotoGallery from "@/components/modules/FeatureBanner";
@@ -22,6 +23,7 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
+      <HeroActionBar />
       <FadeIn><ImpactStrip /></FadeIn>
       <FadeIn><MissionSplit /></FadeIn>
       <FadeIn><AdvantagesSection /></FadeIn>

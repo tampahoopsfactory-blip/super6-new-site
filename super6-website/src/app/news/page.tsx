@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "News | Super6 Basketball",
+  title: "News | Super6 Series LLC Basketball",
   description:
-    "Super6 news, updates, and announcements — season schedules, new venues, event results, and program expansions.",
+    "Super6 Series LLC news, updates, and announcements — season schedules, new venues, event results, and program expansions.",
 };
 
 const articles = [
@@ -13,7 +13,7 @@ const articles = [
     category: "Season",
     title: "2026 Season Schedule Finalized — 10 Events Across 4 Markets",
     excerpt:
-      "The full 2026 Super6 calendar is set. Ten events running May through December across Orlando, Tampa, Clearwater, West Palm Beach, and Atlanta. Season passes are now on sale.",
+      "The full 2026 Super6 Series LLC calendar is set. Ten events running May through December across Orlando, Tampa, Clearwater, Boca Raton, and Atlanta. Season passes are now on sale.",
     slug: "2026-season-schedule",
   },
   {
@@ -21,7 +21,7 @@ const articles = [
     category: "Venue",
     title: "Atlanta Invitational Returns for Second Straight Year",
     excerpt:
-      "The Atlanta stop — one of the fastest-growing events on the Super6 calendar — returns in October 2026. Registration is already tracking ahead of last year.",
+      "The Atlanta stop — one of the fastest-growing events on the Super6 Series LLC calendar — returns in October 2026. Registration is already tracking ahead of last year.",
     slug: "atlanta-invitational-2026",
   },
   {
@@ -43,17 +43,17 @@ const articles = [
   {
     date: "March 5, 2026",
     category: "Program",
-    title: "Super6 Expands to West Palm Beach for 2026",
+    title: "Super6 Series LLC Expands to Boca Raton for 2026",
     excerpt:
-      "The Palm Beach Showcase in July 2026 marks Super6's first event in the West Palm Beach market. Registration is open now for all three divisions.",
-    slug: "west-palm-beach-expansion",
+      "The Boca Raton Showcase in July 2026 marks Super6 Series LLC's first event in the Boca Raton market. Registration is open now for all three divisions.",
+    slug: "boca-raton-expansion",
   },
   {
     date: "February 18, 2026",
     category: "Season",
     title: "2026 Coaching Roster Tops 1,500 Programs",
     excerpt:
-      "Super6 enters the 2026 season with more than 1,500 coaches in its network across Florida and Georgia. Registration for May's Spring Kickoff opens March 1.",
+      "Super6 Series LLC enters the 2026 season with more than 1,500 coaches in its network across Florida and Georgia. Registration for May's Spring Kickoff opens March 1.",
     slug: "coaching-network-2026",
   },
 ];
@@ -86,7 +86,7 @@ export default function NewsPage() {
           <h1 style={{ color: "var(--cream)" }}>
             What&apos;s happening
             <br />
-            <em>at Super6.</em>
+            <em>at Super6 Series LLC.</em>
           </h1>
         </div>
       </section>
@@ -198,7 +198,7 @@ export default function NewsPage() {
               marginBottom: "2rem",
             }}
           >
-            Get event announcements, bracket drops, and Super6 updates directly
+            Get event announcements, bracket drops, and Super6 Series LLC updates directly
             to your inbox.
           </p>
           <Link

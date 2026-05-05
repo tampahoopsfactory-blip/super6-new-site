@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MapPin, Phone, ExternalLink, Clock, ArrowLeft } from "lucide-react";
-import { locations } from "@/data/site";
+import { locations, smsHrefFromDisplayPhone } from "@/data/site";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -100,7 +100,7 @@ export default async function LocationDetailPage({ params }: Props) {
                 <div className="relative aspect-[16/9]">
                   <Image
                     src={location.image}
-                    alt={`Super6 ${location.city} venue interior`}
+                    alt={`Super6 Series LLC ${location.city} venue interior`}
                     fill
                     sizes="(max-width: 1024px) 100vw, 66vw"
                     className="object-cover"
@@ -119,7 +119,7 @@ export default async function LocationDetailPage({ params }: Props) {
                 {!location.comingSoon ? (
                   <>
                     <p>
-                      Super6 {location.city} hosts regular tournament weekends
+                      Super6 Series LLC {location.city} hosts regular tournament weekends
                       featuring competitive bracket play for grades 3-12. Every
                       game is officiated by NFHS-certified referees and
                       tracked with digital scorebooks and professional stats.
@@ -148,7 +148,7 @@ export default async function LocationDetailPage({ params }: Props) {
                   </>
                 ) : (
                   <p>
-                    We&apos;re bringing the Super6 championship experience to{" "}
+                    We&apos;re bringing the Super6 Series LLC championship experience to{" "}
                     {location.city}. Stay tuned for venue details, tournament
                     schedules, and registration opening dates. Sign up for
                     notifications to be the first to know.
@@ -183,14 +183,14 @@ export default async function LocationDetailPage({ params }: Props) {
                     {location.phone && (
                       <li>
                         <a
-                          href={`tel:${location.phone}`}
+                          href={smsHrefFromDisplayPhone(location.phone)}
                           className="flex items-center gap-3 text-sm text-tm-muted hover:text-s6-orange transition-colors"
                         >
                           <Phone
                             size={18}
                             className="shrink-0 text-s6-orange"
                           />
-                          {location.phone}
+                          Text {location.phone}
                         </a>
                       </li>
                     )}

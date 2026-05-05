@@ -1,465 +1,175 @@
-"use client";
-
-import { useState } from "react";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Check, ArrowRight, Shield, Trophy, Scale } from "lucide-react";
-import { registrationTiers, locations, siteConfig } from "@/data/site";
-import { cn } from "@/lib/utils";
+import { REGISTER_LINK_PROPS } from "@/lib/links";
+import { siteSmsHref } from "@/data/site";
 
-type FormData = {
-  teamName: string;
-  coachName: string;
-  email: string;
-  phone: string;
-  division: string;
-  location: string;
-  tier: string;
-  players: string;
-  notes: string;
+/* ─── /register — server component
+   Same editorial pattern as /faq and /rules:
+   1. Editorial split hero (faq-hero classes)
+   2. Single dark "$99" action-bar card (mirrors the homepage HeroActionBar
+      treatment so the page reads as one clean, decisive moment instead of
+      a wall of text)
+   3. Final CTA band (faq-final-cta classes)
+
+   All registration buttons drive to Exposure Events. */
+
+export const metadata: Metadata = {
+  title: "Register Your Team",
+  description:
+    "Register your team for the 2026 Super6 Series LLC season. All registration runs through Exposure Events — our scheduling and tournament management partner. $99 per event or $899 for the full 10-event season.",
+  alternates: { canonical: "/register" },
+  openGraph: {
+    title: "Register Your Team | Super6 Series LLC",
+    description:
+      "Lock in your spot for the 2026 Super6 Series LLC season — Florida and Georgia, every weekend. $99 single tournament or $899 season pass.",
+    url: "/register",
+    type: "website",
+  },
 };
 
+const stats = [
+  { label: "Single tournament · $99" },
+  { label: "Season pass · $899 / 10 events" },
+  { label: "FL + GA · every weekend" },
+  { label: "NFHS-certified officials" },
+];
+
 export default function RegisterPage() {
-  const [step, setStep] = useState<"pricing" | "form" | "confirmation">(
-    "pricing"
-  );
-  const [selectedTier, setSelectedTier] = useState<string>("");
-  const [formData, setFormData] = useState<FormData>({
-    teamName: "",
-    coachName: "",
-    email: "",
-    phone: "",
-    division: "",
-    location: "orlando",
-    tier: "",
-    players: "",
-    notes: "",
-  });
-
-  const handleTierSelect = (tierId: string) => {
-    setSelectedTier(tierId);
-    setFormData({ ...formData, tier: tierId });
-    setStep("form");
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setStep("confirmation");
-  };
-
   return (
     <>
-      {/* Hero */}
-      <section className="page-hero">
-        <Image
-          src="/media/curated/10-trophy-team-banners.jpg"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          quality={92}
-          aria-hidden="true"
-        />
-        <div className="container-xl">
-          <p className="editorial-eyebrow" style={{ color: "var(--cream)", opacity: 0.85 }}>
-            2026 Season
-          </p>
-          <h1>
+      {/* Editorial split hero — mirrors /faq and /rules */}
+      <section className="faq-hero">
+        <div className="faq-hero-photo">
+          <Image
+            src="/media/curated/10-trophy-team-banners.jpg"
+            alt=""
+            fill
+            priority
+            quality={94}
+            sizes="(max-width: 968px) 100vw, 55vw"
+            aria-hidden="true"
+            style={{ objectFit: "cover", objectPosition: "center 38%" }}
+          />
+        </div>
+
+        <div className="faq-hero-panel">
+          <div className="faq-hero-meta">
+            <span className="faq-hero-meta-tag">REGISTER</span>
+            <span className="faq-hero-meta-divider" />
+            <span>2026 SEASON · FL &amp; GA</span>
+          </div>
+
+          <div className="faq-hero-wordmark" aria-hidden="true">
+            <span className="faq-hero-word-primary">SECURE</span>
+            <span className="faq-hero-word-accent">your spot.</span>
+            <span className="faq-hero-word-tag">via Exposure Events</span>
+          </div>
+
+          <h1 className="faq-hero-headline">
             Register your <em>team.</em>
           </h1>
-          <p>
-            Secure your spot in the Southeast&rsquo;s most competitive youth
-            basketball tournament series. Single weekend or full 10-event
-            season — same elite experience either way.
+
+          <p className="faq-hero-desc">
+            All Super6 Series LLC registration runs through{" "}
+            <Link {...REGISTER_LINK_PROPS} className="faq-link faq-link--inverse">
+              Exposure Events
+            </Link>{" "}
+            — our trusted scheduling and tournament management partner. Pick
+            an event, lock in your spot, and we&rsquo;ll see you on the floor.{" "}
+            <Link href="/rules" className="faq-link faq-link--inverse">
+              Read the rule book →
+            </Link>
           </p>
+
+          <div className="faq-hero-index">
+            <span className="faq-hero-index-num">$99</span>
+            <div className="faq-hero-index-text">
+              <span className="faq-hero-index-label">Per team / per event</span>
+              <span className="faq-hero-index-sub">
+                Or lock in all 10 events with the $899 Season Pass — three
+                guaranteed games, NFHS-certified officials, championship
+                bracket entry.
+              </span>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Pricing Step */}
-      {step === "pricing" && (
-        <>
-          {/* Trust Badges */}
-          <section className="border-b border-tm-border bg-tm-bg py-8">
-            <div className="tm-container">
-              <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
-                <div className="flex items-center gap-3 text-center sm:text-left">
-                  <Shield size={24} className="shrink-0 text-s6-orange" />
-                  <div>
-                    <p className="text-sm font-semibold text-tm-body">
-                      Secure Payment
-                    </p>
-                    <p className="text-xs text-tm-light">
-                      Powered by Stripe
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3 text-center sm:text-left">
-                  <Trophy size={24} className="shrink-0 text-s6-orange" />
-                  <div>
-                    <p className="text-sm font-semibold text-tm-body">
-                      3+ Games Guaranteed
-                    </p>
-                    <p className="text-xs text-tm-light">
-                      Per tournament weekend
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3 text-center sm:text-left">
-                  <Scale size={24} className="shrink-0 text-s6-orange" />
-                  <div>
-                    <p className="text-sm font-semibold text-tm-body">
-                      NFHS Officials
-                    </p>
-                    <p className="text-xs text-tm-light">
-                      Certified referees at every game
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Pricing Cards */}
-          <section className="tm-section bg-tm-bg-warm">
-            <div className="tm-container">
-              <div className="mb-12 text-center">
-                <h2
-                  className="mb-4 text-2xl md:text-3xl font-semibold tracking-tight text-tm-body"
-      
-                >
-                  Choose Your Plan
-                </h2>
-                <p className="mx-auto max-w-lg text-sm text-tm-muted">
-                  Select the registration tier that fits your team or club.
+      {/* Single dark editorial card — same format as homepage HeroActionBar,
+          slightly different copy + stat strip. Replaces the previous
+          word-heavy "how it works / primary CTA / pricing" stack. */}
+      <section className="hero-action-bar" aria-label="Register on Exposure Events">
+        <div className="container-xl hero-action-bar-inner">
+          <article className="hero-action-bar-card">
+            <div className="hero-action-bar-grid">
+              <div className="hero-action-bar-price">
+                <p className="hero-action-bar-price-eyebrow">Per team</p>
+                <p className="hero-action-bar-price-amount">
+                  <span className="hero-action-bar-price-currency">$</span>
+                  <span className="hero-action-bar-price-value">99</span>
+                </p>
+                <p className="hero-action-bar-price-unit">
+                  per event · season pass $899
                 </p>
               </div>
 
-              <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-2">
-                {registrationTiers.map((tier) => (
-                  <div
-                    key={tier.id}
-                    className={cn(
-                      "relative flex flex-col overflow-hidden bg-tm-bg-alt border border-tm-border p-8 transition-shadow",
-                      tier.popular
-                        ? "shadow-xl ring-2 ring-s6-orange"
-                        : "shadow-sm hover:shadow-lg"
-                    )}
+              <div className="hero-action-bar-rail" aria-hidden="true" />
+
+              <div className="hero-action-bar-copy">
+                <p className="hero-action-bar-eyebrow">Exposure Events</p>
+                <h2 className="hero-action-bar-heading">
+                  Register in <em>minutes.</em>
+                </h2>
+                <p className="hero-action-bar-sub">
+                  Secure checkout, instant confirmation, and the full 2026
+                  calendar in one place &mdash; the same platform trusted by
+                  300+ clubs across the Southeast.
+                </p>
+                <div className="hero-action-bar-actions">
+                  <Link
+                    {...REGISTER_LINK_PROPS}
+                    className="btn-hero btn-hero-primary"
                   >
-                    {tier.popular && (
-                      <div className="absolute right-0 top-0 bg-s6-orange px-4 py-1.5 text-[10px] font-bold tracking-[2px] text-white uppercase">
-                        Most Popular
-                      </div>
-                    )}
-
-                    <h3
-                      className="mb-2 text-lg font-medium tracking-tight text-tm-body"
-          
-                    >
-                      {tier.name}
-                    </h3>
-                    <div className="mb-1">
-                      <span className="text-4xl font-bold text-tm-body">
-                        {tier.priceLabel}
-                      </span>
-                    </div>
-                    <p className="mb-6 text-xs text-tm-light">
-                      {tier.period}
-                    </p>
-
-                    <ul className="mb-8 flex-1 space-y-3">
-                      {tier.features.map((feature) => (
-                        <li
-                          key={feature}
-                          className="flex items-start gap-3 text-sm text-tm-muted"
-                        >
-                          <Check
-                            size={16}
-                            className="mt-0.5 shrink-0 text-s6-orange"
-                          />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-
-                    <button
-                      onClick={() => handleTierSelect(tier.id)}
-                      className={cn(
-                        "tm-btn w-full",
-                        tier.popular ? "tm-btn-black" : "tm-btn-outline"
-                      )}
-                    >
-                      {tier.cta}
-                      <ArrowRight size={16} />
-                    </button>
-                  </div>
-                ))}
+                    Register your team
+                  </Link>
+                </div>
               </div>
             </div>
-          </section>
-        </>
-      )}
 
-      {/* Registration Form Step */}
-      {step === "form" && (
-        <section className="tm-section bg-tm-bg">
-          <div className="tm-container max-w-3xl">
-            <button
-              onClick={() => setStep("pricing")}
-              className="mb-8 text-sm font-medium text-tm-muted hover:text-white transition-colors"
+            <ul className="hero-action-bar-strip" aria-label="What you get">
+              {stats.map((s) => (
+                <li key={s.label}>{s.label}</li>
+              ))}
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      {/* Final CTA — same band as /faq and /rules */}
+      <section className="faq-final-cta">
+        <div className="container-xl">
+          <p className="faq-final-cta-eyebrow">Don&rsquo;t overthink it.</p>
+          <h2 className="faq-final-cta-title">
+            Bring the team. We&rsquo;ll handle the rest.
+          </h2>
+          <p className="faq-final-cta-sub">
+            Three games guaranteed. Certified officials. A weekend your
+            players will remember.
+          </p>
+          <div className="faq-final-cta-actions">
+            <Link
+              {...REGISTER_LINK_PROPS}
+              className="btn-hero btn-hero-primary"
             >
-              &larr; Back to pricing
-            </button>
-
-            <div className="mb-8 bg-tm-bg-warm p-4">
-              <p className="text-sm">
-                <span className="font-semibold">Selected plan:</span>{" "}
-                {registrationTiers.find((t) => t.id === selectedTier)?.name} —{" "}
-                {registrationTiers.find((t) => t.id === selectedTier)
-                  ?.priceLabel}
-              </p>
-            </div>
-
-            <h2
-              className="mb-6 text-xl md:text-2xl font-semibold tracking-tight text-tm-body"
-  
-            >
-              Team Information
-            </h2>
-
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid gap-6 sm:grid-cols-2">
-                <div>
-                  <label
-                    htmlFor="teamName"
-                    className="mb-2 block text-xs font-medium tracking-tight text-tm-body"
-                  >
-                    Team / Club Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="teamName"
-                    required
-                    value={formData.teamName}
-                    onChange={(e) =>
-                      setFormData({ ...formData, teamName: e.target.value })
-                    }
-                    className="w-full border border-tm-border bg-tm-bg-alt px-4 py-3 text-sm text-tm-body placeholder:text-tm-light focus:border-s6-orange focus:outline-none"
-                    placeholder="Team name"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="coachName"
-                    className="mb-2 block text-xs font-medium tracking-tight text-tm-body"
-                  >
-                    Head Coach Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="coachName"
-                    required
-                    value={formData.coachName}
-                    onChange={(e) =>
-                      setFormData({ ...formData, coachName: e.target.value })
-                    }
-                    className="w-full border border-tm-border bg-tm-bg-alt px-4 py-3 text-sm text-tm-body placeholder:text-tm-light focus:border-s6-orange focus:outline-none"
-                    placeholder="Coach full name"
-                  />
-                </div>
-              </div>
-
-              <div className="grid gap-6 sm:grid-cols-2">
-                <div>
-                  <label
-                    htmlFor="regEmail"
-                    className="mb-2 block text-xs font-medium tracking-tight text-tm-body"
-                  >
-                    Email *
-                  </label>
-                  <input
-                    type="email"
-                    id="regEmail"
-                    required
-                    value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
-                    className="w-full border border-tm-border bg-tm-bg-alt px-4 py-3 text-sm text-tm-body placeholder:text-tm-light focus:border-s6-orange focus:outline-none"
-                    placeholder="coach@email.com"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="regPhone"
-                    className="mb-2 block text-xs font-medium tracking-tight text-tm-body"
-                  >
-                    Phone *
-                  </label>
-                  <input
-                    type="tel"
-                    id="regPhone"
-                    required
-                    value={formData.phone}
-                    onChange={(e) =>
-                      setFormData({ ...formData, phone: e.target.value })
-                    }
-                    className="w-full border border-tm-border bg-tm-bg-alt px-4 py-3 text-sm text-tm-body placeholder:text-tm-light focus:border-s6-orange focus:outline-none"
-                    placeholder="(555) 123-4567"
-                  />
-                </div>
-              </div>
-
-              <div className="grid gap-6 sm:grid-cols-2">
-                <div>
-                  <label
-                    htmlFor="division"
-                    className="mb-2 block text-xs font-medium tracking-tight text-tm-body"
-                  >
-                    Division / Grade *
-                  </label>
-                  <select
-                    id="division"
-                    required
-                    value={formData.division}
-                    onChange={(e) =>
-                      setFormData({ ...formData, division: e.target.value })
-                    }
-                    className="w-full border border-tm-border bg-tm-bg-alt px-4 py-3 text-sm text-tm-body focus:border-s6-orange focus:outline-none"
-                  >
-                    <option value="">Select division</option>
-                    <option value="3rd">3rd Grade</option>
-                    <option value="4th">4th Grade</option>
-                    <option value="5th">5th Grade</option>
-                    <option value="6th">6th Grade</option>
-                    <option value="7th">7th Grade</option>
-                    <option value="8th">8th Grade</option>
-                    <option value="9th">9th Grade (Freshman)</option>
-                    <option value="10th">10th Grade (Sophomore)</option>
-                    <option value="11th">11th Grade (Junior)</option>
-                    <option value="12th">12th Grade (Senior)</option>
-                  </select>
-                </div>
-                <div>
-                  <label
-                    htmlFor="location"
-                    className="mb-2 block text-xs font-medium tracking-tight text-tm-body"
-                  >
-                    Preferred Location *
-                  </label>
-                  <select
-                    id="location"
-                    required
-                    value={formData.location}
-                    onChange={(e) =>
-                      setFormData({ ...formData, location: e.target.value })
-                    }
-                    className="w-full border border-tm-border bg-tm-bg-alt px-4 py-3 text-sm text-tm-body focus:border-s6-orange focus:outline-none"
-                  >
-                    {locations
-                      .filter((l) => !l.comingSoon)
-                      .map((loc) => (
-                        <option key={loc.slug} value={loc.slug}>
-                          {loc.city}, {loc.state}
-                        </option>
-                      ))}
-                  </select>
-                </div>
-              </div>
-
-              <div>
-                <label
-                  htmlFor="players"
-                  className="mb-2 block text-xs font-medium tracking-tight text-tm-body"
-                >
-                  Number of Players on Roster
-                </label>
-                <input
-                  type="number"
-                  id="players"
-                  min={5}
-                  max={15}
-                  value={formData.players}
-                  onChange={(e) =>
-                    setFormData({ ...formData, players: e.target.value })
-                  }
-                  className="w-full border border-tm-border bg-tm-bg-alt px-4 py-3 text-sm text-tm-body placeholder:text-tm-light focus:border-s6-orange focus:outline-none"
-                  placeholder="e.g. 10"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="notes"
-                  className="mb-2 block text-xs font-medium tracking-tight text-tm-body"
-                >
-                  Additional Notes
-                </label>
-                <textarea
-                  id="notes"
-                  rows={3}
-                  value={formData.notes}
-                  onChange={(e) =>
-                    setFormData({ ...formData, notes: e.target.value })
-                  }
-                  className="w-full border border-tm-border bg-tm-bg-alt px-4 py-3 text-sm text-tm-body placeholder:text-tm-light focus:border-s6-orange focus:outline-none"
-                  placeholder="Any special requests or questions..."
-                />
-              </div>
-
-              <div className="flex flex-col gap-4 pt-4 sm:flex-row">
-                <button type="submit" className="tm-btn tm-btn-black flex-1">
-                  Proceed to Payment
-                  <ArrowRight size={16} />
-                </button>
-              </div>
-
-              <p className="text-xs text-tm-light">
-                By registering, you agree to Super6&apos;s tournament rules and
-                code of conduct. Payment is processed securely via Stripe. All
-                teams must have valid team insurance.
-              </p>
-            </form>
+              Register on Exposure Events
+            </Link>
+            <a href={siteSmsHref} className="btn-hero btn-hero-secondary">
+              Text Super6
+            </a>
           </div>
-        </section>
-      )}
-
-      {/* Confirmation Step */}
-      {step === "confirmation" && (
-        <section className="tm-section bg-tm-bg">
-          <div className="tm-container max-w-2xl text-center">
-            <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center bg-green-900/30">
-              <Check size={36} className="text-green-600" />
-            </div>
-            <h2
-              className="mb-4 text-2xl md:text-3xl font-semibold tracking-tight text-tm-body"
-  
-            >
-              Registration Submitted!
-            </h2>
-            <p className="mb-4 text-sm text-tm-muted">
-              Thank you, <strong>{formData.coachName}</strong>! Your
-              registration for <strong>{formData.teamName}</strong> has been
-              received.
-            </p>
-            <p className="mb-8 text-xs text-tm-light">
-              You&apos;ll receive a confirmation email at{" "}
-              <strong>{formData.email}</strong> with payment instructions and
-              next steps. If you have questions, call us at {siteConfig.phone}.
-            </p>
-            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Link href="/" className="tm-btn tm-btn-black">
-                Back to Home
-              </Link>
-              <Link
-                href="/locations"
-                className="text-sm font-semibold text-tm-muted hover:text-white transition-colors"
-              >
-                View Locations →
-              </Link>
-            </div>
-          </div>
-        </section>
-      )}
+        </div>
+      </section>
     </>
   );
 }

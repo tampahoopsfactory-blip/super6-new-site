@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { REGISTER_LINK_PROPS } from "@/lib/links";
+import { siteSmsHref } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Programs | Super6 Basketball",
+  title: "Programs | Super6 Series LLC Basketball",
   description:
-    "Super6 programs for every level — youth development, travel teams, school programs, and elite competition. Find where your players fit.",
+    "Super6 Series LLC programs for every level — youth development, travel teams, school programs, and elite competition. Find where your players fit.",
 };
 
 const programs = [
@@ -14,7 +16,7 @@ const programs = [
     eyebrow: "Youth Development",
     heading: "Building the foundation.",
     subheading: "3rd–5th grade",
-    body: "Our youngest division is where basketball habits are formed. Super6 youth events are structured for maximum skill development — not just wins and losses. Coaches get real game reps, players get consistent competition, and programs build a foundation they carry through high school.",
+    body: "Our youngest division is where basketball habits are formed. Super6 Series LLC youth events are structured for maximum skill development — not just wins and losses. Coaches get real game reps, players get consistent competition, and programs build a foundation they carry through high school.",
     bullets: [
       "3rd–5th grade bracketing by skill, not just age",
       "Minimum 3 games per event",
@@ -22,14 +24,14 @@ const programs = [
       "Qualified officials at every game",
     ],
     image: "/media/curated/03-crowd-sideline.jpg",
-    imageAlt: "Young players competing at Super6 youth event",
+    imageAlt: "Young players competing at Super6 Series LLC youth event",
   },
   {
     id: "travel",
     eyebrow: "Travel Teams",
     heading: "Real competition. Real exposure.",
     subheading: "6th–8th grade",
-    body: "The middle school division is where programs separate. Super6 brackets travel teams against true competition — no mismatches, no lopsided games. Every team we put your players against is there to win. Scouts begin appearing at this level, and Super6 provides the platform.",
+    body: "The middle school division is where programs separate. Super6 Series LLC brackets travel teams against true competition — no mismatches, no lopsided games. Every team we put your players against is there to win. Scouts begin appearing at this level, and Super6 Series LLC provides the platform.",
     bullets: [
       "Skill-based seeding within 6th–8th division",
       "Four venues across Florida and Atlanta",
@@ -37,14 +39,14 @@ const programs = [
       "Season pass saves programs $90 per event",
     ],
     image: "/media/curated/02-game-action-drive.jpg",
-    imageAlt: "Middle school players in game action at Super6",
+    imageAlt: "Middle school players in game action at Super6 Series LLC",
   },
   {
     id: "school",
     eyebrow: "School Programs",
     heading: "Compete beyond the school schedule.",
     subheading: "All divisions",
-    body: "Super6 is built for school-based programs that need structured competition outside of their regular season. Our weekend format fits school schedules, our pricing fits school budgets, and our venues are within driving distance of every major Florida market. Bring your JV, varsity, or middle school squad.",
+    body: "Super6 Series LLC is built for school-based programs that need structured competition outside of their regular season. Our weekend format fits school schedules, our pricing fits school budgets, and our venues are within driving distance of every major Florida market. Bring your JV, varsity, or middle school squad.",
     bullets: [
       "Weekend events — no school-day conflicts",
       "$99 per event, $899 for all 10",
@@ -52,14 +54,14 @@ const programs = [
       "Brackets organized by division and skill",
     ],
     image: "/media/curated/04-team-huddle.jpg",
-    imageAlt: "Team huddle during Super6 tournament",
+    imageAlt: "Team huddle during Super6 Series LLC tournament",
   },
   {
     id: "elite",
     eyebrow: "Elite Competition",
     heading: "The highest level we offer.",
     subheading: "9th–12th grade",
-    body: "The high school division at Super6 is where college scouts come to evaluate. We put the best programs in Florida in the same bracket and let them play. If your players are ready for the next level, this is where they prove it. Exposure is built through performance, and Super6 is the stage.",
+    body: "The high school division at Super6 Series LLC is where college scouts come to evaluate. We put the best programs in Florida in the same bracket and let them play. If your players are ready for the next level, this is where they prove it. Exposure is built through performance, and Super6 Series LLC is the stage.",
     bullets: [
       "9th–12th grade — full high school division",
       "Scouts and evaluators at every event",
@@ -67,7 +69,7 @@ const programs = [
       "Championship awards for division finalists",
     ],
     image: "/media/curated/06-dunk-attempt.jpg",
-    imageAlt: "High school player at Super6 elite event",
+    imageAlt: "High school player at Super6 Series LLC elite event",
   },
 ];
 
@@ -105,7 +107,7 @@ export default function ProgramsPage() {
               marginTop: "1.25rem",
             }}
           >
-            From youth development to elite high school competition — Super6
+            From youth development to elite high school competition — Super6 Series LLC
             has the right division for every team you bring.
           </p>
         </div>
@@ -258,7 +260,7 @@ export default function ProgramsPage() {
             }}
           >
             <Link
-              href="/register"
+              {...REGISTER_LINK_PROPS}
               style={{
                 display: "inline-block",
                 padding: "0.9rem 2rem",
@@ -272,8 +274,8 @@ export default function ProgramsPage() {
             >
               Register Your Team
             </Link>
-            <Link
-              href="/contact"
+            <a
+              href={siteSmsHref}
               style={{
                 display: "inline-block",
                 padding: "0.9rem 2rem",
@@ -285,8 +287,8 @@ export default function ProgramsPage() {
                 textDecoration: "none",
               }}
             >
-              Contact Us
-            </Link>
+              Text Super6
+            </a>
           </div>
         </div>
       </section>

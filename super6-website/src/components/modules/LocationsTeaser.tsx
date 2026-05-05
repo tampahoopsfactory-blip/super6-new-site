@@ -23,7 +23,7 @@ const divisions: DivisionSection[] = [
     label: "Boys & Girls Division",
     headline: "Boys & Girls, <em>12th–3rd grade.</em>",
     description:
-      "Three levels of play — Elite, Competitive, and Developmental — at every Super 6 weekend. NFHS officials, custom court branding, college-pipeline access for top-tier teams.",
+      "Three levels of play — Elite, Competitive, and Developmental — at every Super6 Series LLC weekend. NFHS officials, custom court branding, college-pipeline access for top-tier teams.",
     image: "/media/uploads/boys-division-packed-house.jpg",
     objectPosition: "center center",
     imagePosition: "left" as const,
@@ -45,14 +45,14 @@ const divisions: DivisionSection[] = [
     label: "Walk-On Ready",
     headline: "One club. <em>One standard.</em>",
     description:
-      "Every Super6 weekend, programs roll in from across Florida and the Southeast — jerseys pressed, shorts matching, athletes locked in before the ball goes up. We protect how the game looks on our floors so every club walks on looking like they belong.",
+      "Every Super6 Series LLC weekend, programs roll in from across Florida and the Southeast — jerseys pressed, shorts matching, athletes locked in before the ball goes up. We protect how the game looks on our floors so every club walks on looking like they belong.",
     image: "/media/uploads/super6-three-athletes-walk.png",
     objectPosition: "center 42%",
     imagePosition: "left",
     href: "/faq#uniform-requirements",
     cta: "Uniform expectations",
     imageAlt:
-      "Three basketball athletes in matching team uniforms walking across the court at a Super6 event",
+      "Three basketball athletes in matching team uniforms walking across the court at a Super6 Series LLC event",
   },
 ];
 

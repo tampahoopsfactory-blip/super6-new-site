@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { REGISTER_LINK_PROPS } from "@/lib/links";
+import { siteSmsHref } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Super 6 is the Southeast's premier youth basketball tournament series. Twelve years of championship-level competition with college pipeline access and professional production.",
+    "Super6 Series LLC is the Southeast's premier youth basketball tournament series. Twelve years of championship-level competition with college pipeline access and professional production.",
 };
 
 const values = [
@@ -96,20 +98,20 @@ export default function AboutPage() {
               </h2>
               <div style={{ display: "flex", flexDirection: "column", gap: 18, maxWidth: "60ch" }}>
                 <p className="section-desc">
-                  Super 6 was founded on a simple belief: young athletes deserve
+                  Super6 Series LLC was founded on a simple belief: young athletes deserve
                   a championship-level experience. From professional referees
                   and digital scorebooks to climate-controlled venues, every
                   detail is designed to bring the best out of competitors.
                 </p>
                 <p className="section-desc">
-                  Operating across five markets in Florida and Georgia, Super 6
+                  Operating across five markets in Florida and Georgia, Super6 Series LLC
                   brings together the Southeast&rsquo;s most talented youth
                   teams for tournament weekends that follow NFHS standards and
                   put sportsmanship first.
                 </p>
                 <p className="section-desc">
                   Whether it&rsquo;s a third grader&rsquo;s first tournament or
-                  a senior&rsquo;s last weekend, Super 6 is the stage where
+                  a senior&rsquo;s last weekend, Super6 Series LLC is the stage where
                   young athletes find out what they&rsquo;re made of.
                 </p>
               </div>
@@ -142,7 +144,7 @@ export default function AboutPage() {
               futures.
             </p>
             <div>
-              <Link href="/contact" className="btn btn-ink">Talk to us</Link>
+              <a href={siteSmsHref} className="btn btn-ink">Text Super6</a>
             </div>
           </div>
         </div>
@@ -217,7 +219,7 @@ export default function AboutPage() {
             >
               <Image
                 src={src}
-                alt="Super 6 game day moment"
+                alt="Super6 Series LLC game day moment"
                 fill
                 sizes="(max-width: 768px) 50vw, 25vw"
                 style={{
@@ -239,11 +241,11 @@ export default function AboutPage() {
           </h2>
           <p className="cta-sub">
             Coaches, parents, athletes, partners. There&rsquo;s a place for you
-            at Super 6.
+            at Super6 Series LLC.
           </p>
           <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
-            <Link href="/register" className="btn btn-orange">Register your team</Link>
-            <Link href="/contact" className="btn btn-outline-light">Get in touch</Link>
+            <Link {...REGISTER_LINK_PROPS} className="btn btn-orange">Register your team</Link>
+            <a href={siteSmsHref} className="btn btn-outline-light">Text Super6</a>
           </div>
         </div>
       </section>
