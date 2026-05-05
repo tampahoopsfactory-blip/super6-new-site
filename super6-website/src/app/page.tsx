@@ -27,11 +27,11 @@ export default function HomePage() {
       <FadeIn><AdvantagesSection /></FadeIn>
       <FadeIn><PhotoGallery /></FadeIn>
       <FadeIn><ProgramsSection /></FadeIn>
-      <FadeIn><AlumniSection /></FadeIn>
       <FadeIn><DivisionCards /></FadeIn>
       <FadeIn><PricingSection /></FadeIn>
       <FadeIn><SecuritySpread /></FadeIn>
       <FadeIn><TestimonialsSection /></FadeIn>
+      <FadeIn><AlumniSection /></FadeIn>
       <FadeIn><CtaSection /></FadeIn>
     </>
   );
