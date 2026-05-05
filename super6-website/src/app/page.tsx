@@ -30,8 +30,8 @@ export default function HomePage() {
       <FadeIn><AlumniSection /></FadeIn>
       <FadeIn><DivisionCards /></FadeIn>
       <FadeIn><PricingSection /></FadeIn>
-      <FadeIn><TestimonialsSection /></FadeIn>
       <FadeIn><SecuritySpread /></FadeIn>
+      <FadeIn><TestimonialsSection /></FadeIn>
       <FadeIn><CtaSection /></FadeIn>
     </>
   );
