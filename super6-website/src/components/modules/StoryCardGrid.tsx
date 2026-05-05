@@ -7,11 +7,11 @@ import Link from "next/link";
    Single flagship block: lede from the old “Safety before the spark” split
    plus protocols, partner card, and Game Rules CTA. Rendered near page bottom.
    Composition:
-     • Asymmetric grid (photos take ~58%, text ~42%)
+     • Wider visual column; primary frame uses contain + tall canvas (full figure)
      • Big serif numerals for each protocol with hairline dividers
      • BKS gold watermark behind the photo column
      • Caption ribbon on the primary photo
-     • Polaroid-style cream border on the secondary action shot
+     • Secondary bag-check as a 16:9 strip stacked below (no overlap crop)
      • Partner signature card with hand-drawn BKS shield
      • Game Rules CTA pulled out below the spread, full-width banner */
 
@@ -36,7 +36,7 @@ const protocols = [
   },
 ];
 
-export default function ExperienceSection() {
+export default function SecuritySpread() {
   return (
     <section
       className="security-spread"
@@ -134,9 +134,11 @@ export default function ExperienceSection() {
                 src="/media/uploads/bks-suit.jpg"
                 alt="Big Kelly of BKS Security on duty at a Super 6 tournament"
                 fill
-                sizes="(max-width: 968px) 100vw, 50vw"
-                quality={94}
-                style={{ objectFit: "cover", objectPosition: "center 18%" }}
+                sizes="(max-width: 968px) 100vw, 58vw"
+                quality={95}
+                priority={false}
+                className="security-spread-photo-primary-img"
+                style={{ objectFit: "contain", objectPosition: "center bottom" }}
               />
               <figcaption className="security-spread-photo-caption">
                 <span className="security-spread-photo-caption-tag">On Duty</span>
@@ -149,9 +151,10 @@ export default function ExperienceSection() {
                 src="/media/uploads/bks-bag-check.jpg"
                 alt="BKS Security officer checking a spectator's bag at the Super 6 entrance"
                 fill
-                sizes="(max-width: 968px) 60vw, 28vw"
+                sizes="(max-width: 968px) 100vw, 58vw"
                 quality={94}
-                style={{ objectFit: "cover", objectPosition: "center 35%" }}
+                className="security-spread-photo-secondary-img"
+                style={{ objectFit: "cover", objectPosition: "center 28%" }}
               />
             </figure>
           </div>

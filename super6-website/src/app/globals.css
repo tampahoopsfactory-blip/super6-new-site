@@ -4706,8 +4706,10 @@ img, video { display: block; max-width: 100%; height: auto; }
 }
 @media (min-width: 968px) {
   .security-spread-grid {
-    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
-    gap: 96px;
+    /* Editorial bias: wider visuals — Big Kelly full-frame reads stronger */
+    grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+    gap: 72px 56px;
+    align-items: start;
   }
 }
 
@@ -4925,17 +4927,20 @@ img, video { display: block; max-width: 100%; height: auto; }
   letter-spacing: -0.005em;
 }
 
-/* ─── Photo column ─────────────────────────────────────── */
+/* ─── Photo column — stacked hero + detail strip (no cramped portrait crop) */
 .security-spread-photos {
   position: relative;
   order: 1;
-  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  width: 100%;
 }
 @media (min-width: 968px) {
   .security-spread-photos {
     order: 2;
-    min-height: 720px;
-    padding-left: 24px;
+    padding-left: 12px;
+    gap: 28px;
   }
 }
 
@@ -4971,43 +4976,48 @@ img, video { display: block; max-width: 100%; height: auto; }
   margin-top: -8px;
 }
 
-/* Primary photo — large portrait, anchored top-left, dominant */
+/* Primary — full photograph (contain) inside a tall cinematic frame */
 .security-spread-photo-primary {
   position: relative;
   z-index: 1;
-  width: 78%;
-  aspect-ratio: 4 / 5;
-  margin: 0 0 0 auto;
-  border-radius: 4px;
+  width: 100%;
+  margin: 0;
+  border-radius: 14px;
   overflow: hidden;
-  background: var(--ink);
+  background:
+    radial-gradient(120% 80% at 50% 100%, rgba(243, 84, 34, 0.07) 0%, transparent 55%),
+    linear-gradient(180deg, #1c1b19 0%, #0e0e0d 100%);
+  border: 1px solid rgba(201, 162, 75, 0.28);
   box-shadow:
-    0 30px 70px -28px rgba(0, 0, 0, 0.30),
-    0 1px 0 rgba(0, 0, 0, 0.08);
-}
-@media (min-width: 968px) {
-  .security-spread-photo-primary {
-    width: 72%;
-    margin: 0 24% 0 0;
-  }
+    0 40px 100px -40px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+    0 1px 0 rgba(0, 0, 0, 0.2);
+  min-height: clamp(380px, 62vh, 880px);
 }
 .security-spread-photo-primary::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,0.55) 100%);
+  /* Light foot fade for caption legibility — keeps subject visible */
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0) 58%,
+    rgba(0, 0, 0, 0.42) 100%
+  );
   pointer-events: none;
+  z-index: 1;
 }
-.security-spread-photo-primary img {
-  filter: contrast(1.06) saturate(1.04);
+.security-spread-photo-primary-img {
+  filter: contrast(1.05) saturate(1.05);
 }
 
 /* Caption ribbon — bottom-left of primary photo */
 .security-spread-photo-caption {
   position: absolute;
-  left: 14px;
-  bottom: 14px;
-  z-index: 2;
+  left: 16px;
+  bottom: 16px;
+  z-index: 3;
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -5036,39 +5046,41 @@ img, video { display: block; max-width: 100%; height: auto; }
   letter-spacing: 0.16em;
 }
 
-/* Secondary photo — landscape action shot, polaroid-style cream border,
-   offset bottom-right, overlapping the primary */
+/* Secondary — full-width cinematic strip under the hero (bag check story) */
 .security-spread-photo-secondary {
-  position: absolute;
-  right: 0;
-  bottom: 0;
+  position: relative;
   z-index: 2;
-  width: 56%;
-  aspect-ratio: 4 / 3;
+  width: 100%;
+  aspect-ratio: 16 / 9;
   margin: 0;
-  border-radius: 4px;
+  border-radius: 12px;
   overflow: hidden;
-  border: 8px solid var(--cream);
+  border: 1px solid rgba(201, 162, 75, 0.22);
   box-shadow:
-    0 22px 60px -22px rgba(0, 0, 0, 0.35),
-    0 1px 0 rgba(0, 0, 0, 0.06);
+    0 28px 70px -36px rgba(0, 0, 0, 0.4),
+    0 0 0 6px var(--cream-warm),
+    0 0 0 7px rgba(0, 0, 0, 0.06);
 }
-@media (min-width: 968px) {
+@media (max-width: 967px) {
   .security-spread-photo-secondary {
-    width: 52%;
-    bottom: -32px;
-    right: -16px;
+    aspect-ratio: 4 / 3;
   }
 }
 .security-spread-photo-secondary::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0) 65%, rgba(0,0,0,0.30) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.18) 0%,
+    rgba(0, 0, 0, 0) 35%,
+    rgba(0, 0, 0, 0) 100%
+  );
   pointer-events: none;
+  z-index: 1;
 }
-.security-spread-photo-secondary img {
-  filter: contrast(1.06) saturate(1.02);
+.security-spread-photo-secondary-img {
+  filter: contrast(1.06) saturate(1.04);
 }
 
 /* ─── Game Rules CTA — pulled out as a wide editorial banner ───── */
