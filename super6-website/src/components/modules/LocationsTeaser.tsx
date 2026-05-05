@@ -5,7 +5,20 @@ import Link from "next/link";
    Alternating photo / text splits. No clustering. Each
    photograph gets full-width prominence at hero quality. */
 
-const divisions = [
+type DivisionSection = {
+  label: string;
+  headline: string;
+  description: string;
+  image: string;
+  objectPosition: string;
+  imagePosition: "left" | "right";
+  href: string;
+  cta: string;
+  /** Optional descriptive alt when `label` is not enough for screen readers. */
+  imageAlt?: string;
+};
+
+const divisions: DivisionSection[] = [
   {
     label: "Boys & Girls Division",
     headline: "Boys & Girls, <em>12th–3rd grade.</em>",
@@ -38,6 +51,19 @@ const divisions = [
     imagePosition: "left" as const,
     href: "/register",
     cta: "Apply for Elite",
+  },
+  {
+    label: "Walk-On Ready",
+    headline: "One club. <em>One standard.</em>",
+    description:
+      "Every Super6 weekend, programs roll in from across Florida and the Southeast — jerseys pressed, shorts matching, athletes locked in before the ball goes up. We protect how the game looks on our floors so every club walks on looking like they belong.",
+    image: "/media/uploads/super6-three-athletes-walk.png",
+    objectPosition: "center 42%",
+    imagePosition: "right",
+    href: "/faq#uniform-requirements",
+    cta: "Uniform expectations",
+    imageAlt:
+      "Three basketball athletes in matching team uniforms walking across the court at a Super6 event",
   },
 ];
 
@@ -73,7 +99,7 @@ export default function DivisionSections() {
             >
               <Image
                 src={d.image}
-                alt={d.label}
+                alt={d.imageAlt ?? d.label}
                 fill
                 sizes="(max-width: 968px) 100vw, 50vw"
                 quality={92}
