@@ -3,17 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
-/* ─── Event Security — Big Kelly's BKS (merged home spread)
-   Single flagship block: lede from the old “Safety before the spark” split
-   plus protocols, partner card, and Game Rules CTA. Rendered near page bottom.
-   Composition:
-     • Wider visual column; primary frame uses contain + tall canvas (full figure)
-     • Big serif numerals for each protocol with hairline dividers
-     • BKS gold watermark behind the photo column
-     • Caption ribbon on the primary photo
-     • Secondary bag-check as a 16:9 strip stacked below (no overlap crop)
-     • Partner signature card with hand-drawn BKS shield
-     • Game Rules CTA pulled out below the spread, full-width banner */
+/* ─── Event Security — Big Kelly's BKS
+   Full-viewport-height split: full-bleed gate photo (cover) | editorial column.
+   Rules CTA sits in container below. */
 
 const protocols = [
   {
@@ -42,9 +34,27 @@ export default function SecuritySpread() {
       className="security-spread"
       aria-label="Event security at Super 6 — Big Kelly's BKS Security"
     >
-      <div className="container-xl">
-        <div className="security-spread-grid">
-          {/* TEXT COLUMN ─────────────────────── */}
+      <div className="security-spread-stage">
+        <div className="security-spread-visual">
+          <Image
+            src="/media/uploads/security-bag-check-full.png"
+            alt="BKS Security officer inspecting a bag at the venue entrance during a Super 6 tournament"
+            fill
+            sizes="(max-width: 968px) 100vw, 46vw"
+            quality={95}
+            priority={false}
+            className="security-spread-visual-img"
+            style={{ objectFit: "cover", objectPosition: "center center" }}
+          />
+          <div className="security-spread-visual-footer" aria-hidden="true">
+            <span className="security-spread-visual-footer-tag">Live</span>
+            <span className="security-spread-visual-footer-text">
+              Big Kelly&apos;s BKS · Gate · Bag · Presence
+            </span>
+          </div>
+        </div>
+
+        <div className="security-spread-copy">
           <div className="security-spread-content">
             <p className="security-spread-eyebrow">
               <span className="security-spread-eyebrow-rule" aria-hidden="true" />
@@ -59,12 +69,11 @@ export default function SecuritySpread() {
             <p className="security-spread-lede">
               Every bag checked. Every entrance covered. Security is a Super 6 priority — we{" "}
               <strong>don&apos;t run a weekend without</strong>{" "}
-              <strong>Big Kelly&apos;s BKS Security</strong>. Their officers keep our events
-              safe, calm, and orderly while hundreds of families, athletes, and staff share one
-              building — the serious standard your families feel the second they walk in.
+              <strong>Big Kelly&apos;s BKS Security</strong>. Their officers keep our events safe,
+              calm, and orderly while hundreds of families, athletes, and staff share one building —
+              the serious standard your families feel the second they walk in.
             </p>
 
-            {/* Numbered protocols with display-serif numerals */}
             <ol className="security-spread-protocols">
               {protocols.map((p) => (
                 <li key={p.num}>
@@ -85,7 +94,6 @@ export default function SecuritySpread() {
               </Link>
             </div>
 
-            {/* Partner signature card */}
             <div className="security-spread-signature">
               <div className="security-spread-signature-shield" aria-hidden="true">
                 <svg viewBox="0 0 48 56" width="40" height="46" fill="none">
@@ -108,9 +116,7 @@ export default function SecuritySpread() {
                 </svg>
               </div>
               <div>
-                <p className="security-spread-signature-eyebrow">
-                  Security Partner
-                </p>
+                <p className="security-spread-signature-eyebrow">Security Partner</p>
                 <p className="security-spread-signature-name">
                   Big Kelly&apos;s BKS Security Group
                 </p>
@@ -120,55 +126,18 @@ export default function SecuritySpread() {
               </div>
             </div>
           </div>
-
-          {/* PHOTO COLUMN ────────────────────── */}
-          <div className="security-spread-photos">
-            {/* Watermark BKS — sits behind the photos */}
-            <div className="security-spread-watermark" aria-hidden="true">
-              <span>BKS</span>
-              <span className="security-spread-watermark-tag">Security Group</span>
-            </div>
-
-            <figure className="security-spread-photo-primary">
-              <Image
-                src="/media/uploads/bks-suit.jpg"
-                alt="Big Kelly of BKS Security on duty at a Super 6 tournament"
-                fill
-                sizes="(max-width: 968px) 100vw, 58vw"
-                quality={95}
-                priority={false}
-                className="security-spread-photo-primary-img"
-                style={{ objectFit: "contain", objectPosition: "center bottom" }}
-              />
-              <figcaption className="security-spread-photo-caption">
-                <span className="security-spread-photo-caption-tag">On Duty</span>
-                <span>Big Kelly · BKS Security Group</span>
-              </figcaption>
-            </figure>
-
-            <figure className="security-spread-photo-secondary">
-              <Image
-                src="/media/uploads/bks-bag-check.jpg"
-                alt="BKS Security officer checking a spectator's bag at the Super 6 entrance"
-                fill
-                sizes="(max-width: 968px) 100vw, 58vw"
-                quality={94}
-                className="security-spread-photo-secondary-img"
-                style={{ objectFit: "cover", objectPosition: "center 28%" }}
-              />
-            </figure>
-          </div>
         </div>
+      </div>
 
-        {/* Game Rules CTA — pulled out below the spread, full width */}
+      <div className="container-xl security-spread-rules-wrap">
         <Link href="/rules" className="security-spread-rules-cta">
           <div className="security-spread-rules-cta-mark" aria-hidden="true">
             <span className="security-spread-rules-cta-eyebrow">Tournament Rule Book</span>
             <span className="security-spread-rules-cta-title">Game Rules</span>
           </div>
           <p className="security-spread-rules-cta-body">
-            Conduct, gate security, uniform compliance, ejections, forfeits — every
-            line governing Super 6 play. Read before you register.
+            Conduct, gate security, uniform compliance, ejections, forfeits — every line governing
+            Super 6 play. Read before you register.
           </p>
           <span className="security-spread-rules-cta-arrow" aria-hidden="true">
             <svg

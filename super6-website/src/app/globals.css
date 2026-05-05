@@ -4688,44 +4688,118 @@ img, video { display: block; max-width: 100%; height: auto; }
 .security-spread {
   position: relative;
   background: var(--cream-warm);
-  padding: 96px 0 72px;
+  padding: 72px 0 72px;
   overflow: hidden;
   isolation: isolate;
 }
 @media (min-width: 968px) {
-  .security-spread { padding: 128px 0 96px; }
-}
-
-/* ─── Grid ──────────────────────────────────────────────── */
-.security-spread-grid {
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 64px;
-  align-items: start;
-}
-@media (min-width: 968px) {
-  .security-spread-grid {
-    /* Editorial bias: wider visuals — Big Kelly full-frame reads stronger */
-    grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
-    gap: 72px 56px;
-    align-items: start;
+  .security-spread {
+    padding: 96px 0 96px;
   }
 }
 
-/* Vertical hairline between columns on desktop */
+/* ─── Stage: full-bleed photo (left) | editorial (right) ─ */
+.security-spread-stage {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+  min-height: min(560px, 92vh);
+}
 @media (min-width: 968px) {
-  .security-spread-grid::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: 8px;
-    bottom: 8px;
-    width: 1px;
-    background: linear-gradient(180deg, transparent 0%, var(--hairline) 18%, var(--hairline) 82%, transparent 100%);
-    transform: translateX(-50%);
-    z-index: 1;
-    pointer-events: none;
+  .security-spread-stage {
+    grid-template-columns: minmax(0, 46vw) minmax(0, 1fr);
+    min-height: min(720px, 88vh);
+    align-items: stretch;
+    max-width: 100%;
+  }
+}
+
+.security-spread-visual {
+  position: relative;
+  overflow: hidden;
+  min-height: min(48vh, 440px);
+  background: #121110;
+}
+@media (max-width: 967px) {
+  .security-spread-visual {
+    min-height: min(42vh, 380px);
+  }
+}
+
+.security-spread-visual-img {
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* Foot fade + bottom story strip */
+.security-spread-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(8, 8, 8, 0.25) 0%,
+    transparent 38%,
+    transparent 62%,
+    rgba(8, 8, 8, 0.72) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.security-spread-visual-footer {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 22px;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 16px;
+}
+.security-spread-visual-footer-tag {
+  display: inline-flex;
+  align-items: center;
+  height: 26px;
+  padding: 0 12px;
+  background: var(--orange);
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border-radius: 3px;
+}
+.security-spread-visual-footer-text {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(252, 248, 240, 0.94);
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.55);
+}
+
+.security-spread-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 44px 22px 52px;
+  border-top: 1px solid var(--hairline);
+  background: var(--cream-warm);
+}
+@media (min-width: 968px) {
+  .security-spread-copy {
+    border-top: none;
+    border-left: 1px solid var(--hairline);
+    padding: 56px min(6vw, 88px) 64px 56px;
+  }
+}
+@media (min-width: 1200px) {
+  .security-spread-copy {
+    padding: 72px min(7vw, 120px) 88px 72px;
   }
 }
 
@@ -4734,12 +4808,12 @@ img, video { display: block; max-width: 100%; height: auto; }
   display: flex;
   flex-direction: column;
   gap: 24px;
-  order: 2;
+  width: 100%;
+  max-width: 560px;
 }
 @media (min-width: 968px) {
   .security-spread-content {
-    order: 1;
-    padding-right: 32px;
+    max-width: min(52ch, 560px);
   }
 }
 
@@ -4927,160 +5001,13 @@ img, video { display: block; max-width: 100%; height: auto; }
   letter-spacing: -0.005em;
 }
 
-/* ─── Photo column — stacked hero + detail strip (no cramped portrait crop) */
-.security-spread-photos {
-  position: relative;
-  order: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-  width: 100%;
+.security-spread-rules-wrap {
+  margin-top: 56px;
 }
 @media (min-width: 968px) {
-  .security-spread-photos {
-    order: 2;
-    padding-left: 12px;
-    gap: 28px;
+  .security-spread-rules-wrap {
+    margin-top: 72px;
   }
-}
-
-/* Big BKS watermark sitting behind the photos */
-.security-spread-watermark {
-  position: absolute;
-  top: -20px;
-  right: 0;
-  z-index: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0;
-  pointer-events: none;
-  user-select: none;
-}
-.security-spread-watermark span:first-child {
-  font-family: var(--font-display);
-  font-size: clamp(110px, 14vw, 220px);
-  font-weight: 400;
-  line-height: 0.8;
-  letter-spacing: -0.05em;
-  color: rgba(201, 162, 75, 0.12);
-  text-transform: uppercase;
-}
-.security-spread-watermark-tag {
-  font-family: var(--font-body);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.36em;
-  text-transform: uppercase;
-  color: rgba(201, 162, 75, 0.32);
-  margin-top: -8px;
-}
-
-/* Primary — full photograph (contain) inside a tall cinematic frame */
-.security-spread-photo-primary {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  margin: 0;
-  border-radius: 14px;
-  overflow: hidden;
-  background:
-    radial-gradient(120% 80% at 50% 100%, rgba(243, 84, 34, 0.07) 0%, transparent 55%),
-    linear-gradient(180deg, #1c1b19 0%, #0e0e0d 100%);
-  border: 1px solid rgba(201, 162, 75, 0.28);
-  box-shadow:
-    0 40px 100px -40px rgba(0, 0, 0, 0.45),
-    0 0 0 1px rgba(255, 255, 255, 0.04) inset,
-    0 1px 0 rgba(0, 0, 0, 0.2);
-  min-height: clamp(380px, 62vh, 880px);
-}
-.security-spread-photo-primary::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  /* Light foot fade for caption legibility — keeps subject visible */
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0) 58%,
-    rgba(0, 0, 0, 0.42) 100%
-  );
-  pointer-events: none;
-  z-index: 1;
-}
-.security-spread-photo-primary-img {
-  filter: contrast(1.05) saturate(1.05);
-}
-
-/* Caption ribbon — bottom-left of primary photo */
-.security-spread-photo-caption {
-  position: absolute;
-  left: 16px;
-  bottom: 16px;
-  z-index: 3;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 12px;
-  background: rgba(15, 14, 12, 0.78);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(245, 240, 230, 0.14);
-  border-radius: 4px;
-  font-family: var(--font-body);
-  font-size: 10.5px;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: rgba(245, 240, 230, 0.88);
-}
-.security-spread-photo-caption-tag {
-  display: inline-flex;
-  align-items: center;
-  height: 18px;
-  padding: 0 8px;
-  background: var(--orange);
-  color: var(--cream);
-  border-radius: 2px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-}
-
-/* Secondary — full-width cinematic strip under the hero (bag check story) */
-.security-spread-photo-secondary {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  margin: 0;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid rgba(201, 162, 75, 0.22);
-  box-shadow:
-    0 28px 70px -36px rgba(0, 0, 0, 0.4),
-    0 0 0 6px var(--cream-warm),
-    0 0 0 7px rgba(0, 0, 0, 0.06);
-}
-@media (max-width: 967px) {
-  .security-spread-photo-secondary {
-    aspect-ratio: 4 / 3;
-  }
-}
-.security-spread-photo-secondary::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0.18) 0%,
-    rgba(0, 0, 0, 0) 35%,
-    rgba(0, 0, 0, 0) 100%
-  );
-  pointer-events: none;
-  z-index: 1;
-}
-.security-spread-photo-secondary-img {
-  filter: contrast(1.06) saturate(1.04);
 }
 
 /* ─── Game Rules CTA — pulled out as a wide editorial banner ───── */
@@ -5089,7 +5016,7 @@ img, video { display: block; max-width: 100%; height: auto; }
   grid-template-columns: 1fr;
   gap: 18px;
   align-items: start;
-  margin-top: 80px;
+  margin-top: 0;
   padding: 32px;
   background: var(--ink);
   color: var(--cream);
@@ -5108,7 +5035,6 @@ img, video { display: block; max-width: 100%; height: auto; }
     gap: 48px;
     align-items: center;
     padding: 40px 48px;
-    margin-top: 96px;
   }
 }
 .security-spread-rules-cta::before {
