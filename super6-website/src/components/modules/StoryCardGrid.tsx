@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-/* ─── Event Security — Big Kelly's BKS
+/* ─── Event Security spread
    Full-viewport-height split: full-bleed gate photo (cover) | editorial column.
    Rules CTA sits in container below. */
 
@@ -16,9 +16,9 @@ const protocols = [
   },
   {
     num: "02",
-    title: "Trained BKS Personnel",
+    title: "Trained security personnel",
     body:
-      "Licensed BKS officers at every gate, on the floor, and in the lot. The same crew that reads the room before it turns—diffusing tension, redirecting energy, and stepping in long before anything flares up.",
+      "Licensed officers at every gate, on the floor, and in the lot. The same crew that reads the room before it turns — diffusing tension, redirecting energy, and stepping in long before anything flares up.",
   },
   {
     num: "03",
@@ -32,13 +32,13 @@ export default function SecuritySpread() {
   return (
     <section
       className="security-spread"
-      aria-label="Event security at Super 6 — Big Kelly's BKS Security"
+      aria-label="Event security at Super 6"
     >
       <div className="security-spread-stage">
         <div className="security-spread-visual">
           <Image
             src="/media/uploads/security-bag-check-full.png"
-            alt="BKS Security officer inspecting a bag at the venue entrance during a Super 6 tournament"
+            alt="Security officer inspecting a bag at the venue entrance during a Super 6 tournament"
             fill
             sizes="(max-width: 968px) 100vw, 46vw"
             quality={95}
@@ -49,7 +49,7 @@ export default function SecuritySpread() {
           <div className="security-spread-visual-footer" aria-hidden="true">
             <span className="security-spread-visual-footer-tag">Live</span>
             <span className="security-spread-visual-footer-text">
-              Big Kelly&apos;s BKS · Gates · Courts · Parking
+              Gates · Courts · Parking · Lots
             </span>
           </div>
         </div>
@@ -64,15 +64,13 @@ export default function SecuritySpread() {
               Professional event security <em>at every Super 6 weekend.</em>
             </h2>
             <p className="security-spread-subhead-plain">
-              Delivered by <strong>Big Kelly&apos;s BKS Security Group</strong> — licensed
-              personnel at entries, on the floor, and in parking areas.
+              Licensed personnel at entries, on the floor, and in parking areas —{" "}
+              <strong>every Super 6 weekend</strong>.
             </p>
             <p className="security-spread-lede">
-              Every bag checked. Every entrance covered. Security is a Super 6 priority — we{" "}
-              <strong>don&apos;t run a weekend without</strong>{" "}
-              <strong>Big Kelly&apos;s BKS Security</strong>. Their officers keep our events safe,
-              calm, and orderly while hundreds of families, athletes, and staff share one building —
-              the serious standard your families feel the second they walk in.
+              Every bag checked. Every entrance covered. Security is a Super 6 priority — our staff
+              keep events safe, calm, and orderly while hundreds of families, athletes, and staff
+              share one building — the standard your families expect when they arrive.
             </p>
 
             <ol className="security-spread-protocols">
@@ -103,26 +101,13 @@ export default function SecuritySpread() {
                     stroke="currentColor"
                     strokeWidth="1.5"
                   />
-                  <text
-                    x="24"
-                    y="32"
-                    textAnchor="middle"
-                    fontFamily="var(--font-display)"
-                    fontSize="11"
-                    fontWeight="700"
-                    fill="currentColor"
-                  >
-                    BKS
-                  </text>
                 </svg>
               </div>
               <div>
-                <p className="security-spread-signature-eyebrow">Security Partner</p>
-                <p className="security-spread-signature-name">
-                  Big Kelly&apos;s BKS Security Group
-                </p>
+                <p className="security-spread-signature-eyebrow">Security standard</p>
+                <p className="security-spread-signature-name">Contracted event security</p>
                 <p className="security-spread-signature-tag">
-                  Contracted to keep every Super 6 event safe.
+                  Professional coverage at every Super 6 venue.
                 </p>
               </div>
             </div>
