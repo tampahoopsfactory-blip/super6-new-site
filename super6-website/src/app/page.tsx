@@ -2,7 +2,7 @@ import HeroSection from "@/components/modules/HeroTileGrid";
 import ImpactStrip from "@/components/modules/ServiceGrid";
 import MissionSplit from "@/components/modules/SplitSections";
 import PhotoGallery from "@/components/modules/FeatureBanner";
-import ExperienceSection from "@/components/modules/StoryCardGrid";
+import SecuritySpread from "@/components/modules/StoryCardGrid";
 import AdvantagesSection from "@/components/modules/AdvantagesSection";
 import ProgramsSection from "@/components/modules/ProgramsSection";
 import AlumniSection from "@/components/modules/AlumniSection";
@@ -31,7 +31,7 @@ export default function HomePage() {
       <FadeIn><DivisionCards /></FadeIn>
       <FadeIn><PricingSection /></FadeIn>
       <FadeIn><TestimonialsSection /></FadeIn>
-      <FadeIn><ExperienceSection /></FadeIn>
+      <FadeIn><SecuritySpread /></FadeIn>
       <FadeIn><CtaSection /></FadeIn>
     </>
   );
