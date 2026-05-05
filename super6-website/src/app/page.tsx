@@ -26,12 +26,12 @@ export default function HomePage() {
       <FadeIn><MissionSplit /></FadeIn>
       <FadeIn><AdvantagesSection /></FadeIn>
       <FadeIn><PhotoGallery /></FadeIn>
-      <FadeIn><ExperienceSection /></FadeIn>
       <FadeIn><ProgramsSection /></FadeIn>
       <FadeIn><AlumniSection /></FadeIn>
       <FadeIn><DivisionCards /></FadeIn>
       <FadeIn><PricingSection /></FadeIn>
       <FadeIn><TestimonialsSection /></FadeIn>
+      <FadeIn><ExperienceSection /></FadeIn>
       <FadeIn><CtaSection /></FadeIn>
     </>
   );

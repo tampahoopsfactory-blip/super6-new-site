@@ -3,9 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 
-/* ─── Why Super 6 — Security First (Big Kelly's BKS Security)
-   Editorial spread layout. The text and photos are the same as the previous
-   pass — what changed is the composition:
+/* ─── Event Security — Big Kelly's BKS (merged home spread)
+   Single flagship block: lede from the old “Safety before the spark” split
+   plus protocols, partner card, and Game Rules CTA. Rendered near page bottom.
+   Composition:
      • Asymmetric grid (photos take ~58%, text ~42%)
      • Big serif numerals for each protocol with hairline dividers
      • BKS gold watermark behind the photo column
@@ -25,7 +26,7 @@ const protocols = [
     num: "02",
     title: "Trained BKS Personnel",
     body:
-      "Licensed BKS officers stationed at the gate, the courts, and the parking lot. Standard routine protocols help diffuse situations before they flare up.",
+      "Licensed BKS officers at every gate, on the floor, and in the lot. The same crew that reads the room before it turns—diffusing tension, redirecting energy, and stepping in long before anything flares up.",
   },
   {
     num: "03",
@@ -39,7 +40,7 @@ export default function ExperienceSection() {
   return (
     <section
       className="security-spread"
-      aria-label="Security at Super 6 — Big Kelly's BKS Security"
+      aria-label="Event security at Super 6 — Big Kelly's BKS Security"
     >
       <div className="container-xl">
         <div className="security-spread-grid">
@@ -47,17 +48,20 @@ export default function ExperienceSection() {
           <div className="security-spread-content">
             <p className="security-spread-eyebrow">
               <span className="security-spread-eyebrow-rule" aria-hidden="true" />
-              Why Super 6 — Security First
+              Why Super 6 · Event Security
             </p>
             <h2 className="security-spread-headline">
               No one watches the room <em>like Big Kelly.</em>
             </h2>
+            <p className="security-spread-subhead">
+              Safety <em>before the spark.</em>
+            </p>
             <p className="security-spread-lede">
-              Security is a Super 6 priority. Every weekend is staffed by{" "}
-              <strong>Big Kelly&apos;s BKS Security</strong> — the firm we
-              contract to keep our events safe, calm, and orderly. Hundreds of
-              families, athletes, and staff in one building demands a serious
-              standard, and Big Kelly&apos;s crew delivers it every event.
+              Every bag checked. Every entrance covered. Security is a Super 6 priority — we{" "}
+              <strong>don&apos;t run a weekend without</strong>{" "}
+              <strong>Big Kelly&apos;s BKS Security</strong>. Their officers keep our events
+              safe, calm, and orderly while hundreds of families, athletes, and staff share one
+              building — the serious standard your families feel the second they walk in.
             </p>
 
             {/* Numbered protocols with display-serif numerals */}
@@ -74,6 +78,12 @@ export default function ExperienceSection() {
                 </li>
               ))}
             </ol>
+
+            <div className="security-spread-btn-row">
+              <Link href="/about" className="btn btn-ink">
+                Meet the team
+              </Link>
+            </div>
 
             {/* Partner signature card */}
             <div className="security-spread-signature">

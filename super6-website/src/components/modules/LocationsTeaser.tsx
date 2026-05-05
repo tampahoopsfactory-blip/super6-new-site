@@ -31,24 +31,13 @@ const divisions: DivisionSection[] = [
     cta: "Register your team",
   },
   {
-    label: "Event Security",
-    headline: "Safety <em>before the spark.</em>",
-    description:
-      "Every bag checked. Every entrance covered. Our partner crew at Big Kelly's Security reads the room before it turns — diffusing tension, redirecting energy, and stepping in long before anything flares up. Families feel the difference the second they walk in. We don't run a Super 6 weekend without them.",
-    image: "/media/uploads/bks-bag-check.jpg",
-    objectPosition: "center center",
-    imagePosition: "right" as const,
-    href: "/about",
-    cta: "Meet the team",
-  },
-  {
     label: "Elite Showcase",
     headline: "Elite. <em>Scout-visible.</em>",
     description:
       "Top-tier weekends where the best teams in the Southeast play in front of college coaches and recruiters. Limited spots, invite-priority, scout-credentialed.",
     image: "/media/uploads/experience-thunder-boxout.jpg",
     objectPosition: "center center",
-    imagePosition: "left" as const,
+    imagePosition: "right" as const,
     href: "/register",
     cta: "Apply for Elite",
   },
@@ -59,7 +48,7 @@ const divisions: DivisionSection[] = [
       "Every Super6 weekend, programs roll in from across Florida and the Southeast — jerseys pressed, shorts matching, athletes locked in before the ball goes up. We protect how the game looks on our floors so every club walks on looking like they belong.",
     image: "/media/uploads/super6-three-athletes-walk.png",
     objectPosition: "center 42%",
-    imagePosition: "right",
+    imagePosition: "left",
     href: "/faq#uniform-requirements",
     cta: "Uniform expectations",
     imageAlt:

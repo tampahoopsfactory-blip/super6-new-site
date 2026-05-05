@@ -4680,8 +4680,8 @@ img, video { display: block; max-width: 100%; height: auto; }
 
 
 /* ════════════════════════════════════════════
-   Security Spread — Why Super 6 / Big Kelly's BKS Security
-   Editorial magazine layout. Lives in the Experience slot.
+   Security Spread — Event Security / Big Kelly's BKS Security
+   Editorial magazine layout. Homepage — rendered near footer before final CTA.
    Cream-warm surface, BKS gold accent (#C9A24B), big serif numerals.
    ════════════════════════════════════════════ */
 
@@ -4773,6 +4773,29 @@ img, video { display: block; max-width: 100%; height: auto; }
 .security-spread-headline em {
   font-style: italic;
   color: var(--orange);
+}
+
+.security-spread-subhead {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.8vw, 34px);
+  font-weight: 400;
+  line-height: 1.18;
+  letter-spacing: -0.022em;
+  color: var(--ink);
+  margin: 10px 0 0;
+  max-width: 22ch;
+}
+.security-spread-subhead em {
+  font-style: italic;
+  color: var(--orange);
+}
+
+.security-spread-btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  margin-top: 8px;
 }
 
 .security-spread-lede {
