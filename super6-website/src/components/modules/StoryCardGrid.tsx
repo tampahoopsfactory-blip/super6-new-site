@@ -49,7 +49,7 @@ export default function SecuritySpread() {
           <div className="security-spread-visual-footer" aria-hidden="true">
             <span className="security-spread-visual-footer-tag">Live</span>
             <span className="security-spread-visual-footer-text">
-              Big Kelly&apos;s BKS · Gate · Bag · Presence
+              Big Kelly&apos;s BKS · Gates · Courts · Parking
             </span>
           </div>
         </div>
@@ -61,10 +61,11 @@ export default function SecuritySpread() {
               Why Super 6 · Event Security
             </p>
             <h2 className="security-spread-headline">
-              No one watches the room <em>like Big Kelly.</em>
+              Professional event security <em>at every Super 6 weekend.</em>
             </h2>
-            <p className="security-spread-subhead">
-              Safety <em>before the spark.</em>
+            <p className="security-spread-subhead-plain">
+              Delivered by <strong>Big Kelly&apos;s BKS Security Group</strong> — licensed
+              personnel at entries, on the floor, and in parking areas.
             </p>
             <p className="security-spread-lede">
               Every bag checked. Every entrance covered. Security is a Super 6 priority — we{" "}

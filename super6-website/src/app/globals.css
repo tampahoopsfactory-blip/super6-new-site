@@ -4838,13 +4838,13 @@ img, video { display: block; max-width: 100%; height: auto; }
 
 .security-spread-headline {
   font-family: var(--font-display);
-  font-size: clamp(40px, 5vw, 68px);
+  font-size: clamp(36px, 4.4vw, 58px);
   font-weight: 400;
-  line-height: 1.02;
+  line-height: 1.06;
   letter-spacing: -0.025em;
   color: var(--ink);
   margin: 4px 0 0;
-  max-width: 16ch;
+  max-width: 22ch;
 }
 .security-spread-headline em {
   font-style: italic;
@@ -4864,6 +4864,21 @@ img, video { display: block; max-width: 100%; height: auto; }
 .security-spread-subhead em {
   font-style: italic;
   color: var(--orange);
+}
+
+.security-spread-subhead-plain {
+  font-family: var(--font-body);
+  font-size: clamp(15px, 1.5vw, 17px);
+  font-weight: 400;
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+  color: var(--ink-soft);
+  margin: 8px 0 0;
+  max-width: 48ch;
+}
+.security-spread-subhead-plain strong {
+  color: var(--ink);
+  font-weight: 600;
 }
 
 .security-spread-btn-row {
