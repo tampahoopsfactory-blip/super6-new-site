@@ -312,7 +312,7 @@ export type TimelineFrame = {
 
 export const TIMELINE: TimelineFrame[] = [
   { year: 2014, yearLabel: "Year 1",  src: "/media/curated/01-flagship-coach-pointer.jpg",  caption: "[The first whistle. One court, one weekend, one bracket.]", alt: "Coach directing at first Super6 Series LLC event" },
-  { year: 2015, yearLabel: "Year 2",  src: "/media/curated/14-coach-portrait.jpg",          caption: "[The standard set. Same brackets, sharper edges.]",         alt: "Coach portrait" },
+  { year: 2015, yearLabel: "Year 2",  src: "/media/uploads/timeline-2015-thunder-celebration.png", caption: "[The standard set. Same brackets, sharper edges.]", alt: "Thunder team celebrating with medals at Super6 Series LLC" },
   { year: 2016, yearLabel: "Year 3",  src: "/media/gallery/G1_05_Crowd_Spectator.jpg",      caption: "[Sidelines start to swell.]",                              alt: "Crowd along the sideline" },
   { year: 2017, yearLabel: "Year 4",  src: "/media/gallery/G2_11_Youth_Team_Promo.jpg",     caption: "[New teams. New cities scouting in.]",                     alt: "Youth team in promotional shot" },
   { year: 2018, yearLabel: "Year 5",  src: "/media/curated/16-packed-sideline.jpg",         caption: "[First sold-out weekend.]",                                alt: "Packed sideline at Super6 Series LLC" },
