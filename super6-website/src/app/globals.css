@@ -4092,11 +4092,16 @@ img, video { display: block; max-width: 100%; height: auto; }
 .advantages-section .section-desc { color: rgba(244,241,234,0.78); }
 .advantages-intro { text-align: center; max-width: 720px; margin: 0 auto 64px; }
 .advantages-intro .section-desc { margin: 0 auto; }
+/* Four editorial cards — stay 2×2 from tablet up (avoid orphan row at 3 cols). */
 .advantages-grid {
   display: grid; grid-template-columns: 1fr; gap: 28px;
 }
-@media (min-width: 768px) { .advantages-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; } }
-@media (min-width: 1180px) { .advantages-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 768px) {
+  .advantages-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px 36px;
+  }
+}
 .advantage-card {
   background: rgba(244,241,234,0.04);
   border: 1px solid rgba(244,241,234,0.10);
