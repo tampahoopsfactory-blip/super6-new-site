@@ -143,6 +143,33 @@ export default function RegisterPage() {
         </div>
       </section>
 
+      <section
+        aria-label="Super6 championship medals"
+        style={{ background: "var(--black)", padding: "28px 0 18px" }}
+      >
+        <div className="container-xl">
+          <div
+            style={{
+              position: "relative",
+              width: "100%",
+              aspectRatio: "16 / 10",
+              overflow: "hidden",
+              borderRadius: "var(--radius-lg)",
+              border: "1px solid rgba(255,255,255,0.08)",
+            }}
+          >
+            <Image
+              src="/media/uploads/register-medals-editorial.png"
+              alt="Two black basketball trophies with Super6 championship medals."
+              fill
+              quality={94}
+              sizes="(max-width: 968px) 100vw, 1200px"
+              style={{ objectFit: "cover", objectPosition: "center center" }}
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA — same band as /faq and /rules */}
       <section className="faq-final-cta">
         <div className="container-xl">
