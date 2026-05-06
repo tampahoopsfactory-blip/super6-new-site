@@ -112,7 +112,9 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  overflow-x: hidden;
+  /* clip avoids horizontal scroll without breaking position:sticky on the nav
+     (overflow:hidden on body is a common sticky pitfall in Chrome/Safari). */
+  overflow-x: clip;
 }
 
 body {
@@ -122,13 +124,13 @@ body {
   font-size: 17px;
   line-height: 1.6;
   font-feature-settings: "kern", "ss01", "cv11";
-  overflow-x: hidden;
+  overflow-x: clip;
   width: 100%;
   max-width: 100vw;
 }
 
 main {
-  overflow-x: hidden;
+  overflow-x: clip;
   width: 100%;
 }
 
@@ -234,8 +236,9 @@ img, video { display: block; max-width: 100%; height: auto; }
 }
 
 .nav-main {
-  position: sticky; top: 0; z-index: 100;
+  position: sticky; top: 0; z-index: 250;
   display: flex; align-items: center; justify-content: space-between;
+  gap: 14px;
   height: var(--nav-height);
   padding: 0 24px;
   background: rgba(244, 241, 234, 0.85);
@@ -257,7 +260,8 @@ img, video { display: block; max-width: 100%; height: auto; }
   background: var(--cream); color: var(--ink);
 }
 .nav-main--transparent .nav-cta:hover { background: var(--white); }
-.nav-main--transparent .nav-logo-img { filter: brightness(0) invert(1); }
+.nav-main--transparent .nav-logo-img,
+.nav-main--transparent .nav-logo .nav-logo-img { filter: brightness(0) invert(1); }
 
 .nav-main--scrolled {
   border-bottom-color: var(--hairline-soft);
@@ -274,8 +278,18 @@ img, video { display: block; max-width: 100%; height: auto; }
 .nav-logo { display: inline-flex; align-items: center; flex-shrink: 0; }
 .nav-logo-img { height: 30px; width: auto; }
 
-.nav-links { display: none; align-items: center; gap: 0; list-style: none; }
-@media (min-width: 1024px) { .nav-links { display: flex; margin-left: auto; margin-right: 18px; } }
+.nav-links {
+  display: none;
+  align-items: center;
+  gap: 0;
+  list-style: none;
+  flex: 1;
+  justify-content: center;
+  min-width: 0;
+}
+@media (min-width: 1024px) {
+  .nav-links { display: flex; margin-left: 0; margin-right: 0; }
+}
 .nav-links a {
   display: inline-flex; align-items: center;
   padding: 0 18px; height: var(--nav-height);
@@ -320,7 +334,7 @@ img, video { display: block; max-width: 100%; height: auto; }
   border-radius: var(--radius-lg);
   box-shadow: 0 24px 64px rgba(14,13,11,0.18), 0 4px 12px rgba(14,13,11,0.06);
   padding: 32px 36px;
-  z-index: 110;
+  z-index: 280;
   animation: mega-fade-in 200ms var(--ease) both;
 }
 @keyframes mega-fade-in {
@@ -377,7 +391,7 @@ img, video { display: block; max-width: 100%; height: auto; }
 
 /* Mobile menu */
 .mobile-menu {
-  position: fixed; inset: 0; z-index: 200;
+  position: fixed; inset: 0; z-index: 400;
   background: var(--cream);
   display: flex; flex-direction: column;
   transform: translateX(100%);
@@ -4637,7 +4651,7 @@ img, video { display: block; max-width: 100%; height: auto; }
 /* ── Lightbox ──────────────────────────────────── */
 .lightbox {
   position: fixed; inset: 0;
-  z-index: 100;
+  z-index: 600;
   display: flex; align-items: center; justify-content: center;
   background: rgba(8, 7, 6, 0.94);
   backdrop-filter: blur(6px);
@@ -6495,7 +6509,31 @@ img, video { display: block; max-width: 100%; height: auto; }
 }
 
 /* /register — uses .faq-hero*, .hero-action-bar*, and .faq-final-cta
-   classes already defined elsewhere. No bespoke /register CSS needed. */
+   classes already defined elsewhere. */
+
+.register-medals {
+  background: var(--ink);
+  padding: clamp(28px, 4vw, 52px) 0 clamp(36px, 5vw, 64px);
+  border-top: 1px solid rgba(244, 241, 234, 0.08);
+}
+.register-medals-inner {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  aspect-ratio: 21 / 9;
+  max-height: min(480px, 52vh);
+  min-height: 180px;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--black);
+}
+@media (max-width: 768px) {
+  .register-medals-inner {
+    aspect-ratio: 16 / 10;
+    max-height: min(380px, 42vh);
+  }
+}
 
 /* ════════════════════════════════════════════
    /coaches — Editorial layout

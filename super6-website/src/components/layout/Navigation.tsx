@@ -57,6 +57,17 @@ export default function Navigation() {
 
       {/* Main navigation */}
       <nav className={`nav-main ${pathname === "/" && !scrolled ? "nav-main--transparent" : ""} ${scrolled ? "nav-main--scrolled" : ""}`} role="navigation" aria-label="Main">
+        <Link href="/" className="nav-logo" aria-label="Super6 Series LLC home">
+          <Image
+            src="/media/logos/logo-small-transparent.png"
+            alt=""
+            width={160}
+            height={54}
+            className="nav-logo-img"
+            priority
+          />
+        </Link>
+
         <ul className="nav-links">
           {navLinks.map((link) => (
             <li key={link.href + link.label}>
@@ -108,7 +119,6 @@ export default function Navigation() {
           </button>
         </div>
         <nav className="mobile-menu-nav">
-          <Link href="/" onClick={() => setMobileOpen(false)}>Home</Link>
           {navLinks.map((link) => (
             <Link key={link.href + link.label} href={link.href} onClick={() => setMobileOpen(false)}>
               {link.label}
