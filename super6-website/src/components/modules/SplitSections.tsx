@@ -32,7 +32,7 @@ const sections = [
 export default function MissionSplit() {
   return (
     <>
-      {sections.map((section) => (
+      {sections.map((section, index) => (
         <section
           key={section.label}
           aria-label={section.label}
@@ -51,9 +51,10 @@ export default function MissionSplit() {
                     : section.label
                 }
                 fill
-                sizes="(max-width: 968px) 100vw, 50vw"
+                sizes="(max-width: 968px) 100vw, min(50vw, 1200px)"
                 className="object-cover"
-                quality={92}
+                quality={100}
+                priority={index === 0}
               />
             </div>
             <div
