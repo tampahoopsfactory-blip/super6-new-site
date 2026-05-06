@@ -24,11 +24,13 @@ const divisions: DivisionSection[] = [
     headline: "Boys & Girls, <em>12th–3rd grade.</em>",
     description:
       "Three levels of play — Elite, Competitive, and Developmental — at every Super6 Series LLC weekend. NFHS officials, custom court branding, college-pipeline access for top-tier teams.",
-    image: "/media/uploads/boys-division-packed-house.jpg",
-    objectPosition: "center center",
+    image: "/media/uploads/boys-division-ballers-guard-standoff.png",
+    objectPosition: "center 44%",
     imagePosition: "left" as const,
     href: "/register",
     cta: "Register your team",
+    imageAlt:
+      "Two athletes face off one-on-one, Ballers defender vs opposing guard, Super6 crowd and banner behind them.",
   },
   {
     label: "Elite Showcase",
@@ -90,8 +92,8 @@ export default function DivisionSections() {
                 src={d.image}
                 alt={d.imageAlt ?? d.label}
                 fill
-                sizes="(max-width: 968px) 100vw, 50vw"
-                quality={92}
+                sizes="(max-width: 968px) 100vw, min(50vw, 1200px)"
+                quality={100}
                 style={{ objectFit: "cover", objectPosition: d.objectPosition }}
               />
             </div>
