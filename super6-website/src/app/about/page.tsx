@@ -3,249 +3,149 @@ import Image from "next/image";
 import Link from "next/link";
 import { REGISTER_LINK_PROPS } from "@/lib/links";
 import { siteSmsHref } from "@/data/site";
+import AlumniSection from "@/components/modules/AlumniSection";
+
+/* /about · Our Mission · editorial layout. Copy rule: .cursor/rules/super6-copy-no-dashes.mdc */
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "Our Mission",
   description:
-    "Super6 Series LLC is the Southeast's premier youth basketball tournament series. Twelve years of championship-level competition with college pipeline access and professional production.",
+    "Super6 Series LLC was built on a simple idea. Every kid deserves a real shot, on the court, in the classroom, and in the life that comes after the buzzer.",
+  alternates: { canonical: "/about" },
+  openGraph: {
+    title: "Our Mission | Super6 Series LLC",
+    description:
+      "Twelve years of premier youth basketball weekends paired with academic tutoring, college counseling, mentorship, and family centered programming.",
+    url: "/about",
+    type: "website",
+  },
 };
 
-const values = [
+const pillars = [
   {
-    title: "Competition",
-    description:
-      "Championship-caliber tournaments that challenge young athletes to compete at the highest level.",
+    number: "01",
+    title: "Affordable access",
+    body: "Cost should not decide who plays. We keep premier weekends in reach for serious families.",
   },
   {
-    title: "Community",
-    description:
-      "Building connections between teams, coaches, and families across the Southeast basketball community.",
+    number: "02",
+    title: "Academic tutoring",
+    body: "Players grow when grades grow. We help athletes carry the books that carry the future.",
   },
   {
-    title: "Experience",
-    description:
-      "Climate-controlled venues, digital scorebooks, custom court branding, NFHS-certified officials. Production at every weekend.",
+    number: "03",
+    title: "College counseling",
+    body: "The next step takes a guide. We help families read offers and protect smart choices.",
   },
   {
-    title: "Integrity",
-    description:
-      "Strict eligibility rules. NFHS-certified officials. Zero tolerance for unsportsmanlike conduct.",
+    number: "04",
+    title: "Mentorship",
+    body: "Coaches who keep showing up. Stories from people who walked the same road.",
   },
   {
-    title: "Development",
-    description:
-      "Skills, discipline, competitive drive — the things that show up later. The college pipeline is the receipt.",
+    number: "05",
+    title: "Family programming",
+    body: "Parents and grandparents stay close. The team includes the people in the stands.",
   },
-  {
-    title: "Passion",
-    description:
-      "Founded by people who love basketball and believe in the power of youth sports to shape lives.",
-  },
-];
-
-const photoGrid = [
-  "/media/curated/23-female-athlete.jpg",
-  "/media/curated/05-crowd-eruption.jpg",
-  "/media/curated/09-trophy-raise.jpg",
-  "/media/curated/03-drive-isolation.jpg",
-  "/media/curated/26-bench-camaraderie.jpg",
-  "/media/curated/12-coach-intensity.jpg",
-  "/media/curated/17-young-spectators.jpg",
-  "/media/curated/24-panoramic-crowd.jpg",
 ];
 
 export default function AboutPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="page-hero">
-        <Image
-          src="/media/curated/06-super6-banner-bokeh.jpg"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          quality={92}
-          aria-hidden="true"
-        />
-        <div className="container-xl">
-          <p className="editorial-eyebrow" style={{ color: "var(--cream)", opacity: 0.85 }}>
-            Our Story
+      {/* HERO */}
+      <section className="mission-hero">
+        <div className="mission-hero-photo">
+          <Image
+            src="/media/uploads/about-mission-hero-team.jpg"
+            alt="Super6 Series LLC team on the basketball court with branded banners"
+            fill
+            priority
+            quality={94}
+            sizes="100vw"
+          />
+        </div>
+        <div className="container-xl mission-hero-content">
+          <p className="mission-hero-eyebrow">Our Mission</p>
+          <h1 className="mission-hero-headline">
+            Every kid deserves a <em>real shot.</em>
+          </h1>
+          <p className="mission-hero-sub">
+            On the court. In the classroom. In the life that comes after the buzzer.
           </p>
-          <h1>The Southeast&rsquo;s premier <em>youth basketball</em> tournament series.</h1>
-          <p>
-            Twelve years building competitive weekends where young athletes
-            grow, families gather, and the next college recruit gets seen.
-          </p>
         </div>
       </section>
 
-      {/* Mission */}
-      <section className="section">
-        <div className="container-xl">
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr",
-              gap: 64,
-              alignItems: "center",
-            }}
-          >
-            <div style={{ maxWidth: 720 }}>
-              <p className="section-label">Our Mission</p>
-              <h2 className="section-heading">
-                Elevating youth basketball <em>from the floor up.</em>
-              </h2>
-              <div style={{ display: "flex", flexDirection: "column", gap: 18, maxWidth: "60ch" }}>
-                <p className="section-desc">
-                  Super6 Series LLC was founded on a simple belief: young athletes deserve
-                  a championship-level experience. From professional referees
-                  and digital scorebooks to climate-controlled venues, every
-                  detail is designed to bring the best out of competitors.
-                </p>
-                <p className="section-desc">
-                  Operating across five markets in Florida and Georgia, Super6 Series LLC
-                  brings together the Southeast&rsquo;s most talented youth
-                  teams for tournament weekends that follow NFHS standards and
-                  put sportsmanship first.
-                </p>
-                <p className="section-desc">
-                  Whether it&rsquo;s a third grader&rsquo;s first tournament or
-                  a senior&rsquo;s last weekend, Super6 Series LLC is the stage where
-                  young athletes find out what they&rsquo;re made of.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Big quote / split */}
-      <section className="split-warm">
-        <div className="split">
-          <div className="split-image">
-            <Image
-              src="/media/curated/25-coaches-clipboard.jpg"
-              alt="Coach mentoring two players on the sideline"
-              fill
-              sizes="(max-width: 968px) 100vw, 50vw"
-              className="object-cover"
-            />
-          </div>
-          <div className="split-content">
-            <p className="section-label">Why It Matters</p>
-            <h2 className="section-heading">
-              The work doesn&rsquo;t end <em>when the buzzer does.</em>
-            </h2>
-            <p className="section-desc" style={{ marginBottom: 24 }}>
-              We partner with Ivy League programs, HBCUs, and top-tier colleges
-              to give athletes a path beyond the trophy &mdash; tutoring, test
-              prep, college counseling, the kind of access that decides
-              futures.
-            </p>
-            <div>
-              <a href={siteSmsHref} className="btn btn-ink">Text Super6</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Values Grid */}
-      <section className="section section-paper">
-        <div className="container-xl">
-          <div style={{ marginBottom: 56 }}>
-            <p className="section-label">What Drives Us</p>
-            <h2 className="section-heading">Six values, <em>one weekend at a time.</em></h2>
-          </div>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-              gap: 32,
-            }}
-          >
-            {values.map((v) => (
-              <div
-                key={v.title}
-                style={{
-                  paddingLeft: 24,
-                  borderLeft: "1px solid var(--hairline)",
-                }}
-              >
-                <h3
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontSize: 24,
-                    fontWeight: 400,
-                    letterSpacing: "-0.018em",
-                    color: "var(--ink)",
-                    marginBottom: 10,
-                  }}
-                >
-                  {v.title}
-                </h3>
-                <p style={{ fontSize: 15, color: "var(--slate)", lineHeight: 1.6 }}>
-                  {v.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Photo grid */}
-      <section className="section section-warm">
-        <div className="container-xl" style={{ marginBottom: 48 }}>
-          <p className="section-label">Game Day</p>
-          <h2 className="section-heading">Twelve years <em>in frames.</em></h2>
-        </div>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(2, 1fr)",
-            gap: 4,
-          }}
-          className="about-photo-grid"
-        >
-          {photoGrid.map((src) => (
-            <div
-              key={src}
-              style={{
-                position: "relative",
-                aspectRatio: "1 / 1",
-                overflow: "hidden",
-                background: "var(--cream-warm)",
-              }}
-            >
-              <Image
-                src={src}
-                alt="Super6 Series LLC game day moment"
-                fill
-                sizes="(max-width: 768px) 50vw, 25vw"
-                style={{
-                  objectFit: "cover",
-                  filter: "var(--photo-grade)",
-                  transition: "transform 1.4s var(--ease)",
-                }}
-              />
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="cta-section" aria-label="Join us">
-        <div className="container-xl">
-          <h2 className="cta-heading">
-            Be part of <em>the story.</em>
+      {/* MISSION STATEMENT */}
+      <section className="section mission-statement" aria-labelledby="mission-statement-anchor">
+        <div className="container-xl mission-statement-inner">
+          <p className="section-label">The Super6 idea</p>
+          <h2 id="mission-statement-anchor" className="mission-lead">
+            Super6 was built on a simple idea. Every kid deserves a real shot.
+            On the court, in the classroom, and in the life that comes after
+            the buzzer.
           </h2>
-          <p className="cta-sub">
-            Coaches, parents, athletes, partners. There&rsquo;s a place for you
-            at Super6 Series LLC.
+          <p className="mission-body">
+            For twelve years we have run the Southeast&apos;s most competitive
+            youth basketball weekends, packing premier facilities with serious
+            teams, watchful scouts, and families who travel for the love of the
+            game. The scoreboard is only half of what we do.
           </p>
-          <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
-            <Link {...REGISTER_LINK_PROPS} className="btn btn-orange">Register your team</Link>
-            <a href={siteSmsHref} className="btn btn-outline-light">Text Super6</a>
+          <blockquote className="mission-pullquote">
+            <p>
+              We close the gap between talent and opportunity by treating both
+              as equal weights.
+            </p>
+          </blockquote>
+          <p className="mission-body">
+            Behind every Super6 event sits a longer mission. Affordable access.
+            Academic tutoring. College counseling. Mentorship. Family centered
+            programming designed to reach the kids the system tends to overlook.
+          </p>
+        </div>
+      </section>
+
+      {/* PILLARS */}
+      <section className="section section-paper mission-pillars" aria-labelledby="mission-pillars-title">
+        <div className="container-xl">
+          <p className="section-label">The longer mission</p>
+          <h2 id="mission-pillars-title" className="section-heading">
+            Five things we work on <em>off the scoreboard.</em>
+          </h2>
+        </div>
+        <ol className="mission-pillar-list" aria-label="Mission pillars">
+          {pillars.map((p) => (
+            <li key={p.number} className="mission-pillar">
+              <span className="mission-pillar-num" aria-hidden="true">
+                {p.number}
+              </span>
+              <h3 className="mission-pillar-title">{p.title}</h3>
+              <p className="mission-pillar-body">{p.body}</p>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <AlumniSection />
+
+      {/* CLOSER */}
+      <section className="mission-closer" aria-labelledby="mission-closer-statement">
+        <div className="container-xl mission-closer-inner">
+          <p className="mission-closer-eyebrow">Our promise</p>
+          <h2 id="mission-closer-statement" className="mission-closer-statement">
+            Sports open the door.
+            <br />
+            <em>Super6 walks them through it.</em>
+          </h2>
+          <div className="mission-closer-actions">
+            <Link
+              {...REGISTER_LINK_PROPS}
+              className="btn-hero btn-hero-primary"
+            >
+              Register your team
+            </Link>
+            <a href={siteSmsHref} className="btn-hero btn-hero-secondary">
+              Text Super6
+            </a>
           </div>
         </div>
       </section>

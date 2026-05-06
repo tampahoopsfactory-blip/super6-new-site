@@ -1,0 +1,42 @@
+---
+description: >
+  /ai-events hero kiosk photo — facial recognition hardware visible; part of FROZEN top hero.
+  Text panel (two-stack layout) + all hero CSS: ai-events-frozen-top.mdc — change nothing unless TK asks.
+globs:
+  - src/app/ai-events/**/*.tsx
+  - src/app/globals.css
+alwaysApply: false
+---
+
+# AI Events hero image — non‑negotiable framing
+
+When editing **`src/app/ai-events/page.tsx`** or **`src/app/globals.css`**:
+
+**Right-hand hero panel** (black column): approved **two-stack** markup (**`ai-events-hero-stack-top`** / **`ai-events-hero-stack-bottom`**, **`ai-events-hero-panel`**) and matching **`globals.css`** — **frozen**; see **`ai-events-frozen-top.mdc`**. Do **not** change unless TK explicitly asks.
+
+## Goal
+
+The hero asset **`public/media/uploads/ai-events-gate-kiosk.png`** (1024×766, landscape) must show **both patrons** and the **full vertical facial‑recognition / kiosk hardware** — not cropped off the edge.
+
+## Do **not** do this
+
+- Do **not** set this hero `<Image>` to **`object-fit: contain`** — it letterboxes the photo column with empty bands; product rejected this.
+- Do **not** reset **`object-position`** to **`center`** or vague **`center 38%`** — that crops the **right** side first on desktop (tall narrow column + `cover`) and hides the recognition tower.
+- Do **not** move **`object-fit` / `object-position` onto inline `style={{}}`** on the hero `<Image>` — the single source of truth is **`globals.css`** under **`.ai-events-hero .rules-hero-photo img`** so framing stays auditable and consistent.
+
+## Do this instead
+
+- Keep **`object-fit: cover`** on **`.ai-events-hero .rules-hero-photo img`**.
+- Tune **`object-position` only** in **`globals.css`** (desktop rule + **`@media (max-width: 967px)`** block). Nudge **right** (`%` horizontal ↑) and slightly **down** (`%` vertical ↑) if the tower clips; nudge **left** / **up** if the left patron clips.
+- After changes, verify **desktop ≥968px** and **mobile**: tower + both people still read clearly.
+
+## Canonical selectors
+
+```text
+.ai-events-hero .rules-hero-photo img { object-fit: cover; object-position: … }
+@media (max-width: 967px) { .ai-events-hero .rules-hero-photo img { object-position: … } }
+```
+
+## Wordmark sizing (`ENGINEERING`)
+
+The orange `.rules-hero-word-rules` line on **`/ai-events`** uses **page-scoped smaller `font-size` clamps** in `globals.css` because **ENGINEERING** is far wider than **RULES / EVENTS**. Do **not** delete `.ai-events-hero .rules-hero-word-rules` / `.rules-hero-word-game` overrides — that restores the default giant clamp and crowds the hero panel edge-to-edge.

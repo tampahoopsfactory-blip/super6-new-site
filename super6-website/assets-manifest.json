@@ -4,7 +4,9 @@
     { "file": "logos/logo-transparent.png", "role": "transparent-logo", "alt": "Super6 Logo Transparent", "width": 1500, "height": 1200 },
     { "file": "logos/logo-small.png", "role": "small-logo", "alt": "Super6 Logo Small", "width": 360, "height": 288 },
     { "file": "logos/logo-small-transparent.png", "role": "small-logo-transparent", "alt": "Super6 Logo Small Transparent", "width": 360, "height": 288 },
-    { "file": "logos/logo-eco.png", "role": "eco-logo", "alt": "Super6 Eco Logo", "width": 2294, "height": 1772 }
+    { "file": "logos/logo-eco.png", "role": "eco-logo", "alt": "Super6 Eco Logo", "width": 2294, "height": 1772 },
+    { "file": "logos/super6-brand-logo-wide.png", "role": "brand-logo-wide", "alt": "Super6 Series LLC full logo lockup", "width": 703, "height": 720 },
+    { "file": "logos/super6-brand-logo-diamond.jpg", "role": "brand-logo-diamond", "alt": "Super6 Series LLC diamond mark", "width": 276, "height": 220 }
   ],
   "hero": [
     { "file": "hero/hero-dunk.jpg", "role": "hero-tile", "alt": "Championship dunk action shot", "width": 5616, "height": 3744 },

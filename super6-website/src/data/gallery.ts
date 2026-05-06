@@ -236,12 +236,6 @@ export const PHOTOS: GalleryPhoto[] = [
     category: "athletes-champions", aspect: "portrait",
   },
   {
-    id: "ac-03", src: "/media/gallery/G2_25_Award_Presentation.jpg",
-    alt: "Award presentation on the floor",
-    title: "[Award Ceremony — 2025]", event: "Summer Slam, Tampa", year: 2025,
-    category: "athletes-champions", aspect: "tall",
-  },
-  {
     id: "ac-04", src: "/media/gallery/G1_08_Team_Huddle_Celebration.jpg",
     alt: "Team huddle in celebration",
     title: "[Team Huddle — 2023]", event: "Atlanta Showout", year: 2023,
@@ -329,7 +323,6 @@ export const TIMELINE: TimelineFrame[] = [
   { year: 2023, yearLabel: "Year 10", src: "/media/curated/12-coach-intensity.jpg",         caption: "[Decade in. Officials certified across the bracket.]",    alt: "Coach in intense moment" },
   { year: 2024, yearLabel: "Year 11", src: "/media/curated/09-trophy-raise.jpg",            caption: "[Trophies handed out. Stories made.]",                     alt: "Champion lifting trophy" },
   { year: 2025, yearLabel: "Year 12", src: "/media/uploads/celtics-super6.jpg",             caption: "[Pro partnerships. League pass debuts.]",                  alt: "Pro partnership moment" },
-  { year: 2026, yearLabel: "Year 13", src: "/media/gallery/G2_25_Award_Presentation.jpg",   caption: "[Year 13. The standard keeps moving.]",                    alt: "Award presentation" },
 ];
 
 export const HERO_BACKGROUND = "/media/curated/24-panoramic-crowd.jpg";
@@ -368,7 +361,7 @@ export const SPOTLIGHTS: Spotlight[] = [
     id: "sp-01",
     src: "/media/curated/24-panoramic-crowd.jpg",
     alt: "Panoramic packed venue at a Super6 Series LLC weekend",
-    eyebrow: "13 Years In",
+    eyebrow: "12 Years In",
     quote:
       "What started as one weekend on one court is now a circuit. The kids who came to play are now coaching the kids who came to watch them.",
     meta: "Tampa · 2024",

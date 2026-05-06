@@ -19,7 +19,7 @@ const sections = [
     heading: "A championship <em>atmosphere.</em>",
     description:
       "Custom court branding. Digital scorebooks. NFHS-certified referees. Climate-controlled venues. Every detail is engineered so that families and athletes feel the weight of the weekend — the moment the doors open.",
-    cta: { label: "View locations", href: "/locations" },
+    cta: { label: "Register your team", href: "/register" },
     image: "/media/uploads/coach-huddle.jpg",
     imagePosition: "right" as const,
   },

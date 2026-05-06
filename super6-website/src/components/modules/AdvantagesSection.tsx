@@ -9,11 +9,6 @@ const advantages = [
     body: "We run the lowest-cost youth basketball tournaments in Florida — $99 per team, when the industry standard is $375 or more. Same officiating standard. Same production. Better access.",
   },
   {
-    eyebrow: "Federal Contract",
-    headline: "$110K with Space Force.",
-    body: "Patrick Space Force Base referee services contract FA252121A0003 — $110,010, completed 2022–2023. Federal-grade officiating, brought to weekend youth tournaments.",
-  },
-  {
     eyebrow: "Streaming",
     headline: "Live on HBCU League Pass.",
     body: "Super6 Series LLC TV streams live tournament play on HBCU League Pass with game recordings, commentary, and pre/post-game interviews. Building the ESPN of youth sports.",
@@ -27,11 +22,6 @@ const advantages = [
     eyebrow: "Corporate Partnership",
     headline: "Wells Fargo financial literacy.",
     body: "Wells Fargo Bank delivers financial literacy seminars to Super6 Series LLC student-athletes — money skills built alongside basketball IQ.",
-  },
-  {
-    eyebrow: "Expansion",
-    headline: "10-city national plan.",
-    body: "5-year, 2-sites-per-year national rollout: Orlando first (2027), then Miami, Dallas, Atlanta, DC, LA, Houston, Philadelphia, Boston, and New York/NJ.",
   },
 ];
 

@@ -457,8 +457,7 @@ export const faqSections: FaqSection[] = [
 - **Clearwater**
 - **Boca Raton**
 - **Atlanta, GA**
-- **Addresses:** drop on each event listing once the building is locked
-- **Map:** [/locations](/locations)`,
+- **Addresses:** drop on each event listing once the building is locked`,
       },
       {
         slug: "parking",

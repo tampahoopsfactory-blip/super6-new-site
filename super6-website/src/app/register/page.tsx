@@ -42,22 +42,19 @@ export default function RegisterPage() {
       <section className="faq-hero">
         <div className="faq-hero-photo">
           <Image
-            src="/media/curated/10-trophy-team-banners.jpg"
-            alt=""
+            src="/media/curated/register-hero-matchup.png"
+            alt="Super6 tournament basketball — drive defended one-on-one on the hardwood."
             fill
             priority
             quality={94}
             sizes="(max-width: 968px) 100vw, 55vw"
-            aria-hidden="true"
-            style={{ objectFit: "cover", objectPosition: "center 38%" }}
+            style={{ objectFit: "cover", objectPosition: "center 42%" }}
           />
         </div>
 
         <div className="faq-hero-panel">
           <div className="faq-hero-meta">
             <span className="faq-hero-meta-tag">REGISTER</span>
-            <span className="faq-hero-meta-divider" />
-            <span>2026 SEASON · FL &amp; GA</span>
           </div>
 
           <div className="faq-hero-wordmark" aria-hidden="true">

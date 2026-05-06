@@ -46,14 +46,13 @@ export default function FAQPage() {
       <section className="faq-hero">
         <div className="faq-hero-photo">
           <Image
-            src="/media/uploads/coach-huddle.jpg"
-            alt=""
+            src="/media/curated/faq-hero-shooter.png"
+            alt="Super6 player squaring up to shoot in front of a packed Florida Hospital gym crowd."
             fill
             priority
             quality={94}
             sizes="(max-width: 968px) 100vw, 55vw"
-            aria-hidden="true"
-            style={{ objectFit: "cover", objectPosition: "center 35%" }}
+            style={{ objectFit: "cover", objectPosition: "center 38%" }}
           />
         </div>
 

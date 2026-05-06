@@ -6,7 +6,6 @@ import PhotoGallery from "@/components/modules/FeatureBanner";
 import SecuritySpread from "@/components/modules/StoryCardGrid";
 import AdvantagesSection from "@/components/modules/AdvantagesSection";
 import ProgramsSection from "@/components/modules/ProgramsSection";
-import AlumniSection from "@/components/modules/AlumniSection";
 import TestimonialsSection from "@/components/modules/TestimonialsSection";
 import DivisionCards from "@/components/modules/LocationsTeaser";
 import PricingSection from "@/components/modules/RegistrationCTA";
@@ -33,7 +32,6 @@ export default function HomePage() {
       <FadeIn><PricingSection /></FadeIn>
       <FadeIn><SecuritySpread /></FadeIn>
       <FadeIn><TestimonialsSection /></FadeIn>
-      <FadeIn><AlumniSection /></FadeIn>
       <FadeIn><CtaSection /></FadeIn>
     </>
   );

@@ -4,13 +4,13 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        source: "/locations/west-palm",
-        destination: "/locations/boca-raton",
+        source: "/locations",
+        destination: "/",
         permanent: true,
       },
       {
-        source: "/news/west-palm-beach-expansion",
-        destination: "/news/boca-raton-expansion",
+        source: "/locations/:slug*",
+        destination: "/",
         permanent: true,
       },
     ];

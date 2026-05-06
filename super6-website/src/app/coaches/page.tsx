@@ -183,21 +183,23 @@ export default function CoachesPage() {
 
       {/* ─── Section 03 — The cut that hurts the most ─── */}
       <CoachesSplitSection section={cutSection}>
-        <div className="coaches-cut">
+        <ul
+          className="coaches-split-bullets coaches-split-bullets--cut"
+          aria-label="The cut that hurts the most"
+        >
           {cutBody.map((line, i) => (
-            <p
+            <li
               key={i}
               className={
-                "coaches-cut-line" +
-                (i === cutBody.length - 1
-                  ? " coaches-cut-line--final"
-                  : "")
+                i === cutBody.length - 1
+                  ? "coaches-split-bullets-final"
+                  : undefined
               }
             >
               {line}
-            </p>
+            </li>
           ))}
-        </div>
+        </ul>
       </CoachesSplitSection>
 
       {/* ─── Section 04 — Super6 Series LLC was built different (image left) ─── */}
@@ -228,11 +230,14 @@ export default function CoachesPage() {
 
       {/* ─── Section 05 — Why coaches keep coming back ─── */}
       <CoachesSplitSection section={wordOfMouthSection}>
-        {wordOfMouthBody.map((p, i) => (
-          <p key={i} className="coaches-prose">
-            {p}
-          </p>
-        ))}
+        <ul
+          className="coaches-split-bullets"
+          aria-label="Why coaches keep coming back"
+        >
+          {wordOfMouthBody.map((text, i) => (
+            <li key={i}>{text}</li>
+          ))}
+        </ul>
         {/* TESTIMONIALS PLACEHOLDER */}
       </CoachesSplitSection>
 

@@ -33,11 +33,6 @@ export const announcements = [
     linkText: "Register",
   },
   {
-    text: "New Location: Atlanta Coming Soon",
-    link: "/locations/atlanta",
-    linkText: "Learn More",
-  },
-  {
     text: "NFHS-Certified Officials at Every Tournament",
     link: "/about",
     linkText: "Our Standard",
@@ -128,7 +123,7 @@ export const heroData = {
   headline: "Elevate Your Game",
   subhead: "#1 Tournament Organization in Florida",
   cta: { label: "Register Now", href: "/register" },
-  ctaSecondary: { label: "Explore Tournaments", href: "/locations" },
+  ctaSecondary: { label: "Our Mission", href: "/about" },
 };
 
 
@@ -175,8 +170,7 @@ export const footerColumns = {
     { label: "Contact Us", href: "/contact" },
     { label: "Tournament Rules", href: "/rules" },
     { label: "Registration Help", href: "/register" },
-    { label: "Find a Location", href: "/locations" },
-    { label: "FAQs", href: "/about" },
+    { label: "FAQs", href: "/faq" },
   ],
   offerings: [
     { label: "Tournaments", href: "/register" },
@@ -190,7 +184,6 @@ export const footerColumns = {
     { label: "Inside Super6 Series LLC", href: "/about" },
     { label: "12 Years Strong", href: "/about" },
     { label: "Testimonials", href: "/about" },
-    { label: "Locations", href: "/locations" },
     { label: "Privacy Policy", href: "/about" },
   ],
 };

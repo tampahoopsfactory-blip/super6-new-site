@@ -117,8 +117,8 @@ export const cutSection: CoachSection = {
   title: "The cut that hurts the most.",
   icon: "scale",
   image: {
-    src: "/media/curated/14-coach-portrait.jpg",
-    alt: "Coach standing courtside focused during a game",
+    src: "/media/uploads/coaches-section03-cut-coach-gym.jpg",
+    alt: "Coach in a basketball gym wearing team apparel near the court",
   },
 };
 
