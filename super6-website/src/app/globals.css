@@ -1339,6 +1339,12 @@ img, video { display: block; max-width: 100%; height: auto; }
   transform: scale(1.04);
   filter: var(--photo-grade-h);
 }
+.split-image--balanced-tone img {
+  filter: contrast(1.04) saturate(0.92) brightness(1.01) sepia(0);
+}
+.split-image--balanced-tone:hover img {
+  filter: contrast(1.05) saturate(0.94) brightness(1.02) sepia(0);
+}
 
 .split-content {
   display: flex; flex-direction: column; justify-content: center;
