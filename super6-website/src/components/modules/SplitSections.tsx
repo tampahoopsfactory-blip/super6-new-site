@@ -22,7 +22,9 @@ const sections = [
     description:
       "Custom court branding. Digital scorebooks. NFHS-certified referees. Climate-controlled venues. Every detail is engineered so that families and athletes feel the weight of the weekend — the moment the doors open.",
     cta: { label: "Register your team", href: "/register" },
-    image: "/media/uploads/coach-huddle.jpg",
+    image: "/media/uploads/experience-drive-vs-defender.png",
+    imageAlt:
+      "Youth basketball game — yellow jersey dribbler guarded one-on-one with coach observing courtside.",
     imagePosition: "right" as const,
   },
 ];
