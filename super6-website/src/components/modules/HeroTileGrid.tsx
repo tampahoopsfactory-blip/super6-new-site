@@ -3,23 +3,42 @@
 import Image from "next/image";
 
 /* ─── Editorial Hero
-   Full-bleed photo; copy anchored bottom-right so faces stay open frame left.
-   Serif stack + rail + restrained CTAs. */
+   Two horizontal photo slots replacing the single dunk shot.
+   Same headline, scrim, and height — only the media plate splits.
+   Swap each slot independently by changing its `src`. */
+
+const HERO_SLOTS = [
+  {
+    src: "/media/uploads/hero-dunk.jpg",
+    alt: "",
+    objectPosition: "50% 38%",
+    quality: 92,
+  },
+  {
+    src: "/media/uploads/celtics-super6.jpg",
+    alt: "",
+    objectPosition: "32% 42%",
+    quality: 92,
+  },
+] as const;
 
 export default function HeroSection() {
   return (
     <section className="editorial-hero editorial-hero--copy-br" aria-label="Hero">
-      <div className="editorial-hero-media">
-        <Image
-          src="/media/uploads/celtics-super6.jpg"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          quality={92}
-          style={{ objectFit: "cover", objectPosition: "28% 42%" }}
-          aria-hidden="true"
-        />
+      <div className="editorial-hero-media editorial-hero-media--split" aria-hidden="true">
+        {HERO_SLOTS.map((slot, i) => (
+          <div className="editorial-hero-slot" key={slot.src}>
+            <Image
+              src={slot.src}
+              alt={slot.alt}
+              fill
+              priority={i === 0}
+              sizes="(max-width: 700px) 100vw, 50vw"
+              quality={slot.quality}
+              style={{ objectFit: "cover", objectPosition: slot.objectPosition }}
+            />
+          </div>
+        ))}
       </div>
 
       <div className="editorial-hero-content editorial-hero-content--br">

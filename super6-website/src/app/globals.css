@@ -495,6 +495,44 @@ img, video { display: block; max-width: 100%; height: auto; }
   filter: var(--photo-grade);
 }
 
+/* ── Split variant: two horizontal photo slots in the hero plate */
+.editorial-hero-media--split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-rows: 100%;
+  gap: 0;
+}
+.editorial-hero-media--split .editorial-hero-slot {
+  position: relative;
+  min-width: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--black);
+}
+/* Hairline divider between the two slots */
+.editorial-hero-media--split .editorial-hero-slot + .editorial-hero-slot {
+  box-shadow: -1px 0 0 0 rgba(244, 241, 234, 0.16);
+}
+/* Inherit the unified photo grade + slow ken-burns on both slots */
+.editorial-hero-media--split .editorial-hero-slot img {
+  filter: var(--photo-grade);
+  animation: ken-burns 32s var(--ease-soft) infinite alternate;
+  will-change: transform;
+}
+.editorial-hero-media--split .editorial-hero-slot:nth-child(2) img {
+  animation-direction: alternate-reverse;
+  animation-duration: 36s;
+}
+@media (max-width: 700px) {
+  .editorial-hero-media--split {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  .editorial-hero-media--split .editorial-hero-slot + .editorial-hero-slot {
+    box-shadow: 0 -1px 0 0 rgba(244, 241, 234, 0.16);
+  }
+}
+
 .editorial-hero::before {
   content: "";
   position: absolute; inset: 0;
