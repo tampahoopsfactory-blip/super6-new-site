@@ -87,12 +87,6 @@ export default function SecuritySpread() {
               ))}
             </ol>
 
-            <div className="security-spread-btn-row">
-              <Link href="/about" className="btn btn-ink">
-                Meet the team
-              </Link>
-            </div>
-
             <div className="security-spread-signature">
               <div className="security-spread-signature-shield" aria-hidden="true">
                 <svg viewBox="0 0 48 56" width="40" height="46" fill="none">
