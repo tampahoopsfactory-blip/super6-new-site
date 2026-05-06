@@ -16,6 +16,7 @@ type DivisionSection = {
   cta: string;
   /** Optional descriptive alt when `label` is not enough for screen readers. */
   imageAlt?: string;
+  imageTone?: "balanced";
 };
 
 const divisions: DivisionSection[] = [
@@ -24,13 +25,14 @@ const divisions: DivisionSection[] = [
     headline: "Boys & Girls, <em>12th–3rd grade.</em>",
     description:
       "Three levels of play — Elite, Competitive, and Developmental — at every Super6 Series LLC weekend. NFHS officials, custom court branding, college-pipeline access for top-tier teams.",
-    image: "/media/uploads/boys-division-ballers-guard-standoff.png",
+    image: "/media/uploads/boys-girls-division-balanced-2026.png",
     objectPosition: "center 44%",
     imagePosition: "left" as const,
     href: "/register",
     cta: "Register your team",
     imageAlt:
       "Two athletes face off one-on-one, Ballers defender vs opposing guard, Super6 crowd and banner behind them.",
+    imageTone: "balanced",
   },
   {
     label: "Elite Showcase",
@@ -87,7 +89,9 @@ export default function DivisionSections() {
         >
           <div className="split">
             <div
-              className="split-image"
+              className={`split-image ${
+                d.imageTone === "balanced" ? "split-image--balanced-tone" : ""
+              }`}
               style={{ order: d.imagePosition === "left" ? 0 : 1 }}
             >
               <Image
