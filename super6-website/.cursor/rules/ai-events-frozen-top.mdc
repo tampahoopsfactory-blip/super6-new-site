@@ -1,0 +1,84 @@
+---
+description: >
+  CRITICAL: /ai-events TOP hero — markup, two-stack panel layout, and ALL related CSS are FROZEN.
+  Do not edit unless TK explicitly instructs you to. Edit only below the hero section otherwise.
+globs:
+  - src/app/ai-events/**/*.tsx
+  - src/app/globals.css
+alwaysApply: false
+---
+
+# `/ai-events` — frozen top hero (TK approved — **do not change unless TK says so**)
+
+## Absolute lock
+
+Unless **Timothy (TK) explicitly asks** for a specific change to this region, **do nothing** inside the frozen hero — no copy tweaks, no layout experiments, no “cleanup,” no refactors, no design refreshes.
+
+The **`/ai-events`** first screenful — everything inside:
+
+`<section className="rules-hero ai-events-hero">` … `</section>`
+
+in **`super6-website/src/app/ai-events/page.tsx`** — stays exactly as approved:
+
+### Photo column (left on desktop)
+
+- Hero `<Image>` **`src`**, **`alt`**, **`sizes`**, **`priority`**, **`quality`** — **no changes**
+- **Do not** add **`style={{ objectFit… }}`** or **`objectPosition`** on this `<Image>` — framing lives only in CSS (**`ai-events-hero-image.mdc`**)
+- **Do not** edit **`globals.css`** rules under **`.ai-events-hero .rules-hero-photo`** / **`::after`** / **`img`** unless TK explicitly asks (same as photo rule file)
+
+### Text panel — **frozen structure** (right on desktop)
+
+The panel **must** keep this composition (class names and nesting):
+
+- Outer: **`className="rules-hero-panel ai-events-hero-panel"`**
+- **`ai-events-hero-stack-top`** wraps, in order:
+  - **`rules-hero-meta`** (`AI – EVENTS`, divider strip **BIOMETRIC · CASHLESS · TURNSTILE-READY**)
+  - **`rules-hero-wordmark`** (**AI** / **engineering**, **Assuring event safety**)
+  - **`h1.rules-hero-headline`** (**Biometric AI engineering for *safer events.***)
+- **`ai-events-hero-stack-bottom`** wraps **`rules-hero-index`** → **`rules-hero-index-text`** → label + **`ul.rules-hero-index-bullets`** (three **`li`** items verbatim)
+
+**Do not**:
+
+- Remove **`ai-events-hero-stack-top`** / **`ai-events-hero-stack-bottom`** or **`ai-events-hero-panel`** (flattening the panel breaks the approved vertical fill)
+- Move bullets or index outside the bottom stack
+- Revert the text column to generic **`rules-hero`** behavior (**`justify-content: center`** on the panel) — **`/ai-events`** relies on **`justify-content: space-between`** via **`.ai-events-hero .rules-hero-panel.ai-events-hero-panel`**
+
+### Frozen copy (verbatim unless TK changes it)
+
+- Meta row, wordmark lines, **`<h1>`** text, eyebrow **AI checkpoint · In & out**, and all three bullets including **Super6 Series LLC IP (intellectual property).** — **no edits** unless TK asks
+
+## Matching frozen CSS (`globals.css`)
+
+Treat as **one locked region** — from the banner comment:
+
+**`AI – Events — FROZEN TOP HERO`**
+
+through **` .ai-events-hero .rules-hero-index-bullets li::before`**
+
+(inclusive). That block covers:
+
+- Photo tint / **`img`** crop & filters (**`.ai-events-hero .rules-hero-photo*`**)
+- Panel **`space-between`** layout, padding, gaps (**`.ai-events-hero .rules-hero-panel.ai-events-hero-panel`**)
+- Stack helpers (**`.ai-events-hero-stack-top`**, **`.ai-events-hero-stack-bottom`**)
+- Wordmark clamps, headline sizing, index & bullet typography through **`li::before`**
+
+**Do not delete**, revert to generic **`.rules-hero`** panel styling, or “simplify” this block unless **TK explicitly asks**.
+
+Detail for **photo-only** tuning: **`ai-events-hero-image.mdc`**.
+
+## Allowed without asking TK
+
+- **`page.tsx`:** everything **below** the closing **`</section>`** of that hero (process intro, three-step **`steps`**, features grid, tech band, final CTA)
+- **`page.tsx`:** **`steps`**, **`features`**, **`metadata`**, imports — **except** anything inside the frozen `<section className="rules-hero ai-events-hero">`
+- **`globals.css`:** styles **outside** the frozen banner block (e.g. **`.section`**, **`.gate-steps`**, **`.ai-features-grid`**, **`.gate-tech-*`**)
+
+## Public copy policy (below hero)
+
+Keep language **customer-facing**: what patrons experience at check-in and the **value**
+(speed, fairness, re-entry, peace of mind). **Do not** add SKUs/model numbers,
+vendor infrastructure, backend/cloud architecture, webhooks/API details, or similar
+trade-secret implementation unless **TK explicitly asks**.
+
+## If TK asks to change the frozen region
+
+Edit **only** what TK specified; preserve photo framing, panel **two-stack** layout, and wordmark clamps unless TK overrides those too.

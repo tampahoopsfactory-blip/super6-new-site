@@ -1,0 +1,33 @@
+---
+description: >
+  Marketing and patron facing copy must not use dash characters as punctuation.
+  Keeps prose sounding human, not templated.
+globs:
+  - src/app/**/*.tsx
+  - src/**/*.ts
+alwaysApply: false
+---
+
+# Super6 copy: no dashes
+
+When **writing or editing** customer facing strings (page copy, headings, bullets, CTAs, meta descriptions, FAQs):
+
+## Do not use
+
+- **Em dashes** (`—`) or **en dashes** (`–`) anywhere in prose.
+- **Hyphen as a clause divider** (e.g. `short clause - another clause`). Use a comma, period, colon, or parentheses instead.
+- **Stacked hyphen compounds** when plain words work (`weekend long` not `weekend-long`, `in and out` not `in-and-out`) unless it is a fixed legal name or unavoidable technical term.
+
+## Use instead
+
+Short sentences, commas, periods, colons, parentheses, or `and` / `or` to connect ideas.
+
+## Exceptions (do not “clean” unless TK asks)
+
+- **TK frozen blocks** such as the `/ai-events` hero section text defined in `.cursor/rules/ai-events-frozen-top.mdc`.
+- **Code**: file paths, URLs, import names, CSS class names, Tailwind arbitrary values.
+- **Brand lockups** where a dash is part of supplied artwork or legal naming (ask TK before changing).
+
+## Quick check before shipping copy
+
+Search the edited region for `—`, `–`, and hyphen surrounded by spaces in JSX or template strings; rewrite any hits.

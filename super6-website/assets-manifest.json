@@ -1,0 +1,92 @@
+{
+  "logos": [
+    { "file": "logos/logo-full.jpg", "role": "primary-logo", "alt": "Super6 Logo", "width": 1350, "height": 1080 },
+    { "file": "logos/logo-transparent.png", "role": "transparent-logo", "alt": "Super6 Logo Transparent", "width": 1500, "height": 1200 },
+    { "file": "logos/logo-small.png", "role": "small-logo", "alt": "Super6 Logo Small", "width": 360, "height": 288 },
+    { "file": "logos/logo-small-transparent.png", "role": "small-logo-transparent", "alt": "Super6 Logo Small Transparent", "width": 360, "height": 288 },
+    { "file": "logos/logo-eco.png", "role": "eco-logo", "alt": "Super6 Eco Logo", "width": 2294, "height": 1772 },
+    { "file": "logos/super6-brand-logo-wide.png", "role": "brand-logo-wide", "alt": "Super6 Series LLC full logo lockup", "width": 703, "height": 720 },
+    { "file": "logos/super6-brand-logo-diamond.jpg", "role": "brand-logo-diamond", "alt": "Super6 Series LLC diamond mark", "width": 276, "height": 220 }
+  ],
+  "hero": [
+    { "file": "hero/hero-dunk.jpg", "role": "hero-tile", "alt": "Championship dunk action shot", "width": 5616, "height": 3744 },
+    { "file": "hero/hero-crowd.jpg", "role": "hero-tile", "alt": "Packed arena crowd energy", "width": 5616, "height": 3744 },
+    { "file": "hero/hero-fastbreak.jpg", "role": "hero-tile", "alt": "Fast break basketball action", "width": 5616, "height": 3744 },
+    { "file": "hero/hero-huddle.jpg", "role": "hero-tile", "alt": "Team huddle energy", "width": 5616, "height": 3744 }
+  ],
+  "lifestyle": [
+    { "file": "lifestyle/trophy-celebration.jpg", "role": "content-card", "alt": "Trophy celebration moment", "width": 5616, "height": 3744 },
+    { "file": "lifestyle/youth-action.jpg", "role": "content-card", "alt": "Youth game action", "width": 5616, "height": 3744 },
+    { "file": "lifestyle/player-focus.jpg", "role": "content-card", "alt": "Player focus and intensity", "width": 5616, "height": 3744 },
+    { "file": "lifestyle/award-ceremony.jpg", "role": "content-card", "alt": "Award ceremony", "width": 6240, "height": 4160 },
+    { "file": "lifestyle/youth-dribbling.jpg", "role": "content-card", "alt": "Youth dribbling skills", "width": 5616, "height": 3744 },
+    { "file": "lifestyle/defensive-play.jpg", "role": "content-card", "alt": "Defensive intensity", "width": 5616, "height": 3744 },
+    { "file": "lifestyle/coach-mentorship.jpg", "role": "content-card", "alt": "Coach mentorship moment", "width": 5616, "height": 3744 },
+    { "file": "lifestyle/game-face.jpg", "role": "content-card", "alt": "Game face portrait", "width": 5184, "height": 3456 },
+    { "file": "lifestyle/layup-contested.jpg", "role": "content-card", "alt": "Contested layup", "width": 5616, "height": 3744 },
+    { "file": "lifestyle/spectators-family.jpg", "role": "content-card", "alt": "Family spectators", "width": 5616, "height": 3744 },
+    { "file": "lifestyle/youth-team.jpg", "role": "content-card", "alt": "Youth team photo", "width": 5616, "height": 3744 },
+    { "file": "lifestyle/team-celebration.jpg", "role": "content-card", "alt": "Team celebration", "width": 5184, "height": 3456 },
+    { "file": "lifestyle/three-point-shot.jpg", "role": "content-card", "alt": "Three point shot", "width": 5616, "height": 3744 },
+    { "file": "lifestyle/crowd-energy.jpg", "role": "content-card", "alt": "Crowd energy", "width": 1024, "height": 812 },
+    { "file": "lifestyle/tournament-vibe.jpg", "role": "content-card", "alt": "Tournament vibe", "width": 3456, "height": 2304 },
+    { "file": "lifestyle/coach-strategy.jpg", "role": "content-card", "alt": "Coach strategy session", "width": 3744, "height": 3744 },
+    { "file": "lifestyle/basketball-action.jpg", "role": "content-card", "alt": "Basketball action", "width": 5616, "height": 3744 },
+    { "file": "lifestyle/youth-skills.jpg", "role": "content-card", "alt": "Youth skills showcase", "width": 4080, "height": 2720 },
+    { "file": "lifestyle/game-intensity.jpg", "role": "content-card", "alt": "Game intensity", "width": 5184, "height": 3456 }
+  ],
+  "locations": [
+    { "file": "locations/court-branding.jpg", "role": "venue", "alt": "Super6 court branding", "width": 5184, "height": 3456 },
+    { "file": "locations/venue-production.png", "role": "venue", "alt": "Super6 venue production branding", "width": 5312, "height": 2988 }
+  ],
+  "videos": [
+    {
+      "file": "videos/hero-clip-1.mp4",
+      "role": "hero-loop",
+      "poster": "videos/hero-clip-1-poster.jpg",
+      "alt": "Hero clip basketball action",
+      "width": 1280,
+      "height": 720,
+      "duration": 4.0
+    },
+    {
+      "file": "videos/hero-clip-2.mp4",
+      "role": "hero-loop",
+      "poster": "videos/hero-clip-2-poster.jpg",
+      "alt": "Hero clip basketball gameplay",
+      "width": 1760,
+      "height": 1176,
+      "duration": 5.04
+    },
+    {
+      "file": "videos/hero-clip-3.mp4",
+      "role": "hero-loop",
+      "poster": "videos/hero-clip-3-poster.jpg",
+      "alt": "Hero clip basketball highlights",
+      "width": 1760,
+      "height": 1176,
+      "duration": 5.04
+    },
+    {
+      "file": "videos/hero-clip-4.mp4",
+      "role": "hero-loop",
+      "poster": "videos/hero-clip-4-poster.jpg",
+      "alt": "Hero clip basketball moments",
+      "width": 1760,
+      "height": 1176,
+      "duration": 5.04
+    },
+    {
+      "file": "videos/venue-walkthrough.mp4",
+      "role": "venue-walkthrough",
+      "poster": "videos/venue-walkthrough-poster.jpg",
+      "alt": "Indoor venue walkthrough",
+      "width": 1660,
+      "height": 1244,
+      "duration": 5.04
+    }
+  ],
+  "misc": [
+    { "file": "misc/misc-game.png", "role": "supplemental", "alt": "Game photo", "width": 4032, "height": 3024 }
+  ]
+}
