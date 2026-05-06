@@ -12,8 +12,8 @@ type DivisionSection = {
   image: string;
   objectPosition: string;
   imagePosition: "left" | "right";
-  href: string;
-  cta: string;
+  href?: string;
+  cta?: string;
   /** Optional descriptive alt when `label` is not enough for screen readers. */
   imageAlt?: string;
   imageTone?: "balanced";
@@ -42,8 +42,6 @@ const divisions: DivisionSection[] = [
     image: "/media/uploads/elite-showcase-thunder-22-boxout.png",
     objectPosition: "center 40%",
     imagePosition: "right" as const,
-    href: "/register",
-    cta: "Apply for Elite",
     imageAlt:
       "Thunder athletes boxing out under the scoreboard at a Super6 Series LLC elite weekend.",
   },
@@ -55,8 +53,6 @@ const divisions: DivisionSection[] = [
     image: "/media/uploads/super6-three-athletes-walk.png",
     objectPosition: "center 42%",
     imagePosition: "left",
-    href: "/faq#uniform-requirements",
-    cta: "Uniform expectations",
     imageAlt:
       "Three basketball athletes in matching team uniforms walking across the court at a Super6 Series LLC event",
   },
@@ -115,11 +111,13 @@ export default function DivisionSections() {
               <p className="section-desc" style={{ marginBottom: 36 }}>
                 {d.description}
               </p>
-              <div>
-                <Link href={d.href} className="btn btn-ink">
-                  {d.cta}
-                </Link>
-              </div>
+              {d.href && d.cta ? (
+                <div>
+                  <Link href={d.href} className="btn btn-ink">
+                    {d.cta}
+                  </Link>
+                </div>
+              ) : null}
             </div>
           </div>
         </section>
