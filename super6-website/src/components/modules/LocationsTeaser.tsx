@@ -37,11 +37,13 @@ const divisions: DivisionSection[] = [
     headline: "Elite. <em>Scout-visible.</em>",
     description:
       "Top-tier weekends where the best teams in the Southeast play in front of college coaches and recruiters. Limited spots, invite-priority, scout-credentialed.",
-    image: "/media/uploads/experience-thunder-boxout.jpg",
-    objectPosition: "center center",
+    image: "/media/uploads/elite-showcase-thunder-22-boxout.png",
+    objectPosition: "center 40%",
     imagePosition: "right" as const,
     href: "/register",
     cta: "Apply for Elite",
+    imageAlt:
+      "Thunder athletes boxing out under the scoreboard at a Super6 Series LLC elite weekend.",
   },
   {
     label: "Walk-On Ready",
