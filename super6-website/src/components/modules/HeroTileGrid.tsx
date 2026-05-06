@@ -6,43 +6,20 @@ import Image from "next/image";
    Full-bleed photo; copy anchored bottom-right so faces stay open frame left.
    Serif stack + rail + restrained CTAs. */
 
-const heroPhotos = [
-  {
-    src: "/media/uploads/celtics-super6.jpg",
-    alt: "",
-    position: "28% 42%",
-  },
-  {
-    src: "/media/uploads/hero-dunk.jpg",
-    alt: "",
-    position: "center 34%",
-  },
-  {
-    src: "/media/uploads/boys-girls-division-balanced-2026.png",
-    alt: "",
-    position: "center 44%",
-  },
-];
-
 export default function HeroSection() {
   return (
     <section className="editorial-hero editorial-hero--copy-br" aria-label="Hero">
-      <div className="editorial-hero-media editorial-hero-media--triptych">
-        {heroPhotos.map((photo, index) => (
-          <div className="editorial-hero-tile" key={photo.src}>
-            <Image
-              src={photo.src}
-              alt={photo.alt}
-              fill
-              priority
-              sizes="(max-width: 700px) 100vw, 34vw"
-              quality={100}
-              style={{ objectFit: "cover", objectPosition: photo.position }}
-              aria-hidden="true"
-            />
-            {index > 0 ? <span className="editorial-hero-tile-rule" aria-hidden="true" /> : null}
-          </div>
-        ))}
+      <div className="editorial-hero-media">
+        <Image
+          src="/media/uploads/celtics-super6.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          quality={92}
+          style={{ objectFit: "cover", objectPosition: "28% 42%" }}
+          aria-hidden="true"
+        />
       </div>
 
       <div className="editorial-hero-content editorial-hero-content--br">
