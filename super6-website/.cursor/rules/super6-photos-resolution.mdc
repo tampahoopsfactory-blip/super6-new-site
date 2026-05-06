@@ -1,0 +1,77 @@
+---
+description: >
+  Minimum pixel budgets & Next/Image settings so editorial/hero photo swaps never
+  ship softer than the layout requires (no accidental low-res AI thumbnails).
+globs:
+  - src/**/*.tsx
+  - src/**/*.ts
+  - src/**/*.css
+  - public/media/**/*
+alwaysApply: false
+---
+
+# Super6 photos — resolution budget & `<Image>` rules
+
+Whenever adding or swapping images under **`public/media/uploads/`** (or other **`public/media/`**), updating **`next/image`** usage for heroes/splits/galleries, or tuning **`globals.css`** that clips/framing‑fills photographs:
+
+## Minimum source pixels (before `next/image`)
+
+Measurements are **intrinsic width × height** of the delivered asset **before** the optimizer runs.
+
+| Use case | Minimum width (long edge for portraits) | Target when sourcing fresh masters |
+| -------- | ----------------------------------------- | ----------------------------------- |
+| Full‑bleed / **≈100vw** heroes & cinematic bands (`sizes="100vw"`) | **2400px** width | **3000–4000px** from camera/export |
+| **50/50 splits**, split‑detail photography (`sizes` contain **`50vw`**) | **1600px** width | **2160–2560px** width |
+| Cards / masonry tiles / timeline thumbs | **2 × max CSS width** at desktop × retina (~800–1200px typical source min) | Match displayed column |
+
+Reasoning: desktop split columns often occupy ~**960–1280 CSS px** at **`50vw`**. Retina **2×** wants roughly **1920–2560 px** of real pixels **before `object-cover`** cropping burns margins.
+
+## Generator / AI / screenshot exports
+
+Treat **`1024`-wide** (or similar capped exports from generators or previews) as **below threshold for heroes & splits**. Those defaults routinely replaced sharper DSLR/`~1536–2160px+` JPGs and visibly softened the site.
+
+**Before merging:**
+
+1. Prefer requesting or exporting the **largest native file** available from the source tool or photographer.
+2. If only **`≤1280px` masters exist**, upscale deliberately once (**Lanczos**) to meet the minimum column above (see Appendix). Never silently paste tiny PNG/JPEG into a hero/slot sized like **`coach-huddle`/`mission`** replacements without fixing pixels **first**.
+3. On macOS, verify intrinsic dimensions **before PR**:
+
+```bash
+sips -g pixelWidth -g pixelHeight path/to/public/media/uploads/your-file.png
+```
+
+Compare numerically against the **previous asset** in git (`git show HEAD:super6-website/public/media/uploads/...`) — if the **new file has fewer pixels in width** but occupies the **same layout**, remediate before shipping.
+
+## Next.js `<Image>` defaults for editorial zones
+
+For heroes, mission/experience‑style splits, security spreads, gallery heroes, and other large **`fill`** photography:
+
+- Set **`quality={100}`** so Sharp/`next/image` is not an extra bottleneck (`qualities` must include **`100`** in **`next.config.ts`** — already wired on this project).
+- **`sizes` must reflect reality**: mobile **`100vw`**, desktop **`50vw`** / **`min(50vw, 1200px)`** / shared‑hero patterns — never **`sizes="100vw"`** on a half‑column photo unless it truly spans full viewport width.
+- **`priority`** (and preload semantics only via **`priority`**) for **above‑the‑fold LCP** candidates — usually **first hero**, **first mission split**, etc.; keep **`lazy`** for deep‑below‑fold tiles unless TK directs otherwise.
+
+Do **not** restore **`quality={75}`**, **`88`**, or routine **`92`** on swapped editorial heroes/splits **unless TK explicitly asks** — prior regressions happened partly because **`quality`** compounded tiny **`1024px`** sources.
+
+## PNG vs JPG workflow
+
+- **PNG**: transparency / screenshot parity OK — optimizer converts to AVIF/WebP; **`quality={100}`** still matters on encode path from Sharp downscaling upscaled masters.
+- **JPEG masters**: prefer **high‑quality export (~85–95 Lightroom‑equivalent)** from photographer rather than double‑compressing before **`public/`**.
+
+Use **`unoptimized`** **only** when TK asks for **bit‑exact PNG** delivery or diagnosing caching — default stays **`optimized`** for bandwidth.
+
+## Post‑swap QA checklist
+
+- Hard‑reload desktop (**≥1440px** logical width) + phone (**≥390px**): facial/uniform detail readable — no mush across jerseys/logos compared with offline zoom on master file.
+- Spot‑check **`/_next/image?url=...`** Network row selects **`w`** equal/larger than **logical × `devicePixelRatio`** for that breakpoint — otherwise tighten **`sizes`** or widen master source.
+
+## Appendix — deliberate upscale when trapped at **`≤1024px` masters**
+
+Last‑resort if higher‑resolution originals truly unavailable:
+
+```bash
+ffmpeg -y -i public/media/uploads/INPUT.png \
+  -vf "scale=2160:-1:flags=lanczos" -frames:v 1 \
+  public/media/uploads/OUTPUT.png
+```
+
+Re‑measure **`pixelWidth`** after upscaling; replace **`INPUT`** in repo once QA‑passed — upscale adds interpolated pixels, not optical sharpness; obtaining native **`≥2160px`** masters remains preferable.
