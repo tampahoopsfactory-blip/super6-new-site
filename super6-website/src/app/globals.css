@@ -441,7 +441,7 @@ img, video { display: block; max-width: 100%; height: auto; }
 }
 @media (max-width: 600px) {
   .editorial-hero {
-    height: clamp(560px, 88vh, 760px);
+    height: clamp(420px, 72vh, 600px);
   }
   /* Stronger bottom scrim on mobile (legacy hero variants only) */
   .editorial-hero:not(.editorial-hero--copy-br)::before {
@@ -1298,8 +1298,18 @@ img, video { display: block; max-width: 100%; height: auto; }
   background: var(--cream-warm);
   max-width: 100%;
 }
-@media (max-width: 768px) {
-  .split-image { min-height: 280px; }
+@media (max-width: 968px) {
+  .split-image {
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+    max-height: 44vh;
+  }
+}
+@media (max-width: 480px) {
+  .split-image {
+    aspect-ratio: 16 / 10;
+    max-height: 36vh;
+  }
 }
 .split-image img, .split-image video {
   position: absolute; inset: 0;
