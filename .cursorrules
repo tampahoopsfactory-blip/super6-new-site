@@ -61,6 +61,29 @@ tournaments. Production target: **www.thesuper6.com**.
   Big Kelly Security treatments.
 - All photos use `--photo-grade` filter.
 
+### Homepage hero — **LOCKED to a single photo**
+
+The homepage hero is **one** full-bleed photograph. Not two. Not a triptych.
+Not a split. The photo is **`/media/uploads/celtics-super6.jpg`** (Celtics #7
+matchup) and lives in **`super6-website/src/components/modules/HeroTileGrid.tsx`**.
+
+Do **not** switch back to a split / two-slot / triptych / multi-photo layout
+without **TK explicit approval**. The split version was removed intentionally.
+
+**You may edit freely:**
+- `objectPosition` on the hero `<Image>` (focal anchor for new photo crops)
+- `quality` on the hero `<Image>`
+- The headline copy (`hero-headline-taglock` lines)
+- The meta strip ("FL · GA · Since 2014")
+
+**You may NOT do without TK explicit approval:**
+- Re-introduce `editorial-hero-media--split` or any second `<Image>`
+- Replace `celtics-super6.jpg` with a different file
+- Convert the hero to a video, slideshow, or carousel
+- Remove the `priority` / `fill` / `sizes="100vw"` props (mobile responsiveness)
+
+**Cursor rule:** `super6-website/.cursor/rules/home-hero-single-photo.mdc`
+
 ### `/ai-events` frozen top hero — **TK explicit approval required**
 
 Unless **TK explicitly asks** for a change, treat this region as **locked**:

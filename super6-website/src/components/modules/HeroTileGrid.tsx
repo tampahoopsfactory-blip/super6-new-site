@@ -2,44 +2,50 @@
 
 import Image from "next/image";
 
-/* ─── Editorial Hero
-   Two horizontal photo slots replacing the single dunk shot.
-   Same headline, scrim, and height — only the media plate splits.
-   Swap each slot independently by changing its `src`. */
+/* ─── Editorial Hero — single photo (LOCKED).
+   The homepage hero is a single full-bleed photograph: the Celtics #7
+   matchup at /media/uploads/celtics-super6.jpg. Do not switch back to a
+   split / triptych / multi-slot layout without TK explicit approval.
 
-const HERO_SLOTS = [
-  {
-    src: "/media/uploads/hero-dunk.jpg",
-    alt: "",
-    /* Anchor higher on frame — preserves hands / rim under the nav crop */
-    objectPosition: "50% 24%",
-    quality: 100,
-  },
-  {
-    src: "/media/uploads/celtics-super6.jpg",
-    alt: "",
-    objectPosition: "32% 30%",
-    quality: 100,
-  },
-] as const;
+   See:
+   - CLAUDE.md / .cursorrules → "Homepage hero — locked single photo"
+   - .cursor/rules/home-hero-single-photo.mdc
+
+   Tunables are limited to this file: objectPosition (focal anchor),
+   quality, and the headline copy. Photo file path itself is locked. */
+
+const HERO_IMAGE = {
+  src: "/media/uploads/celtics-super6.jpg",
+  alt: "",
+  /* objectPosition — anchors the dribbler (Celtics #7) and the defender
+     in frame across viewport widths. The "55%" pushes focus rightward
+     so the player stays centered on narrow phones (375px). The "30%"
+     keeps heads / faces above the fold rather than cropping them with
+     the bottom-of-frame scrim. Adjust only if a hero replacement photo
+     reframes the subjects. */
+  objectPosition: "55% 30%",
+  quality: 100,
+} as const;
 
 export default function HeroSection() {
   return (
-    <section className="editorial-hero editorial-hero--copy-br" aria-label="Hero">
-      <div className="editorial-hero-media editorial-hero-media--split" aria-hidden="true">
-        {HERO_SLOTS.map((slot, i) => (
-          <div className="editorial-hero-slot" key={slot.src}>
-            <Image
-              src={slot.src}
-              alt={slot.alt}
-              fill
-              priority={i === 0}
-              sizes="(max-width: 700px) 100vw, 50vw"
-              quality={slot.quality}
-              style={{ objectFit: "cover", objectPosition: slot.objectPosition }}
-            />
-          </div>
-        ))}
+    <section
+      className="editorial-hero editorial-hero--copy-br"
+      aria-label="Hero"
+    >
+      <div className="editorial-hero-media" aria-hidden="true">
+        <Image
+          src={HERO_IMAGE.src}
+          alt={HERO_IMAGE.alt}
+          fill
+          priority
+          sizes="100vw"
+          quality={HERO_IMAGE.quality}
+          style={{
+            objectFit: "cover",
+            objectPosition: HERO_IMAGE.objectPosition,
+          }}
+        />
       </div>
 
       <div className="editorial-hero-content editorial-hero-content--br">

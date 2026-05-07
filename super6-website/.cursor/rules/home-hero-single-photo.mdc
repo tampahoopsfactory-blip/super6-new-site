@@ -1,0 +1,78 @@
+---
+description: >
+  CRITICAL: Homepage hero is locked to a SINGLE photo (celtics-super6.jpg).
+  Do not split, triptych, carousel, or multi-image without TK explicit approval.
+globs:
+  - src/components/modules/HeroTileGrid.tsx
+  - src/app/page.tsx
+  - src/app/globals.css
+alwaysApply: false
+---
+
+# Homepage hero — **LOCKED to a single photo** (TK approved)
+
+## Absolute lock
+
+The Super6 homepage hero is **one** full-bleed photograph. Not two slots.
+Not a triptych. Not a carousel. Not a video.
+
+The photo is **`/media/uploads/celtics-super6.jpg`** (Celtics #7 matchup —
+green jersey ball-handler vs grey-camo defender on the hardwood).
+
+It lives in **`super6-website/src/components/modules/HeroTileGrid.tsx`** as a
+single `<Image>` inside `<div className="editorial-hero-media">` — no
+`editorial-hero-media--split` modifier, no second `<Image>`, no `<video>`.
+
+Unless **Timothy (TK) explicitly asks** for a change here, **do not**:
+
+- Re-introduce `editorial-hero-media--split` on this hero
+- Add a second `<Image>` slot (split / dual / triptych / carousel)
+- Replace `celtics-super6.jpg` with a different file
+- Convert the hero to a video, GIF, slideshow, or animated background
+- Remove the `priority`, `fill`, or `sizes="100vw"` props on the `<Image>`
+  (those props are required for mobile responsiveness and LCP)
+- Wrap the `<Image>` in a swiper / framer-motion / animation library
+- Move the hero outside `HeroTileGrid.tsx` or rename the component
+
+## You may freely edit (still TK's design call, but no rule violation)
+
+- `objectPosition` on the hero `<Image>` (focal anchor for re-cropped photos)
+- `quality` on the hero `<Image>`
+- The headline copy inside `<span className="hero-headline-taglock">`
+  (currently "Where Champions" / "Are Made…")
+- The meta strip text (currently "FL · GA · Since 2014")
+- Photo grade / ken-burns timings via `globals.css` `.editorial-hero-media`
+  rules — but only if the change applies to a single image (don't add
+  `--split` selectors for new variants)
+
+## Why this is locked
+
+TK looked at split variations multiple times during the May 2026 design
+sessions and explicitly chose the single-photo `celtics-super6.jpg` as the
+canonical opening moment. The split version was reverted on TK's request
+and replaced with this lock to prevent the layout from drifting back.
+
+The Celtics #7 photo is the brand's emotional anchor — youth basketball
+player in motion, defender reading him, real game energy, no posed shoot.
+That's the Super 6 promise in one frame.
+
+## Mobile responsiveness (already implemented)
+
+- `fill` + `sizes="100vw"` → the photo fills any viewport width
+- `objectFit: cover` → no letterboxing
+- `objectPosition: "55% 30%"` → keeps the dribbler centered on phones
+  while preserving heads above the bottom-of-frame scrim
+- The headline and meta strip use `clamp()` typography in `globals.css`
+  and stack cleanly down to 375px
+
+If you reframe the photo (different crop, different subject, different
+file), re-tune `objectPosition` so the focal subject sits in the safe
+area at 375px width — but keep the locked single-image structure.
+
+## Reference
+
+- Implementation: `super6-website/src/components/modules/HeroTileGrid.tsx`
+- CSS surface: `globals.css` selectors prefixed `.editorial-hero` and
+  `.editorial-hero-content--br`
+- Owner-level rule: `CLAUDE.md` / `.cursorrules` → "Homepage hero —
+  LOCKED to a single photo"
