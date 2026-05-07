@@ -516,7 +516,7 @@ img, video { display: block; max-width: 100%; height: auto; }
 /* Inherit the unified photo grade + slow ken-burns on both slots */
 .editorial-hero-media--split .editorial-hero-slot img {
   filter: var(--photo-grade);
-  animation: ken-burns 32s var(--ease-soft) infinite alternate;
+  animation: ken-burns-split 32s var(--ease-soft) infinite alternate;
   will-change: transform;
 }
 .editorial-hero-media--split .editorial-hero-slot:nth-child(2) img {
@@ -1152,6 +1152,12 @@ img, video { display: block; max-width: 100%; height: auto; }
 @keyframes ken-burns {
   0%   { transform: scale(1.02) translate3d(0, 0, 0); }
   100% { transform: scale(1.12) translate3d(-1.5%, -2%, 0); }
+}
+
+/* Homepage split hero — gentler drift so hands / heads aren’t shaved by nav + crop */
+@keyframes ken-burns-split {
+  0%   { transform: scale(1.02) translate3d(0, 0.4%, 0); }
+  100% { transform: scale(1.07) translate3d(-1%, -1%, 0); }
 }
 
 /* ════════════════════════════════════════════
@@ -3695,15 +3701,15 @@ img, video { display: block; max-width: 100%; height: auto; }
 .mission-hero-photo img {
   object-fit: cover;
   object-position: center 28%;
-  filter: var(--photo-grade) brightness(0.84) saturate(0.96);
+  filter: var(--photo-grade) brightness(0.98) saturate(1);
 }
 .mission-hero-photo::after {
   content: "";
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(14, 13, 11, 0.5) 0%, rgba(14, 13, 11, 0.92) 100%),
-    linear-gradient(90deg, rgba(14, 13, 11, 0.55) 0%, rgba(14, 13, 11, 0.05) 60%);
+    linear-gradient(180deg, rgba(14, 13, 11, 0.08) 0%, rgba(14, 13, 11, 0.18) 50%, rgba(14, 13, 11, 0.72) 100%),
+    linear-gradient(90deg, rgba(14, 13, 11, 0.35) 0%, rgba(14, 13, 11, 0) 55%);
 }
 .mission-hero-content {
   position: relative;
@@ -5092,6 +5098,16 @@ img, video { display: block; max-width: 100%; height: auto; }
 }
 .faq-hero-photo img {
   filter: var(--photo-grade) saturate(0.95) contrast(1.04);
+}
+
+/* /register only — matchup photo brighter; medals block unchanged */
+.faq-hero--register .faq-hero-photo::after {
+  background:
+    linear-gradient(90deg, rgba(14,13,11,0.22) 0%, rgba(14,13,11,0.06) 45%, rgba(14,13,11,0) 100%),
+    linear-gradient(180deg, rgba(14,13,11,0.08) 0%, rgba(14,13,11,0.22) 100%);
+}
+.faq-hero--register .faq-hero-photo img {
+  filter: var(--photo-grade) saturate(1) contrast(1.02) brightness(1.06);
 }
 
 .faq-hero-panel {
@@ -6560,6 +6576,9 @@ img, video { display: block; max-width: 100%; height: auto; }
 /* /register — uses .faq-hero*, .hero-action-bar*, and .faq-final-cta
    classes already defined elsewhere. */
 
+/* Medals portrait ~1.26:1 — a tall frame (near 4:3) avoids the skinny
+   21∶9 ribbon that shrink-wraps trophies; still `contain` = zero crop.
+   Outer section is `--ink`; inner matches so the matte reads as one field. */
 .register-medals {
   background: var(--ink);
   padding: clamp(28px, 4vw, 52px) 0 clamp(36px, 5vw, 64px);
@@ -6569,18 +6588,23 @@ img, video { display: block; max-width: 100%; height: auto; }
   position: relative;
   width: 100%;
   margin: 0 auto;
-  aspect-ratio: 21 / 9;
-  max-height: min(480px, 52vh);
-  min-height: 180px;
+  aspect-ratio: 4 / 3;
+  max-height: min(560px, 58vh);
+  min-height: 220px;
   overflow: hidden;
   border-radius: var(--radius-lg);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  background: var(--black);
+  background: var(--ink);
+}
+/* Slight clarity lift inside the charcoal matte only */
+.register-medals-image {
+  filter: saturate(1.02) brightness(1.03);
 }
 @media (max-width: 768px) {
   .register-medals-inner {
-    aspect-ratio: 16 / 10;
-    max-height: min(380px, 42vh);
+    aspect-ratio: 5 / 4;
+    max-height: min(480px, 62vh);
+    min-height: 200px;
   }
 }
 

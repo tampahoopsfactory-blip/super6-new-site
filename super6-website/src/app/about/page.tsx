@@ -60,7 +60,7 @@ export default function AboutPage() {
             alt="Super6 Series LLC team on the basketball court with branded banners"
             fill
             priority
-            quality={94}
+            quality={100}
             sizes="100vw"
           />
         </div>

@@ -61,6 +61,34 @@ tournaments. Production target: **www.thesuper6.com**.
   Big Kelly Security treatments.
 - All photos use `--photo-grade` filter.
 
+### `/ai-events` frozen top hero — **TK explicit approval required**
+
+Unless **TK explicitly asks** for a change, treat this region as **locked**:
+
+- **`super6-website/src/app/ai-events/page.tsx`** — the entire first
+  `<section className="rules-hero ai-events-hero">` … `</section>` (hero photo,
+  meta strip, wordmark **AI / ENGINEERING**, headline, checkpoint bullets).
+- **`super6-website/src/app/globals.css`** — **every** selector prefixed
+  **`.ai-events-hero`** (photo framing through hero bullet markers).
+
+**You may edit freely without asking:** everything **below** that closing hero
+`</section>` (process band, `steps`, features grid, tech callout, CTA).
+
+**Public copy below the hero:** stay **patron- and family-benefit** focused — what
+happens at check-in and why it matters. **Do not** publish hardware SKUs, vendor
+names for infrastructure, cloud/backend mechanics, webhooks/APIs, encryption
+internals, or other trade-secret implementation detail unless **TK explicitly
+requests** it.
+
+**Cursor rules:**
+
+- `super6-website/.cursor/rules/ai-events-frozen-top.mdc` — freeze scope +
+  allowed edits
+- `super6-website/.cursor/rules/ai-events-hero-image.mdc` — photo crop specifics
+
+Photo asset remains **`public/media/uploads/ai-events-gate-kiosk.png`** — **never**
+`contain` here; **never** inline hero `<Image>` `object-fit` / `object-position`.
+
 ### Component patterns
 - Pages are server components in `src/app/<route>/page.tsx`.
 - Client logic colocates in `_components/` folders inside the route.
@@ -150,11 +178,15 @@ super6-website/
   https://docs.google.com/document/d/1mvdrkVibsUYIZ7OPQ1i6LocAb-JYq4-A9IGramTl108/edit
 - **`src/app/faq/`** — the gold-standard implementation. Mimic this.
 - **`src/app/globals.css`** — design tokens
+- **`super6-website/.cursor/rules/ai-events-frozen-top.mdc`** — `/ai-events`
+  top hero + `.ai-events-hero` CSS are frozen unless TK explicitly asks
 
 ---
 
 ## Things to never do
 
+- Don't edit **`/ai-events`** **frozen top hero** or **`.ai-events-hero`** CSS
+  unless **TK explicitly requests** it (`super6-website/.cursor/rules/ai-events-frozen-top.mdc`).
 - Don't introduce new fonts.
 - Don't hard-code colors.
 - Don't add framer-motion or other animation libraries — CSS transitions

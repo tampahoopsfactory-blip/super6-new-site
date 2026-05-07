@@ -11,14 +11,15 @@ const HERO_SLOTS = [
   {
     src: "/media/uploads/hero-dunk.jpg",
     alt: "",
-    objectPosition: "50% 38%",
-    quality: 92,
+    /* Anchor higher on frame — preserves hands / rim under the nav crop */
+    objectPosition: "50% 24%",
+    quality: 100,
   },
   {
     src: "/media/uploads/celtics-super6.jpg",
     alt: "",
-    objectPosition: "32% 42%",
-    quality: 92,
+    objectPosition: "32% 30%",
+    quality: 100,
   },
 ] as const;
 

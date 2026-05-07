@@ -39,14 +39,14 @@ export default function RegisterPage() {
   return (
     <>
       {/* Editorial split hero — mirrors /faq and /rules */}
-      <section className="faq-hero">
+      <section className="faq-hero faq-hero--register">
         <div className="faq-hero-photo">
           <Image
             src="/media/curated/register-hero-matchup.png"
             alt="Super6 tournament basketball — drive defended one-on-one on the hardwood."
             fill
             priority
-            quality={94}
+            quality={100}
             sizes="(max-width: 968px) 100vw, 55vw"
             style={{ objectFit: "cover", objectPosition: "center 42%" }}
           />
@@ -153,9 +153,13 @@ export default function RegisterPage() {
               src="/media/uploads/register-medals-editorial.png"
               alt="Two black basketball trophies with Super6 championship medals."
               fill
-              quality={94}
-              sizes="(max-width: 968px) 100vw, 1200px"
-              style={{ objectFit: "contain", objectPosition: "center center" }}
+              quality={100}
+              sizes="(max-width: 968px) 100vw, min(1100px, 90vw)"
+              style={{
+                objectFit: "contain",
+                objectPosition: "center center",
+              }}
+              className="register-medals-image"
             />
           </div>
         </div>
