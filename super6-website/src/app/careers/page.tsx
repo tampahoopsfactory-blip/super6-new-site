@@ -40,7 +40,7 @@ export default function CareersPage() {
               marginBottom: "2.5rem",
             }}
           >
-            Open positions at Super6 Series LLC will be posted here. Interested in joining
+            Open positions at Super6 will be posted here. Interested in joining
             the team? Send us a message.
           </p>
           <a

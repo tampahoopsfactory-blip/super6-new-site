@@ -41,7 +41,7 @@ export default function ShopPage() {
               marginBottom: "2.5rem",
             }}
           >
-            Super6 Series LLC gear and merchandise is on the way. Check back soon — or
+            Super6 gear and merchandise is on the way. Check back soon — or
             register your team while you&apos;re here.
           </p>
           <Link

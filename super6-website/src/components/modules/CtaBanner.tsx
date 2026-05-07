@@ -14,7 +14,7 @@ export default function CtaBanner() {
           Bring your team <em>this season.</em>
         </h2>
         <p className="cta-sub">
-          A thousand teams across Florida and Georgia have played a Super6 Series LLC
+          A thousand teams across Florida and Georgia have played a Super6
           weekend. Three-game guarantee. NFHS officials. A championship
           atmosphere from tip-off to trophy.
         </p>

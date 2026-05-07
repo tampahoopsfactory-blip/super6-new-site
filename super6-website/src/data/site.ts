@@ -62,7 +62,7 @@ export type Location = {
 export const locations: Location[] = [
   {
     slug: "orlando",
-    name: "Super6 Series LLC Orlando",
+    name: "Super6 Orlando",
     city: "Orlando",
     state: "FL",
     address: "924 N Magnolia Avenue Suite 202-1151, Orlando, FL 32803",
@@ -76,7 +76,7 @@ export const locations: Location[] = [
   },
   {
     slug: "clearwater",
-    name: "Super6 Series LLC Clearwater",
+    name: "Super6 Clearwater",
     city: "Clearwater",
     state: "FL",
     comingSoon: false,
@@ -86,7 +86,7 @@ export const locations: Location[] = [
   },
   {
     slug: "tampa",
-    name: "Super6 Series LLC Tampa",
+    name: "Super6 Tampa",
     city: "Tampa",
     state: "FL",
     comingSoon: false,
@@ -96,7 +96,7 @@ export const locations: Location[] = [
   },
   {
     slug: "boca-raton",
-    name: "Super6 Series LLC Boca Raton",
+    name: "Super6 Boca Raton",
     city: "Boca Raton",
     state: "FL",
     comingSoon: false,
@@ -106,13 +106,13 @@ export const locations: Location[] = [
   },
   {
     slug: "atlanta",
-    name: "Super6 Series LLC Atlanta",
+    name: "Super6 Atlanta",
     city: "Atlanta",
     state: "GA",
     comingSoon: true,
     image: "/media/curated/22-scorers-table.jpg",
     description:
-      "Expanding to the Southeast's basketball capital. Super6 Series LLC brings its championship format to Georgia in 2026.",
+      "Expanding to the Southeast's basketball capital. Super6 brings its championship format to Georgia in 2026.",
   },
 ];
 
@@ -135,8 +135,8 @@ const sharedFeatures = [
   "Digital scorebook",
   "Priority bracket seeding",
   "Guaranteed championship bracket entry",
-  "Team profile on Super6 Series LLC website",
-  "Team profile on Super6 Series LLC app",
+  "Team profile on Super6 website",
+  "Team profile on Super6 app",
   "Early access to schedule",
   "Championship atmosphere",
 ];
@@ -181,7 +181,7 @@ export const footerColumns = {
   ],
   company: [
     { label: "Our Mission", href: "/about" },
-    { label: "Inside Super6 Series LLC", href: "/about" },
+    { label: "Inside Super6", href: "/about" },
     { label: "12 Years Strong", href: "/about" },
     { label: "Testimonials", href: "/about" },
     { label: "Privacy Policy", href: "/about" },

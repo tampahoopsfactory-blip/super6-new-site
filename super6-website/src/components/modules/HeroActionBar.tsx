@@ -12,9 +12,20 @@ const stats = [
 
 export default function HeroActionBar() {
   return (
-    <section className="hero-action-bar" aria-label="The $99 tournament">
+    <section className="hero-action-bar" aria-label="The Super6 Standard">
       <div className="container-xl hero-action-bar-inner">
         <article className="hero-action-bar-card">
+          {/* Brand reveal — SUPER6 is the largest element, first brand impression */}
+          <div className="hero-action-bar-brand">
+            <p className="hero-action-bar-brand-above">The</p>
+            <h2 className="hero-action-bar-brand-name">
+              SUPER<span className="hero-action-bar-brand-6">6</span>
+            </h2>
+            <p className="hero-action-bar-brand-below">Standard</p>
+          </div>
+
+          <div className="hero-action-bar-rail-h" aria-hidden="true" />
+
           <div className="hero-action-bar-grid">
             <div className="hero-action-bar-price">
               <p className="hero-action-bar-price-eyebrow">Price of entry</p>
@@ -28,13 +39,12 @@ export default function HeroActionBar() {
             <div className="hero-action-bar-rail" aria-hidden="true" />
 
             <div className="hero-action-bar-copy">
-              <p className="hero-action-bar-eyebrow">The Super6 Series LLC Standard</p>
-              <h2 className="hero-action-bar-heading">
+              <h3 className="hero-action-bar-heading">
                 Home of the <em>$99 tournament.</em>
-              </h2>
+              </h3>
               <p className="hero-action-bar-sub">
-                Affordable, high-quality basketball &mdash; every weekend, in
-                Florida and Georgia.
+                Affordable, high-quality youth basketball &mdash; every weekend,
+                across Florida and Georgia.
               </p>
               <div className="hero-action-bar-actions">
                 <Link {...REGISTER_LINK_PROPS} className="btn-hero btn-hero-primary">

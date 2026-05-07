@@ -72,7 +72,7 @@ export default function AboutPage() {
         <div className="mission-hero-photo">
           <Image
             src="/media/uploads/about-mission-hero-team.jpg"
-            alt="Super6 Series LLC team on the basketball court with branded banners"
+            alt="Super6 team on the basketball court with branded banners"
             fill
             priority
             quality={100}

@@ -83,7 +83,7 @@ export default function RegisterPage() {
           </h1>
 
           <p className="faq-hero-desc">
-            All Super6 Series LLC registration runs through{" "}
+            All Super6 registration runs through{" "}
             <Link {...REGISTER_LINK_PROPS} className="faq-link faq-link--inverse">
               Exposure Events
             </Link>{" "}

@@ -116,7 +116,7 @@ export default function FAQPage() {
 
         <div className="faq-footnote-wrap">
           <p className="faq-footnote">
-            By participating in a Super6 Series LLC event, your team agrees to all rules
+            By participating in a Super6 event, your team agrees to all rules
             and policies on{" "}
             <Link href="/rules" className="faq-link">
               thesuper6.com/rules
@@ -134,7 +134,7 @@ export default function FAQPage() {
             We answer same-day, every weekday.
           </h2>
           <p className="faq-final-cta-sub">
-            Real-time event questions belong in the Super6 Series LLC app. Anything else —
+            Real-time event questions belong in the Super6 app. Anything else —
             registration, billing, eligibility — comes through here.
           </p>
           <div className="faq-final-cta-actions">

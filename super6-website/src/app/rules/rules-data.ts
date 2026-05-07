@@ -48,7 +48,7 @@ export const rulesIntro = {
   eyebrow: "Official",
   title: "Played by the book.",
   body:
-    "Super6 Series LLC follows National Federation of High School Basketball standards. The rules below govern conduct, uniform compliance, game format, eligibility, and scheduling at every Super6 Series LLC weekend.",
+    "Super6 follows National Federation of High School Basketball standards. The rules below govern conduct, uniform compliance, game format, eligibility, and scheduling at every Super6 weekend.",
 };
 
 export const rulesSections: RuleSection[] = [
@@ -96,7 +96,7 @@ See the [No-cash policy](#no-cash-policy) below — we do **not** accept cash at
       {
         slug: "officials-staff-conduct",
         title: "Conduct toward officials & staff",
-        body: `Bad behavior toward referees, scorekeepers, or staff is **not tolerated**. Any violation results in immediate ejection from the venue and may result in a permanent ban from future Super6 Series LLC events. **There are no exceptions.**`,
+        body: `Bad behavior toward referees, scorekeepers, or staff is **not tolerated**. Any violation results in immediate ejection from the venue and may result in a permanent ban from future Super6 events. **There are no exceptions.**`,
       },
     ],
   },
@@ -112,7 +112,7 @@ See the [No-cash policy](#no-cash-policy) below — we do **not** accept cash at
       {
         slug: "matching-uniforms",
         title: "Matching uniforms",
-        body: `All players must wear matching, **unmodified** uniforms. **Shorts must match** across the roster — a correct jersey with **mismatched shorts** is **not** acceptable. Any player without a matching uniform will not be allowed to play. Super6 Series LLC enforces a strict uniform-matching policy and **does not make exceptions**.`,
+        body: `All players must wear matching, **unmodified** uniforms. **Shorts must match** across the roster — a correct jersey with **mismatched shorts** is **not** acceptable. Any player without a matching uniform will not be allowed to play. Super6 enforces a strict uniform-matching policy and **does not make exceptions**.`,
       },
       {
         slug: "no-tshirts",
@@ -173,7 +173,7 @@ If a team cannot fulfill these roles, **the game will be forfeited.** There are 
       {
         slug: "insurance",
         title: "Insurance",
-        body: `All teams are required to carry **team insurance** to participate in any Super6 Series LLC event.`,
+        body: `All teams are required to carry **team insurance** to participate in any Super6 event.`,
       },
       {
         slug: "may-be-asked",
@@ -190,12 +190,12 @@ Teams unable to meet these requirements will be **disqualified and will not rece
       {
         slug: "forfeit-policy",
         title: "Forfeit policy",
-        body: `Game forfeiting is **not tolerated**. A team that forfeits any game must pay a **$100 fee** before participating in their next game and a **$100 forfeit deposit** before any future Super6 Series LLC event. **There are no exceptions.**`,
+        body: `Game forfeiting is **not tolerated**. A team that forfeits any game must pay a **$100 fee** before participating in their next game and a **$100 forfeit deposit** before any future Super6 event. **There are no exceptions.**`,
       },
       {
         slug: "warm-up-balls",
         title: "Warm-up balls",
-        body: `Teams must bring their own balls for warm-up. **Super6 Series LLC does not provide warm-up balls.** The head referee will select the game ball from the two teams' provided balls.`,
+        body: `Teams must bring their own balls for warm-up. **Super6 does not provide warm-up balls.** The head referee will select the game ball from the two teams' provided balls.`,
       },
     ],
   },
@@ -203,15 +203,15 @@ Teams unable to meet these requirements will be **disqualified and will not rece
     id: "game-format",
     number: "04",
     label: "Game Format",
-    title: "NFHS rules, Super6 Series LLC cadence.",
+    title: "NFHS rules, Super6 cadence.",
     description:
-      "Game length, timeouts, fouls, mercy, and overtime — the cadence of every Super6 Series LLC weekend.",
+      "Game length, timeouts, fouls, mercy, and overtime — the cadence of every Super6 weekend.",
     icon: "timer",
     items: [
       {
         slug: "governing-rules",
         title: "Governing rules",
-        body: `Super6 Series LLC games are played according to the rules set by the **National Federation of High School Basketball (NFHS)**, unless specified otherwise below.`,
+        body: `Super6 games are played according to the rules set by the **National Federation of High School Basketball (NFHS)**, unless specified otherwise below.`,
       },
       {
         slug: "game-length-3-7",
@@ -313,7 +313,7 @@ Teams unable to meet these requirements will be **disqualified and will not rece
       {
         slug: "girls-playing-down",
         title: "Girls playing down",
-        body: `A girls' team is allowed to play **one level down** in the boys' division (e.g. a 7th-grade girls' team may play in the 6th-grade boys' division). If a girls' team is unable to compete at that level, they will not be permitted to do so in future tournaments. **The determination is at the sole discretion of the Super6 Series LLC director.**`,
+        body: `A girls' team is allowed to play **one level down** in the boys' division (e.g. a 7th-grade girls' team may play in the 6th-grade boys' division). If a girls' team is unable to compete at that level, they will not be permitted to do so in future tournaments. **The determination is at the sole discretion of the Super6 director.**`,
       },
     ],
   },

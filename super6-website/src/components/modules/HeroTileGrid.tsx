@@ -18,19 +18,16 @@ const HERO_IMAGE = {
   src: "/media/uploads/celtics-super6.jpg",
   alt: "",
   /* objectPosition — anchors the dribbler (Celtics #7) and the defender
-     in frame across viewport widths. The "55%" pushes focus rightward
-     so the player stays centered on narrow phones (375px). The "30%"
-     keeps heads / faces above the fold rather than cropping them with
-     the bottom-of-frame scrim. Adjust only if a hero replacement photo
-     reframes the subjects. */
-  objectPosition: "55% 30%",
+     in frame across viewport widths. "50%" keeps both players centered.
+     "30%" keeps heads/faces above the bottom-of-frame scrim. */
+  objectPosition: "50% 30%",
   quality: 100,
 } as const;
 
 export default function HeroSection() {
   return (
     <section
-      className="editorial-hero editorial-hero--copy-br"
+      className="editorial-hero editorial-hero--copy-bc"
       aria-label="Hero"
     >
       <div className="editorial-hero-media" aria-hidden="true">
@@ -48,7 +45,7 @@ export default function HeroSection() {
         />
       </div>
 
-      <div className="editorial-hero-content editorial-hero-content--br">
+      <div className="editorial-hero-content editorial-hero-content--bc">
         <h1 className="editorial-headline hero-headline">
           <span className="hero-headline-taglock">
             <span className="hero-tagline-line hero-tagline-line--cream">

@@ -216,7 +216,7 @@ export default function RulesClient({ sections }: Props) {
                 Try a different keyword — uniforms, fouls, eligibility, mercy,
                 forfeit, overtime — or{" "}
                 <a href="/contact" className="faq-link">
-                  contact Super6 Series LLC directly
+                  contact Super6 directly
                 </a>
                 . We respond same-day during the week.
               </p>

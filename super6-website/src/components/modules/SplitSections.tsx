@@ -9,7 +9,7 @@ const sections = [
     label: "Our Mission",
     heading: "Bridging education <em>and athletics.</em>",
     description:
-      "Super6 Series LLC was founded in 2014 to bridge the education gap for underserved and developmental-skill youth — through programs that stress the importance of high-academic education to prepare kids for life well after sports. We reach our students through sport. Through partnerships with Ivy League, HBCU, and traditional colleges, we provide the most relevant tutoring, SAT/ACT prep, and academic college counseling.",
+      "Super6 was founded in 2014 to bridge the education gap for underserved and developmental-skill youth — through programs that stress the importance of high-academic education to prepare kids for life well after sports. We reach our students through sport. Through partnerships with Ivy League, HBCU, and traditional colleges, we provide the most relevant tutoring, SAT/ACT prep, and academic college counseling.",
     cta: { label: "Learn more", href: "/about" },
     image: "/media/uploads/mission-team-six-yellow.png",
     imageAlt:

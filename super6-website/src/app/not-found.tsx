@@ -18,7 +18,7 @@ const suggestedLinks = [
   {
     href: "/",
     label: "Home",
-    body: "The Super6 Series LLC home page.",
+    body: "The Super6 home page.",
   },
   {
     href: "/schedule",
@@ -75,7 +75,7 @@ export default function NotFound() {
           <div className="rules-hero-wordmark" aria-hidden="true">
             <span className="rules-hero-word-game">OFF</span>
             <span className="rules-hero-word-rules">COURT.</span>
-            <span className="rules-hero-word-book">404 · Super6 Series LLC</span>
+            <span className="rules-hero-word-book">404 · Super6</span>
           </div>
 
           <h1 className="rules-hero-headline">

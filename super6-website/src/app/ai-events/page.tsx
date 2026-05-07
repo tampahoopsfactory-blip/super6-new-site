@@ -210,7 +210,7 @@ export default function AiEventsPage() {
                   aria-label="AI biometric checkpoint highlights"
                 >
                   <li>
-                    <strong>Super6 Series LLC IP (intellectual property).</strong> Proprietary biometric AI designed solution — entry, exit, re-entry.
+                    <strong>Super6 IP (intellectual property).</strong> Proprietary biometric AI designed solution — entry, exit, re-entry.
                   </li>
                   <li>
                     <strong>One of a kind.</strong> Enroll once · verify every crossing.
@@ -355,7 +355,7 @@ export default function AiEventsPage() {
           <p className="faq-final-cta-eyebrow">See it in action.</p>
           <h2 className="faq-final-cta-title">Bring the team.</h2>
           <p className="faq-final-cta-sub">
-            Show up to a Super6 Series LLC weekend and experience AI – Events at the
+            Show up to a Super6 weekend and experience AI – Events at the
             gate yourself — or lock in your spot now.
           </p>
           <div className="faq-final-cta-actions">

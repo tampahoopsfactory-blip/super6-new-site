@@ -52,7 +52,7 @@ export default function AlumniSection() {
             <em>land.</em>
           </h2>
           <p className="section-desc">
-            Super6 Series LLC athletes are recruited by — and enroll at — the most
+            Super6 athletes are recruited by — and enroll at — the most
             selective academic institutions in the country. Three featured
             stories below; the placement list runs deeper.
           </p>

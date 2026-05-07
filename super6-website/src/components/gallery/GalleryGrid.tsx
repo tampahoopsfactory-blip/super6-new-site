@@ -30,7 +30,6 @@ import {
   TIMELINE,
   SECTION_THEME,
   SPOTLIGHTS,
-  FEATURED_YEAR,
   type GalleryCategory,
   type GalleryPhoto,
   type Spotlight,
@@ -60,12 +59,6 @@ export default function GalleryGrid() {
     };
     for (const p of PHOTOS) map[p.category].push(p);
     return map;
-  }, []);
-
-  const photoById = useMemo(() => {
-    const m: Record<string, GalleryPhoto> = {};
-    for (const p of PHOTOS) m[p.id] = p;
-    return m;
   }, []);
 
   const open = (photo: GalleryPhoto) => {
@@ -136,15 +129,6 @@ export default function GalleryGrid() {
               {spotlightsAfter[cat].map((s) => (
                 <SpotlightBanner key={s.id} spotlight={s} />
               ))}
-
-              {/* Featured Year photo essay slots in after its placeAfter category */}
-              {FEATURED_YEAR.placeAfter === cat && (
-                <FeaturedYearReel
-                  feature={FEATURED_YEAR}
-                  photoById={photoById}
-                  onOpenPhoto={open}
-                />
-              )}
             </ScopeFragment>
           ))}
         </>
@@ -249,96 +233,6 @@ function SpotlightBanner({ spotlight }: { spotlight: Spotlight }) {
   );
 }
 
-/* ─────────── Featured Year photo essay ─────────── */
-
-function FeaturedYearReel({
-  feature,
-  photoById,
-  onOpenPhoto,
-}: {
-  feature: typeof FEATURED_YEAR;
-  photoById: Record<string, GalleryPhoto>;
-  onOpenPhoto: (p: GalleryPhoto) => void;
-}) {
-  const featured = photoById[feature.featuredId];
-  const supporting = feature.supportingIds
-    .map((id) => photoById[id])
-    .filter(Boolean);
-
-  if (!featured || supporting.length === 0) return null;
-
-  return (
-    <section
-      aria-labelledby="featured-year-h"
-      className="gallery-featured-reel"
-    >
-      <div className="container-xl">
-        <header className="gallery-featured-head">
-          <div className="gallery-featured-year-badge" aria-hidden="true">
-            <span className="gallery-featured-year-num">{feature.year}</span>
-            <span className="gallery-featured-year-lbl">{feature.yearLabel}</span>
-          </div>
-          <div className="gallery-featured-copy">
-            <p className="gallery-section-eyebrow">{feature.eyebrow}</p>
-            <h2 id="featured-year-h" className="gallery-section-heading">
-              {feature.headline}
-            </h2>
-            <p className="gallery-section-blurb">{feature.intro}</p>
-          </div>
-        </header>
-
-        <div className="gallery-featured-grid">
-          <button
-            type="button"
-            className="gallery-featured-hero"
-            onClick={() => onOpenPhoto(featured)}
-            aria-label={`Open ${featured.title}`}
-          >
-            <Image
-              src={featured.src}
-              alt={featured.alt}
-              fill
-              sizes="(max-width: 1100px) 100vw, 60vw"
-              quality={92}
-              className="gallery-featured-hero-img"
-            />
-            <div className="gallery-featured-hero-overlay">
-              <p className="gallery-featured-hero-title">{featured.title}</p>
-              <p className="gallery-featured-hero-event">
-                {featured.event} <span className="gallery-tile-dot">·</span> {featured.year}
-              </p>
-            </div>
-          </button>
-
-          <div className="gallery-featured-stack">
-            {supporting.map((p) => (
-              <button
-                key={p.id}
-                type="button"
-                className="gallery-featured-stack-item"
-                onClick={() => onOpenPhoto(p)}
-                aria-label={`Open ${p.title}`}
-              >
-                <Image
-                  src={p.src}
-                  alt={p.alt}
-                  fill
-                  sizes="(max-width: 1100px) 50vw, 30vw"
-                  quality={88}
-                  className="gallery-featured-stack-img"
-                />
-                <div className="gallery-featured-stack-overlay">
-                  <p className="gallery-featured-stack-title">{p.title}</p>
-                </div>
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 /* ─────────── Through the Years rail ─────────── */
 
 function TimelineSection({
@@ -374,7 +268,7 @@ function TimelineSection({
         <header className="gallery-section-head">
           <p className="gallery-section-eyebrow">Through the Years</p>
           <h2 id="tty-h" className="gallery-section-heading">
-            13 years. <em>One league.</em>
+            12 years. <em>One league.</em>
           </h2>
           <p className="gallery-section-blurb">
             From a single weekend to a multi-court, multi-city circuit. Drag

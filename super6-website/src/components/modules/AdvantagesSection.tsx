@@ -11,17 +11,17 @@ const advantages = [
   {
     eyebrow: "Streaming",
     headline: "Live on HBCU League Pass.",
-    body: "Super6 Series LLC TV streams live tournament play on HBCU League Pass with game recordings, commentary, and pre/post-game interviews. Building the ESPN of youth sports.",
+    body: "Super6 TV streams live tournament play on HBCU League Pass with game recordings, commentary, and pre/post-game interviews. Building the ESPN of youth sports.",
   },
   {
     eyebrow: "Worldwide Reach",
     headline: "Hong Kong to Puerto Rico.",
-    body: "Teams travel from Hong Kong, Puerto Rico, and across the continental US to play Super6 Series LLC weekends. Weekly sold-out events.",
+    body: "Teams travel from Hong Kong, Puerto Rico, and across the continental US to play Super6 weekends. Weekly sold-out events.",
   },
   {
     eyebrow: "Corporate Partnership",
     headline: "Wells Fargo financial literacy.",
-    body: "Wells Fargo Bank delivers financial literacy seminars to Super6 Series LLC student-athletes — money skills built alongside basketball IQ.",
+    body: "Wells Fargo Bank delivers financial literacy seminars to Super6 student-athletes — money skills built alongside basketball IQ.",
   },
 ];
 
@@ -34,7 +34,7 @@ export default function AdvantagesSection() {
       <div className="container-xl">
         <div className="advantages-intro">
           <p className="section-label" style={{ color: "var(--orange)" }}>
-            The Super6 Series LLC Advantage
+            The Super6 Advantage
           </p>
           <h2 id="advantages-heading" className="section-heading">
             Built different. <em>Priced fair.</em>

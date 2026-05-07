@@ -3,7 +3,6 @@ import HeroActionBar from "@/components/modules/HeroActionBar";
 import ImpactStrip from "@/components/modules/ServiceGrid";
 import MissionSplit from "@/components/modules/SplitSections";
 import PhotoGallery from "@/components/modules/FeatureBanner";
-import SecuritySpread from "@/components/modules/StoryCardGrid";
 import AdvantagesSection from "@/components/modules/AdvantagesSection";
 import ProgramsSection from "@/components/modules/ProgramsSection";
 import TestimonialsSection from "@/components/modules/TestimonialsSection";
@@ -30,7 +29,6 @@ export default function HomePage() {
       <FadeIn><ProgramsSection /></FadeIn>
       <FadeIn><DivisionCards /></FadeIn>
       <FadeIn><PricingSection /></FadeIn>
-      <FadeIn><SecuritySpread /></FadeIn>
       <FadeIn><TestimonialsSection /></FadeIn>
       <FadeIn><CtaSection /></FadeIn>
     </>

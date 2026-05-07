@@ -37,10 +37,10 @@ const programPoints = [
   "Bookings are made every Tuesday at 7:00 PM.",
   "We are looking for qualified referees who can cover all of our games.",
   "Special consideration is given for long-term consistency in availability and quality of work.",
-  "Referee consistency with Super6 Series LLC will secure court(s) for games long-term.",
+  "Referee consistency with Super6 will secure court(s) for games long-term.",
   "If you are only looking for a few games from time-to-time, please still apply.",
   "Select only the city(s) and dates you are available.",
-  "Must be available to work the entire event unless prior arrangements are established with Super6 Series LLC.",
+  "Must be available to work the entire event unless prior arrangements are established with Super6.",
 ];
 
 const payTiers = [
@@ -151,7 +151,7 @@ export default function OfficialsPage() {
             </h2>
             <p className="section-desc">
               Officials are paid by the hour. Tier placement is based on
-              experience level and consistency with Super6 Series LLC events — show up,
+              experience level and consistency with Super6 events — show up,
               call clean ball, and you move up.
             </p>
           </div>

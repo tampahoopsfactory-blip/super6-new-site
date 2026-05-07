@@ -11,11 +11,12 @@ import { REGISTER_LINK_PROPS } from "@/lib/links";
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "Our Mission", href: "/about" },
+  { label: "AI Events", href: "/ai-events" },
   { label: "Tournaments", href: "/register" },
   { label: "Gallery", href: "/gallery" },
   { label: "Coaches", href: "/coaches" },
   { label: "Hiring Officials", href: "/officials" },
-  { label: "AI Events", href: "/ai-events" },
+  { label: "Security", href: "/security" },
   { label: "Rules", href: "/rules" },
   { label: "FAQ", href: "/faq" },
   { label: "Contact", href: "/contact" },

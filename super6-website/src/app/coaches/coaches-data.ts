@@ -133,7 +133,7 @@ export const cutBody = [
 export const builtDifferentSection: CoachSection = {
   id: "built-different",
   number: "04",
-  title: "Super6 Series LLC was built different.",
+  title: "Super6 was built different.",
   description:
     "We built this league for the coach who shows up. Who stays. Who gives a damn.",
   icon: "trophy",
@@ -167,7 +167,7 @@ export const numbers: { value: string; label: string }[] = [
   { value: "12", label: "Years doing this" },
   {
     value: "10–15",
-    label: "Tournaments a season a Super6 Series LLC coach can afford",
+    label: "Tournaments a season a Super6 coach can afford",
   },
   {
     value: "4",
@@ -189,7 +189,7 @@ export const wordOfMouthSection: CoachSection = {
 };
 
 export const wordOfMouthBody = [
-  "Coaches play one Super6 Series LLC weekend, then come back next season with more teams.",
+  "Coaches play one Super6 weekend, then come back next season with more teams.",
   "After that, they go home and tell other coaches in their state. That's how this league grew.",
   "We don't need a sales pitch. The coaches already in the gym do that for us.",
 ];
@@ -204,7 +204,7 @@ export const thesis = {
     "More mentorship is how lives change.",
   ],
   close:
-    "Super6 Series LLC doesn't just run events. We help coaches stay in their kids' lives.",
+    "Super6 doesn't just run events. We help coaches stay in their kids' lives.",
   images: [
     {
       src: "/media/uploads/coaches-thesis-kids-tacticboard.png",

@@ -202,9 +202,9 @@ export default function CoachesPage() {
         </ul>
       </CoachesSplitSection>
 
-      {/* ─── Section 04 — Super6 Series LLC was built different (image left) ─── */}
+      {/* ─── Section 04 — Super6 was built different (image left) ─── */}
       <CoachesSplitSection section={builtDifferentSection} imageFirst>
-        <ul className="coaches-pillars" aria-label="What makes Super6 Series LLC different">
+        <ul className="coaches-pillars" aria-label="What makes Super6 different">
           {pillars.map((p) => (
             <li key={p.tag} className="coaches-pillar">
               <p className="coaches-pillar-tag">{p.tag}</p>
@@ -215,7 +215,7 @@ export default function CoachesPage() {
       </CoachesSplitSection>
 
       {/* ─── Numbers strip — full-bleed dark band (unchanged) ─── */}
-      <section className="coaches-numbers" aria-label="Super6 Series LLC by the numbers">
+      <section className="coaches-numbers" aria-label="Super6 by the numbers">
         <div className="container-xl">
           <ul className="coaches-numbers-grid">
             {numbers.map((n) => (

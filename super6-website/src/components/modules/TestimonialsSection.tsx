@@ -10,13 +10,13 @@ const testimonials = [
   },
   {
     quote:
-      "The Super6 Series LLC event has been great. Well organized, intense competition. Super6 Series LLC brings talent from all over the state that really pushes the kids to play harder. It's a great place to be.",
+      "The Super6 event has been great. Well organized, intense competition. Super6 brings talent from all over the state that really pushes the kids to play harder. It's a great place to be.",
     name: "Tampa Bayhawks",
     role: "Parents of Bayhawks Athletes",
   },
   {
     quote:
-      "The quality of Super6 Series LLC's tournaments is just the same as significantly more expensive ones. Pay one fair price, enjoy the beaches of Florida and the amusement parks — you cannot beat that deal.",
+      "The quality of Super6's tournaments is just the same as significantly more expensive ones. Pay one fair price, enjoy the beaches of Florida and the amusement parks — you cannot beat that deal.",
     name: "James Kuan",
     role: "Acaciawood Basketball, California",
   },

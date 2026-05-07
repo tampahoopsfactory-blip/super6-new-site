@@ -55,7 +55,7 @@ export default function ContactPage() {
 
           <p className="contact-hero-desc">
             Registration, venue partnerships, sponsorships, press — write us.
-            A real human on the Super6 Series LLC team will write you back within one
+            A real human on the Super6 team will write you back within one
             business day.
           </p>
 

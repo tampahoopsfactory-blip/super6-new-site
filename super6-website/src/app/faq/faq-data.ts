@@ -47,7 +47,7 @@ export const faqIntro = {
   eyebrow: "Frequently Asked",
   title: "Asked & answered.",
   body:
-    "Florida's longest-running youth basketball tournament. Boys and girls, 3rd–12th grade. Three-game minimum every event. Schedule drops Wednesdays at 8 PM in the Super6 Series LLC app. Built directly on the rules at /rules — when in doubt, the rules page wins.",
+    "Florida's longest-running youth basketball tournament. Boys and girls, 3rd–12th grade. Three-game minimum every event. Schedule drops Wednesdays at 8 PM in the Super6 app. Built directly on the rules at /rules — when in doubt, the rules page wins.",
 };
 
 export const faqSections: FaqSection[] = [
@@ -125,24 +125,24 @@ export const faqSections: FaqSection[] = [
   {
     id: "app",
     number: "02",
-    label: "The Super6 Series LLC App",
-    title: "The Super6 Series LLC App",
+    label: "The Super6 App",
+    title: "The Super6 App",
     description: "Your single source of truth for schedules, brackets, and real-time updates.",
     icon: "smartphone",
     items: [
       {
         slug: "why-the-app",
-        q: "Why do I need the Super6 Series LLC app?",
-        a: `- **Super6 Series LLC runs the event through the app** — schedules, brackets, court assignments, and every change made **during the weekend** land there first and stay **current**
+        q: "Why do I need the Super6 app?",
+        a: `- **Super6 runs the event through the app** — schedules, brackets, court assignments, and every change made **during the weekend** land there first and stay **current**
 - **We strongly urge coaches, parents, and players to use the app — not the website** — for anything time- or location-sensitive
 - **The website can cache on phones** — you may see **old** brackets, times, or courts while the app already shows the **live** state. Do **not** treat the public site as a real-time feed
-- **If you rely on the website and miss a game, miss a tip time, or show up on the wrong schedule because the copy on your device was out of date, Super6 Series LLC is not responsible** — the app is the official channel; use it`,
+- **If you rely on the website and miss a game, miss a tip time, or show up on the wrong schedule because the copy on your device was out of date, Super6 is not responsible** — the app is the official channel; use it`,
       },
       {
         slug: "download-app",
         q: "Where do I download it?",
-        a: `- **iOS (Apple):** App Store — search *Super6 Series LLC*
-- **Android:** Google Play — search *Super6 Series LLC*`,
+        a: `- **iOS (Apple):** App Store — search *Super6*
+- **Android:** Google Play — search *Super6*`,
       },
       {
         slug: "schedule-release",
@@ -161,7 +161,7 @@ export const faqSections: FaqSection[] = [
       {
         slug: "app-login-issues",
         q: "I can't log in to the app — what now?",
-        a: `- **Most Super6 Series LLC information does not require a login** — you **do not need** login credentials to access schedules and general updates in the app. **Download** the Super6 Series LLC app and **use it**
+        a: `- **Most Super6 information does not require a login** — you **do not need** login credentials to access schedules and general updates in the app. **Download** the Super6 app and **use it**
 - **Follow your team:** when you **follow your team** in the app, you'll get **automatic text messages (SMS)** from the app for anything relevant to **that team** — schedule releases, changes, and other updates`,
       },
     ],
@@ -235,8 +235,8 @@ export const faqSections: FaqSection[] = [
       {
         slug: "check-in-process-team-book",
         q: "Tell me about your check-in process. Do I need to have my team book?",
-        a: `- **No team book** — Super6 Series LLC does **not** use traditional paper team books at check-in
-- **School portal on the athlete's own device:** each player must be ready to log in to their **school portal** on their **personal phone**, **away from coaches and parents**, with a **Super6 Series LLC site manager** present
+        a: `- **No team book** — Super6 does **not** use traditional paper team books at check-in
+- **School portal on the athlete's own device:** each player must be ready to log in to their **school portal** on their **personal phone**, **away from coaches and parents**, with a **Super6 site manager** present
 - **What we're proving:** the athlete is in the **correct grade** for the division / event they entered
 - **If a player cannot complete verification:** any games that athlete **already played** in the tournament may be **ruled forfeits**
 - **Athlete review during play:** site managers, referees, and staff watch for players who **appear above grade**, look **materially more developed** than peers, or **dominate** in ways that don't match the division — same standard as check-in: keep the bracket honest and catch **bad actors** early
@@ -294,7 +294,7 @@ export const faqSections: FaqSection[] = [
       {
         slug: "shot-clock",
         q: "Is there a shot clock?",
-        a: `- **No shot clock** at any Super6 Series LLC division
+        a: `- **No shot clock** at any Super6 division
 - **NFHS standard** — possession governed by closely-guarded and 10-second backcourt rules`,
       },
       {
@@ -319,9 +319,9 @@ export const faqSections: FaqSection[] = [
         slug: "who-pays-gate",
         q: "Who pays at the gate?",
         a: `- **No charge:** uniformed players + up to **two coaches** per team
-- **Assistant coach** is responsible for your team's **game clock** and **scorebook (book table)** — making sure both are covered every game is on **your bench**, not Super6 Series LLC
+- **Assistant coach** is responsible for your team's **game clock** and **scorebook (book table)** — making sure both are covered every game is on **your bench**, not Super6
 - **Second coach badge at check-in:** the individual who receives your team's **second** complimentary coach badge is **assigned** to run the **clock** or the **book** as required — they may **pass those duties** to a **team mom** or another **responsible, capable** adult who can operate the clock or keep the book
-- **No extra badge for book or clock:** Super6 Series LLC **does not** issue another gate badge for someone who only works the book or clock — **that coverage stays the assistant coach's responsibility** to arrange within your **two** complimentary coach admissions
+- **No extra badge for book or clock:** Super6 **does not** issue another gate badge for someone who only works the book or clock — **that coverage stays the assistant coach's responsibility** to arrange within your **two** complimentary coach admissions
 - **Everyone else pays:** parents, family, friends, extra coaches
 - **Badges:** good **all day** at the venue — **not** per game`,
       },
@@ -384,7 +384,7 @@ export const faqSections: FaqSection[] = [
     items: [
       {
         slug: "hiring-officials",
-        q: "How do I sign up to officiate Super6 Series LLC?",
+        q: "How do I sign up to officiate Super6?",
         a: `- **Start here:** [/officials](/officials) — pay tiers, schedule, application
 - **When we staff:** weekends only (**Sat & Sun**)
 - **Booking:** **Tuesdays at 7 PM**`,
@@ -399,7 +399,7 @@ export const faqSections: FaqSection[] = [
       {
         slug: "uniform-requirements",
         q: "What are the uniform requirements?",
-        a: `- **Why it matters:** Super6 Series LLC draws teams **from all over the world** who play **each weekend**. We're **very intentional** about **our floors**, how games **look**, and **sharp, matching uniforms** — that presentation **adds value to the whole tournament**. **Our strict uniform policy is not here to penalize teams** — it's to **elevate and maintain** the **quality of our games** and the **way our floors look** when you're competing
+        a: `- **Why it matters:** Super6 draws teams **from all over the world** who play **each weekend**. We're **very intentional** about **our floors**, how games **look**, and **sharp, matching uniforms** — that presentation **adds value to the whole tournament**. **Our strict uniform policy is not here to penalize teams** — it's to **elevate and maintain** the **quality of our games** and the **way our floors look** when you're competing
 - **Strict matching only** — no exceptions
 - **Shorts must match:** some teams show up with a **legal jersey** but **mismatched shorts** — **not allowed**. If your team wears **shorts**, every player's **shorts must match one another** the same way tops do — **no exceptions**
 - **Home (bottom on schedule):** white or **light** uniforms
@@ -414,15 +414,15 @@ export const faqSections: FaqSection[] = [
       {
         slug: "jerseys-printing",
         q: "What if our jerseys are still being printed?",
-        a: `- **Super6 Series LLC rents uniforms** for **$100 for the weekend** — after your text is confirmed, **site staff** at the venue handle **availability and pickup**
-- **Request a rental:** send a **text message** to the Super6 Series LLC number on the [**Contact**](/contact) page asking to **rent uniforms** — must be sent by **Wednesday** prior to the event
+        a: `- **Super6 rents uniforms** for **$100 for the weekend** — after your text is confirmed, **site staff** at the venue handle **availability and pickup**
+- **Request a rental:** send a **text message** to the Super6 number on the [**Contact**](/contact) page asking to **rent uniforms** — must be sent by **Wednesday** prior to the event
 - **Don't show up** without legal uniforms (your own **or** a confirmed rental)
 - **Zero exceptions** on the uniform rule`,
       },
       {
         slug: "conduct-policy",
         q: "What's the conduct policy?",
-        a: `- **Super6 Series LLC is different:** we're **not like** a lot of other tournament organizations you may play — our **conduct bar is high** and **non-negotiable**
+        a: `- **Super6 is different:** we're **not like** a lot of other tournament organizations you may play — our **conduct bar is high** and **non-negotiable**
 - **Zero tolerance** for **disrespect**, **unruliness**, or **belligerent** behavior toward **officials**, **staff**, **other teams**, or families in the building — we expect everyone **safe and cordial** and a **positive environment for kids**
 - **Belligerence:** **security** will **escort you out** of the gym — **no refunds** under **any** circumstances for conduct-driven removals
 - **Fights:** if a **team incites or is involved in a fight**, that program may be **permanently banned** from future Super6 Series LLC events
@@ -433,7 +433,7 @@ export const faqSections: FaqSection[] = [
         slug: "ejection-rules",
         q: "What happens if a player or coach is ejected?",
         a: `- **Leave the floor now** — no debate
-- **Next Super6 Series LLC game:** automatic **suspension**
+- **Next Super6 game:** automatic **suspension**
 - **Second ejection same season:** director review + possible **permanent ban**
 - **Money:** fees & forfeits follow the **forfeit policy**`,
       },
@@ -450,7 +450,7 @@ export const faqSections: FaqSection[] = [
     items: [
       {
         slug: "venue-locations",
-        q: "Where are Super6 Series LLC events held?",
+        q: "Where are Super6 events held?",
         a: `- **Markets:** **Florida** + **Georgia**
 - **Orlando** — primary hub
 - **Tampa**
@@ -477,7 +477,7 @@ export const faqSections: FaqSection[] = [
         slug: "warmup-ball",
         q: "Do we bring our own basketball?",
         a: `- **Yes** — bring your own for **warmups**
-- **Super6 Series LLC does not** supply warm-up balls
+- **Super6 does not** supply warm-up balls
 - **Game ball:** referee picks from **your two** game balls`,
       },
       {
@@ -517,7 +517,7 @@ export const faqSections: FaqSection[] = [
         slug: "dispute-resolution",
         q: "How do I dispute a result, ruling, or fee?",
         a: `- **On the court:** rulings are **final** when made — no re-argument at the scorer's table
-- **After the event:** eligibility, forfeit fees, conduct → **Super6 Series LLC director**
+- **After the event:** eligibility, forfeit fees, conduct → **Super6 director**
 - **How to escalate:** email via [Contact](/contact) — include **team name**, **event date**, and a clear summary
 - **Response time:** same-day during the **work week**`,
       },
@@ -526,7 +526,7 @@ export const faqSections: FaqSection[] = [
         q: "Who do I contact if I still have questions?",
         a: `- **Before the event:** text **Super6** at [**Text ${siteConfig.phone}**](${siteSmsHref})
 - **Once the event has started:** contact the **site director** on-site for time-sensitive questions at the venue
-- **Schedule, court, real-time event questions:** the Super6 Series LLC app
+- **Schedule, court, real-time event questions:** the Super6 app
 - **Roster updates:** [basketball.exposureevents.com](https://basketball.exposureevents.com) → Dashboard → Edit Roster
 - **Registration, billing, anything else:** [**Text Super6**](${siteSmsHref}) — or use the [Contact](/contact) form for email
 - **Contact form / email:** we respond **same-day during the work week**`,

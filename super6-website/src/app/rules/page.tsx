@@ -249,7 +249,7 @@ export default function RulesPage() {
 
         <div className="faq-footnote-wrap">
           <p className="faq-footnote">
-            By participating in a Super6 Series LLC event, your team agrees to all rules
+            By participating in a Super6 event, your team agrees to all rules
             and policies on this page. For non-rule questions, see the{" "}
             <Link href="/faq" className="faq-link">
               FAQ
