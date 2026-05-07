@@ -5,6 +5,29 @@ export const metadata: Metadata = {
   title: "Hiring Officials | Super6 Series LLC Basketball",
   description:
     "Super6 Series LLC is hiring NFHS-certified referees. Weekly weekend games, $20–$27/hr, same-day Sunday payouts. Apply now.",
+  alternates: { canonical: "/officials" },
+  openGraph: {
+    title: "Now Hiring Officials | Super6 Series LLC",
+    description:
+      "NFHS-certified referees wanted. Weekend games, $20–$27/hr, same-day Sunday payouts. Apply now.",
+    url: "/officials",
+    type: "website",
+    images: [
+      {
+        url: "/media/uploads/officials-refs-shake.jpg",
+        width: 1600,
+        height: 900,
+        alt: "Two Super6 Series LLC referees in striped uniforms shaking hands at a tournament",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Now Hiring: Super6 Officials",
+    description:
+      "NFHS-certified refs · $20–$27/hr · same-day Sunday payouts.",
+    images: ["/media/uploads/officials-refs-shake.jpg"],
+  },
 };
 
 const SIGNUP_URL =

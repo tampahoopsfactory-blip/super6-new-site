@@ -25,6 +25,21 @@ export const metadata: Metadata = {
       "Pay from your phone, check in fast, move through the gate with confidence — Super6 Series LLC AI – Events.",
     url: "/ai-events",
     type: "website",
+    images: [
+      {
+        url: "/media/uploads/ai-events-gate-kiosk.png",
+        width: 1600,
+        height: 900,
+        alt: "Super6 Series LLC AI – Events gate kiosk in use during check-in",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI – Events | Super6 Series LLC",
+    description:
+      "Cashless gate admission. Quick check-in. Secure re-entry. Less line, more gym time.",
+    images: ["/media/uploads/ai-events-gate-kiosk.png"],
   },
 };
 

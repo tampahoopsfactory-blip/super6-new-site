@@ -29,6 +29,21 @@ export const metadata: Metadata = {
       "Conduct, uniforms, game format, eligibility, tiebreakers, scheduling — the 2026 Super6 Series LLC rule book.",
     url: "/rules",
     type: "website",
+    images: [
+      {
+        url: "/media/uploads/refs-crew.jpg",
+        width: 1600,
+        height: 900,
+        alt: "Super6 Series LLC officiating crew — NFHS-certified referees",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tournament Rules | Super6 Series LLC",
+    description:
+      "The 2026 rule book. NFHS standards. Read before you register.",
+    images: ["/media/uploads/refs-crew.jpg"],
   },
 };
 

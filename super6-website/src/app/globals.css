@@ -7544,3 +7544,110 @@ section,
     filter: var(--coaches-photo-filter);
   }
 }
+
+/* ════════════════════════════════════════════
+   404 / not-found page — suggested-link card grid.
+   Reuses .rules-hero, .faq-shell, .faq-final-cta from the editorial
+   system. Only adds the 6-card grid + card surface here.
+   ════════════════════════════════════════════ */
+
+.not-found-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin: 0 auto;
+  max-width: 760px;
+}
+@media (min-width: 720px) {
+  .not-found-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+}
+
+.not-found-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 56px 1fr 32px;
+  align-items: center;
+  gap: 18px;
+  padding: 22px 22px 22px 18px;
+  background: #fff;
+  border: 1px solid var(--hairline-soft);
+  border-radius: 16px;
+  text-decoration: none;
+  color: var(--ink);
+  transition:
+    border-color 240ms var(--ease),
+    box-shadow 240ms var(--ease),
+    transform 240ms var(--ease),
+    background 240ms var(--ease);
+}
+.not-found-card:hover {
+  border-color: rgba(243, 84, 34, 0.42);
+  background: var(--orange-soft);
+  box-shadow: 0 10px 32px -14px rgba(243, 84, 34, 0.32);
+  transform: translateY(-1px);
+}
+.not-found-card:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 2px;
+}
+
+.not-found-card-num {
+  font-family: var(--font-display);
+  font-size: 32px;
+  line-height: 1;
+  font-weight: 400;
+  color: var(--orange);
+  letter-spacing: -0.02em;
+  font-feature-settings: "lnum";
+  text-align: center;
+  user-select: none;
+}
+
+.not-found-card-title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.018em;
+  color: var(--ink);
+  margin: 0 0 4px;
+}
+
+.not-found-card-body {
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  margin: 0;
+  letter-spacing: -0.003em;
+}
+
+.not-found-card-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-soft);
+  opacity: 0.6;
+  transition:
+    color 240ms var(--ease),
+    opacity 240ms var(--ease),
+    transform 240ms var(--ease);
+}
+.not-found-card:hover .not-found-card-arrow {
+  color: var(--orange);
+  opacity: 1;
+  transform: translateX(3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .not-found-card,
+  .not-found-card-arrow {
+    transition: none !important;
+  }
+  .not-found-card:hover {
+    transform: none;
+  }
+}

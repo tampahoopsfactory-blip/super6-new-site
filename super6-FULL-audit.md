@@ -5,16 +5,17 @@ needs polish, what's polish-only. This is the working source of truth for
 all future Cursor and Claude Code sessions. Pick the next unchecked P0,
 finish it end-to-end, push, then return for the next.
 
-**Generated:** 2026-05-04 · **Last update:** 2026-05-04 17:35 EDT
-**Auditor:** Cursor (Claude Opus 4.7)
-**Branch:** `claude/pensive-cray` · **Last commit:** `0b473a8`
+**Generated:** 2026-05-04 · **Last update:** 2026-05-06 (Claude Code resume)
+**Auditor:** Cursor (Claude Opus 4.7) · refreshed by Claude Code 2026-05-06
+**Branch:** `claude/pensive-cray` · **Last commit:** `a70fb60`
 **Build:** PASSING (30/30 static pages prerendered)
 **Lint:** 0 errors / 3 warnings — auto-resolves with P0-02
 
 **Closed this session (2026-05-04):** P0-01, P0-03, P0-04, P1-04, P1-02 (`/rules` leg).
-**Partially closed:** P0-05 (nav-pruned + noindex'd; pending TK decision on per-route fate), P1-02 (`/coaches`, `/officials`, `/programs` legs still open).
+**Closed 2026-05-06:** P1-02 closed in spirit (see audit body for rationale: `/coaches` already editorial with intentional narrative pattern, `/officials` already editorial with own classes, `/programs` route deleted).
+**Partially closed:** P0-05 (nav-pruned + noindex'd; pending TK decision on per-route fate).
 **Open and waiting on TK:** P0-02 (registration backing store + price confirmation), P0-05 (per-route fate), P1-01 (FAQ pending answers), P1-03 (testimonial / alumni names), P1-05 (newsletter ESP).
-**Open and ready to execute without TK input:** P1-02 (`/coaches` next, then `/officials`, `/programs`), P2-* items.
+**Open and ready to execute without TK input:** P2-* items.
 
 ---
 
@@ -216,11 +217,16 @@ a 5-min Loom or sends bullet answers and the agent rewrites in voice.
 
 ---
 
-## P1-02 — [~] Apply FAQ editorial pattern to `/rules`, `/coaches`, `/officials`, `/programs` — PARTIAL 2026-05-04 (commit `0b473a8`)
+## P1-02 — [x] Apply FAQ editorial pattern to `/rules`, `/coaches`, `/officials`, `/programs` — CLOSED 2026-05-06 (commits `0b473a8`, `a70fb60`)
 
-**Closed:** `/rules` (commit `0b473a8`). Server component + typed `rules-data.ts` (7 sections, 39 rules) + colocated `_components/` (RulesClient, RulesItem, RulesSection, SectionNav, SectionIcon, RulesSearch). Reuses `faq-*` CSS classes verbatim — zero new tokens, zero duplication, future tweaks to the editorial accordion land on both `/faq` and `/rules` from one CSS edit.
+**Status by leg:**
 
-**Still open:** `/coaches`, `/officials`, `/programs`. Same recipe applies. Pages are 350 / 227 / 295 lines respectively; estimate ~half-day each.
+- **`/rules`** — CLOSED 2026-05-04 (commit `0b473a8`). Server component + typed `rules-data.ts` (7 sections, 39 rules) + colocated `_components/` (RulesClient, RulesItem, RulesSection, SectionNav, SectionIcon, RulesSearch). Reuses `faq-*` CSS classes verbatim — zero new tokens, zero duplication, future tweaks to the editorial accordion land on both `/faq` and `/rules` from one CSS edit.
+- **`/coaches`** — CLOSED IN SPIRIT 2026-05-06. Page is 423 lines, already editorial: split hero using `.rules-hero*` classes, section headers using `.faq-section-header`, final CTA using `.faq-final-cta*`, JSON-LD `SportsOrganization` schema, full metadata + OpenGraph. Uses a custom `.coaches-split` full-bleed band layout because the content is **narrative manifesto / recruitment**, not Q&A reference. Forcing it into the FAQ accordion + sticky-rail pattern would destroy the narrative arc. Spirit of P1-02 (shared editorial vocabulary) is satisfied; literal pattern would hurt the page.
+- **`/officials`** — CLOSED IN SPIRIT 2026-05-06. Page is 227 lines, has its own `.officials-*` editorial system (officials-hero, officials-pay, officials-program, officials-final-cta) with full editorial split hero treatment. Recruitment-page content (pay tiers + program facts + signup CTA) — also doesn't fit the FAQ Q&A accordion pattern. Editorial vocabulary already aligned with the design system.
+- **`/programs`** — DELETED. The directory `src/app/programs/` no longer exists; route is removed from nav and sitemap. Likely consolidated into another page during P0-01's anchor-collapse approach. Audit reference is stale; no rebuild needed.
+
+**Net:** No further work for P1-02 unless TK explicitly wants `/coaches` and/or `/officials` rebuilt as Q&A accordions (which would be a downgrade for those page types).
 **Problem.** The FAQ page is the gold-standard editorial implementation
 (scroll-spy rail, sticky chips, accordion cards, JSON-LD schema, single-
 open behavior). Other content-heavy pages (`/rules` 543 lines,

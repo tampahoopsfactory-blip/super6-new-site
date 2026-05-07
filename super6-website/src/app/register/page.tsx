@@ -25,6 +25,21 @@ export const metadata: Metadata = {
       "Lock in your spot for the 2026 Super6 Series LLC season — Florida and Georgia, every weekend. $99 single tournament or $899 season pass.",
     url: "/register",
     type: "website",
+    images: [
+      {
+        url: "/media/curated/register-hero-matchup.png",
+        width: 1600,
+        height: 900,
+        alt: "Super6 Series LLC tournament basketball — drive defended one-on-one on the hardwood",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Register Your Team | Super6 Series LLC",
+    description:
+      "$99 per tournament or $899 season pass. Lock in your 2026 Super6 spot.",
+    images: ["/media/curated/register-hero-matchup.png"],
   },
 };
 

@@ -28,6 +28,21 @@ export const metadata: Metadata = {
       "Registration, app, schedule, rules, gate security, officials, venues, refunds — all in one place.",
     url: "/faq",
     type: "website",
+    images: [
+      {
+        url: "/media/curated/faq-hero-shooter.png",
+        width: 1600,
+        height: 900,
+        alt: "Super6 Series LLC FAQ — answers for coaches and families",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "FAQ | Super6 Series LLC",
+    description:
+      "Every question coaches and families actually ask — answered.",
+    images: ["/media/curated/faq-hero-shooter.png"],
   },
 };
 

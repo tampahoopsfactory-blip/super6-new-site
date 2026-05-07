@@ -16,6 +16,29 @@ export const metadata: Metadata = {
   title: "Gallery | Super6 Series LLC",
   description:
     "Thirteen years of Super6 Series LLC in pictures — tournament action, behind-the-scenes work, packed venues, champions, and the brand moments that built the league.",
+  alternates: { canonical: "/gallery" },
+  openGraph: {
+    title: "Gallery | Super6 Series LLC",
+    description:
+      "Thirteen years of Super6 Series LLC in pictures — action, behind-the-scenes, packed venues, champions.",
+    url: "/gallery",
+    type: "website",
+    images: [
+      {
+        url: "/media/hero/hero-dunk.jpg",
+        width: 1600,
+        height: 900,
+        alt: "Super6 Series LLC gallery — tournament action and brand moments",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Gallery | Super6 Series LLC",
+    description:
+      "Thirteen years of Super6 in pictures — action, venues, champions.",
+    images: ["/media/hero/hero-dunk.jpg"],
+  },
 };
 
 export default function GalleryPage() {

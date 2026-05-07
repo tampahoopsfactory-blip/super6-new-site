@@ -18,6 +18,21 @@ export const metadata: Metadata = {
       "Twelve years of premier youth basketball weekends paired with academic tutoring, college counseling, mentorship, and family centered programming.",
     url: "/about",
     type: "website",
+    images: [
+      {
+        url: "/media/uploads/about-mission-hero-team.jpg",
+        width: 1600,
+        height: 900,
+        alt: "Super6 Series LLC team on the basketball court with branded banners",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Our Mission | Super6 Series LLC",
+    description:
+      "Twelve years building premier youth basketball weekends — court, classroom, college counseling, family.",
+    images: ["/media/uploads/about-mission-hero-team.jpg"],
   },
 };
 
