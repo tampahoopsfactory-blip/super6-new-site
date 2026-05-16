@@ -1,0 +1,26 @@
+{
+  "device_label": "Quantum SMS Gateway",
+  "phone_number": "+14078669451",
+  "imei": "350173621027037",
+  "sim_id": "110028197535958",
+  "model": "Moto G Play",
+  "os": "Android 16",
+  "carrier": "AT&T Prepaid",
+  "gateway": {
+    "host": "localhost",
+    "port": 8080,
+    "api_version": "v1",
+    "protocol": "http"
+  },
+  "sms_settings": {
+    "max_message_length": 160,
+    "split_long_messages": true,
+    "delivery_report": true,
+    "retry_attempts": 3,
+    "retry_delay_seconds": 5
+  },
+  "health_check": {
+    "interval_seconds": 60,
+    "timeout_seconds": 10
+  }
+}
