@@ -120,21 +120,12 @@ class EmailSMSService:
 
 # Global config storage
 email_sms_config = {
-    "phoneNumber": "4078669451",
-    "carrier": "att"
+    "phoneNumber": "8132702754",
+    "carrier": "verizon"
 }
 
-# Recipients storage — Moto G Play (AT&T Prepaid) pre-loaded
-sms_recipients = [
-    {
-        "id": "1",
-        "name": "Quantum SMS Device (Moto G Play)",
-        "phoneNumber": "4078669451",
-        "carrier": "att",
-        "role": "Primary Alert Device",
-        "enabled": True
-    }
-]
+# Recipients storage
+sms_recipients = []
 
 # Routes
 @app.route('/api/email-sms/config', methods=['POST'])
