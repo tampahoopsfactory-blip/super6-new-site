@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { REGISTER_LINK_PROPS } from "@/lib/links";
 import { siteSmsHref } from "@/data/site";
-import SectionIcon from "../rules/_components/SectionIcon";
+import CoachesSplit from "./_components/CoachesSplit";
 import {
   coachesIntro,
   jobDescriptionSection,
@@ -144,7 +144,7 @@ export default function CoachesPage() {
       </section>
 
       {/* ─── Section 01 — The job description nobody wrote ─── */}
-      <CoachesSplitSection section={jobDescriptionSection}>
+      <CoachesSplit section={jobDescriptionSection}>
         <ol className="coaches-statements" aria-label="The job description">
           {jobDescriptionItems.map((s) => (
             <li key={s.num} className="coaches-statement">
@@ -156,10 +156,10 @@ export default function CoachesPage() {
             </li>
           ))}
         </ol>
-      </CoachesSplitSection>
+      </CoachesSplit>
 
       {/* ─── Section 02 — The bill nobody talks about (image left) ─── */}
-      <CoachesSplitSection section={billSection} imageFirst>
+      <CoachesSplit section={billSection} imageFirst>
         <p className="coaches-lead">
           Gym time. Tournament fees. Uniforms. Travel. Equipment. Refs.
           Subs.
@@ -179,10 +179,10 @@ export default function CoachesPage() {
           Team dues never cover the whole season. So coaches cover the
           gap. Out of pocket. Quietly. Every year.
         </p>
-      </CoachesSplitSection>
+      </CoachesSplit>
 
       {/* ─── Section 03 — The cut that hurts the most ─── */}
-      <CoachesSplitSection section={cutSection}>
+      <CoachesSplit section={cutSection}>
         <ul
           className="coaches-split-bullets coaches-split-bullets--cut"
           aria-label="The cut that hurts the most"
@@ -200,10 +200,10 @@ export default function CoachesPage() {
             </li>
           ))}
         </ul>
-      </CoachesSplitSection>
+      </CoachesSplit>
 
       {/* ─── Section 04 — Super6 Series LLC was built different (image left) ─── */}
-      <CoachesSplitSection section={builtDifferentSection} imageFirst>
+      <CoachesSplit section={builtDifferentSection} imageFirst>
         <ul className="coaches-pillars" aria-label="What makes Super6 Series LLC different">
           {pillars.map((p) => (
             <li key={p.tag} className="coaches-pillar">
@@ -212,7 +212,7 @@ export default function CoachesPage() {
             </li>
           ))}
         </ul>
-      </CoachesSplitSection>
+      </CoachesSplit>
 
       {/* ─── Numbers strip — full-bleed dark band (unchanged) ─── */}
       <section className="coaches-numbers" aria-label="Super6 Series LLC by the numbers">
@@ -229,7 +229,7 @@ export default function CoachesPage() {
       </section>
 
       {/* ─── Section 05 — Why coaches keep coming back ─── */}
-      <CoachesSplitSection section={wordOfMouthSection}>
+      <CoachesSplit section={wordOfMouthSection}>
         <ul
           className="coaches-split-bullets"
           aria-label="Why coaches keep coming back"
@@ -239,7 +239,7 @@ export default function CoachesPage() {
           ))}
         </ul>
         {/* TESTIMONIALS PLACEHOLDER */}
-      </CoachesSplitSection>
+      </CoachesSplit>
 
       {/* ─── Thesis — Keep the team. Keep the kid. (split layout) ─── */}
       <section
@@ -310,114 +310,5 @@ export default function CoachesPage() {
         </div>
       </section>
     </>
-  );
-}
-
-/* ─── Full-bleed editorial split.
-   Default: copy column left, photo right (DOM: content then image).
-   Pass imageFirst to flip desktop columns (photo left, copy right) via
-   grid item order — keeps one markup shape for LCP / hydration.
-
-   Background tint alternates by section number parity:
-     odd  (01, 03, 05) → base cream
-     even (02, 04)     → cream-warm */
-function CoachesSplitSection({
-  section,
-  children,
-  imageFirst = false,
-  imageObjectFit = "cover",
-}: {
-  section: {
-    id: string;
-    number: string;
-    title: string;
-    description?: string;
-    icon: Parameters<typeof SectionIcon>[0]["name"];
-    image?: {
-      src: string;
-      alt: string;
-      cropLetterbox?: boolean;
-    };
-  };
-  children: React.ReactNode;
-  /** Photo in the left column on desktop (and stacked first on mobile). */
-  imageFirst?: boolean;
-  /** Use `contain` when the photo must not be cropped (letterboxing inside the frame). */
-  imageObjectFit?: "cover" | "contain";
-}) {
-  const isEven = Number.parseInt(section.number, 10) % 2 === 0;
-  const className =
-    "coaches-split" +
-    (isEven ? " coaches-split--alt" : "") +
-    (imageFirst ? " coaches-split--image-first" : "");
-  const titleId = `coaches-section-${section.id}-title`;
-
-  return (
-    <section
-      id={section.id}
-      className={className}
-      aria-labelledby={titleId}
-    >
-      <div className="coaches-split-grid">
-        {/* Copy first so in the two-column grid it anchors left and the
-           photo sits right (grid column order follows DOM order). */}
-        <div className="coaches-split-content">
-          <div className="coaches-split-content-inner">
-            <header className="faq-section-header coaches-split-header">
-              <span className="faq-section-watermark" aria-hidden="true">
-                {section.number}
-              </span>
-
-              <div className="faq-section-icon">
-                <SectionIcon name={section.icon} size={22} strokeWidth={1.8} />
-              </div>
-
-              <div className="faq-section-titlewrap">
-                <p className="faq-section-eyebrow">
-                  <span className="faq-section-eyebrow-rule" aria-hidden="true" />
-                  Section {section.number}
-                </p>
-                <h2 id={titleId} className="faq-section-title">
-                  {section.title}
-                </h2>
-                {section.description ? (
-                  <p className="faq-section-desc">{section.description}</p>
-                ) : null}
-              </div>
-            </header>
-
-            <div className="coaches-split-body">{children}</div>
-          </div>
-        </div>
-
-        {section.image ? (
-          <div
-            className={
-              "coaches-split-image" +
-              (imageObjectFit === "contain"
-                ? " coaches-split-image--contain"
-                : "") +
-              (section.image.cropLetterbox
-                ? " coaches-split-image--crop-letterbox"
-                : "")
-            }
-          >
-            <Image
-              src={section.image.src}
-              alt={section.image.alt}
-              fill
-              quality={100}
-              sizes="(max-width: 968px) 100vw, 50vw"
-              style={{
-                objectFit: imageObjectFit,
-                objectPosition: section.image.cropLetterbox
-                  ? "center 36%"
-                  : "center",
-              }}
-            />
-          </div>
-        ) : null}
-      </div>
-    </section>
   );
 }

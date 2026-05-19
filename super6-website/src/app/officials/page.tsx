@@ -1,57 +1,99 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
+import { REGISTER_LINK_PROPS } from "@/lib/links";
+import {
+  SIGNUP_URL,
+  officialsIntro,
+  payTiers,
+  programFacts,
+  programPoints,
+  finalCta,
+} from "./officials-data";
 
 export const metadata: Metadata = {
   title: "Hiring Officials | Super6 Series LLC Basketball",
   description:
     "Super6 Series LLC is hiring NFHS-certified referees. Weekly weekend games, $20–$27/hr, same-day Sunday payouts. Apply now.",
+  alternates: { canonical: "/officials" },
+  keywords: [
+    "basketball referee jobs Florida",
+    "youth basketball official hiring",
+    "NFHS referee Florida",
+    "Super6 Series LLC referee",
+    "weekend basketball official jobs",
+    "paid basketball referee Florida",
+    "youth sports official hiring",
+  ],
+  openGraph: {
+    title: "Now Hiring Game Officials | Super6 Series LLC",
+    description:
+      "NFHS-certified referees needed. $20–$27/hr, weekly games, same-day Sunday payouts across Florida and Georgia.",
+    url: "/officials",
+    type: "website",
+    images: ["/media/uploads/officials-refs-shake.jpg"],
+  },
 };
 
-const SIGNUP_URL =
-  "https://docs.google.com/forms/d/e/1FAIpQLSd3r9iCxYdoHDCLSzLQpb2I4xu6ukgXIDaIV7tfQiLqsABSag/viewform?usp=header";
-
-const programPoints = [
-  "Bookings are made every Tuesday at 7:00 PM.",
-  "We are looking for qualified referees who can cover all of our games.",
-  "Special consideration is given for long-term consistency in availability and quality of work.",
-  "Referee consistency with Super6 Series LLC will secure court(s) for games long-term.",
-  "If you are only looking for a few games from time-to-time, please still apply.",
-  "Select only the city(s) and dates you are available.",
-  "Must be available to work the entire event unless prior arrangements are established with Super6 Series LLC.",
-];
-
-const payTiers = [
-  {
-    rate: "$20",
-    unit: "/hr",
-    label: "Non-Experienced Officials",
-    note: "Building hours under our crew.",
+const jobPostingJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "JobPosting",
+  title: "Basketball Game Official / Referee",
+  description:
+    "Super6 Series LLC is hiring qualified basketball referees for youth tournament weekends across Florida and Georgia. Bookings are made every Tuesday at 7 PM. Immediate Sunday payouts. Three pay tiers based on experience and consistency.",
+  hiringOrganization: {
+    "@type": "Organization",
+    name: "Super6 Series LLC",
+    url: "https://www.thesuper6.com",
   },
-  {
-    rate: "$25",
-    unit: "/hr",
-    label: "Non-Permanent Officials",
-    note: "Game-by-game, available as needed.",
+  jobLocation: [
+    {
+      "@type": "Place",
+      address: {
+        "@type": "PostalAddress",
+        addressRegion: "FL",
+        addressCountry: "US",
+      },
+    },
+    {
+      "@type": "Place",
+      address: {
+        "@type": "PostalAddress",
+        addressRegion: "GA",
+        addressCountry: "US",
+      },
+    },
+  ],
+  baseSalary: {
+    "@type": "MonetaryAmount",
+    currency: "USD",
+    value: {
+      "@type": "QuantitativeValue",
+      minValue: 20,
+      maxValue: 27,
+      unitText: "HOUR",
+    },
   },
-  {
-    rate: "$27",
-    unit: "/hr",
-    label: "Permanent Officials",
-    note: "Long-term, consistent availability.",
+  employmentType: "PART_TIME",
+  workHours: "Weekends only (Saturday and Sunday)",
+  scheduleTimezone: "America/New_York",
+  applicantLocationRequirements: {
+    "@type": "State",
+    name: ["Florida", "Georgia"],
   },
-];
-
-const programFacts = [
-  { label: "Schedule", value: "Weekends only · Sat & Sun" },
-  { label: "Booking Day", value: "Tuesdays at 7 PM" },
-  { label: "Coverage", value: "Multi-city tournaments" },
-  { label: "Payout", value: "Same-day Sunday" },
-];
+  directApply: false,
+};
 
 export default function OfficialsPage() {
   return (
     <>
-      {/* Hero — Editorial "Now Hiring" treatment */}
+      {/* JSON-LD JobPosting schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPostingJsonLd) }}
+      />
+
+      {/* ─── Hero — Editorial "Now Hiring" treatment ─── */}
       <section className="officials-hero">
         <div className="officials-hero-photo">
           <Image
@@ -68,27 +110,41 @@ export default function OfficialsPage() {
 
         <div className="officials-hero-panel">
           <div className="officials-hero-meta">
-            <span className="officials-hero-meta-tag">Now Hiring</span>
+            <span className="officials-hero-meta-tag">
+              {officialsIntro.eyebrow}
+            </span>
             <span className="officials-hero-meta-divider" />
-            <span>$20–$27 PER HOUR · WEEKLY GAMES</span>
+            <span>{officialsIntro.meta}</span>
           </div>
 
           <div className="officials-hero-wordmark" aria-hidden="true">
-            <span className="officials-hero-word-primary">NOW</span>
-            <span className="officials-hero-word-accent">HIRING.</span>
-            <span className="officials-hero-word-tag">Game Officials</span>
+            <span className="officials-hero-word-primary">
+              {officialsIntro.wordmarkPrimary}
+            </span>
+            <span className="officials-hero-word-accent">
+              {officialsIntro.wordmarkAccent}
+            </span>
+            <span className="officials-hero-word-tag">
+              {officialsIntro.wordmarkTag}
+            </span>
           </div>
 
           <h1 className="officials-hero-headline">
-            We&rsquo;re growing — and looking to expand our great team of{" "}
-            <em>referees.</em>
+            {officialsIntro.headline
+              .split("referees.")
+              .map((part, i, arr) =>
+                i < arr.length - 1 ? (
+                  <span key={i}>
+                    {part}
+                    <em>referees.</em>
+                  </span>
+                ) : (
+                  <span key={i}>{part}</span>
+                )
+              )}
           </h1>
 
-          <p className="officials-hero-desc">
-            Apply once and we&rsquo;ll book you weekly. Tuesday 7&nbsp;PM
-            assignments, immediate Sunday payouts, and a long-term path for
-            officials who show up consistently and call clean ball.
-          </p>
+          <p className="officials-hero-desc">{officialsIntro.desc}</p>
 
           <div className="officials-hero-cta">
             <a
@@ -118,7 +174,7 @@ export default function OfficialsPage() {
         </div>
       </section>
 
-      {/* Pay structure */}
+      {/* ─── Pay structure ─── */}
       <section className="section section-warm officials-pay">
         <div className="container-xl">
           <div className="officials-section-intro">
@@ -128,8 +184,8 @@ export default function OfficialsPage() {
             </h2>
             <p className="section-desc">
               Officials are paid by the hour. Tier placement is based on
-              experience level and consistency with Super6 Series LLC events — show up,
-              call clean ball, and you move up.
+              experience level and consistency with Super6 Series LLC
+              events — show up, call clean ball, and you move up.
             </p>
           </div>
 
@@ -157,19 +213,22 @@ export default function OfficialsPage() {
         </div>
       </section>
 
-      {/* Program details */}
+      {/* ─── Program details ─── */}
       <section className="section officials-program">
         <div className="container-xl">
           <div className="officials-program-grid">
             <aside className="officials-program-side">
               <p className="section-label">Program Details</p>
-              <h2 className="section-heading" style={{ fontSize: "clamp(28px, 3.4vw, 44px)" }}>
+              <h2
+                className="section-heading"
+                style={{ fontSize: "clamp(28px, 3.4vw, 44px)" }}
+              >
                 What you should <em>know.</em>
               </h2>
               <p className="section-desc">
-                Read the program guidelines below. When you&rsquo;re ready to
-                apply, click the sign-up button — selections lock in your
-                city and date availability.
+                Read the program guidelines below. When you&rsquo;re ready
+                to apply, click the sign-up button — selections lock in
+                your city and date availability.
               </p>
             </aside>
 
@@ -187,38 +246,24 @@ export default function OfficialsPage() {
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="officials-final-cta">
+      {/* ─── Final CTA — shared faq-final-cta band ─── */}
+      <section className="faq-final-cta">
         <div className="container-xl">
-          <div className="officials-final-inner">
-            <p className="officials-final-eyebrow">Ready to officiate?</p>
-            <h2 className="officials-final-heading">
-              Submit your availability and join the rotation.
-            </h2>
-            <p className="officials-final-desc">
-              Bookings go out every Tuesday at 7&nbsp;PM. Apply once — your
-              selected cities and dates are how we assign games.
-            </p>
+          <p className="faq-final-cta-eyebrow">{finalCta.eyebrow}</p>
+          <h2 className="faq-final-cta-title">{finalCta.title}</h2>
+          <p className="faq-final-cta-sub">{finalCta.sub}</p>
+          <div className="faq-final-cta-actions">
             <a
               href={SIGNUP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-orange officials-final-button"
+              className="btn-hero btn-hero-primary"
             >
               Join the Team
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                aria-hidden="true"
-                style={{ marginLeft: 10 }}
-              >
-                <path d="M5 12h14M13 5l7 7-7 7" />
-              </svg>
             </a>
+            <Link {...REGISTER_LINK_PROPS} className="btn-hero btn-hero-secondary">
+              Register a team
+            </Link>
           </div>
         </div>
       </section>
