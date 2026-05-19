@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   Box, Container, Paper, Typography, Button, Card, Grid, TextField, IconButton, Alert, Snackbar, List, ListItem, ListItemIcon, ListItemText,
   Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Chip, Dialog, DialogTitle, DialogContent, DialogActions,
-  FormControl, InputLabel, Select, MenuItem
+  FormControl, InputLabel, Select, MenuItem, CircularProgress
 } from '@mui/material'
 import {
   Dashboard as DashboardIcon, ConfirmationNumber as ConfirmationNumberIcon,
@@ -10,6 +10,9 @@ import {
   Settings as SettingsIcon, AttachMoney as AttachMoneyIcon, Add as AddIcon,
   Edit as EditIcon, Delete as DeleteIcon, Visibility as ViewIcon
 } from '@mui/icons-material'
+import { useAuth } from './contexts/AuthContext'
+import LoginScreen from './components/LoginScreen'
+import { analyticsApi } from './services/api'
 
 // Apple-style theme colors
 const appleColors = {
@@ -36,9 +39,13 @@ const ticketTypes = {
 const App = () => {
   console.log('App component rendering')
 
+  const { user, logout, isLoading } = useAuth()
+
   const [currentScreen, setCurrentScreen] = useState('dashboard')
   const [registrationData, setRegistrationData] = useState<any>(null)
   const [snackbar, setSnackbar] = useState({ open: false, message: '', severity: 'success' as any })
+
+  const [dashboardStats, setDashboardStats] = useState({ todayRegistrations: 24, activeTickets: 156, expiredToday: 8 })
 
   // Mock data for demonstration
   const [tickets, setTickets] = useState([
@@ -59,6 +66,29 @@ const App = () => {
     coach: { name: 'Coach Pass', price: 0, description: 'Free for coaches and staff' },
     staff: { name: 'Staff Pass', price: 0, description: 'Free for event staff' }
   })
+
+  useEffect(() => {
+    if (!user) return
+    analyticsApi.dashboard()
+      .then(res => {
+        const d = res.data
+        setDashboardStats({
+          todayRegistrations: d.today_registrations ?? d.todayRegistrations ?? 24,
+          activeTickets: d.active_tickets ?? d.activeTickets ?? 156,
+          expiredToday: d.expired_today ?? d.expiredToday ?? 8,
+        })
+      })
+      .catch(() => {
+        // fallback to defaults already set in state
+      })
+  }, [user])
+
+  if (isLoading) return (
+    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }}>
+      <CircularProgress />
+    </Box>
+  )
+  if (!user) return <LoginScreen />
 
   const handleNavigation = (screen: string) => {
     setCurrentScreen(screen)
@@ -815,19 +845,19 @@ const App = () => {
                 <Grid container spacing={3}>
                   <Grid item xs={12} sm={4}>
                     <Card sx={{ p: 4, bgcolor: appleColors.primary, color: 'white', textAlign: 'center', borderRadius: 3 }}>
-                      <Typography variant="h2" sx={{ fontWeight: 300, mb: 1 }}>24</Typography>
+                      <Typography variant="h2" sx={{ fontWeight: 300, mb: 1 }}>{dashboardStats.todayRegistrations}</Typography>
                       <Typography variant="body1" sx={{ opacity: 0.9 }}>Today's Registrations</Typography>
                     </Card>
                   </Grid>
                   <Grid item xs={12} sm={4}>
                     <Card sx={{ p: 4, bgcolor: appleColors.success, color: 'white', textAlign: 'center', borderRadius: 3 }}>
-                      <Typography variant="h2" sx={{ fontWeight: 300, mb: 1 }}>156</Typography>
+                      <Typography variant="h2" sx={{ fontWeight: 300, mb: 1 }}>{dashboardStats.activeTickets}</Typography>
                       <Typography variant="body1" sx={{ opacity: 0.9 }}>Active Tickets</Typography>
                     </Card>
                   </Grid>
                   <Grid item xs={12} sm={4}>
                     <Card sx={{ p: 4, bgcolor: appleColors.warning, color: 'white', textAlign: 'center', borderRadius: 3 }}>
-                      <Typography variant="h2" sx={{ fontWeight: 300, mb: 1 }}>8</Typography>
+                      <Typography variant="h2" sx={{ fontWeight: 300, mb: 1 }}>{dashboardStats.expiredToday}</Typography>
                       <Typography variant="body1" sx={{ opacity: 0.9 }}>Expired Today</Typography>
                     </Card>
                   </Grid>
@@ -936,6 +966,15 @@ const App = () => {
             </ListItem>
           ))}
         </List>
+        <Box sx={{ p: 2, borderTop: '1px solid #E5E5EA' }}>
+          <Typography sx={{ fontSize: 11, color: '#86868B', mb: 1 }}>
+            {user.first_name} {user.last_name}
+          </Typography>
+          <Button fullWidth size="small" variant="outlined" onClick={logout}
+            sx={{ fontSize: 11, borderColor: '#E5E5EA', color: '#86868B', textTransform: 'none' }}>
+            Sign Out
+          </Button>
+        </Box>
       </Box>
 
       {/* Main Content */}

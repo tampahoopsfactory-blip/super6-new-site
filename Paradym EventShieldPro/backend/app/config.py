@@ -61,9 +61,12 @@ class Config:
     AZURE_STORAGE_CONTAINER = os.getenv('AZURE_STORAGE_CONTAINER', 'eventshield-pro')
     
     # Stripe
-    STRIPE_PUBLISHABLE_KEY = os.getenv('STRIPE_PUBLISHABLE_KEY')
-    STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
-    STRIPE_WEBHOOK_SECRET = os.getenv('STRIPE_WEBHOOK_SECRET')
+    STRIPE_PUBLISHABLE_KEY = os.getenv('STRIPE_PUBLISHABLE_KEY', '')
+    STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
+    STRIPE_WEBHOOK_SECRET = os.getenv('STRIPE_WEBHOOK_SECRET', '')
+    STRIPE_PRICE_STANDARD = os.getenv('STRIPE_PRICE_STANDARD', '')
+    STRIPE_PRICE_PREMIUM = os.getenv('STRIPE_PRICE_PREMIUM', '')
+    STRIPE_PRICE_ENTERPRISE = os.getenv('STRIPE_PRICE_ENTERPRISE', '')
     
     # Email
     SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
@@ -109,20 +112,19 @@ class Config:
 
 class DevelopmentConfig(Config):
     """Development environment configuration"""
-    
+
     DEBUG = True
     SQLALCHEMY_ECHO = True
-    
+
     # Development-specific settings
     CORS_ORIGINS = ['http://localhost:3000', 'http://localhost:3001', 'http://127.0.0.1:3000']
-    
-    # Use local database
-    SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL') or \
-        f"mssql+pyodbc://sa:EventShieldPro2024!@localhost:1433/eventshield_pro?driver=ODBC+Driver+17+for+SQL+Server"
-    
+
+    # Use local database, fall back to SQLite when DATABASE_URL is not set
+    SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL', 'sqlite:///eventshield.db')
+
     # Development logging
     LOG_LEVEL = 'DEBUG'
-    
+
     # Disable SSL for local development
     SQLALCHEMY_ENGINE_OPTIONS = {
         'pool_size': 5,
@@ -130,6 +132,22 @@ class DevelopmentConfig(Config):
         'pool_timeout': 30,
         'pool_pre_ping': True
     }
+
+
+class StandaloneConfig(Config):
+    """Standalone / quick-start configuration — SQLite, no external services required"""
+
+    DEBUG = True
+    SQLALCHEMY_ECHO = False
+
+    SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL', 'sqlite:///eventshield.db')
+
+    SQLALCHEMY_ENGINE_OPTIONS = {
+        'pool_pre_ping': True
+    }
+
+    CORS_ORIGINS = ['http://localhost:3000', 'http://localhost:3001', 'http://127.0.0.1:3000']
+    LOG_LEVEL = 'DEBUG'
 
 class TestingConfig(Config):
     """Testing environment configuration"""
@@ -217,10 +235,11 @@ class ProductionConfig(Config):
 # Configuration mapping
 config = {
     'development': DevelopmentConfig,
+    'standalone': StandaloneConfig,
     'testing': TestingConfig,
     'staging': StagingConfig,
     'production': ProductionConfig,
-    'default': DevelopmentConfig
+    'default': StandaloneConfig
 }
 
 def get_config():

@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import {
   Box, Container, Paper, Typography, Button, Card, Grid, TextField,
   IconButton, Alert, Snackbar, Table, TableBody, TableCell, TableContainer,
   TableHead, TableRow, Chip, Dialog, DialogTitle, DialogContent, DialogActions,
   FormControl, InputLabel, Select, MenuItem, Switch, FormControlLabel, List,
-  ListItem, ListItemIcon, ListItemText, Divider, LinearProgress
+  ListItem, ListItemIcon, ListItemText, Divider, LinearProgress, CircularProgress
 } from '@mui/material'
+import { AuthProvider, useAuth } from './contexts/AuthContext'
+import LoginScreen from './LoginScreen'
+import { analyticsApi, accessApi, hardwareApi, ticketsApi } from './services/api'
 import {
   Dashboard as DashboardIcon,
   ConfirmationNumber as TicketIcon,
@@ -70,25 +73,66 @@ interface Device {
   lastSeen: string
 }
 
-export default function App() {
+function AppInner() {
+  const { user, logout, isLoading } = useAuth()
   const [screen, setScreen] = useState<Screen>('dashboard')
   const [hwStatus, setHwStatus] = useState({ connected: false, facialRecognition: false, turnstile: false })
   const [snackbar, setSnackbar] = useState({ open: false, message: '', severity: 'success' as 'success' | 'error' | 'warning' })
   const [emergencyActive, setEmergencyActive] = useState(false)
+  const [apiStats, setApiStats] = useState<any>(null)
 
-  // Live access log (in production this updates via IPC events)
-  const [accessLog, setAccessLog] = useState<AccessEvent[]>([
-    { id: 1, name: 'John Doe', ticketType: 'Daily Pass', action: 'GRANTED', timestamp: new Date().toISOString(), device: 'Main Entrance' },
-    { id: 2, name: 'Unknown', ticketType: '—', action: 'DENIED', timestamp: new Date(Date.now() - 60000).toISOString(), device: 'Side Entrance' },
-    { id: 3, name: 'Coach Smith', ticketType: 'Coach Pass', action: 'GRANTED', timestamp: new Date(Date.now() - 120000).toISOString(), device: 'Main Entrance' },
-  ])
+  const [accessLog, setAccessLog] = useState<AccessEvent[]>([])
+  const [devices, setDevices] = useState<Device[]>([])
 
-  const [devices] = useState<Device[]>([
-    { id: 1, name: 'DS-F881 Main Entrance', type: 'facial_recognition', status: 'online', ip: '192.168.1.100', lastSeen: '< 1 min ago' },
-    { id: 2, name: 'DS-F881 Side Entrance', type: 'facial_recognition', status: 'online', ip: '192.168.1.101', lastSeen: '< 1 min ago' },
-    { id: 3, name: 'DSN-50P Turnstile A', type: 'turnstile', status: 'online', ip: '192.168.1.102', lastSeen: '< 30s ago' },
-    { id: 4, name: 'DSN-50P Turnstile B', type: 'turnstile', status: 'offline', ip: '192.168.1.103', lastSeen: '10 min ago' },
-  ])
+  // Fetch live data from API when logged in
+  const refreshData = useCallback(async () => {
+    if (!user) return
+    try {
+      const [statsRes, logsRes, devsRes] = await Promise.allSettled([
+        analyticsApi.dashboard(),
+        accessApi.logs({ per_page: 50 }),
+        hardwareApi.list(),
+      ])
+      if (statsRes.status === 'fulfilled') setApiStats(statsRes.value.data)
+      if (logsRes.status === 'fulfilled') {
+        const logs = logsRes.value.data.logs ?? []
+        setAccessLog(logs.map((l: any) => ({
+          id: l.id,
+          name: l.user?.name ?? l.person_name ?? 'Unknown',
+          ticketType: l.ticket_type ?? '—',
+          action: l.access_status === 'granted' ? 'GRANTED' : 'DENIED',
+          timestamp: l.access_time ?? new Date().toISOString(),
+          device: l.device_name ?? l.device_id ?? 'Unknown',
+        })))
+      }
+      if (devsRes.status === 'fulfilled') {
+        const devs = devsRes.value.data.devices ?? []
+        setDevices(devs.map((d: any) => ({
+          id: d.id,
+          name: d.name,
+          type: d.device_type?.includes('facial') ? 'facial_recognition' : 'turnstile',
+          status: d.status ?? 'offline',
+          ip: d.ip_address ?? '',
+          lastSeen: d.last_heartbeat ? new Date(d.last_heartbeat).toLocaleTimeString() : 'Unknown',
+        })))
+      }
+    } catch { /* keep existing data on network error */ }
+  }, [user])
+
+  useEffect(() => {
+    if (!isLoading && !user) return
+    refreshData()
+    const interval = setInterval(refreshData, 30000)
+    return () => clearInterval(interval)
+  }, [refreshData, isLoading, user])
+
+  // Auth guard
+  if (isLoading) return (
+    <Box sx={{ minHeight: '100vh', bgcolor: colors.bg, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <CircularProgress sx={{ color: colors.primary }} />
+    </Box>
+  )
+  if (!user) return <LoginScreen />
 
   useEffect(() => {
     ipc.getHardwareStatus().then(setHwStatus).catch(() => {})
@@ -119,10 +163,10 @@ export default function App() {
   }
 
   const statsToday = {
-    granted: accessLog.filter(e => e.action === 'GRANTED').length,
-    denied: accessLog.filter(e => e.action === 'DENIED').length,
+    granted: apiStats?.today?.entries_granted ?? accessLog.filter(e => e.action === 'GRANTED').length,
+    denied: apiStats?.today?.entries_denied ?? accessLog.filter(e => e.action === 'DENIED').length,
     manual: accessLog.filter(e => e.action === 'MANUAL').length,
-    devicesOnline: devices.filter(d => d.status === 'online').length,
+    devicesOnline: apiStats?.devices_online ?? devices.filter(d => d.status === 'online').length,
   }
 
   const nav = (s: Screen) => setScreen(s)
@@ -222,6 +266,14 @@ export default function App() {
         </Alert>
       </Snackbar>
     </Box>
+  )
+}
+
+export default function App() {
+  return (
+    <AuthProvider>
+      <AppInner />
+    </AuthProvider>
   )
 }
 

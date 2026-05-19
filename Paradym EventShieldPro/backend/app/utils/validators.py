@@ -64,9 +64,12 @@ access_schemas = {
 # Event schemas
 event_schemas = {
     'create': {
-        'required': ['name', 'start_date', 'end_date']
+        'required': ['title', 'start_datetime', 'end_datetime']
     },
     'update': {
         'required': []
+    },
+    'create_category': {
+        'required': ['name']
     },
 }
