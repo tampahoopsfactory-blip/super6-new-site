@@ -1,0 +1,93 @@
+version: '3.9'
+
+# Full-stack development environment
+# Usage: docker-compose -f docker-compose.dev.yml up
+#
+# Services:
+#   db       — PostgreSQL (cloud mode) or skip for SQLite (standalone mode)
+#   redis    — Token blacklist + task queue
+#   backend  — Flask API on :5000
+#   frontend — Vite dev server on :3000
+
+services:
+
+  db:
+    image: postgres:15-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: eventshield_pro
+      POSTGRES_USER: esp_user
+      POSTGRES_PASSWORD: esp_dev_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./database/init/01-init-database.sql:/docker-entrypoint-initdb.d/01-init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U esp_user -d eventshield_pro"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    environment:
+      FLASK_ENV: development
+      DATABASE_URL: postgresql://esp_user:esp_dev_password@db:5432/eventshield_pro
+      REDIS_URL: redis://redis:6379/0
+      APP_SECRET_KEY: dev-secret-change-in-production
+      JWT_SECRET_KEY: dev-jwt-secret-change-in-production
+      STRIPE_SECRET_KEY: ${STRIPE_SECRET_KEY:-}
+      STRIPE_PUBLISHABLE_KEY: ${STRIPE_PUBLISHABLE_KEY:-}
+      STRIPE_WEBHOOK_SECRET: ${STRIPE_WEBHOOK_SECRET:-}
+      STRIPE_PRICE_STANDARD: ${STRIPE_PRICE_STANDARD:-}
+      STRIPE_PRICE_PREMIUM: ${STRIPE_PRICE_PREMIUM:-}
+      CORS_ORIGINS: http://localhost:3000
+    volumes:
+      - ./backend:/app
+      - backend_venv:/app/venv
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    command: >
+      sh -c "pip install -r requirements-full.txt -q &&
+             flask db upgrade &&
+             flask run --host=0.0.0.0 --port=5000 --debug"
+
+  frontend:
+    image: node:20-alpine
+    working_dir: /app
+    ports:
+      - "3000:3000"
+    environment:
+      VITE_API_URL: http://localhost:5000
+      VITE_SOCKET_URL: http://localhost:5000
+    volumes:
+      - ./frontend:/app
+      - frontend_modules:/app/node_modules
+    depends_on:
+      - backend
+    command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
+
+volumes:
+  db_data:
+  backend_venv:
+  frontend_modules:
